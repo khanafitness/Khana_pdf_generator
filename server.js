@@ -59,6 +59,20 @@ app.post("/generate-pdf", async (req, res) => {
 
     let html = fs.readFileSync(templatePath, "utf8");
 
+    // 🔥 Conditional Egg White Block
+    let eggWhiteBlock = "";
+    
+    if (data.egg_white_qty && Number(data.egg_white_qty) > 0) {
+      eggWhiteBlock = `
+        <tr>
+          <td>Egg Whites</td>
+          <td>${data.egg_white_qty}</td>
+        </tr>
+      `;
+    }
+
+// inject into data
+data.egg_white_block = eggWhiteBlock;
     // ✅ Safe placeholder replace
     Object.keys(data).forEach((key) => {
       html = html.replaceAll(`{{${key}}}`, data[key] ?? "");
