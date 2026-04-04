@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title> Diet Plan – {{customer_name}}</title>
+<style>
+
+@page {
+  size: A4 landscape;
+  margin: 12mm 12mm 12mm 12mm;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 9pt;
+  color: #111;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── COLOURS ── */
+:root {
+  --blue-dark:  #1B3A6B;   /* header bg, heading bars */
+  --blue-mid:   #2E6DB4;   /* subheader rows, accents  */
+  --blue-light: #D6E4F5;   /* alternating rows, spans  */
+  --blue-pale:  #EDF4FC;   /* page bg tint (not used)  */
+  --border:     #8AAFDB;
+  --white:      #ffffff;
+  --text:       #111111;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  width: 269mm;   /* 297mm - 2×14mm */
+  margin: 0 auto;
+}
+
+.page-break { page-break-before: always; }
+
+/* ── HEADINGS ── */
+h1 { font-size: 13pt; font-weight: bold; color: var(--blue-dark); margin-bottom: 5pt; }
+h2 { font-size: 11pt; font-weight: bold; color: var(--blue-dark); margin-bottom: 4pt; }
+
+/* section title bar */
+.sec-title {
+  background: var(--blue-dark);
+  color: var(--white);
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 4pt 8pt;
+  margin-bottom: 0;
+}
+
+/* ── SHARED TABLE BASE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 3pt 4pt;
+  vertical-align: middle;
+  text-align: center;
+}
+thead th {
+  background: var(--blue-dark);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 8.5pt;
+}
+
+/* ── DIET CHART (page 2) ── */
+.diet-table { font-size: 7.5pt; table-layout: fixed; }
+.diet-table .col-meal { width: 9%; }
+.diet-table .col-day  { width: 12.99%; }
+
+.meal-label {
+  background: var(--blue-mid);
+  color: var(--white);
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+.span-row {
+  background: var(--blue-light);
+  text-align: center;
+  font-style: italic;
+}
+.repeat-cell {
+  background: var(--blue-light);
+  font-style: italic;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* odd/even data rows */
+.diet-table tbody tr:nth-child(odd)  td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: var(--white); }
+.diet-table tbody tr:nth-child(even) td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: var(--blue-light); }
+
+/* ── INSTRUCTIONS (page 3) ── */
+.instr-list {
+  padding-left: 0;
+  list-style: none;
+  line-height: 1.7;
+  font-size: 8.5pt;
+}
+.instr-list li::before { content: "• "; }
+
+/* ── WALK TABLE (page 3) ── */
+.walk-table td { background: var(--blue-light); font-size: 8pt; }
+
+/* ── LIST TABLE (pages 4, 5) ── */
+.list-table td { vertical-align: top; text-align: left; padding: 4pt 6pt; }
+.list-table .sub-head {
+  background: var(--blue-mid);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 8.5pt;
+  padding: 2pt 5pt;
+}
+.list-table ul { padding-left: 13pt; line-height: 1.65; }
+.list-table li { margin: 1pt 0; }
+
+/* ── OIL TABLE (page 6) ── */
+.oil-table td { text-align: left; background: var(--blue-light); }
+.oil-table .notes-cell { background: var(--white); vertical-align: top; line-height: 1.8; }
+
+/* ── NUTS TABLE (page 7) ── */
+.nuts-table tbody tr:nth-child(odd)  td { background: var(--blue-light); }
+.nuts-table tbody tr:nth-child(even) td { background: var(--white); }
+.nuts-table td { text-align: left; }
+.nuts-table td:first-child { text-align: center; font-weight: bold; }
+
+/* ── COPYRIGHT ── */
+.copyright {
+  font-size: 7pt;
+  color: #666;
+  text-align: center;
+  margin-top: 6pt;
+  line-height: 1.5;
+}
+
+/* ── PAGE NUMBER RIGHT-ALIGN ── */
+.page-num {
+  text-align: right;
+  font-size: 7.5pt;
+  color: #888;
+  margin-bottom: 3pt;
+}
+
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 1 — Cover / How To Read
+════════════════════════════════════════════════════════ -->
+
+  <p style="font-style:italic; font-size:8.5pt; margin-bottom:3pt;">Private Diet Plan</p>
+  <p style="font-size:8.5pt; line-height:1.8; margin-bottom:10pt;">
+    Generated for: <strong>{{customer_name}}</strong> for <strong>{{target_calories}}</strong> calories<br>
+    Mobile: {{mobile_number}}<br>
+    Email: {{email}}
+  </p>
+
+  <div class="sec-title">How to read and follow the Diet Plan</div>
+  <table style="margin-top:0; border-top:none;">
+    <tbody>
+      <tr>
+        <td style="text-align:left; vertical-align:top; padding:6pt 8pt; background:#fff;">
+          <ul class="instr-list">
+            <li>This  weight loss diet plan is personalized for you.</li>
+            <li>The quantities mentioned should be followed strictly.</li>
+            <li>An allowed list of vegetables, dal, nuts, seeds, and oils is provided with their permitted quantities as per your diet needs.</li>
+            <li>Anything not mentioned in the allowed list is not allowed.</li>
+            <li>The diet is structured so you can freely switch breakfast with other day breakfast, lunch with lunch and dinner with dinner.</li>
+            <li>Note: Oil also contains calories, so the allowed quantity must be followed when cooking any item.</li>
+            <li>This diet plan is designed to support individuals with Polycystic Ovary Syndrome (). It is not intended to replace medical advice. Please consult your physician for all health conditions.</li>
+            <li>This diet plan is for personal use only and may not be shared or distributed.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="copyright" style="position:absolute; bottom:12mm; left:12mm; right:12mm;">
+    © 2026 EliteRoadMaps. All rights reserved.<br>
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 2 —  Diet Chart
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">2/7</div>
+  <div class="sec-title"> NON VEG DIET CHART</div>
+
+  <table class="diet-table">
+    <colgroup>
+      <col class="col-meal">
+      <col class="col-day"><col class="col-day"><col class="col-day">
+      <col class="col-day"><col class="col-day"><col class="col-day"><col class="col-day">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Meal / Day</th>
+        <th>Mon</th><th>Tue</th><th>Wed</th>
+        <th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Early Morning -->
+      <tr>
+        <td class="meal-label">Early Morning</td>
+        <td class="span-row" colspan="7">Warm water with lemon + Seeds &amp; Nuts</td>
+      </tr>
+
+      <!-- Breakfast -->
+      <tr>
+        <td class="meal-label">Breakfast</td>
+        <td>
+          Besan Chilla {{besan_qty}} piece/{{nw_besan_qty}}g<br>with,<br>
+          onion, tomato, shimla, palak/methi<br>
+          + Curd {{curd_qty}} Katori<br>+ Mint Chutney
+        </td>   
+        <td>
+          {{b_paneer_qty}}g Paneer Bhurji<br>
+          with onion, tomato, shimla, palak/methi<br>
+          + {{white_bread}} White/Brown/Multigrain bread		  
+		 </td>		
+		<td>
+          Veg Upma {{suji_upma_qty}} Katori/{{nw_suji_upma_qty}}g,<br>
+		  + Sauteed {{b_paneer_qty}}g Paneer or {{b_tofu_qty}} Tofu
+        </td>
+		<td>
+          Green Moong Chilla {{gmoong_qty}} piece/{{nw_gmoong_qty}}g<br>with<br>
+          onion, tomato, shimla, palak/methi<br>
+          + Curd {{curd_qty}} Katori<br>+ Mint Chutney
+        </td>
+        <td>
+		  Dalia Veg Upma/Khichadi {{dalia_veg_qty}} Katori/{{nw_dalia_veg_qty}}g,<br>
+          + Sauteed {{b_paneer_qty}}g Paneer or {{b_tofu_qty}} Tofu
+        </td>
+		<td>
+          Masala Oats {{nw_oats_qty}}g<br>With veggies<br>
+          + {{b_tofu_qty}} Sauteed Tofu<br>
+          <em>Or</em><br>
+          {{b_paneer_qty}}g Sauteed Paneer
+        </td>
+        <td>
+          Ragi Chilla {{ragi_qty}} piece/{{nw_ragi_qty}}g,<br>
+          with onion, tomato, shimla, palak/methi<br>
+          + {{b_paneer_qty}}g Paneer<br>
+		  or {{b_tofu_qty}}g Tofu<br>
+          + Curd {{curd_qty}} Katori<br>+ Mint Chutney
+        </td>
+		
+
+      </tr>
+
+      <!-- Mid-Morning -->
+      <tr>
+        <td class="meal-label">Mid-Morning</td>
+        <td class="span-row" colspan="7">1 whole fruit / 1 Portion</td>
+      </tr>
+
+      <!-- Pre-Lunch -->
+      <tr>
+        <td class="meal-label" style="font-size:7pt;">15Min<br>Pre-Lunch</td>
+        <td class="span-row" colspan="7">Salad = Kheera + Gajar + tamatar + onion + lemon + pinch salt</td>
+      </tr>
+
+      <!-- Lunch -->
+      <tr>
+        <td class="meal-label">Lunch</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Rajma {{L_rajma_qty}} Katori/{{L_nw_rajma_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Dal {{L_dal_qty}} Katori/{{L_nw_dal_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Paneer {{L_nw_paneer_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Chhole {{L_chhole_qty}} Katori/{{L_nw_chhole_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Tofu {{L_nw_tofu_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Kala Chana {{L_kchana_qty}} Katori/{{L_nw_kchana_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+        <td> Rice {{L_wrice_qty}} Katori/{{L_nw_wrice_qty}}g<br>+ Paneer {{L_nw_paneer_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori<br>+ Curd {{curd_qty}} Katori</td>
+      </tr>
+
+      <!-- Evening Snack -->
+      <tr>
+        <td class="meal-label">Evening Snack</td>
+        <td class="span-row" colspan="7">
+          Roasted Chana + Black Tea / Black Coffee - without sugar<br>
+        </td>
+      </tr>
+
+      <!-- Dinner -->
+      <tr>
+        <td class="meal-label">Dinner</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Rajma {{d_rajma_qty}} Katori/{{d_nw_rajma_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Dal {{d_dal_qty}} Katori/{{d_nw_dal_qty}}g <br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Paneer {{d_nw_Paneer_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Chhole {{d_chhole_qty}} Katori/{{d_nw_chhole_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Tofu {{d_nw_tofu_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Kala Chana {{d_kchana_qty}} Katori/{{d_nw_kchana_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+        <td>{{d_wheat_roti_qty}}Roti {{d_nw_wheat_roti_qty}}g<br>+  Rice {{d_wrice_qty}} Katori/{{d_nw_wrice_qty}}g<br>+ Paneer {{d_nw_Paneer_qty}}g<br>+ Sabzi {{sabzi_qty}} Katori + Curd {{curd_qty}} Katori</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <p class="copyright">
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 3 — Instructions + Walking Plan
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">3/7</div>
+  <div class="sec-title">Instructions</div>
+
+  <table style="margin-top:0;">
+    <tbody>
+      <tr>
+        <td style="text-align:left; vertical-align:top; padding:5pt 8pt; background:#fff; width:50%;">
+          <ul class="instr-list">
+            <li>Quantity of food items is to be measured raw, and then be soaked or cooked. E.g. Besan, Green moong, Oats, all atta/flour, rice, rajma, chhole, Paneer – please measure raw.</li>
+            <li>Sabzi quantity mentioned is for cooked sabzi Katoris.</li>
+            <li>Food items can be cooked however you like but with the quantities mentioned.</li>
+            <li>Avoid sugar and excess salt.</li>
+            <li>Multigrain atta/flour can be used but is less preferable.</li>
+          </ul>
+        </td>
+        <td style="text-align:left; vertical-align:top; padding:5pt 8pt; background:#fff; width:50%;">
+          <ul class="instr-list">
+            <li>Deep fry food is not allowed.</li>
+            <li>Avoid outside food (cooked in unhealthy conditions, are deep fried and/or cooked with palm oil).</li>
+            <li>Avoid use of plastic containers, bottles.</li>
+            <li>Kindly take print out of these for easy follow.</li>
+            <li>Stress and anxiety need to be completely avoided. Do exercise, breathing techniques to calm nervous system. Stress aggravates hormone imbalance.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:8.5pt; margin-top:10pt; margin-bottom:4pt;">
+    <strong>Follow below walking plan</strong> – Walking needs to be slow and at comfortable pace only.
+    Goal: Reach 8,000–10,000 steps/day lifestyle gradually.
+  </p>
+
+  <p style="font-size:8.5pt; font-weight:bold; margin-bottom:3pt;">Walking Plan:</p>
+  <table class="walk-table">
+    <thead>
+      <tr>
+        <th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th>
+        <th>Week 5-6</th><th>Week 7+</th><th>Lifestyle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2,000–3,000 steps/day</td>
+        <td>3,000–4,000 steps/day</td>
+        <td>4,000–6,000 steps/day</td>
+        <td>5,500–7,000 steps/day</td>
+        <td>7,000–8,500 steps/day</td>
+        <td>8,500–10,000 steps/day</td>
+        <td>10,000 steps/day</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="copyright">
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 4 — Allowed Vegetables
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">4/7</div>
+  <div class="sec-title">List of Allowed Healthy Vegetables (Indian &amp; Commonly Available)</div>
+
+  <table class="list-table">
+    <tbody>
+      <tr>
+        <td style="width:25%; vertical-align:top;">
+          <div class="sub-head">Leafy Vegetables</div>
+          <ul>
+            <li>Palak (Spinach)</li>
+            <li>Methi (Fenugreek leaves)</li>
+            <li>Chaulai (Amaranth leaves)</li>
+            <li>Bathua (Chenopodium Leaves)</li>
+            <li>Coriander leaves</li>
+            <li>Mint leaves</li>
+            <li>Sarson ka Sag (Mustard greens)</li>
+          </ul>
+        </td>
+        <td style="width:25%; vertical-align:top;">
+          <div class="sub-head">Cruciferous Vegetables – Well Cooked</div>
+          <ul>
+            <li>Fool Gobi (Cauliflower)</li>
+            <li>Patta Gobi (Cabbage)</li>
+          </ul>
+          <br>
+          <div class="sub-head">Root Vegetables</div>
+          <ul>
+            <li>Gajar (Carrot)</li>
+            <li>Beetroot</li>
+            <li>Mooli (Radish)</li>
+            <li>Shalgam (Turnip)</li>
+          </ul>
+        </td>
+        <td style="width:25%; vertical-align:top;">
+          <div class="sub-head">Gourd Family</div>
+          <ul>
+            <li>Karela (Bitter gourd)</li>
+            <li>Lauki (Bottle gourd)</li>
+            <li>Turai (Ridge gourd)</li>
+            <li>Gilki (Sponge gourd)</li>
+            <li>Kaddu (Pumpkin)</li>
+            <li>Chichinda (Snake gourd)</li>
+          </ul>
+        </td>
+        <td style="width:25%; vertical-align:top;">
+          <div class="sub-head">Other Healthy Vegetables</div>
+          <ul>
+            <li>Tomato</li>
+            <li>Kheera (Cucumber)</li>
+            <li>Shimla (Capsicum, Bell peppers all colors)</li>
+            <li>Hari Seem (Green beans)</li>
+            <li>French Beans</li>
+            <li>Bhindi (Okra)</li>
+            <li>Baingan (Brinjal)</li>
+            <li>Mushrooms</li>
+            <li>Onion</li>
+            <li>Garlic</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="copyright">
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 5 — Fruits & Dal
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">5/7</div>
+  <div class="sec-title">List of Fruits</div>
+
+  <table class="list-table">
+    <tbody>
+      <tr>
+        <td style="width:50%; vertical-align:top;">
+          <p style="font-size:8.5pt; margin-bottom:3pt; font-style:italic;">1 fruit at a time</p>
+          <ul>
+            <li>Apple</li>
+            <li>Papaya</li>
+            <li>Guava (avoid if seeds irritate ISB/sensitive gut)</li>
+            <li>Kharbooja (Muskmelon)</li>
+            <li>Watermelon</li>
+            <li>Lemon</li>
+          </ul>
+        </td>
+        <td style="width:50%; vertical-align:top;">
+          <p style="font-size:8.5pt; margin-bottom:3pt;">Fruits to limit due to high sugar or acid reflux:</p>
+          <ul>
+            <li>Banana</li>
+            <li>Mango</li>
+            <li>Citrus (orange, mosambi)</li>
+            <li>Pineapple</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sec-title" style="margin-top:10pt;">List of Dal</div>
+
+  <table class="list-table">
+    <tbody>
+      <tr>
+        <td style="width:50%; vertical-align:top;">
+          <p style="font-size:8.5pt; margin-bottom:3pt;">Dals (most healthy → least):</p>
+          <ul>
+            <li>Moong dal</li>
+            <li>Masoor dal</li>
+            <li>Chana dal</li>
+            <li>Toor / Arhar dal</li>
+            <li>Urad dal</li>
+          </ul>
+        </td>
+        <td style="width:50%; vertical-align:top;">
+          <p style="font-size:8.5pt; margin-bottom:3pt;">Legumes:</p>
+          <ul>
+            <li>Kala chana</li>
+            <li>Kabuli chana (chole)</li>
+            <li>Rajma</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="copyright">
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 6 — Oil
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">6/7</div>
+  <div class="sec-title">Allowed Oil Split per Day (Breakfast / Lunch / Dinner)</div>
+
+  <table class="oil-table">
+    <tbody>
+      <tr>
+        <td style="width:50%; vertical-align:top;">
+          <p style="margin-bottom:3pt;">• Breakfast: <strong>{{Oil_qty_b}} tsp</strong></p>
+          <p style="margin-bottom:3pt;">• Lunch: <strong>{{Oil_qty_l}} tsp</strong></p>
+          <p style="margin-bottom:3pt;">• Dinner: <strong>{{Oil_qty_d}} tsp</strong></p>
+          <p>• Total: <strong>{{total_qty_oil}} tsp</strong></p>
+        </td>
+        <td class="notes-cell" style="width:50%; vertical-align:top;">
+          <p>• 1 tsp ≈ 5 ml</p>
+          <p>• All Oil except butter is allowed</p>
+          <p>• Deep frying not included</p>
+          <p>• Oil used in tadka = part of meal oil</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="copyright">
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE 7 — Seeds, Nuts & Quantities
+════════════════════════════════════════════════════════ -->
+<div class="page-break">
+  <div class="page-num">7/7</div>
+  <div class="sec-title">Allowed seeds, Nuts and their quantity</div>
+
+  <table class="nuts-table">
+    <thead>
+      <tr>
+        <th style="width:8%;">Day</th>
+        <th style="width:22%;">Option</th>
+        <th style="width:14%;">Portion</th>
+        <th style="width:56%;">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Mon</td><td>Soaked Almonds</td><td>5–6</td><td>Fiber &amp; protein, keeps full</td></tr>
+      <tr><td>Tue</td><td>Methi Seeds</td><td>½–1 tsp</td><td>Start small or skip if acidity, Helps control appetite</td></tr>
+      <tr><td>Wed</td><td>Flax Seeds</td><td>1 tsp soaked</td><td>Omega-3 &amp; fibre, Gentle on Stomach</td></tr>
+      <tr><td>Thu</td><td>Pumpkin Seeds</td><td>5–6</td><td>Magnesium, protein</td></tr>
+      <tr><td>Fri</td><td>Chia Seeds</td><td>1 tsp soaked</td><td>Hydration + fibre, keep soaked to avoid bloating</td></tr>
+      <tr><td>Sat</td><td>Moong Sprouts</td><td>2 tsp soaked</td><td>Protein-rich, low Cal, Easy on stomach</td></tr>
+      <tr><td>Sun</td><td>Walnuts</td><td>2–3</td><td>Omega-3, heart-healthy</td></tr>
+      <tr><td>All</td><td>Warm Water</td><td>Optional</td><td>Avoid if acid reflux. Drink Room temperature water/lemon water instead.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="copyright" style="margin-top:6pt;">
+    Unauthorized distribution of this document may result in legal action under applicable copyright laws.<br>
+    © 2026 EliteRoadMaps. All rights reserved.
+    This document may not be reproduced, distributed, shared, or resold without written permission.
+  </p>
+</div>
+
+</div><!-- .page-wrap -->
+</body>
+</html>
