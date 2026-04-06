@@ -4,169 +4,140 @@
 <meta charset="UTF-8"/>
 <title>PCOS Diet Plan – {{customer_name}}</title>
 <style>
-
 @page {
   size: A4 landscape;
-  margin: 12mm 12mm 12mm 12mm;
+  margin: 10mm 12mm 10mm 12mm;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   font-family: Calibri, Arial, sans-serif;
   font-size: 9pt;
-  color: #111;
+  color: #1a1a2e;
   background: #fff;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
-
-/* ── COLOURS ── */
 :root {
-  --blue-dark:  #1B3A6B;   /* header bg, heading bars */
-  --blue-mid:   #2E6DB4;   /* subheader rows, accents  */
-  --blue-light: #D6E4F5;   /* alternating rows, spans  */
-  --blue-pale:  #EDF4FC;   /* page bg tint (not used)  */
-  --border:     #8AAFDB;
-  --white:      #ffffff;
-  --text:       #111111;
+  --teal-deep:   #0d5c63;
+  --teal-mid:    #178a8a;
+  --teal-light:  #e0f5f5;
+  --teal-pale:   #f0fafa;
+  --gold:        #c9952a;
+  --gold-light:  #fdf3e0;
+  --border:      #b2d8d8;
+  --white:       #ffffff;
+  --accent-red:  #c0392b;
 }
-
-/* ── LAYOUT ── */
-.page-wrap {
-  width: 269mm;   /* 297mm - 2×14mm */
-  margin: 0 auto;
-}
-
+.page-wrap { width: 273mm; margin: 0 auto; }
 .page-break { page-break-before: always; }
 
-/* ── HEADINGS ── */
-h1 { font-size: 13pt; font-weight: bold; color: var(--blue-dark); margin-bottom: 5pt; }
-h2 { font-size: 11pt; font-weight: bold; color: var(--blue-dark); margin-bottom: 4pt; }
+/* ── MAIN HEADER (page 1) ── */
+.header-band { background: #0d5c63; border-radius: 5pt; margin-bottom: 7pt; width: 100%; }
+.header-band-table { width: 100%; border-collapse: collapse; }
+.header-band-table td { border: none; padding: 7pt 10pt; vertical-align: middle; background: transparent; }
+.header-logo-cell { width: 60pt; text-align: left; }
+.header-logo { height: 44pt; width: auto; display: block; }
+.header-title-cell { text-align: center; }
+.header-title-main { font-family: Georgia, serif; font-size: 14pt; font-weight: bold; color: #fff; letter-spacing: 0.4pt; display: block; }
+.header-title-sub { font-size: 9pt; font-weight: normal; color: rgba(255,255,255,0.80); display: block; margin-top: 2pt; }
+.header-info-cell { text-align: right; width: 160pt; }
+.header-info-cell p { font-size: 7.5pt; color: rgba(255,255,255,0.85); line-height: 1.8; margin: 0; }
+.header-info-cell strong { color: #fff; font-size: 8.5pt; }
+/* No-logo header variant */
+.header-nologotable { width: 100%; border-collapse: collapse; }
+.header-nologotable td { border: none; padding: 7pt 12pt; vertical-align: middle; background: transparent; }
+/* ── MINI HEADER (pages 2-7, table-based) ── */
+.mini-band { background: #0d5c63; border-radius: 4pt; margin-bottom: 5pt; width: 100%; }
+.mini-table { width: 100%; border-collapse: collapse; }
+.mini-table td { border: none; padding: 4pt 10pt; vertical-align: middle; background: transparent; }
+.mini-logo-cell { width: 50pt; text-align: left; }
+.mini-logo { height: 28pt; width: auto; display: block; }
+.mini-title-cell { text-align: center; }
+.mini-title { font-family: Georgia, serif; font-size: 11pt; font-weight: bold; color: #fff; }
+.mini-info-cell { text-align: right; width: 170pt; }
+.mini-info-cell p { font-size: 7pt; color: rgba(255,255,255,0.85); line-height: 1.7; margin: 0; }
+.mini-info-cell strong { color: #fff; }
 
-/* section title bar */
-.sec-title {
-  background: var(--blue-dark);
-  color: var(--white);
-  font-size: 10pt;
-  font-weight: bold;
-  padding: 4pt 8pt;
-  margin-bottom: 0;
-}
+/* ── GOLD BAR ── */
+.gold-bar { height: 3pt; background: #c9952a; border-radius: 2pt; margin-bottom: 7pt; }
 
-/* ── SHARED TABLE BASE ── */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 8.5pt;
-}
-th, td {
-  border: 1px solid var(--border);
-  padding: 3pt 4pt;
-  vertical-align: middle;
-  text-align: center;
-}
-thead th {
-  background: var(--blue-dark);
-  color: var(--white);
-  font-weight: bold;
-  font-size: 8.5pt;
-}
+/* ── SECTION TITLE ── */
+.sec-title { background: #0d5c63; color: #fff; font-size: 9.5pt; font-weight: bold; padding: 4pt 10pt; margin-bottom: 0; border-radius: 3pt 3pt 0 0; letter-spacing: 0.3pt; }
 
-/* ── DIET CHART (page 2) ── */
+/* ── TABLE BASE ── */
+table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+th, td { border: 1px solid var(--border); padding: 3pt 4pt; vertical-align: middle; text-align: center; }
+thead th { background: #0d5c63; color: #fff; font-weight: bold; font-size: 8.5pt; }
+
+/* ── DIET CHART ── */
 .diet-table { font-size: 7.5pt; table-layout: fixed; }
 .diet-table .col-meal { width: 9%; }
 .diet-table .col-day  { width: 12.99%; }
+.meal-label { background: #178a8a; color: #fff; font-weight: bold; text-align: center; vertical-align: middle; font-size: 8pt; }
+.span-row { background: #fdf3e0; text-align: center; font-style: italic; color: #7a5d1a; font-weight: 600; }
+.repeat-cell { background: #e0f5f5; font-style: italic; text-align: center; vertical-align: middle; }
+.diet-table tbody tr:nth-child(odd)  td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: #ffffff; }
+.diet-table tbody tr:nth-child(even) td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: #f0fafa; }
 
-.meal-label {
-  background: var(--blue-mid);
-  color: var(--white);
-  font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
-}
-.span-row {
-  background: var(--blue-light);
-  text-align: center;
-  font-style: italic;
-}
-.repeat-cell {
-  background: var(--blue-light);
-  font-style: italic;
-  text-align: center;
-  vertical-align: middle;
-}
+/* ── INSTRUCTIONS ── */
+.instr-list { padding-left: 0; list-style: none; line-height: 1.75; font-size: 8.5pt; color: #1a1a2e; }
+.instr-list li::before { content: "▸ "; color: #178a8a; font-weight: bold; }
 
-/* odd/even data rows */
-.diet-table tbody tr:nth-child(odd)  td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: var(--white); }
-.diet-table tbody tr:nth-child(even) td:not(.meal-label):not(.span-row):not(.repeat-cell) { background: var(--blue-light); }
+/* ── WALK TABLE ── */
+.walk-table td { background: #e0f5f5; font-size: 8pt; text-align: center; font-weight: 600; color: #0d5c63; }
+.walk-table th { background: #0d5c63; font-size: 8pt; }
 
-/* ── INSTRUCTIONS (page 3) ── */
-.instr-list {
-  padding-left: 0;
-  list-style: none;
-  line-height: 1.7;
-  font-size: 8.5pt;
-}
-.instr-list li::before { content: "• "; }
+/* ── LIST TABLE ── */
+.list-table td { vertical-align: top; text-align: left; padding: 5pt 8pt; }
+.list-table ul { padding-left: 14pt; line-height: 1.7; }
+.list-table li { margin: 1pt 0; font-size: 8.5pt; }
+.sub-head { display: block; background: #178a8a; color: #fff; font-weight: bold; font-size: 8pt; padding: 2pt 5pt; border-radius: 2pt; margin-bottom: 4pt; }
 
-/* ── WALK TABLE (page 3) ── */
-.walk-table td { background: var(--blue-light); font-size: 8pt; }
+/* ── OIL TABLE ── */
+.oil-table td { text-align: left; }
+.oil-table .qty-cell { background: #f0fafa; vertical-align: top; padding: 6pt 10pt; }
+.oil-table .qty-cell p { margin-bottom: 4pt; font-size: 8.5pt; }
+.oil-table .notes-cell { background: #fff; vertical-align: top; line-height: 1.9; padding: 6pt 10pt; }
 
-/* ── LIST TABLE (pages 4, 5) ── */
-.list-table td { vertical-align: top; text-align: left; padding: 4pt 6pt; }
-.list-table .sub-head {
-  background: var(--blue-mid);
-  color: var(--white);
-  font-weight: bold;
-  font-size: 8.5pt;
-  padding: 2pt 5pt;
-}
-.list-table ul { padding-left: 13pt; line-height: 1.65; }
-.list-table li { margin: 1pt 0; }
-
-/* ── OIL TABLE (page 6) ── */
-.oil-table td { text-align: left; background: var(--blue-light); }
-.oil-table .notes-cell { background: var(--white); vertical-align: top; line-height: 1.8; }
-
-/* ── NUTS TABLE (page 7) ── */
-.nuts-table tbody tr:nth-child(odd)  td { background: var(--blue-light); }
-.nuts-table tbody tr:nth-child(even) td { background: var(--white); }
+/* ── NUTS TABLE ── */
+.nuts-table tbody tr:nth-child(odd)  td { background: #f0fafa; }
+.nuts-table tbody tr:nth-child(even) td { background: #fff; }
 .nuts-table td { text-align: left; }
-.nuts-table td:first-child { text-align: center; font-weight: bold; }
+.nuts-table td:first-child { text-align: center; font-weight: bold; color: #0d5c63; background: #e0f5f5 !important; }
+
+/* ── NOTE BOX ── */
+.note-box { background: #fdf3e0; border: 1px solid #e8c97a; border-radius: 4pt; padding: 6pt 10pt; margin-top: 8pt; }
+.note-box .note-title { font-family: Georgia, serif; font-size: 9pt; color: #c9952a; font-weight: bold; margin-bottom: 3pt; }
 
 /* ── COPYRIGHT ── */
-.copyright {
-  font-size: 7pt;
-  color: #666;
-  text-align: center;
-  margin-top: 6pt;
-  line-height: 1.5;
-}
+.copyright { font-size: 7pt; color: #5a6475; text-align: center; margin-top: 8pt; line-height: 1.6; border-top: 1px solid #b2d8d8; padding-top: 4pt; }
+.page-num { text-align: right; font-size: 7.5pt; color: #5a6475; margin-bottom: 3pt; font-weight: bold; letter-spacing: 0.5pt; }
 
-/* ── PAGE NUMBER RIGHT-ALIGN ── */
-.page-num {
-  text-align: right;
-  font-size: 7.5pt;
-  color: #888;
-  margin-bottom: 3pt;
-}
-
+/* ── WATERMARK ── */
+.watermark { position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 44px; color: rgba(13,92,99,0.04); pointer-events: none; z-index: 0; font-family: Georgia, serif; font-weight: bold; letter-spacing: 4pt; white-space: nowrap; }
 </style>
 </head>
 <body>
 <div class="page-wrap">
+<div class="watermark">{{mobile_number}}</div>
 
-<!-- ════════════════════════════════════════════════════════
-     PAGE 1 — Cover / How To Read
-════════════════════════════════════════════════════════ -->
-
-  <p style="font-style:italic; font-size:8.5pt; margin-bottom:3pt;">Private Diet Plan</p>
-  <p style="font-size:8.5pt; line-height:1.8; margin-bottom:10pt;">
-    Generated for: <strong>{{customer_name}}</strong> for <strong>{{target_calories}}</strong> calories<br>
-    Mobile: {{mobile_number}}<br>
-    Email: {{email}}
-  </p>
+<div class="header-band">
+  <table class="header-band-table">
+    <tr>
+      <td class="header-title-cell" style="text-align:center; padding-left:12pt;">
+        <span class="header-title-main">EliteRoadMaps — Private Diet Plan</span>
+        <span class="header-title-sub">PCOS Veg Personalised Program</span>
+      </td>
+      <td class="header-info-cell">
+        <p>For: <strong>{{customer_name}}</strong></p>
+        <p>Target: <strong>{{target_calories}} calories</strong></p>
+        <p>Mobile: {{mobile_number}}</p>
+        <p>Email: {{email}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="gold-bar"></div>
 
   <div class="sec-title">How to read and follow the Diet Plan</div>
   <table style="margin-top:0; border-top:none;">
@@ -198,6 +169,14 @@ thead th {
      PAGE 2 — PCOS Diet Chart
 ════════════════════════════════════════════════════════ -->
 <div class="page-break">
+<div class="mini-band">
+  <table class="mini-table">
+    <tr>
+      <td class="mini-title-cell" style="text-align:center;"><span class="mini-title">PCOS Veg Diet Chart</span></td>
+      <td class="mini-info-cell"><p>{{customer_name}} &nbsp;·&nbsp; <strong>{{target_calories}} cal</strong> &nbsp;·&nbsp; {{mobile_number}}</p></td>
+    </tr>
+  </table>
+</div>
   <div class="page-num">2/7</div>
   <div class="sec-title">PCOS VEG DIET CHART</div>
 
@@ -314,8 +293,7 @@ thead th {
   </table>
 
   <p class="copyright">
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
@@ -324,6 +302,14 @@ thead th {
      PAGE 3 — Instructions + Walking Plan
 ════════════════════════════════════════════════════════ -->
 <div class="page-break">
+<div class="mini-band">
+  <table class="mini-table">
+    <tr>
+      <td class="mini-title-cell" style="text-align:center;"><span class="mini-title">Instructions & Walking Plan</span></td>
+      <td class="mini-info-cell"><p>{{customer_name}} &nbsp;·&nbsp; <strong>{{target_calories}} cal</strong> &nbsp;·&nbsp; {{mobile_number}}</p></td>
+    </tr>
+  </table>
+</div>
   <div class="page-num">3/7</div>
   <div class="sec-title">Instructions</div>
 
@@ -379,8 +365,7 @@ thead th {
   </table>
 
   <p class="copyright">
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
@@ -389,6 +374,14 @@ thead th {
      PAGE 4 — Allowed Vegetables
 ════════════════════════════════════════════════════════ -->
 <div class="page-break">
+<div class="mini-band">
+  <table class="mini-table">
+    <tr>
+      <td class="mini-title-cell" style="text-align:center;"><span class="mini-title">Allowed Vegetables</span></td>
+      <td class="mini-info-cell"><p>{{customer_name}} &nbsp;·&nbsp; <strong>{{target_calories}} cal</strong> &nbsp;·&nbsp; {{mobile_number}}</p></td>
+    </tr>
+  </table>
+</div>
   <div class="page-num">4/7</div>
   <div class="sec-title">List of Allowed Healthy Vegetables (Indian &amp; Commonly Available)</div>
 
@@ -453,8 +446,7 @@ thead th {
   </table>
 
   <p class="copyright">
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
@@ -463,6 +455,14 @@ thead th {
      PAGE 5 — Fruits & Dal
 ════════════════════════════════════════════════════════ -->
 <div class="page-break">
+<div class="mini-band">
+  <table class="mini-table">
+    <tr>
+      <td class="mini-title-cell" style="text-align:center;"><span class="mini-title">Allowed Fruits & Dal</span></td>
+      <td class="mini-info-cell"><p>{{customer_name}} &nbsp;·&nbsp; <strong>{{target_calories}} cal</strong> &nbsp;·&nbsp; {{mobile_number}}</p></td>
+    </tr>
+  </table>
+</div>
   <div class="page-num">5/7</div>
   <div class="sec-title">List of Fruits</div>
 
@@ -521,8 +521,7 @@ thead th {
   </table>
 
   <p class="copyright">
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
@@ -531,6 +530,14 @@ thead th {
      PAGE 6 — Oil
 ════════════════════════════════════════════════════════ -->
 <div class="page-break">
+<div class="mini-band">
+  <table class="mini-table">
+    <tr>
+      <td class="mini-title-cell" style="text-align:center;"><span class="mini-title">Allowed Oil Quantities</span></td>
+      <td class="mini-info-cell"><p>{{customer_name}} &nbsp;·&nbsp; <strong>{{target_calories}} cal</strong> &nbsp;·&nbsp; {{mobile_number}}</p></td>
+    </tr>
+  </table>
+</div>
   <div class="page-num">6/7</div>
   <div class="sec-title">Allowed Oil Split per Day (Breakfast / Lunch / Dinner)</div>
 
@@ -554,8 +561,7 @@ thead th {
   </table>
 
   <p class="copyright">
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
@@ -590,8 +596,7 @@ thead th {
 
   <p class="copyright" style="margin-top:6pt;">
     Unauthorized distribution of this document may result in legal action under applicable copyright laws.<br>
-    © 2026 EliteRoadMaps. All rights reserved.
-    This document may not be reproduced, distributed, shared, or resold without written permission.
+    © 2026 EliteRoadMaps. All rights reserved. &nbsp;|&nbsp; This document may not be reproduced, distributed, shared, or resold without written permission.
   </p>
 </div>
 
