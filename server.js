@@ -149,15 +149,15 @@ app.post("/generate-bundle", async (req, res) => {
 
     // Document templates — static, no placeholder replacement needed
     const documentTemplates = [
-      { file: "templates/doc_00_letter_from_asha.html",     name: "Document-00-A-Letter-From-Asha.pdf" },
-      { file: "templates/doc_01_pcos_playbook.html",         name: "Document-01-The-PCOS-Playbook.pdf" },
-      { file: "templates/doc_02_thyroid_decoded.html",       name: "Document-02-The-Thyroid-Decoded.pdf" },
-      { file: "templates/doc_03_insulin_reset.html",         name: "Document-03-The-Insulin-Reset.pdf" },
-      { file: "templates/doc_04_cortisol_code.html",         name: "Document-04-The-Cortisol-Code.pdf" },
-      { file: "templates/doc_05_gut_liver_reset.html",       name: "Document-05-The-Gut-Liver-Reset.pdf" },
-      { file: "templates/doc_06_khanaplan_complete.html",    name: "Document-06-KhanaPlan-Complete-Guide.pdf" },
-      { file: "templates/doc_07_hormone_tracker.html",         name: "Document-07-Your-Hormone-Tracker.pdf" },
-      { file: "templates/doc_08_progress_tracker.html",      name: "Document-08-My-Body-My-Progress-Tracker.pdf" },
+      { file: "templates/doc_00_letter_from_asha.html",     name: "Doc-00-A-Letter-From-Asha.pdf" },
+      { file: "templates/doc_01_pcos_playbook.html",         name: "Doc-01-The-PCOS-Playbook.pdf" },
+      { file: "templates/doc_02_thyroid_decoded.html",       name: "Doc-02-The-Thyroid-Decoded.pdf" },
+      { file: "templates/doc_03_insulin_reset.html",         name: "Doc-03-The-Insulin-Reset.pdf" },
+      { file: "templates/doc_04_cortisol_code.html",         name: "Doc-04-The-Cortisol-Code.pdf" },
+      { file: "templates/doc_05_gut_liver_reset.html",       name: "Doc-05-The-Gut-Liver-Reset.pdf" },
+      { file: "templates/doc_06_khanaplan_complete.html",    name: "Doc-06-KhanaPlan-Complete-Guide.pdf" },
+      { file: "templates/doc_07_hormone_tracker.html",         name: "Doc-07-Your-Hormone-Tracker.pdf" },
+      { file: "templates/doc_08_progress_tracker.html",      name: "Doc-08-My-Body-My-Progress-Tracker.pdf" },
     ];
 
     browser = await launchBrowser();
