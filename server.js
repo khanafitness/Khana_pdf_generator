@@ -156,7 +156,7 @@ app.post("/generate-bundle", async (req, res) => {
       { file: "templates/doc_04_cortisol_code.html",         name: "Document-04-The-Cortisol-Code.pdf" },
       { file: "templates/doc_05_gut_liver_reset.html",       name: "Document-05-The-Gut-Liver-Reset.pdf" },
       { file: "templates/doc_06_khanaplan_complete.html",    name: "Document-06-KhanaPlan-Complete-Guide.pdf" },
-      { file: "templates/doc_07_hormone_guide.html",         name: "Document-07-Your-Hormone-Guide.pdf" },
+      { file: "templates/doc_07_hormone_tracker.html",         name: "Document-07-Your-Hormone-Tracker.pdf" },
       { file: "templates/doc_08_progress_tracker.html",      name: "Document-08-My-Body-My-Progress-Tracker.pdf" },
     ];
 
