@@ -168,7 +168,7 @@ app.post("/generate-bundle", async (req, res) => {
     // ── Generate diet plan PDF ────────────────────────────────
     console.log("Generating diet plan PDF...");
     const dietPdf = await renderTemplateToPdf(browser, dietTemplatePath, data);
-    zip.file("Document-09-Your-Personalised-PCOS-Diet-Plan.pdf", dietPdf);
+    zip.file("Doc-09-Your-Personalised-PCOS-Diet-Plan.pdf", dietPdf);
     console.log("Diet plan PDF done.");
 
     // ── Generate each document PDF ────────────────────────────
