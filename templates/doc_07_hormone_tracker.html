@@ -253,11 +253,11 @@ tr:last-child td{border-bottom:none}
   </div>
   <div class="cover-footer">
     <div class="cust-row">
-      <div class="cfield"><label>Prepared For</label><div class="val">{{CUSTOMER_NAME}}</div></div>
-      <div class="cfield"><label>Email</label><div class="val">{{EMAIL}}</div></div>
-      <div class="cfield"><label>Mobile</label><div class="val">{{MOBILE}}</div></div>
+      <div class="cfield"><label>Prepared For</label><div class="val">{{customer_name}}</div></div>
+      <div class="cfield"><label>Email</label><div class="val">{{email}}</div></div>
+      <div class="cfield"><label>Mobile</label><div class="val">{{mobile_number}}</div></div>
     </div>
-    <div class="licensed-line">Licensed to <strong>{{CUSTOMER_NAME}}</strong> · EliteRoadMaps Premium Pro · © 2025 EliteRoadMaps. Not for redistribution.</div>
+    <div class="licensed-line">Licensed to <strong>{{customer_name}}</strong> · EliteRoadMaps Premium Pro · © 2025 EliteRoadMaps. Not for redistribution.</div>
   </div>
 </div>
 
@@ -534,11 +534,11 @@ tr:last-child td{border-bottom:none}
 
 <div class="pg-footer">
   <div>📄 Doc 7 of 7 · <strong>The Hormone Blueprint Complete</strong> · EliteRoadMaps Premium Pro · <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAArAKwDASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAYHAQUCBAgD/8QAMhAAAQMDAwIFAwMDBQAAAAAAAQIDBAAFEQYSIQcxCBMUIkEVUWEjMoE3QpFicXOhs//EABoBAQADAQEBAAAAAAAAAAAAAAACAwQBBQb/xAApEQABBAEDAwQBBQAAAAAAAAABAAIDEQQSITEFQWETUXGBoRQikdHh/9oADAMBAAIRAxEAPwD2XSuvcvW+ge+mmOJm39H1APl7v9W3nH+1Ufpnq7ri+9TpWg2bVpxmZFfkMrkKU8WyWSQojnPO3iptYXAkKiXIZEQHd+FfFKhHVTWFx0zDt8Wwsw7jqCc8G41tWFqW+P7lJCT7QO5UrCQAea32lzqd22qVqdFrYlrA2Jt5WpKOOQSvuQftxXNJq1MSgvLByFuaVQ/S/X2sbj12u+i7veUz7bBMptGYrTa1FtYSlRKEjmr4rr2FhoqEE7Z2lzexpKUpUFelKUoiUpSiJSuvcPW+mP0/0/n5GPPzsx/HNQHSettSaklvxoNvtSFst+YrznHEgjOMDGeax5GdFBI2N927ihdq+PHfI0uHA5VjUqHaa1sZuoHNPXa3+guKFKSNrm9CyBkjPxxyO+a1mt9RXyz63t9uizx6SV5S1NqZQdoUspIBxn4/7qp/VIGw+sLIuvIPkGlNuHIX6DsatWJSlK9FZUpSlESlKURK8c6duF7tviX1HI05aPq11Vcbk3GjlYQjcVrG5ZJGEp7nkZxjjNevrlLbgQHpjrUh1DKdxRHYU84r8JQgFSj+AK8udP418tPiEuesJ2kdVN2iTMmutuiySVK2uqWUEpCM/IrRBsHfC8vqIt8QB7/x5W68N2u2Zev7zA1kzt1ZPdKW50gELO3gxcHhvBBISMA8g8gV6Rrz74kul8u6OM6+0bElG6pKFS40dtQec7bHUJA3eYngEYzjB7g5sHo3rG+X+wtQ9V6dvdqvUZo+e5JtrrTMgJwN6VFITuOeU98g4GK5KA4a2qWG98LjBJ8g+/8AqpPQVvfunii1XCYus21lx+fukQ9gdCfN5CStKgnP3xn7Yrd9LL5qix+I6doaZqa63m2FT7Y9fIU6oBLZcQoZ7K4wcYByeO2Pl0st96jeJK76ilab1DGtVxfliPJetMhCP1F5QVEo9gI+VYx84pYIF5a8VL2qXdN6hRZnpTqES1WiQEe5ktgn2cJ3HueAOe1XO3seFgiBaGuF3r/CuHqbGjPTLQ/dNbOaYtDPnepDVy9GuUshGxIXkcDCicHPIqmbRrObZvENb7FpvWc6/wCmpzrTRRJuCpiBvT7glaicEK5yDn4Oa7vX2x3xHW7T2ppVhuN706x6feiNHU+EhDhK0FI+T3weFZx98a7VcS9TfEJZNYx9G6mYsjaozhX9IdUpKEcElDYUR2/acK/HIqMbRp39lbkyuMhIFEOHvx/SkHi5vl+005p+bYb/AHW3Ll+e28iPKUhtQRsKTtBxn3nn54+1abr+rVmkrLpzVVu19qVyRNIS8yuSEMhWwLBS22lKcdwQoKzxk987Xxf2q86gXp6DY7Debm7F89x5UW3vOoQF7Akb0pKc+xXGcjjPcV8/EhDu2o+nmk4Nk09f5slvDzrTdqf3NJDewhY2e05+DzjntzXY6pn2o5QcXzVfaufulckaXPvfTFqc1Lbg3C4WUOpkFW1DDrjOQvPwEqOf4qi+r9ytunNGx5mlerV2uWoWJDaXkt6hL4dSQd58tKtoAOD2/BzUz15ar9f/AAzRLXZYFxTcGYMRt+E5HWy+sNbQ4jYsBR5Tkce4DjORVaSodyuHh0jaTteg9RIvESUl2YoWpQC/1Fe4H9yzhSeACRjnAGajG0DfyrcuRzhpA303e/PjyvQ3SK+TtR9NbFerkpK5kmMC8tKQN6gSkqwOBnGePvVddI7rHtV4nPSGpToXH2gMMKcOdwPYdqlfQ9961dHrTHuNru8WVAQph+O7b3kOhW4q9qCkFQwoe4ZHfng1pOlLM+w3iW/c7Nd2m3mdiVCA6rncDzhNfL9Zv9dBpNUXb8gXVWvpelm8NxdvYb9+67mmbPdb11Gc1NIt8iBBS6XE+oRsUr27UgA/wT8d6+XVT+pNj/42P/ZVWxVV9SIs+Zr23TIlruT8eIlpLrjcNxScpcKjggc8Edqz9QwRi4Za0klzwT83utONkGWezsAKVgaoaW7atqbp9MR5qC7I83yylAPuAUexI4qtNb3r6HcLfI01qeVNB3ee2ucZCMpIxkEkc5P+OK3nWa33O6Wi2v26PJfYbUpTrSG1bhuA2kp78e4duM1oeoMeXe7XZfo+nLo21GbWhafRqGCQjgAc49p5xiq+sTyOMrYxRaG0d7O/athXdTwY2gMLjYN2NtvlTvqO/IZ0XKnxZMiM+yELQplwpPKgCDjuME1D4f1i49MXr25qO6okx96kpQ8EpUEq/uIG4/544qVa+U5N6fvMxYc156ShtLbSYrhXkKBO5OMp4B74qP2NiYx0lnWx223FEw+YhLJhublFRyMDbyPz8VbnW/LdudPpngmr7cd1Xj/thHvq/C3/AEmuk27aTD099T7zT6mvMWcqUAARk/J5qW1B+jbEqFp2RCmwpcV9MlTm1+OtsFJSkDBIAPY9qnFet0tznYcZfzSyZYAndp4tKUPalb1mSlYUSDWaIlKCgoiUpT7URKUrB7URZpWEnNZ+KIlKVhRINEWaUPauDCippKlHJIoi50rgtRDraQeDnNcz2oiUpSiJSlKIv//Z" style="height:16px;vertical-align:middle;margin-left:4px" alt="KhanaPlan"></div>
-  <div>Licensed to <strong>{{CUSTOMER_NAME}}</strong> · {{MOBILE}} · © 2025 EliteRoadMaps</div>
+  <div>Licensed to <strong>{{customer_name}}</strong> · {{mobile_number}} · © 2025 EliteRoadMaps</div>
 </div>
 </div>
 <script>
-const customerName="{{CUSTOMER_NAME}}";const email="{{EMAIL}}";const mobile="{{MOBILE}}";
+const customerName="{{customer_name}}";const email="{{email}}";const mobile="{{mobile_number}}";
 (function buildWatermark(){const o=document.getElementById('wmOverlay');if(!o)return;const t="  "+mobile+"  ·  EliteRoadMaps  ·  "+mobile+"  ·  EliteRoadMaps  ·  "+mobile+"  ·  EliteRoadMaps  ·  "+mobile+"  ";for(let i=0;i<20;i++){const d=document.createElement('div');d.className='wm-line';d.textContent=t;d.style.top=(i*110-80)+'px';d.style.left='-40%';o.appendChild(d);}})();
 </script>
 </body></html>
