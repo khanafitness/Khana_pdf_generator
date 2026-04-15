@@ -198,11 +198,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
   </div>
   <div class="cover-footer">
     <div class="cust-row">
-      <div class="cfield"><label>Name</label><div class="val">{{CUSTOMER_NAME}}</div></div>
+      <div class="cfield"><label>Name</label><div class="val">{{customer_name}}</div></div>
       <div class="cfield"><label>Start Date</label><div class="val">_____ / _____ / _______</div></div>
       <div class="cfield"><label>My Goal</label><div class="val">&nbsp;</div></div>
     </div>
-    <div class="licensed-line">Licensed to <strong>{{CUSTOMER_NAME}}</strong> · EliteRoadMaps Premium Pro · © 2025 EliteRoadMaps</div>
+    <div class="licensed-line">Licensed to <strong>{{customer_name}}</strong> · EliteRoadMaps Premium Pro · © 2025 EliteRoadMaps</div>
   </div>
 </div>
 
@@ -475,14 +475,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 <!-- FOOTER -->
 <div class="pg-footer">
   <div>My Body. My Progress. My Power. · <strong>EliteRoadMaps Premium Pro</strong></div>
-  <div>Licensed to <strong>{{CUSTOMER_NAME}}</strong> · © 2025 EliteRoadMaps · KhanaPlan™</div>
+  <div>Licensed to <strong>{{customer_name}}</strong> · © 2025 EliteRoadMaps · KhanaPlan™</div>
 </div>
 
 </div><!-- end page -->
 
 <script>
-const customerName = "{{CUSTOMER_NAME}}";
-const mobile = "{{MOBILE}}";
+const customerName = "{{customer_name}}";
+const mobile = "{{mobile_number}}";
 
 // Build watermark
 (function buildWatermark(){
