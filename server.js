@@ -182,6 +182,7 @@ app.post("/generate-bundle", async (req, res) => {
       const docPdf = await renderTemplateToPdf(browser, doc.file, {
         customer_name: data.customer_name,
         email: data.email,
+        mobile_number: data.mobile_number,
       });
       zip.file(doc.name, docPdf);
       console.log(`Done: ${doc.name}`);
