@@ -48,7 +48,7 @@ async function launchBrowser() {
 }
 
 // ─── Generate one PDF from a template ────────────────────────
-async function renderTemplateToPdf(browser, templatePath, data) {
+async function renderTemplateToPdf(browser, templatePath, data, landscape = false) {
   let html = fs.readFileSync(templatePath, "utf8");
 
   // Replace all {{key}} placeholders with data values
@@ -81,7 +81,7 @@ async function renderTemplateToPdf(browser, templatePath, data) {
 
   const pdf = await page.pdf({
     format: "A4",
-    landscape: true,
+    landscape: landscape,
     printBackground: true
   });
   await page.close();
@@ -117,7 +117,7 @@ app.post("/generate-pdf", async (req, res) => {
     }
 
     browser = await launchBrowser();
-    const pdf = await renderTemplateToPdf(browser, templatePath, data);
+    const pdf = await renderTemplateToPdf(browser, templatePath, data, true); // diet charts → landscape
 
     res.set({ "Content-Type": "application/pdf" });
     res.send(pdf);
@@ -165,13 +165,13 @@ app.post("/generate-bundle", async (req, res) => {
     browser = await launchBrowser();
     const zip = new JSZip();
 
-    // ── Generate diet plan PDF ────────────────────────────────
+    // ── Generate diet plan PDF (landscape) ───────────────────
     console.log("Generating diet plan PDF...");
-    const dietPdf = await renderTemplateToPdf(browser, dietTemplatePath, data);
+    const dietPdf = await renderTemplateToPdf(browser, dietTemplatePath, data, true); // landscape
     zip.file("Doc-09-Your-Personalised-PCOS-Diet-Plan.pdf", dietPdf);
     console.log("Diet plan PDF done.");
 
-    // ── Generate each document PDF ────────────────────────────
+    // ── Generate each document PDF (portrait) ────────────────
     for (const doc of documentTemplates) {
       if (!fs.existsSync(doc.file)) {
         console.warn(`Template not found, skipping: ${doc.file}`);
@@ -183,7 +183,7 @@ app.post("/generate-bundle", async (req, res) => {
         customer_name: data.customer_name,
         email: data.email,
         mobile_number: data.mobile_number,
-      });
+      }); // landscape defaults to false → portrait
       zip.file(doc.name, docPdf);
       console.log(`Done: ${doc.name}`);
     }
