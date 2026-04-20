@@ -51,7 +51,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
   transform:rotate(-35deg);transform-origin:left center;
 }
 
-.page{max-width:840px;margin:0 auto;padding:0 44px 64px}
+.page{max-width:840px;margin:0 auto;padding:0 40px 64px}
 
 /* COVER */
 .cover{min-height:98vh;display:flex;flex-direction:column;padding:40px 0 32px;border-bottom:2px solid var(--border)}
@@ -217,6 +217,107 @@ tr:last-child td{border-bottom:none}
 .gi-col.low h5{color:var(--sage)}.gi-col.med h5{color:var(--warn)}.gi-col.high h5{color:var(--red)}
 .gi-col li{font-size:13px;margin-bottom:5px;list-style:none;padding-left:0}
 .gi-col ul{padding-left:0}
+
+/* ── PRINT / PDF STYLES ── */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 14mm 15mm 14mm;
+  }
+
+  html, body {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    font-size: 12px !important;
+  }
+
+  .wm-overlay { display: none !important; }
+
+  .page {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cover {
+    page-break-after: always !important;
+    break-after: page !important;
+    min-height: auto !important;
+    padding: 20px 0 20px !important;
+  }
+
+  .sec {
+    margin-top: 20px !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .sec-head {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+  .sub-head, .sub-head2 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* ── Collapse multi-column grids to single column ── */
+  .two-col,
+  .doc-list,
+  .phase-grid,
+  .ir-scale,
+  .gi-grid {
+    display: block !important;
+  }
+  .two-col > *,
+  .doc-list > *,
+  .phase-grid > *,
+  .ir-scale > *,
+  .gi-grid > * {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Supplement & food grids: keep 2-col, protect each cell */
+  .supp-grid,
+  .food-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .supp-grid > *,
+  .food-grid > * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Individual components — never break mid-element */
+  .box, .card, .supp, .phase, .doc-item,
+  .food-col, .food-item, .gi-col,
+  .cta, .disclaimer, .inline-disc,
+  .kp-brand-bar, .tsh-bar,
+  .tracker, .tracker-row {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Tables */
+  table { width: 100% !important; page-break-inside: auto; }
+  thead { display: table-header-group !important; }
+  tr { page-break-inside: avoid !important; break-inside: avoid !important; }
+  td, th { font-size: 11px !important; padding: 7px 10px !important; }
+
+  .cta { flex-direction: column !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+
+  p { margin-bottom: 6px !important; }
+  .sec-lead { margin-bottom: 12px !important; }
+  .pg-footer { margin-top: 20px !important; font-size: 10px !important; }
+}
 </style>
 </head>
 <body>
