@@ -130,6 +130,70 @@ app.post("/generate-pdf", async (req, res) => {
   }
 });
 
+// ─── Generate plus bundle (Plus plan) ────────────────────────
+// Returns a ZIP file containing:
+//   - Diet plan PDF (pcos_veg or pcos_nonveg template)
+//   - Doc-01-The-PCOS-Playbook
+//   - Doc-08-My-Body-My-Progress-Tracker
+app.post("/generate-plus", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
+
+    const dietTemplateMap = {
+      pcos_veg: "templates/pcos_veg_template.html",
+      pcos_nonveg: "templates/pcos_nonveg_template.html",
+    };
+
+    const dietTemplatePath = dietTemplateMap[data.plan_type];
+    if (!dietTemplatePath) {
+      return res.status(400).json({ error: `Invalid plan_type for plus bundle: ${data.plan_type}` });
+    }
+
+    const plusDocTemplates = [
+      { file: "templates/doc_01_pcos_playbook.html",    name: "Doc-01-The-PCOS-Playbook.pdf" },
+      { file: "templates/doc_08_progress_tracker.html", name: "Doc-08-My-Body-My-Progress-Tracker.pdf" },
+    ];
+
+    browser = await launchBrowser();
+    const zip = new JSZip();
+
+    // ── Generate diet plan PDF (landscape) ───────────────────
+    console.log("Generating plus diet plan PDF...");
+    const dietPdf = await renderTemplateToPdf(browser, dietTemplatePath, data, true);
+    zip.file("Doc-02-Your-Personalised-PCOS-Diet-Plan.pdf", dietPdf);
+    console.log("Diet plan PDF done.");
+
+    // ── Generate the 2 document PDFs (portrait) ──────────────
+    for (const doc of plusDocTemplates) {
+      if (!fs.existsSync(doc.file)) {
+        console.warn(`Template not found, skipping: ${doc.file}`);
+        continue;
+      }
+      console.log(`Generating: ${doc.name}`);
+      const docPdf = await renderTemplateToPdf(browser, doc.file, {
+        customer_name: data.customer_name,
+        email: data.email,
+        mobile_number: data.mobile_number,
+      });
+      zip.file(doc.name, docPdf);
+      console.log(`Done: ${doc.name}`);
+    }
+
+    const zipBuffer = await zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE" });
+    console.log("Plus bundle ZIP created:", zipBuffer.length, "bytes");
+
+    res.set({ "Content-Type": "application/zip" });
+    res.send(zipBuffer);
+
+  } catch (err) {
+    console.error("generate-plus error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+
 // ─── Generate bundle (Pro+ plan) ─────────────────────────────
 // Returns a ZIP file containing:
 //   - Diet plan PDF (pcos_veg or pcos_nonveg template)
