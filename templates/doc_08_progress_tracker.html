@@ -43,11 +43,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 .page{max-width:860px;margin:0 auto;padding:0 40px 60px}
 
 /* ── COVER ── */
-.cover{min-height:96vh;display:flex;flex-direction:column;padding:40px 0 32px;border-bottom:2px solid var(--border)}
+.cover{min-height:auto;display:flex;flex-direction:column;display:flex;flex-direction:column;padding:40px 0 32px;border-bottom:2px solid var(--border)}
 .cover-top{display:flex;justify-content:space-between;align-items:center}
 .logo-img{height:60px;width:auto}
 .bundle-badge{background:var(--plum);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:20px}
-.cover-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 0 24px}
+.cover-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 0 16px}
 .doc-eyebrow{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:16px}
 .cover-title{font-family:'Cormorant Garamond',serif;font-size:70px;font-weight:700;color:var(--plum);line-height:1.0;margin-bottom:12px;letter-spacing:-1px}
 .cover-title span{font-style:italic;color:var(--rose)}
@@ -64,17 +64,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 .licensed-line strong{color:var(--plum)}
 
 /* ── SECTION HEADERS ── */
-.sec{margin-top:48px}
+.sec{margin-top:32px}
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
 .sec-icon{width:36px;height:36px;background:var(--plum);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex-shrink:0}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--plum)}
 .sec-lead{color:var(--muted);font-size:13.5px;margin-bottom:18px;padding-left:50px;line-height:1.7}
-.sub-head{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--plum);margin:26px 0 10px}
+.sub-head{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--plum);margin:18px 0 8px}
 
 /* ── MONTH HEADER ── */
 .month-header{
   background:linear-gradient(135deg,var(--plum) 0%,var(--plum2) 100%);
-  border-radius:12px;padding:18px 24px;margin:32px 0 20px;
+  border-radius:12px;padding:14px 20px;margin:20px 0 14px;
   display:flex;align-items:center;justify-content:space-between;color:#fff
 }
 .month-header .month-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700}
@@ -84,19 +84,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 .mf-item .mf-val{font-size:13px;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:3px;min-width:80px;display:block}
 
 /* ── MEASUREMENT GRID ── */
-.measure-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
-.measure-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:center}
+.measure-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.measure-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
 .measure-box .m-icon{font-size:20px;margin-bottom:6px}
 .measure-box .m-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
 .measure-box .m-val{border-bottom:1.5px solid var(--border);display:block;font-size:14px;font-weight:600;color:var(--plum);padding-bottom:4px;min-height:26px}
 .measure-box .m-unit{font-size:10px;color:var(--muted);margin-top:4px;display:block}
 
 /* ── ENERGY/MOOD SCALE ── */
-.scale-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.scale-label{font-size:13px;font-weight:600;color:var(--char);width:180px;flex-shrink:0}
-.scale-dots{display:flex;gap:6px}
-.sdot{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--muted)}
-.scale-note{font-size:11.5px;color:var(--muted);font-style:italic}
+.scale-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:nowrap}
+.scale-label{font-size:12px;font-weight:600;color:var(--char);width:160px;flex-shrink:0}
+.scale-dots{display:flex;gap:4px}
+.sdot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:700;color:var(--muted);flex-shrink:0}
+.scale-note{font-size:9.5px;color:var(--muted);font-style:italic;margin-left:4px;flex-shrink:0}
 
 /* ── SYMPTOM CHECKLIST ── */
 .symptom-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
@@ -134,8 +134,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 /* ── NOTES AREA ── */
 .notes-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px 20px;min-height:100px;margin:12px 0}
 .notes-box .notes-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;display:block}
-.notes-lines{display:flex;flex-direction:column;gap:10px}
-.note-line{border-bottom:1px solid var(--border);height:22px}
+.notes-lines{display:flex;flex-direction:column;gap:0}
+.note-line{border-bottom:1.5px solid #E8D9C4;min-height:28px;display:block;width:100%;}
 
 /* ── TEST LOG ── */
 .test-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12.5px}
@@ -163,13 +163,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 .month-divider::after{content:'✂';position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--ivory);padding:0 8px;font-size:16px;color:var(--border)}
 
 /* ── PRINT STYLES ── */
-@media print{
-  body{background:#fff;font-size:12px}
-  .wm-overlay{display:none}
-  .month-divider{page-break-after:always;border:none}
-  .cover{page-break-after:always}
-  @page{margin:15mm}
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #FDF8F2 !important; font-size: 12px; }
+  .wm-overlay { display: none; }
+  .cover { page-break-after: always; }
+  .month-divider { page-break-after: always; border: none; margin: 0; }
+  .pg-footer { page-break-inside: avoid; }
 }
+@page { size: A4; margin: 15mm; }
 </style>
 </head>
 <body>
@@ -204,6 +206,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
     </div>
     <div class="licensed-line">Licensed to <strong>{{customer_name}}</strong> · EliteRoadMaps Premium Pro · © 2026 EliteRoadMaps</div>
   </div>
+
+<div style="margin-top:auto;padding-top:24px;text-align:center;border-top:1px solid var(--border)">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--plum);opacity:0.6;line-height:1.7">
+    "You are not broken. You are not weak.<br>
+    You are a woman whose body has been trying to communicate<br>
+    — and you finally have a translator."
+  </p>
+  <p style="font-size:10px;color:var(--muted);margin-top:8px;letter-spacing:1px;text-transform:uppercase">— Asha, EliteRoadMaps</p>
+</div>
 </div>
 
 <!-- ══ HOW TO USE THIS TRACKER ══ -->
@@ -263,19 +274,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 
 <!-- Energy & Mood -->
 <div class="sub-head">⚡ Energy, Mood &amp; Sleep</div>
-<div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin:12px 0">
+<div style="font-size:9px;color:var(--muted);margin-bottom:4px;padding-left:2px">Circle your number: 1 = very low &nbsp;·&nbsp; 10 = excellent &nbsp;·&nbsp; Sleep: note avg hours &nbsp;·&nbsp; Stress: 1 = calm, 10 = severe</div>
+<div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:12px 0">
   <div class="scale-row"><div class="scale-label">Overall Energy</div><div class="scale-dots">
     <div class="sdot">1</div><div class="sdot">2</div><div class="sdot">3</div><div class="sdot">4</div><div class="sdot">5</div><div class="sdot">6</div><div class="sdot">7</div><div class="sdot">8</div><div class="sdot">9</div><div class="sdot">10</div>
-  </div><div class="scale-note">Circle your number</div></div>
+  </div></div>
   <div class="scale-row"><div class="scale-label">Mood / Emotional State</div><div class="scale-dots">
     <div class="sdot">1</div><div class="sdot">2</div><div class="sdot">3</div><div class="sdot">4</div><div class="sdot">5</div><div class="sdot">6</div><div class="sdot">7</div><div class="sdot">8</div><div class="sdot">9</div><div class="sdot">10</div>
-  </div><div class="scale-note">1=very low · 10=excellent</div></div>
+  </div></div>
   <div class="scale-row"><div class="scale-label">Sleep Quality</div><div class="scale-dots">
     <div class="sdot">1</div><div class="sdot">2</div><div class="sdot">3</div><div class="sdot">4</div><div class="sdot">5</div><div class="sdot">6</div><div class="sdot">7</div><div class="sdot">8</div><div class="sdot">9</div><div class="sdot">10</div>
-  </div><div class="scale-note">Avg hours: ___</div></div>
+  </div></div>
   <div class="scale-row"><div class="scale-label">Stress Level</div><div class="scale-dots">
     <div class="sdot">1</div><div class="sdot">2</div><div class="sdot">3</div><div class="sdot">4</div><div class="sdot">5</div><div class="sdot">6</div><div class="sdot">7</div><div class="sdot">8</div><div class="sdot">9</div><div class="sdot">10</div>
-  </div><div class="scale-note">1=very calm · 10=severe</div></div>
+  </div></div>
 </div>
 
 <!-- Symptom Checklist -->
@@ -395,18 +407,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 
 <!-- Notes -->
 <div class="sub-head">📝 Month 1 — My Notes &amp; Reflections</div>
-<div class="notes-box">
+<div class="notes-box" style="min-height:200px;background-image: repeating-linear-gradient(to bottom, transparent, transparent 27px, #E8D9C4 27px, #E8D9C4 28px); background-size: 100% 28px; background-position: 0 32px;">
   <span class="notes-label">What improved this month?</span>
-  <div class="notes-lines"><div class="note-line"></div><div class="note-line"></div><div class="note-line"></div></div>
 </div>
-<div class="notes-box">
+<div class="notes-box" style="min-height:240px;background-image: repeating-linear-gradient(to bottom, transparent, transparent 27px, #E8D9C4 27px, #E8D9C4 28px); background-size: 100% 28px; background-position: 0 32px;">
   <span class="notes-label">What was challenging?</span>
-  <div class="notes-lines"><div class="note-line"></div><div class="note-line"></div></div>
 </div>
-<div class="notes-box">
+<div class="notes-box" style="min-height:520px;background-image: repeating-linear-gradient(to bottom, transparent, transparent 27px, #E8D9C4 27px, #E8D9C4 28px); background-size: 100% 28px; background-position: 0 32px;">
   <span class="notes-label">What I want to focus on next month</span>
-  <div class="notes-lines"><div class="note-line"></div><div class="note-line"></div></div>
 </div>
+
+<div style="text-align:center;padding:20px 0 8px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;opacity:0.6">Keep going. Every entry matters. ✦</div>
 
 <div class="month-divider"></div>
 
@@ -417,7 +428,317 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 
 <!-- MONTH TEMPLATE MACRO (repeated for months 2-6) -->
 <!-- Using JavaScript to duplicate the month structure -->
-<div id="months-2-6"></div>
+<div id="months-2-6">
+    <div class="month-header">
+      <div class="month-title">Month 2</div>
+      <div class="month-fields">
+        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">📏 Measurements</div>
+    <div class="measure-grid" style="gap:6px;margin:8px 0">
+      <div class="measure-box" style="padding:8px 10px"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
+      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">🩺 Key Symptoms — Rate 0–5</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
+        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
+        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">🌙 Cycle — Month 2</div>
+    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
+      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
+      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📸 Progress Photo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Front</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Side</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Back</div></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📝 Notes — Month 2</div>
+    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
+      <div class="notes-lines"><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div></div>
+    </div>
+    <div class="month-divider"></div>
+
+    <div class="month-header">
+      <div class="month-title">Month 3</div>
+      <div class="month-fields">
+        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">📏 Measurements</div>
+    <div class="measure-grid" style="gap:6px;margin:8px 0">
+      <div class="measure-box" style="padding:8px 10px"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
+      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">🩺 Key Symptoms — Rate 0–5</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
+        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
+        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">🌙 Cycle — Month 3</div>
+    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
+      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
+      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📸 Progress Photo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Front</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Side</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Back</div></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📝 Notes — Month 3</div>
+    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
+      <div class="notes-lines"><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div></div>
+    </div>
+    <div class="month-divider"></div>
+
+    <div class="month-header">
+      <div class="month-title">Month 4</div>
+      <div class="month-fields">
+        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">📏 Measurements</div>
+    <div class="measure-grid" style="gap:6px;margin:8px 0">
+      <div class="measure-box" style="padding:8px 10px"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
+      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">🩺 Key Symptoms — Rate 0–5</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
+        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
+        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">🌙 Cycle — Month 4</div>
+    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
+      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
+      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📸 Progress Photo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Front</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Side</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Back</div></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📝 Notes — Month 4</div>
+    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
+      <div class="notes-lines"><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div></div>
+    </div>
+    <div class="month-divider"></div>
+
+    <div class="month-header">
+      <div class="month-title">Month 5</div>
+      <div class="month-fields">
+        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">📏 Measurements</div>
+    <div class="measure-grid" style="gap:6px;margin:8px 0">
+      <div class="measure-box" style="padding:8px 10px"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
+      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">🩺 Key Symptoms — Rate 0–5</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
+        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
+        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">🌙 Cycle — Month 5</div>
+    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
+      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
+      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📸 Progress Photo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Front</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Side</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Back</div></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📝 Notes — Month 5</div>
+    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
+      <div class="notes-lines"><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div></div>
+    </div>
+    <div class="month-divider"></div>
+
+    <div class="month-header">
+      <div class="month-title">Month 6</div>
+      <div class="month-fields">
+        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
+        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">📏 Measurements</div>
+    <div class="measure-grid" style="gap:6px;margin:8px 0">
+      <div class="measure-box" style="padding:8px 10px"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
+      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
+      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:12px">🩺 Key Symptoms — Rate 0–5</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
+        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
+        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
+        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
+      </div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">🌙 Cycle — Month 6</div>
+    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
+      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
+      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📸 Progress Photo</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Front</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Side</div></div>
+      <div class="photo-box" style="height:100px"><div class="ph-icon" style="font-size:22px;opacity:0.3">📷</div><div class="ph-label">Back</div></div>
+    </div>
+
+    <div class="sub-head" style="margin-top:10px">📝 Notes — Month 6</div>
+    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
+      <div class="notes-lines"><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div><div class="note-line">&nbsp;</div></div>
+    </div>
+    
+</div>
 
 <!-- ══════════════════════════════════════
      6-MONTH PROGRESS SUMMARY
@@ -480,98 +801,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--char);
 
 </div><!-- end page -->
 
-<script>
-const customerName = "{{customer_name}}";
-const mobile = "{{mobile_number}}";
 
-// Build watermark
-(function buildWatermark(){
-  const o = document.getElementById('wmOverlay');
-  if(!o) return;
-  const t = "  " + mobile + "  ·  EliteRoadMaps  ·  " + mobile + "  ·  EliteRoadMaps  ·  " + mobile + "  ";
-  for(let i=0;i<20;i++){
-    const d=document.createElement('div');
-    d.className='wm-line';
-    d.textContent=t;
-    d.style.top=(i*110-80)+'px';
-    d.style.left='-40%';
-    o.appendChild(d);
-  }
-})();
-
-// Build months 2-6 dynamically (same structure, compact)
-(function buildMonths(){
-  const container = document.getElementById('months-2-6');
-  const months = ['Month 2','Month 3','Month 4','Month 5','Month 6'];
-  
-  months.forEach((month, idx) => {
-    const num = idx + 2;
-    container.innerHTML += `
-    <div class="month-header">
-      <div class="month-title">${month}</div>
-      <div class="month-fields">
-        <div class="mf-item"><label>Month / Year</label><span class="mf-val">&nbsp;</span></div>
-        <div class="mf-item"><label>Cycle Day</label><span class="mf-val">&nbsp;</span></div>
-        <div class="mf-item"><label>Overall Feeling</label><span class="mf-val">&nbsp;</span></div>
-      </div>
-    </div>
-
-    <div class="sub-head" style="margin-top:18px">📏 Measurements</div>
-    <div class="measure-grid">
-      <div class="measure-box"><div class="m-icon">⚖️</div><span class="m-label">Weight</span><span class="m-val">&nbsp;</span><span class="m-unit">kg</span></div>
-      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Waist</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
-      <div class="measure-box"><div class="m-icon">📐</div><span class="m-label">Hips</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
-      <div class="measure-box"><div class="m-icon">📊</div><span class="m-label">Waist:Hip</span><span class="m-val">&nbsp;</span><span class="m-unit">ratio</span></div>
-      <div class="measure-box"><div class="m-icon">💪</div><span class="m-label">Arm</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
-      <div class="measure-box"><div class="m-icon">🦵</div><span class="m-label">Thigh</span><span class="m-val">&nbsp;</span><span class="m-unit">cm</span></div>
-      <div class="measure-box"><div class="m-icon">⚡</div><span class="m-label">Energy</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
-      <div class="measure-box"><div class="m-icon">😊</div><span class="m-label">Mood</span><span class="m-val">&nbsp;</span><span class="m-unit">score /10</span></div>
-    </div>
-
-    <div class="sub-head" style="margin-top:18px">🩺 Key Symptoms — Rate 0–5</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
-      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
-        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Thyroid &amp; PCOS</div>
-        <div class="sym-item"><div class="chk"></div>Fatigue<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Hair loss<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Acne<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Irregular periods<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Bloating<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Brain fog<span class="sym-rate">0–5: __</span></div>
-      </div>
-      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px">
-        <div style="font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--plum);margin-bottom:10px">Insulin &amp; Cortisol</div>
-        <div class="sym-item"><div class="chk"></div>Sugar cravings<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Belly fat<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Anxiety<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Poor sleep<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Energy crashes<span class="sym-rate">0–5: __</span></div>
-        <div class="sym-item"><div class="chk"></div>Mood swings<span class="sym-rate">0–5: __</span></div>
-      </div>
-    </div>
-
-    <div class="sub-head" style="margin-top:16px">🌙 Cycle — ${month}</div>
-    <div style="font-size:12.5px;color:var(--char);background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 18px;line-height:2.2">
-      Cycle length: ___ days &nbsp;|&nbsp; Period start: Day ___ &nbsp;|&nbsp; Duration: ___ days &nbsp;|&nbsp; Flow: Light / Medium / Heavy<br>
-      Ovulation signs: Yes / No / Unsure &nbsp;|&nbsp; PMS symptoms: ________________________
-    </div>
-
-    <div class="sub-head" style="margin-top:16px">📸 Progress Photo</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0">
-      <div class="photo-box" style="height:120px"><div class="ph-icon">📸</div><div class="ph-label">Front</div></div>
-      <div class="photo-box" style="height:120px"><div class="ph-icon">📸</div><div class="ph-label">Side</div></div>
-      <div class="photo-box" style="height:120px"><div class="ph-icon">📸</div><div class="ph-label">Back</div></div>
-    </div>
-
-    <div class="sub-head" style="margin-top:16px">📝 Notes — ${month}</div>
-    <div class="notes-box"><span class="notes-label">Wins / improvements / what changed</span>
-      <div class="notes-lines"><div class="note-line"></div><div class="note-line"></div><div class="note-line"></div></div>
-    </div>
-
-    ${num < 6 ? '<div class="month-divider"></div>' : ''}
-    `;
-  });
-})();
-</script>
 </body>
 </html>
