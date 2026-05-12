@@ -1,5 +1,5 @@
 import express from "express";
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 import fs from "fs";
 import path from "path";
 import { createRequire } from "module";
@@ -11,41 +11,18 @@ const JSZip = require("jszip");
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 
-// ─── Find Chrome ──────────────────────────────────────────────
-function findChromeExecutable() {
-  const base = "/opt/render/project/.chrome";
-
-  function walk(dir) {
-    if (!fs.existsSync(dir)) return null;
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        const found = walk(full);
-        if (found) return found;
-      }
-      if (entry.isFile() && entry.name === "chrome") {
-        return full;
-      }
-    }
-    return null;
-  }
-
-  return walk(base);
-}
-
 // ─── Launch browser ───────────────────────────────────────────
 async function launchBrowser() {
-  const executablePath = findChromeExecutable();
-  if (!executablePath) {
-    throw new Error("Chrome executable not found in /opt/render/project/.chrome");
-  }
   return await puppeteer.launch({
-    executablePath,
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage"
+    ]
   });
 }
+
 
 // ─── Generate one PDF from a template ────────────────────────
 async function renderTemplateToPdf(browser, templatePath, data, landscape = false) {
