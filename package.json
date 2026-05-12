@@ -4,7 +4,7 @@
   "type": "module",
   "main": "server.js",
  "scripts": {
-  "build": "npm install && npx puppeteer browsers install chrome@stable --force",
+  "build": "npm install && npx puppeteer browsers install chrome@127.0.6533.88 --force",
   "start": "node server.js"
 },
   "engines": {
