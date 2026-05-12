@@ -3,7 +3,6 @@ import puppeteer from "puppeteer";
 import fs from "fs";
 import path from "path";
 import { createRequire } from "module";
-process.env.PUPPETEER_CACHE_DIR = "/opt/render/.cache/puppeteer";
 // JSZip for bundling multiple PDFs into a zip
 const require = createRequire(import.meta.url);
 const JSZip = require("jszip");
@@ -13,10 +12,9 @@ app.use(express.json({ limit: "10mb" }));
 
 // ─── Launch browser ───────────────────────────────────────────
 async function launchBrowser() {
-  console.log("Chrome path:", puppeteer.executablePath());
+  console.log("Puppeteer executable path:", puppeteer.executablePath());
 
   return await puppeteer.launch({
-    executablePath: puppeteer.executablePath(),
     headless: true,
     args: [
       "--no-sandbox",
