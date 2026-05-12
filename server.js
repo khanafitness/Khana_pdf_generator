@@ -12,8 +12,6 @@ app.use(express.json({ limit: "10mb" }));
 
 // ─── Launch browser ───────────────────────────────────────────
 async function launchBrowser() {
-  console.log("Puppeteer executable path:", puppeteer.executablePath());
-
   return await puppeteer.launch({
     headless: true,
     args: [
