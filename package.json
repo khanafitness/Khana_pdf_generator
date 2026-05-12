@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
- "scripts": {
-  "build": "npm install && npx puppeteer browsers install chrome@127.0.6533.88 --force",
+"scripts": {
+  "build": "npm install && npx puppeteer browsers install chrome@127.0.6533.88 --path ./chrome --force",
   "start": "node server.js"
 },
   "engines": {
