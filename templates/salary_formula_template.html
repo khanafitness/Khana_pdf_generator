@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Salary Formula — EliteRoadMaps</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════
+   RESET & ROOT
+══════════════════════════════════ */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --amber:  #BA7517;
+  --black:  #0D0D0D;
+  --white:  #FAFAF8;
+  --gray:   #777;
+  --border: #DCDCDC;
+  --light:  #F5F5F3;
+  --b1: #1565C0;
+  --b2: #2E7D32;
+  --b3: #E65100;
+  --b4: #880E4F;
+  --b5: #4A148C;
+}
+
+body {
+  background: #CCCCCC;
+  font-family: 'Source Sans 3', Georgia, sans-serif;
+  font-size: 11pt;
+  color: var(--black);
+}
+
+/* ══════════════════════════════════
+   PAGE SHELL
+══════════════════════════════════ */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--white);
+  margin: 10mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  @page { size: A4; margin: 0; }
+}
+
+/* ══════════════════════════════════
+   WATERMARK
+══════════════════════════════════ */
+.wm {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.wm-inner {
+  position: absolute;
+  top: -60%; left: -60%;
+  width: 220%; height: 220%;
+  transform: rotate(-35deg);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.wm-row {
+  display: flex;
+  gap: 44px;
+  white-space: nowrap;
+}
+.wm-row span {
+  font-size: 8pt;
+  color: #000;
+  opacity: 0.055;
+  letter-spacing: 0.8px;
+}
+
+/* ══════════════════════════════════
+   INNER PAGE HEADER + FOOTER
+══════════════════════════════════ */
+.ph {
+  background: var(--black);
+  height: 10mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+.ph-brand {
+  font-size: 8pt; font-weight: 700;
+  color: var(--amber); letter-spacing: 2px; text-transform: uppercase;
+}
+.ph-title {
+  font-size: 8pt; color: #555; letter-spacing: 0.3px;
+}
+
+.pf {
+  background: var(--amber);
+  height: 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+.pf-text { font-size: 7pt; color: rgba(255,255,255,0.85); }
+.pf-num  { font-size: 8pt; font-weight: 700; color: white; }
+
+/* ══════════════════════════════════
+   PAGE BODY
+══════════════════════════════════ */
+.pb {
+  padding: 10mm 14mm 8mm;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* ══════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════ */
+p { margin-bottom: 3mm; font-size: 11pt; line-height: 1.75; text-align: justify; }
+p.i  { font-style: italic; color: #444; }
+p.b  { font-weight: 700; }
+p.c  { text-align: center; }
+
+.sec-lbl {
+  font-size: 8.5pt; font-weight: 700; color: var(--amber);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 3mm; margin-top: 5mm;
+  padding-bottom: 2mm; border-bottom: 1px solid var(--border);
+}
+.sec-h {
+  font-size: 13pt; font-weight: 700; color: var(--black);
+  margin-top: 5mm; margin-bottom: 3mm; line-height: 1.3;
+}
+.rule { height: 1px; background: var(--border); margin: 4mm 0; }
+
+/* ══════════════════════════════════
+   CHAPTER HEADER
+══════════════════════════════════ */
+.ch {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 1px solid var(--border);
+}
+.ch-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 68pt; font-weight: 900;
+  color: #EBEBEB; line-height: 0.85;
+  flex-shrink: 0; margin-top: -2px;
+}
+.ch-lt {
+  border-left: 3px solid var(--amber);
+  padding-left: 11px; padding-top: 5px;
+}
+.ch-lbl {
+  font-size: 8pt; font-weight: 700; color: var(--amber);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt; font-weight: 700; color: var(--black); line-height: 1.1;
+}
+
+/* ══════════════════════════════════
+   CALLOUT
+══════════════════════════════════ */
+.box {
+  border: 1px solid var(--amber);
+  padding: 4mm 5mm; margin: 4mm 0;
+  background: var(--white);
+}
+.box p { margin: 0; font-weight: 600; text-align: left; }
+
+/* ══════════════════════════════════
+   TWO-COL TABLE
+══════════════════════════════════ */
+.tc { display:grid; grid-template-columns:1fr 1fr; border:0.5px solid var(--border); margin:3mm 0; }
+.tc-h { background:#F0F0EE; padding:3mm 4mm; font-size:10pt; font-weight:700; border-bottom:1px solid var(--border); }
+.tc-c { padding:3mm 4mm; font-size:10.5pt; line-height:1.6; border-bottom:0.5px solid var(--border); border-right:0.5px solid var(--border); }
+.tc-c:nth-child(even) { border-right:none; }
+
+/* ══════════════════════════════════
+   FINANCE TABLE
+══════════════════════════════════ */
+.ft { width:100%; border-collapse:collapse; margin:3mm 0; font-size:10.5pt; }
+.ft thead tr { background:#EFEFED; }
+.ft thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; letter-spacing:0.3px; border-bottom:1px solid var(--border); }
+.ft thead th:last-child { text-align:left; }
+.ft tbody tr:nth-child(even) { background:#FAFAF8; }
+.ft tbody td { padding:2.5mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; }
+.ft tbody td:last-child { text-align:right; font-weight:600; white-space:nowrap; }
+.ft.no-last-right tbody td:last-child { text-align:left; font-weight:400; white-space:normal; }
+.ft .tot td { background:#FFF8EE; border-top:1px solid var(--amber); font-weight:700; }
+.ft .tot td:last-child { text-align:right; }
+
+/* ══════════════════════════════════
+   EXAMPLE HEADER
+══════════════════════════════════ */
+.ex-h {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:3mm 4mm;
+  border-top:1.5px solid var(--black); border-bottom:1.5px solid var(--black);
+  margin-top:5mm;
+}
+.ex-tag  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:1.5px; text-transform:uppercase; }
+.ex-name { font-size:11pt; font-weight:700; }
+.ex-note { background:var(--light); padding:2.5mm 4mm; font-size:10pt; font-style:italic; color:#444; border-bottom:0.5px solid var(--border); margin-bottom:3mm; line-height:1.6; }
+
+/* ══════════════════════════════════
+   STEP CARD
+══════════════════════════════════ */
+.step { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; background:var(--light); }
+.step-l { width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; padding:4mm 0; }
+.step-sl { font-size:6.5pt; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; }
+.step-sn { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; line-height:1; }
+.step-r { padding:4mm 5mm; flex:1; }
+.step-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:1mm; }
+.step-tm { font-size:9pt; color:var(--amber); font-style:italic; margin-bottom:2mm; }
+.step-d { font-size:10.5pt; color:#333; line-height:1.65; margin:0; text-align:left; }
+
+/* ══════════════════════════════════
+   BUCKET ROW
+══════════════════════════════════ */
+.brow { display:flex; align-items:center; border:0.5px solid var(--border); margin-bottom:2mm; background:white; }
+.brow-l { width:44px; display:flex; align-items:center; justify-content:center; align-self:stretch; flex-shrink:0; min-height:48px; }
+.brow-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:white; }
+.brow-m { flex:1; padding:3mm 4mm; }
+.brow-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
+.brow-sub { font-size:9.5pt; color:var(--gray); margin-top:1px; }
+.brow-r { width:88px; padding:3mm 4mm; border-left:0.5px solid var(--border); }
+.brow-rs { font-size:10pt; color:#AAA; margin-bottom:6px; }
+.brow-line { height:1px; background:#BBB; }
+.brow.tot { background:#FFF8EE; border-color:var(--amber); border-width:1px; }
+.brow.tot .brow-line { background:var(--amber); }
+
+/* ══════════════════════════════════
+   ACCOUNT CARD
+══════════════════════════════════ */
+.acc { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; }
+.acc-l { width:70px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; gap:2px; padding:4mm 0; }
+.acc-lw { font-size:8pt; font-weight:700; color:white; letter-spacing:0.5px; }
+.acc-ln { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; }
+.acc-r { flex:1; padding:4mm 5mm; background:var(--light); }
+.acc-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:2mm; }
+.acc-d { font-size:10.5pt; color:#333; line-height:1.65; margin:0; text-align:left; }
+
+/* ══════════════════════════════════
+   SPLIT TABLE
+══════════════════════════════════ */
+.spl { display:grid; grid-template-columns:1fr 1fr; margin:3mm 0; }
+.spl-c { padding:4mm 5mm; border:0.5px solid var(--border); }
+.spl-c.g { background:#F1F8F1; }
+.spl-c.b { background:#EFF4FC; }
+.spl-h { font-size:11pt; font-weight:700; margin-bottom:2mm; }
+.spl-b { font-size:10.5pt; line-height:1.6; color:#333; }
+.spl-f { font-size:9pt; color:var(--gray); margin-top:2mm; font-style:italic; }
+
+/* ══════════════════════════════════
+   RAISE TABLE
+══════════════════════════════════ */
+.rt { width:100%; border-collapse:collapse; margin:3mm 0; font-size:10.5pt; }
+.rt thead tr { background:#EFEFED; }
+.rt thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; border-bottom:1px solid var(--border); }
+.rt tbody tr:nth-child(even) { background:#FAFAF8; }
+.rt tbody td { padding:3mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; }
+
+/* ══════════════════════════════════
+   WORKSHEET
+══════════════════════════════════ */
+.ws-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:4mm 0; }
+.ws-f { border:1px solid var(--border); border-radius:2px; }
+.ws-fl { background:#EFEFED; padding:2mm 3mm; font-size:8.5pt; font-weight:700; color:#555; border-bottom:0.5px solid var(--border); }
+.ws-fi { padding:3mm 3mm 2mm; display:flex; align-items:flex-end; gap:5px; height:11mm; }
+.ws-rs { font-size:10pt; color:#AAA; }
+.ws-ln { flex:1; border-bottom:1px solid var(--border); }
+
+/* ══════════════════════════════════
+   CHECKLIST
+══════════════════════════════════ */
+.cl { list-style:none; margin:3mm 0; }
+.cl li { display:flex; align-items:flex-start; gap:10px; padding:3mm 0; border-bottom:0.5px solid #F0F0F0; font-size:11pt; line-height:1.5; }
+.cl li:last-child { border-bottom:none; }
+.cb { width:16px; height:16px; border:1.5px solid var(--black); flex-shrink:0; margin-top:2px; }
+
+/* ══════════════════════════════════
+   CTA BOX
+══════════════════════════════════ */
+.cta { border:1px solid var(--amber); padding:5mm 6mm; margin:4mm 0; background:white; }
+.cta p { margin:0 0 2mm; font-size:11pt; text-align:left; }
+.cta-link { font-size:12pt; font-weight:700; color:var(--amber); margin-top:3mm !important; }
+
+/* ══════════════════════════════════
+   COVER PAGE — self-contained
+══════════════════════════════════ */
+.cover-page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  margin: 10mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+@media print {
+  .cover-page { margin:0; box-shadow:none; page-break-after:always; }
+}
+.cover-topbar {
+  background: var(--black); height: 11mm;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 14mm; flex-shrink:0; z-index:2; position:relative;
+}
+.cover-topbar-brand { font-size:9pt; font-weight:700; color:var(--amber); letter-spacing:2.5px; text-transform:uppercase; }
+.cover-topbar-logo  { font-size:8pt; color:#444; border:1px solid #333; padding:2px 8px; letter-spacing:1px; }
+.cover-main {
+  flex:1; display:grid; grid-template-columns:90mm 1fr;
+  min-height:0; position:relative; z-index:2;
+}
+.cover-left {
+  padding:9mm 9mm 7mm 14mm;
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+}
+.cover-right {
+  padding:9mm 14mm 7mm 9mm;
+  display:flex; flex-direction:column;
+}
+.cover-series {
+  font-size:8pt; font-weight:600; color:var(--gray);
+  letter-spacing:3px; text-transform:uppercase; margin-bottom:4mm;
+}
+.cover-title {
+  font-family:'Playfair Display',serif; font-size:38pt; font-weight:900;
+  color:var(--black); line-height:1.0; letter-spacing:-0.5px; margin-bottom:3mm;
+}
+.cover-title em { font-style:normal; position:relative; display:inline-block; }
+.cover-title em::after { content:''; display:block; height:4px; background:var(--amber); margin-top:2px; }
+.cover-subtitle {
+  font-size:10pt; font-weight:700; color:var(--amber);
+  letter-spacing:0.8px; text-transform:uppercase;
+  margin-bottom:5mm; line-height:1.5;
+}
+.cover-rule { height:1px; background:var(--border); margin-bottom:4mm; }
+.cover-slbl { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3mm; }
+.cover-about { font-size:10.5pt; color:var(--black); line-height:1.8; margin-bottom:4mm; }
+.cover-chs { list-style:none; display:flex; flex-direction:column; gap:3px; flex:1; }
+.cover-chs li { display:flex; align-items:center; gap:8px; padding:3px 0; border-bottom:1px solid #F0F0F0; }
+.cover-chs li:last-child { border-bottom:none; }
+.ch-badge { width:18px; height:18px; background:var(--black); color:white; font-size:8pt; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ch-badge.am { background:var(--amber); }
+.ch-nm { font-size:10.5pt; color:var(--black); line-height:1.3; }
+.cover-bkt-lbl { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:4mm; }
+.cover-bkts { display:flex; flex-direction:column; gap:5px; margin-bottom:auto; }
+.cv-bkt { display:flex; align-items:center; gap:10px; padding:8px 10px; background:white; border:0.5px solid #E0E0E0; }
+.cv-bkt-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; min-width:22px; line-height:1; }
+.cv-bkt-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
+.cv-bkt-d  { font-size:9.5pt; color:var(--gray); margin-top:1px; }
+.cover-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:5mm; }
+.cv-stat { background:var(--light); padding:8px 10px; border-top:2px solid var(--amber); }
+.cv-stat-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:var(--black); line-height:1; }
+.cv-stat-l { font-size:8.5pt; color:var(--gray); margin-top:3px; line-height:1.3; }
+.cover-prep {
+  background:var(--black); padding:5mm 14mm;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-shrink:0; z-index:2; position:relative;
+}
+.prep-lbl  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px; }
+.prep-name { font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:white; line-height:1.1; }
+.prep-con  { font-size:10.5pt; color:#666; margin-top:2px; }
+.prep-tag  { font-size:10pt; color:#666; font-style:italic; line-height:1.9; text-align:right; white-space:nowrap; }
+.cover-bot {
+  background:var(--amber); height:8mm;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 14mm; flex-shrink:0; z-index:2; position:relative;
+}
+.cover-bot span { font-size:8pt; color:rgba(255,255,255,0.9); letter-spacing:0.3px; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════════════════════ -->
+<div class="cover-page">
+  <div class="wm"><div class="wm-inner">
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+  </div></div>
+
+  <div class="cover-topbar">
+    <span class="cover-topbar-brand">EliteRoadMaps.in</span>
+    <span class="cover-topbar-logo">[ YOUR LOGO ]</span>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-left">
+      <p class="cover-series">Personal Finance Education Series</p>
+      <div class="cover-title">The Salary<br><em>Formula</em></div>
+      <p class="cover-subtitle">The Complete Guide on the Right Way<br>to Spending and Saving</p>
+      <div class="cover-rule"></div>
+      <p class="cover-slbl">About This Guide</p>
+      <p class="cover-about">Your salary has a leak. This guide teaches you the exact formula — where every rupee should go, so you spend all month without worry, guilt, or running out.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-slbl">What You Will Learn</p>
+      <ul class="cover-chs">
+        <li><div class="ch-badge">1</div><span class="ch-nm">Why Your Salary Disappears</span></li>
+        <li><div class="ch-badge">2</div><span class="ch-nm">The Payday Ritual</span></li>
+        <li><div class="ch-badge">3</div><span class="ch-nm">The Salary Split Formula</span></li>
+        <li><div class="ch-badge">4</div><span class="ch-nm">The 3 Accounts Every Indian Must Have</span></li>
+        <li><div class="ch-badge">5</div><span class="ch-nm">Guilt-Free Spending</span></li>
+        <li><div class="ch-badge">6</div><span class="ch-nm">The Raise Protocol</span></li>
+        <li><div class="ch-badge am">✦</div><span class="ch-nm">My Salary Split Sheet</span></li>
+      </ul>
+    </div>
+    <div class="cover-right">
+      <p class="cover-bkt-lbl">The 5 Bucket Formula</p>
+      <div class="cover-bkts">
+        <div class="cv-bkt" style="border-left:3px solid var(--b1)"><span class="cv-bkt-n" style="color:var(--b1)">1</span><div><div class="cv-bkt-nm">Fixed Obligations</div><div class="cv-bkt-d">Rent, EMI, family, bills, groceries</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid var(--b2)"><span class="cv-bkt-n" style="color:var(--b2)">2</span><div><div class="cv-bkt-nm">Invest</div><div class="cv-bkt-d">SIP, PPF, NPS — before you see it</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid var(--b3)"><span class="cv-bkt-n" style="color:var(--b3)">3</span><div><div class="cv-bkt-nm">Remaining Essentials</div><div class="cv-bkt-d">Transport, medicine, household</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid var(--b4)"><span class="cv-bkt-n" style="color:var(--b4)">4</span><div><div class="cv-bkt-nm">Fixed Lifestyle</div><div class="cv-bkt-d">Netflix, salon, gym, eating out</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid var(--b5)"><span class="cv-bkt-n" style="color:var(--b5)">5</span><div><div class="cv-bkt-nm">Flexible Spending</div><div class="cv-bkt-d">Yours freely — when empty, stop</div></div></div>
+      </div>
+      <div class="cover-stats">
+        <div class="cv-stat"><div class="cv-stat-n">6</div><div class="cv-stat-l">Chapters of practical system</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">45</div><div class="cv-stat-l">Minutes to read completely</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">1</div><div class="cv-stat-l">Evening to set it up for life</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-prep">
+    <div>
+      <div class="prep-lbl">Prepared For</div>
+      <div class="prep-name">{{CUSTOMER_NAME}}</div>
+      <div class="prep-con">{{MOBILE_NO}} &nbsp;|&nbsp; {{EMAIL}}</div>
+    </div>
+    <div class="prep-tag">
+      Read once. Set up in one evening. Use for life.<br>
+      Real problems. Self-built systems. Packaged so you never need a coach.
+    </div>
+  </div>
+
+  <div class="cover-bot">
+    <span>https://eliteroadmaps.in/finance/salaryplan/salaryformula</span>
+    <span>EliteRoadMaps.in — Finance — Salary Plan</span>
+  </div>
+</div>
+
+<!-- WATERMARK MACRO — reused on every inner page -->
+<!-- wm-block start -->
+<template id="wm-tpl">
+  <div class="wm"><div class="wm-inner">
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
+  </div></div>
+</template>
+<script>
+  // Inject watermark into every .page div
+  document.addEventListener('DOMContentLoaded',function(){
+    var tpl = document.getElementById('wm-tpl');
+    document.querySelectorAll('.page').forEach(function(p){
+      p.insertBefore(tpl.content.cloneNode(true), p.firstChild);
+    });
+  });
+</script>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 2 — INTRODUCTION
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-lt">
+        <div class="ch-lbl">Introduction</div>
+        <div class="ch-title">A Note From Asha</div>
+      </div>
+    </div>
+    <p class="i">I'm Asha. Software engineer.</p>
+    <p>Like most people I knew — engineers, teachers, designers, bankers — I was earning a decent salary and had almost nothing saved. We were all in the same situation. Comparing notes at lunch, laughing nervously about how the month just disappears.</p>
+    <p class="b">Nobody had a system. Nobody was taught one.</p>
+    <p>So I built one. A simple formula to calculate exactly where every rupee goes — so you spend all month without worry, guilt, or running out.</p>
+    <p class="i">This guide is me handing it to you.</p>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">2</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 3 — CHAPTER 1
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">1</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter One</div>
+        <div class="ch-title">Why Your Salary Disappears</div>
+      </div>
+    </div>
+    <p class="i">You didn't buy anything crazy this month. No new phone. No big trip. No major splurge.</p>
+    <p class="i">And yet — it's the 22nd and you're already watching your balance.</p>
+    <div class="sec-h">UPI Killed the Pause</div>
+    <p>Ten years ago spending had friction. ATM, cash, physically handing it over. That 2 minute process was annoying — but it was also your brain catching up with your wallet.</p>
+    <p>UPI removed all of it. Rs.799 for a subscription. Rs.1,200 split on Swiggy. Rs.340 at the medical store. Each one feels like nothing. Your thumb moves faster than your brain. By the time you notice, the month is over.</p>
+    <div class="box"><p>This isn't a willpower problem. The system was designed to make spending invisible.</p></div>
+    <div class="sec-h">The Obligation Layer Nobody Talks About</div>
+    <p>Every Indian salary has two parts — what's yours and what's already spoken for before you even open your app. Rent. EMI. Money home to parents. Building maintenance. Society obligations.</p>
+    <div class="tc">
+      <div class="tc-h">Tier 1 City</div><div class="tc-h">Tier 2 City</div>
+      <div class="tc-c">Mumbai, Bangalore, Delhi</div><div class="tc-c">Indore, Jaipur, Lucknow, Nagpur</div>
+      <div class="tc-c">Rent eats 40–50% of take-home before you even start</div><div class="tc-c">Lower rent but family obligations often higher</div>
+    </div>
+    <div class="sec-h">So What Happens?</div>
+    <p>You spend on guesswork. Some months you're okay. Some months you're not. Always wondering if you'll make it to the next payday.</p>
+    <p class="b">That's not a you problem. That's a missing system problem.</p>
+    <div class="box"><p><em>This guide fixes that.</em></p></div>
+  </div>
+  <div class="pf"><span class="pf-text">UPI makes overspending invisible. This formula makes your money visible.</span><span class="pf-num">3</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 4 — CHAPTER 2
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">2</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Two</div>
+        <div class="ch-title">The Payday Ritual</div>
+      </div>
+    </div>
+    <p class="i">Most people do the same thing on salary day. Check the notification. Feel good. Open Swiggy. No plan. The month just happens to them.</p>
+    <p class="i">Here's what to do instead — in the first 2 hours after your salary hits.</p>
+    <div class="step"><div class="step-l" style="background:var(--b2)"><span class="step-sl">Step</span><span class="step-sn">1</span></div><div class="step-r"><div class="step-t">Invest Before You See It</div><div class="step-tm">First 10 minutes</div><p class="step-d">The moment salary hits, your SIP should already be moving. Set it up once as auto-debit on your salary date. You never see that money. You never miss it. This is the single most important step.</p></div></div>
+    <div class="step"><div class="step-l" style="background:var(--b1)"><span class="step-sl">Step</span><span class="step-sn">2</span></div><div class="step-r"><div class="step-t">Move Your Fixed Obligations</div><div class="step-tm">Next 20 minutes</div><p class="step-d">Rent due? Transfer it now. Money to send home? Send it now. EMI auto-debiting tomorrow? Make sure the account has it. Don't wait. Later is how money disappears.</p></div></div>
+    <div class="step"><div class="step-l" style="background:var(--b3)"><span class="step-sl">Step</span><span class="step-sn">3</span></div><div class="step-r"><div class="step-t">Fill Your Buckets</div><div class="step-tm">Next 30 minutes</div><p class="step-d">Take what remains and split across your buckets — essentials, emergency top-up, lifestyle. Chapter 3 gives you the exact formula. Ten minutes maximum.</p></div></div>
+    <div class="step"><div class="step-l" style="background:var(--b5)"><span class="step-sl">Step</span><span class="step-sn">4</span></div><div class="step-r"><div class="step-t">The One Rule for the Rest of the Month</div><div class="step-tm">All month</div><p class="step-d">Spend freely from your lifestyle bucket. When it is empty — stop. Not because you're strict. Because the rest is already working for you. No guilt. No mental math.</p></div></div>
+    <p class="i" style="margin-top:4mm;">The whole ritual takes 2 hours maximum. Most of it is just transfers. You do this once a month. That's it.</p>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">4</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 5 — CHAPTER 3: THE FORMULA
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">3</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Three</div>
+        <div class="ch-title">The Salary Split Formula</div>
+      </div>
+    </div>
+    <p class="i">Every money problem has the same root cause. No one told you what to do with your salary the moment it arrived. So it just got spent. This chapter fixes that. Permanently.</p>
+    <p>The formula has 5 buckets. Every rupee of your salary belongs to exactly one of them.</p>
+    <div style="margin:4mm 0;">
+      <div class="brow"><div class="brow-l" style="background:var(--b1)"><span class="brow-n">1</span></div><div class="brow-m"><div class="brow-nm">Fixed Obligations</div><div class="brow-sub">Rent, EMI, family, bills, groceries — paid first, always</div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b2)"><span class="brow-n">2</span></div><div class="brow-m"><div class="brow-nm">Invest</div><div class="brow-sub">SIP, PPF, NPS — auto-debit on payday, before you see it</div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b3)"><span class="brow-n">3</span></div><div class="brow-m"><div class="brow-nm">Remaining Essentials</div><div class="brow-sub">Transport, medicine, household — necessary but variable</div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b4)"><span class="brow-n">4</span></div><div class="brow-m"><div class="brow-nm">Fixed Lifestyle</div><div class="brow-sub">Netflix, salon, gym, eating out — predictable, guilt-free</div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b5)"><span class="brow-n">5</span></div><div class="brow-m"><div class="brow-nm">Flexible Spending</div><div class="brow-sub">Spontaneous, mood-driven, yours — when empty, month is done</div></div></div>
+    </div>
+    <div class="box"><p><strong>Bucket 5 is calculated last</strong> — it's whatever remains after the first four. It's your reward for getting the first four right.</p></div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">5</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 6 — HOW TO CALCULATE EACH BUCKET
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Three Continued — How to Calculate Each Bucket</div>
+    <p style="margin-bottom:4mm;">Use your last month's bank statement. Be honest — a number you never look at is still a number you always spend.</p>
+    <table class="ft no-last-right" style="table-layout:fixed; width:100%;">
+      <thead><tr><th style="width:44mm;">Bucket</th><th>How to calculate</th></tr></thead>
+      <tbody>
+        <tr><td>1&nbsp; Fixed Obligations</td><td>Add every fixed bill from last month — rent, EMI, family transfer, electricity, phone, groceries</td></tr>
+        <tr><td>2&nbsp; Invest</td><td>Take-home x 10% minimum. Push toward 20% as salary grows. Set as auto-debit — not a manual transfer.</td></tr>
+        <tr><td>3&nbsp; Remaining Essentials</td><td>Last 3 months average of variable spending, or take-home x 8%</td></tr>
+        <tr><td>4&nbsp; Fixed Lifestyle</td><td>List every recurring lifestyle expense. Add them up. Be honest — if you eat out every week, that is fixed lifestyle, not flexible.</td></tr>
+        <tr><td>5&nbsp; Flexible Spending</td><td>Take-home minus Buckets 1, 2, 3, 4. This is yours. Spend without a second of guilt.</td></tr>
+      </tbody>
+    </table>
+    <p class="i" style="margin-top:5mm;">The first month will feel strange. Some buckets too small, some too big. That's normal. Adjust each month. The formula is your starting point — your life shapes the exact numbers.</p>
+    <div class="box" style="margin-top:5mm;"><p>Not sure how much to invest given your rent and obligations? The EliteRoadMaps Salary Calculator takes your exact numbers and tells you the right amount for each bucket.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</strong></p></div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">6</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 7 — EXAMPLE: PRIYA
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Three — Real Numbers. Real People.</div>
+    <p style="margin-bottom:3mm;">Four examples showing exactly how the formula works. Find the one closest to your situation.</p>
+    <div class="ex-h"><span class="ex-tag">Tight Budget — Tier 1</span><span class="ex-name">Priya — Rs.35,000 take-home — Bangalore</span></div>
+    <table class="ft"><thead><tr><th style="width:52mm;">Bucket</th><th>What's inside</th><th style="width:26mm;">Amount</th></tr></thead><tbody>
+      <tr><td>1&nbsp; Fixed Obligations</td><td>Rent Rs.12K + groceries Rs.3K + electricity Rs.800 + phone Rs.399 + family Rs.2K</td><td>Rs.18,200</td></tr>
+      <tr><td>2&nbsp; Invest</td><td>SIP — starting small, staying consistent</td><td>Rs.3,500</td></tr>
+      <tr><td>3&nbsp; Essentials</td><td>Metro + auto + medicine</td><td>Rs.2,800</td></tr>
+      <tr><td>4&nbsp; Fixed Lifestyle</td><td>Salon Rs.800 + Netflix Rs.299</td><td>Rs.1,100</td></tr>
+      <tr><td>5&nbsp; Flexible</td><td>Yours freely</td><td>Rs.9,400</td></tr>
+      <tr class="tot"><td colspan="2">Take-home</td><td>Rs.35,000</td></tr>
+    </tbody></table>
+    <div class="ex-note">Priya's rent eats more than half her obligations. She still invests Rs.3,500 every month. In 10 years at 12% — over Rs.8 lakhs. From a tight budget.</div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">7</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 8 — EXAMPLE: ROHAN
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Three — Real Numbers. Real People.</div>
+    <div class="ex-h"><span class="ex-tag">Tight Budget — Tier 2</span><span class="ex-name">Rohan — Rs.35,000 take-home — Indore</span></div>
+    <table class="ft"><thead><tr><th style="width:52mm;">Bucket</th><th>What's inside</th><th style="width:26mm;">Amount</th></tr></thead><tbody>
+      <tr><td>1&nbsp; Fixed Obligations</td><td>Rent Rs.6K + groceries Rs.3K + electricity Rs.600 + phone Rs.299 + family Rs.4K</td><td>Rs.13,900</td></tr>
+      <tr><td>2&nbsp; Invest</td><td>SIP — starting small, staying consistent</td><td>Rs.3,500</td></tr>
+      <tr><td>3&nbsp; Essentials</td><td>Bike petrol + medicine + household</td><td>Rs.2,800</td></tr>
+      <tr><td>4&nbsp; Fixed Lifestyle</td><td>Gym Rs.600 + Hotstar Rs.299 + eating out Rs.600</td><td>Rs.1,500</td></tr>
+      <tr><td>5&nbsp; Flexible</td><td>Yours freely</td><td>Rs.13,300</td></tr>
+      <tr class="tot"><td colspan="2">Take-home</td><td>Rs.35,000</td></tr>
+    </tbody></table>
+    <div class="ex-note">Same salary. Lower rent, higher family obligation. Bucket 5 is nearly Rs.4,000 more than Priya's. Tier 2 gives breathing room — if you don't fill it with new EMIs.</div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">8</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 9 — EXAMPLE: SNEHA
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Three — Real Numbers. Real People.</div>
+    <div class="ex-h"><span class="ex-tag">Lifestyle Inflation — Tier 1</span><span class="ex-name">Sneha — Rs.75,000 take-home — Mumbai</span></div>
+    <table class="ft"><thead><tr><th style="width:52mm;">Bucket</th><th>What's inside</th><th style="width:26mm;">Amount</th></tr></thead><tbody>
+      <tr><td>1&nbsp; Fixed Obligations</td><td>Rent Rs.22K + groceries Rs.5K + bills Rs.1,700 + car EMI Rs.8K + family Rs.3K</td><td>Rs.39,700</td></tr>
+      <tr><td>2&nbsp; Invest</td><td>SIP + PPF — non negotiable</td><td>Rs.7,500</td></tr>
+      <tr><td>3&nbsp; Essentials</td><td>Cab + medicine + household</td><td>Rs.5,000</td></tr>
+      <tr><td>4&nbsp; Fixed Lifestyle</td><td>Salon + Netflix + Spotify + gym + routine dining</td><td>Rs.6,000</td></tr>
+      <tr><td>5&nbsp; Flexible</td><td>Truly free, guilt free</td><td>Rs.16,800</td></tr>
+      <tr class="tot"><td colspan="2">Take-home</td><td>Rs.75,000</td></tr>
+    </tbody></table>
+    <div class="ex-note">Car EMI sits in obligations. One decision — Rs.7,500 auto-debit on payday. In 10 years at 12% — Rs.17.5 lakhs. Flexible spending still leaves Rs.16,800 guilt-free every month.</div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">9</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 10 — EXAMPLE: ARJUN
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Three — Real Numbers. Real People.</div>
+    <div class="ex-h"><span class="ex-tag">Lifestyle Inflation — Tier 2</span><span class="ex-name">Arjun — Rs.75,000 take-home — Jaipur</span></div>
+    <table class="ft"><thead><tr><th style="width:52mm;">Bucket</th><th>What's inside</th><th style="width:26mm;">Amount</th></tr></thead><tbody>
+      <tr><td>1&nbsp; Fixed Obligations</td><td>Rent Rs.10K + groceries Rs.5K + bills Rs.1,300 + bike EMI Rs.4K + family Rs.8K</td><td>Rs.28,300</td></tr>
+      <tr><td>2&nbsp; Invest</td><td>SIP + PPF — starting today</td><td>Rs.7,500</td></tr>
+      <tr><td>3&nbsp; Essentials</td><td>Petrol + medicine + household</td><td>Rs.4,000</td></tr>
+      <tr><td>4&nbsp; Fixed Lifestyle</td><td>Gym + OTTs + eating out + salon</td><td>Rs.5,000</td></tr>
+      <tr><td>5&nbsp; Flexible</td><td>Truly free, guilt free</td><td>Rs.30,200</td></tr>
+      <tr class="tot"><td colspan="2">Take-home</td><td>Rs.75,000</td></tr>
+    </tbody></table>
+    <div class="ex-note">Same salary in Jaipur — flexible spending is Rs.30,200. Nearly double Sneha's. Tier 2 advantage is real. Without the formula all of it disappears on guesswork.</div>
+    <div class="box" style="margin-top:5mm;"><p>Investing only 10%? See how much more you could be building with your exact numbers.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</strong></p></div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">10</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 11 — CHAPTER 4
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">4</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Four</div>
+        <div class="ch-title">The 3 Accounts Every Indian Must Have</div>
+      </div>
+    </div>
+    <p class="i">Most people have one bank account. Salary comes in. Everything goes out from the same place. You never know how much is safe to spend. This is the root of the anxiety.</p>
+    <p class="b">The fix — three accounts, three jobs, zero confusion.</p>
+    <div style="margin:4mm 0;">
+      <div class="acc"><div class="acc-l" style="background:var(--b1)"><span class="acc-lw">Account</span><span class="acc-ln">1</span></div><div class="acc-r"><div class="acc-t">The Salary Account</div><p class="acc-d">This is your receiving account. Salary lands here. On payday you move everything out — obligations, investments, lifestyle buckets — within 2 hours. One rule — no savings sit here. Move everything that has a job on payday. Any bank works.</p></div></div>
+      <div class="acc"><div class="acc-l" style="background:var(--b3)"><span class="acc-lw">Account</span><span class="acc-ln">2</span></div><div class="acc-r"><div class="acc-t">The Emergency Fund Account</div><p class="acc-d">Separate bank. Separate app. Slightly harder to access — intentionally. Target — 6 months of your Bucket 1 amount sitting here untouched. Only for genuine emergencies — job loss, medical crisis, family emergency. Best option — a high interest savings account or liquid mutual fund.</p></div></div>
+      <div class="acc"><div class="acc-l" style="background:var(--b2)"><span class="acc-lw">Account</span><span class="acc-ln">3</span></div><div class="acc-r"><div class="acc-t">The Investment Account</div><p class="acc-d">SIP, PPF, NPS — all auto-debited from here on payday. One rule — never link this account to UPI. The harder it is to withdraw the better. Zerodha, Groww, Kuvera — pick one, set up your SIP, forget about it.</p></div></div>
+    </div>
+    <div class="box"><p>Salary account is for <strong>spending</strong>. Emergency account is for <strong>surviving</strong>. Investment account is for <strong>growing</strong>. Never mix them.</p></div>
+  </div>
+  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">11</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 12 — CHAPTER 5 PART 1
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">5</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Five</div>
+        <div class="ch-title">Guilt-Free Spending</div>
+      </div>
+    </div>
+    <p class="i">You bought something last month and felt bad about it immediately. Not because it was wrong. Because nobody ever told you it was okay.</p>
+    <p class="i">This chapter is permission — with a system behind it.</p>
+    <div class="sec-h">The Guilt is Not About Money. It's About Uncertainty.</div>
+    <p>When you don't have a system, every purchase carries a silent question — can I actually afford this? You don't know. So you spend anyway. Then feel guilty. Or you don't spend. Then feel restricted. Both feel bad. Neither is necessary.</p>
+    <p>Once your 5 buckets are set — Bucket 4 and Bucket 5 exist specifically so you can spend without that question. The guilt disappears the moment you know the answer is already yes.</p>
+    <div class="sec-h">Bucket 4 — Your Fixed Lifestyle is Not a Guilty Pleasure</div>
+    <p>Your salon visit is not irresponsible. Your Netflix subscription is not wasteful. Your gym membership is not extravagant. Your regular Friday dinner out is not a problem. Budget for them honestly and they stop being guilt purchases. Forever.</p>
+    <div class="box"><p><strong>One rule — Bucket 4 has a hard cap.</strong> If your fixed lifestyle keeps growing every month it stops being fixed and starts being a leak. Review it every 3 months. Be honest.</p></div>
+    <div class="sec-h">The Indian Obligation Spending Nobody Budgets For</div>
+    <p>Weddings. Festivals. Family functions. Your colleague's farewell collection. Your building's Diwali fund. These feel unpredictable — but they're not really.</p>
+    <p><strong>The fix — a sinking fund.</strong> Put aside a fixed amount every month for occasions you know are coming. When the wedding arrives — the money is already there. No stress. No debt. No guilt.</p>
+  </div>
+  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">12</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 13 — CHAPTER 5 PART 2: FOR WOMEN + BUCKET 5
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Five Continued — Guilt-Free Spending</div>
+    <div class="sec-h" style="margin-top:3mm;">For Women Especially</div>
+    <p>Salon, skincare, personal care, clothes — these are not vanity expenses. They are part of how you show up in the world, feel confident, perform at work.</p>
+    <p>Every woman reading this has felt guilty about a salon visit while the men around her never think twice about their equivalent spending. That guilt is not yours to carry.</p>
+    <p>Put your personal care in Bucket 4. Give it a number. Spend it fully every month without a single explanation to anyone.</p>
+    <div class="sec-h">Bucket 5 — Your Truly Free Money</div>
+    <p>No rules. No tracking. No justification. Midnight Swiggy order — yes. Impulsive kurta from Instagram — yes. The only rule — when Bucket 5 is empty, the month is done. Not because you're being strict. Because everything else is already working for you.</p>
+    <div class="box"><p><em>A budget isn't a cage. It's the reason you can spend freely without fear.</em></p></div>
+  </div>
+  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">13</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 14 — CHAPTER 6 PART 1
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-n">6</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Six</div>
+        <div class="ch-title">The Raise Protocol</div>
+      </div>
+    </div>
+    <p class="i">You got a raise last year. Look at your savings account. Does it show it?</p>
+    <div class="box"><p>Salary is increasing every year. But savings is still the same. Where is it all going?</p></div>
+    <div class="sec-h">What Actually Happens When Salary Increases</div>
+    <p>The raise hits. First thought — relief. Second thought — upgrade. Bigger flat. Better area. New bike EMI. None of it feels like a decision. Six months later your new salary feels exactly like your old salary felt. Tight. Never quite enough.</p>
+    <p>This has a name — <strong>lifestyle inflation.</strong> And it is the single biggest reason people earning Rs.1,00,000 a month have the same savings anxiety as people earning Rs.25,000.</p>
+    <table class="rt">
+      <thead><tr><th style="width:34mm;">Salary</th><th>What usually happens</th></tr></thead>
+      <tbody>
+        <tr><td>Rs.25,000</td><td>I'll start investing properly when I earn more</td></tr>
+        <tr><td>Rs.50,000</td><td>New flat, bike EMI, better phone, eating out becomes routine</td></tr>
+        <tr><td>Rs.75,000</td><td>Car EMI, bigger flat, first credit card, international trip</td></tr>
+        <tr><td>Rs.1,00,000</td><td>Lifestyle feels normal. Loans bigger. Savings same percentage as Rs.25K.</td></tr>
+      </tbody>
+    </table>
+    <div class="sec-h">The Raise Protocol — One Rule That Changes Everything</div>
+    <div class="box"><p>Every time your salary increases — split the raise into two equal halves before you spend a single rupee of it.</p></div>
+    <div class="spl">
+      <div class="spl-c g"><div class="spl-h">50% of the raise</div><div class="spl-b">Increase your SIP immediately. Not next month. The same day.</div><div class="spl-f">Your future grows.</div></div>
+      <div class="spl-c b"><div class="spl-h">50% of the raise</div><div class="spl-b">Upgrade your lifestyle. Bigger flat, better food, nicer clothes. Guilt free.</div><div class="spl-f">Your present grows.</div></div>
+    </div>
+  </div>
+  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">14</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 15 — CHAPTER 6 PART 2: THE LOAN TRAP
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">Chapter Six Continued — The Raise Protocol</div>
+    <div class="sec-h" style="margin-top:4mm;">The Loan Trap Inside Lifestyle Inflation</div>
+    <p>Every new EMI eats directly into Bucket 2. Loans don't just cost you the interest. They cost you the wealth that money would have built sitting in an index fund for 20 years.</p>
+    <div class="box"><p><strong>Before taking any new EMI, ask one question —</strong> Does this EMI come from Bucket 5, or is it eating into Bucket 2? If it eats Bucket 2 — wait. Save up. Buy it later. Your future self will thank you.</p></div>
+    <p class="i" style="margin-top:5mm;">Lifestyle growth is not the enemy. You work hard. You should live better as you earn more. The enemy is unconscious lifestyle growth. The raise protocol makes it a decision. Half for your future. Half for your present. Both matter. Neither gets sacrificed.</p>
+  </div>
+  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">15</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 16 — FORMULA STEPS 1 + 2
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-lt">
+        <div class="ch-lbl">Formula — Step 1</div>
+        <div class="ch-title">My Numbers</div>
+      </div>
+    </div>
+    <p>Fill this using your last month's bills. Be honest. Take 10 minutes.</p>
+    <div class="ws-grid" style="margin-top:4mm;">
+      <div class="ws-f"><div class="ws-fl">Monthly take-home salary</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Rent / housing</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">EMIs — total all loans</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Family transfer</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Electricity + gas + phone + internet</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Groceries</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+    </div>
+    <div class="rule" style="margin-top:6mm;"></div>
+    <div class="sec-lbl">Formula — Step 2: My Bucket 4 List</div>
+    <p style="margin-bottom:3mm;">List every fixed lifestyle expense. Predictable, recurring, guilt-free — but needs a hard cap.</p>
+    <div class="ws-grid">
+      <div class="ws-f"><div class="ws-fl">Netflix / Hotstar / OTTs</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Gym / yoga / fitness</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Salon / personal care</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Regular eating out</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Other subscription or service</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f" style="border-color:var(--amber); background:#FFF8EE;"><div class="ws-fl" style="background:#FFF8EE; color:var(--amber); border-color:var(--amber);">Bucket 4 Total</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln" style="border-color:var(--amber);"></div></div></div>
+    </div>
+  </div>
+  <div class="pf"><span class="pf-text">Still not sure if your numbers add up? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">16</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 17 — FORMULA STEP 3: PAYDAY CHECKLIST
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-lt">
+        <div class="ch-lbl">Formula — Step 3</div>
+        <div class="ch-title">My Payday Checklist</div>
+      </div>
+    </div>
+    <p>Do this every month within 2 hours of salary credit. No exceptions.</p>
+    <ul class="cl" style="margin-top:5mm;">
+      <li><div class="cb"></div>SIP auto-debit is set up for today's date — money moves before I touch anything</li>
+      <li><div class="cb"></div>Rent transferred</li>
+      <li><div class="cb"></div>Family transfer sent</li>
+      <li><div class="cb"></div>EMI account has enough — no surprises tomorrow</li>
+      <li><div class="cb"></div>Bucket 4 total noted — spending freely within it all month</li>
+      <li><div class="cb"></div>Bucket 5 amount known — this is my free money, guilt-free until empty</li>
+    </ul>
+    <div class="box" style="margin-top:5mm;"><p><em>The whole ritual takes 2 hours. You do this once a month. That's it. Your money works for the entire month after this.</em></p></div>
+  </div>
+  <div class="pf"><span class="pf-text">Still not sure if your numbers add up? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">17</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 18 — FORMULA STEP 4: FRIDGE PAGE
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="ch">
+      <div class="ch-lt">
+        <div class="ch-lbl">Formula — Step 4 &nbsp;|&nbsp; Keep This Page</div>
+        <div class="ch-title">My 5 Buckets</div>
+      </div>
+    </div>
+    <p>Fill using Step 1 and Step 2 numbers. <strong>Print this. Stick it on your fridge. Fill it on payday.</strong></p>
+    <div style="margin-top:5mm; display:flex; flex-direction:column; gap:6px;">
+      <div class="brow"><div class="brow-l" style="background:var(--b1); min-height:52px;"><span class="brow-n">1</span></div><div class="brow-m"><div class="brow-nm">Fixed Obligations</div><div class="brow-sub">Add all Step 1 numbers</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b2); min-height:52px;"><span class="brow-n">2</span></div><div class="brow-m"><div class="brow-nm">Invest</div><div class="brow-sub">Take-home x 10% minimum</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b3); min-height:52px;"><span class="brow-n">3</span></div><div class="brow-m"><div class="brow-nm">Remaining Essentials</div><div class="brow-sub">Take-home x 8% estimate</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b4); min-height:52px;"><span class="brow-n">4</span></div><div class="brow-m"><div class="brow-nm">Fixed Lifestyle</div><div class="brow-sub">Total from Step 2</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+      <div class="brow"><div class="brow-l" style="background:var(--b5); min-height:52px;"><span class="brow-n">5</span></div><div class="brow-m"><div class="brow-nm">Flexible Spending</div><div class="brow-sub">Take-home minus 1+2+3+4</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+      <div class="brow tot"><div class="brow-l" style="background:var(--amber); min-height:52px;"><span class="brow-n" style="font-size:24pt;">=</span></div><div class="brow-m"><div class="brow-nm">My Monthly Take-Home</div><div class="brow-sub">Enter your salary here</div></div><div class="brow-r"><div class="brow-rs">Rs.</div><div class="brow-line"></div></div></div>
+    </div>
+    <p class="i c" style="margin-top:5mm;">Print this page. Stick it on your fridge. Fill it on payday. Every month.</p>
+  </div>
+  <div class="pf"><span class="pf-text">Want these numbers calculated for your exact salary? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">18</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 19 — YOU NOW HAVE A SYSTEM + CTA
+════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Salary Formula — Complete Guide</span></div>
+  <div class="pb">
+    <div class="sec-lbl" style="margin-top:0;">You Now Have a System</div>
+    <p>You know where every rupee goes. You have a payday ritual. Your 5 buckets are set. Lifestyle inflation won't catch you off guard.</p>
+    <p class="i">That's more than most people figure out in a lifetime.</p>
+    <div class="rule" style="margin:6mm 0;"></div>
+    <div class="sec-lbl">Calculate Per Your Exact Numbers</div>
+    <p>The examples in this guide use standard percentages. Your actual salary, your city, your obligations are different. The EliteRoadMaps Salary Calculator lets you enter your exact numbers — modify each bucket size per your choice and get precise calculations tailored to your life.</p>
+    <div class="cta">
+      <p><strong>Go to the Salary Calculator</strong></p>
+      <p>Enter your salary, your rent, your obligations. Choose your own bucket percentages. Get your personalised salary split instantly.</p>
+      <p class="cta-link">https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</p>
+    </div>
+    <div class="rule" style="margin:6mm 0;"></div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div>
+        <p style="font-size:10pt; font-weight:700; margin-bottom:1mm;">Made by Asha at EliteRoadMaps</p>
+        <p style="font-size:9pt; color:var(--gray);">Real problems. Self-built systems. Packaged so you never need a coach.</p>
+      </div>
+      <div style="text-align:right;">
+        <p style="font-size:9pt; color:var(--gray);">https://eliteroadmaps.in/finance/salaryplan/salaryformula</p>
+        <p style="font-size:9pt; color:var(--gray); margin-top:1mm;">https://eliteroadmaps.in/finance/salaryplan/salarycalculator</p>
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span class="pf-text">https://eliteroadmaps.in/finance/salaryplan/salaryformula  |  https://eliteroadmaps.in/finance/salaryplan/salarycalculator</span><span class="pf-num">19</span></div>
+</div>
+
+</body>
+</html>
