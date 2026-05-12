@@ -266,6 +266,62 @@ app.post("/generate-bundle", async (req, res) => {
     if (browser) await browser.close();
   }
 });
+//
+// ─── Generate Salary Formula PDF ─────────────────────────────
+// Add this route to KhanaPlan's server.js before the app.listen line
+
+app.post("/generate-salary-pdf", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
+
+    if (!data.customer_name || !data.email || !data.mobile_number) {
+      return res.status(400).json({ error: "Missing required fields: customer_name, email, mobile_number" });
+    }
+
+    const templatePath = "templates/salary_formula_template.html";
+    if (!fs.existsSync(templatePath)) {
+      return res.status(500).json({ error: "Template not found: salary_formula_template.html" });
+    }
+
+    console.log("Generating Salary Formula PDF for:", data.customer_name);
+    browser = await launchBrowser();
+
+    let html = fs.readFileSync(templatePath, "utf8");
+    html = html
+      .replace(/\{\{CUSTOMER_NAME\}\}/g, data.customer_name || "")
+      .replace(/\{\{EMAIL\}\}/g,         data.email         || "")
+      .replace(/\{\{MOBILE_NO\}\}/g,     data.mobile_number || "");
+
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "domcontentloaded", timeout: 60000 });
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "0mm", bottom: "0mm", left: "0mm", right: "0mm" }
+    });
+    await page.close();
+
+    if (!pdf || pdf.length < 1000) {
+      throw new Error("PDF generation failed — output too small");
+    }
+
+    console.log("Salary Formula PDF generated:", pdf.length, "bytes");
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="The-Salary-Formula-${data.customer_name.replace(/\s+/g, "-")}.pdf"`
+    });
+    res.send(pdf);
+
+  } catch (err) {
+    console.error("generate-salary-pdf error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+//
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
