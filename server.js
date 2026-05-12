@@ -12,14 +12,7 @@ app.use(express.json({ limit: "10mb" }));
 
 // ─── Launch browser ───────────────────────────────────────────
 async function launchBrowser() {
-  const executablePath = path.resolve(
-    "./chrome/chrome/linux-127.0.6533.88/chrome-linux64/chrome"
-  );
-
-  console.log("Using Chrome at:", executablePath);
-
   return await puppeteer.launch({
-    executablePath,
     headless: true,
     args: [
       "--no-sandbox",
