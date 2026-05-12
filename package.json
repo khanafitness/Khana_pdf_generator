@@ -4,7 +4,6 @@
   "type": "module",
   "main": "server.js",
 "scripts": {
-  "build": "npm install && npx puppeteer browsers install chrome",
   "start": "node server.js"
 },
   "engines": {
