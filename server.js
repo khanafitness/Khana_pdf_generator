@@ -298,8 +298,215 @@ app.post("/generate-salary-pdf", async (req, res) => {
   }
 });
 //
+// ─── Generate Salary to Wealth PDF ───────────────────────────────────────────
+app.post("/generate-s2w-pdf", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
 
+    if (!data.customer_name || !data.email || !data.mobile_number) {
+      return res.status(400).json({ error: "Missing required fields: customer_name, email, mobile_number" });
+    }
+
+    const templatePath = "templates/salary2wealth_template.html";
+    if (!fs.existsSync(templatePath)) {
+      return res.status(500).json({ error: "Template not found: salary2wealth_template.html" });
+    }
+
+    console.log("Generating Salary to Wealth PDF for:", data.customer_name);
+    browser = await launchBrowser();
+
+    let html = fs.readFileSync(templatePath, "utf8");
+    html = html
+      .replace(/\{\{CUSTOMER_NAME\}\}/g, data.customer_name || "")
+      .replace(/\{\{EMAIL\}\}/g,         data.email         || "")
+      .replace(/\{\{MOBILE_NO\}\}/g,     data.mobile_number || "");
+
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "domcontentloaded", timeout: 60000 });
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "0mm", bottom: "0mm", left: "0mm", right: "0mm" }
+    });
+    await page.close();
+
+    if (!pdf || pdf.length < 1000) {
+      throw new Error("PDF generation failed — output too small");
+    }
+
+    console.log("Salary to Wealth PDF generated:", pdf.length, "bytes");
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="Salary-to-Wealth-${data.customer_name.replace(/\s+/g, "-")}.pdf"`
+    });
+    res.send(pdf);
+
+  } catch (err) {
+    console.error("generate-s2w-pdf error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+
+// ─── Generate Unfurl Basic PDF ────────────────────────────────────────────────
+app.post("/generate-unfurl-basic-pdf", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
+
+    if (!data.customer_name || !data.email || !data.mobile_number) {
+      return res.status(400).json({ error: "Missing required fields: customer_name, email, mobile_number" });
+    }
+
+    const templatePath = "templates/unfurl_basic_template.html";
+    if (!fs.existsSync(templatePath)) {
+      return res.status(500).json({ error: "Template not found: unfurl_basic_template.html" });
+    }
+
+    console.log("Generating Unfurl Basic PDF for:", data.customer_name);
+    browser = await launchBrowser();
+
+    let html = fs.readFileSync(templatePath, "utf8");
+    html = html
+      .replace(/\{\{CUSTOMER_NAME\}\}/g, data.customer_name || "")
+      .replace(/\{\{EMAIL\}\}/g,         data.email         || "")
+      .replace(/\{\{MOBILE_NO\}\}/g,     data.mobile_number || "");
+
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "domcontentloaded", timeout: 60000 });
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "0mm", bottom: "0mm", left: "0mm", right: "0mm" }
+    });
+    await page.close();
+
+    if (!pdf || pdf.length < 1000) {
+      throw new Error("PDF generation failed — output too small");
+    }
+
+    console.log("Unfurl Basic PDF generated:", pdf.length, "bytes");
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="Unfurl-Basic-${data.customer_name.replace(/\s+/g, "-")}.pdf"`
+    });
+    res.send(pdf);
+
+  } catch (err) {
+    console.error("generate-unfurl-basic-pdf error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+
+// ─── Generate Unfurl Complete PDF ─────────────────────────────────────────────
+app.post("/generate-unfurl-complete-pdf", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
+
+    if (!data.customer_name || !data.email || !data.mobile_number) {
+      return res.status(400).json({ error: "Missing required fields: customer_name, email, mobile_number" });
+    }
+
+    const templatePath = "templates/unfurl_complete_template.html";
+    if (!fs.existsSync(templatePath)) {
+      return res.status(500).json({ error: "Template not found: unfurl_complete_template.html" });
+    }
+
+    console.log("Generating Unfurl Complete PDF for:", data.customer_name);
+    browser = await launchBrowser();
+
+    let html = fs.readFileSync(templatePath, "utf8");
+    html = html
+      .replace(/\{\{CUSTOMER_NAME\}\}/g, data.customer_name || "")
+      .replace(/\{\{EMAIL\}\}/g,         data.email         || "")
+      .replace(/\{\{MOBILE_NO\}\}/g,     data.mobile_number || "");
+
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "domcontentloaded", timeout: 60000 });
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "0mm", bottom: "0mm", left: "0mm", right: "0mm" }
+    });
+    await page.close();
+
+    if (!pdf || pdf.length < 1000) {
+      throw new Error("PDF generation failed — output too small");
+    }
+
+    console.log("Unfurl Complete PDF generated:", pdf.length, "bytes");
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="Unfurl-Complete-${data.customer_name.replace(/\s+/g, "-")}.pdf"`
+    });
+    res.send(pdf);
+
+  } catch (err) {
+    console.error("generate-unfurl-complete-pdf error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+
+// ─── Generate Inflation War PDF ───────────────────────────────────────────────
+app.post("/generate-inflation-pdf", async (req, res) => {
+  let browser;
+  try {
+    const data = req.body;
+
+    if (!data.customer_name || !data.email || !data.mobile_number) {
+      return res.status(400).json({ error: "Missing required fields: customer_name, email, mobile_number" });
+    }
+
+    const templatePath = "templates/inflation_war_template.html";
+    if (!fs.existsSync(templatePath)) {
+      return res.status(500).json({ error: "Template not found: inflation_war_template.html" });
+    }
+
+    console.log("Generating Inflation War PDF for:", data.customer_name);
+    browser = await launchBrowser();
+
+    let html = fs.readFileSync(templatePath, "utf8");
+    html = html
+      .replace(/\{\{CUSTOMER_NAME\}\}/g, data.customer_name || "")
+      .replace(/\{\{EMAIL\}\}/g,         data.email         || "")
+      .replace(/\{\{MOBILE_NO\}\}/g,     data.mobile_number || "");
+
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "domcontentloaded", timeout: 60000 });
+    const pdf = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "0mm", bottom: "0mm", left: "0mm", right: "0mm" }
+    });
+    await page.close();
+
+    if (!pdf || pdf.length < 1000) {
+      throw new Error("PDF generation failed — output too small");
+    }
+
+    console.log("Inflation War PDF generated:", pdf.length, "bytes");
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="Inflation-War-${data.customer_name.replace(/\s+/g, "-")}.pdf"`
+    });
+    res.send(pdf);
+
+  } catch (err) {
+    console.error("generate-inflation-pdf error:", err);
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (browser) await browser.close();
+  }
+});
+//
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("KhanaPlan PDF server running on port", PORT);
+  console.log("ELiteRoadMaps PDF server running on port", PORT);
 });
