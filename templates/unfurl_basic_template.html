@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unfurl — Sexual Health Guide</title>
+<style>
+/* ── SYSTEM FONTS ONLY — no external dependencies ── */
+:root {
+  --ink:      #0f0f0f;
+  --ink-mid:  #2a2a2a;
+  --ink-soft: #555;
+  --ink-faint:#888;
+  --paper:    #fff;
+  --off:      #f7f5f2;
+  --warm:     #f0ece5;
+  --rust:     #c85c3a;
+  --rust-dk:  #a3472c;
+  --rule:     #e0dbd4;
+  --serif:    Georgia, 'Times New Roman', serif;
+  --sans:     -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --mono:     'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── WATERMARK — mobile number only ── */
+#watermark {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+#watermark-grid {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  transform: rotate(-35deg);
+  transform-origin: center;
+}
+.wm-tile {
+  padding: 3rem 1rem;
+  opacity: 0.1;
+}
+.wm-tile span {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+/* ── COVER PAGE ── */
+.cover-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  page-break-after: always;
+}
+.cover-left {
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+}
+.cover-brand {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.04em;
+}
+.cover-brand em { font-style: normal; color: var(--rust); }
+.cover-brand-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
+.cover-left-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.cover-chapter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cover-chapter:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.ch-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--rust);
+  min-width: 20px;
+  padding-top: 2px;
+}
+.ch-text {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+.cover-customer {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 1.2rem;
+}
+.cover-customer-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.5rem;
+}
+.cover-customer p {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+.cover-customer strong { color: white; font-size: 13px; }
+.cover-right {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  position: relative;
+  border-left: 4px solid var(--rust);
+}
+.cover-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5rem;
+}
+.cover-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: bold;
+  line-height: 1.0;
+  color: #0f0f0f;
+  margin-bottom: 0.3rem;
+}
+.cover-title-line2 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: bold;
+  line-height: 1.0;
+  color: var(--rust);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.cover-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--rust);
+  margin-bottom: 2rem;
+}
+.cover-desc {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+}
+.cover-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+.cover-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid #0f0f0f;
+  color: #0f0f0f;
+}
+.cover-disclaimer {
+  position: absolute;
+  bottom: 2rem;
+  left: 3rem;
+  right: 3rem;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: #aaa;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  border-top: 1px solid #eee;
+  padding-top: 0.8rem;
+}
+@media (max-width: 768px) {
+  .cover-page { grid-template-columns: 1fr; }
+  .cover-left { min-height: 50vh; }
+  .cover-right { padding: 2.5rem 1.5rem; }
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 5rem 0; }
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--rust); }
+.section-intro {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 600px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+}
+
+/* ── WHY (rust bg) ── */
+.why-section { background: var(--rust); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.why-section .section-title { color: white; }
+.why-section .section-tag { color: rgba(255,255,255,0.6); }
+.why-section .section-intro { color: rgba(255,255,255,0.8); max-width: 100%; }
+.why-points { display: flex; flex-direction: column; }
+.why-point {
+  display: flex; gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.why-point:first-child { border-top: 1px solid rgba(255,255,255,0.2); }
+.why-n {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+  min-width: 44px;
+}
+.why-point h4 { font-family: var(--serif); font-size: 1.1rem; color: white; margin-bottom: 0.3rem; }
+.why-point p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+/* ── PILLARS ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid var(--ink);
+  margin-top: 2.5rem;
+}
+.pillar {
+  padding: 2.2rem 2rem;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.pillar:nth-child(3), .pillar:nth-child(6) { border-right: none; }
+.pillar:nth-child(4), .pillar:nth-child(5), .pillar:nth-child(6) { border-bottom: none; }
+.pillar-n {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin-bottom: 0.8rem;
+}
+.pillar-icon { font-size: 1.4rem; margin-bottom: 0.7rem; }
+.pillar-title { font-family: var(--serif); font-size: 1.1rem; font-weight: bold; color: var(--ink); margin-bottom: 0.5rem; }
+.pillar-desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.7; }
+
+/* ── DARK SECTION (ink bg) ── */
+.dark-section { background: var(--ink); }
+.dark-section .section-title { color: white; }
+.dark-section .section-tag { color: var(--rust); }
+.dark-section .section-intro { color: rgba(255,255,255,0.6); }
+
+/* ── TESTING TABLE ── */
+.test-wrap { overflow-x: auto; margin-top: 2rem; }
+.test-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+.test-table thead th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+  background: var(--off);
+  white-space: nowrap;
+}
+.test-table tbody td {
+  padding: 1rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  vertical-align: top;
+  line-height: 1.65;
+}
+.test-table tbody tr:hover td { background: rgba(200,92,58,0.04); }
+.test-table td:first-child { font-weight: bold; color: var(--ink); font-size: 0.9rem; }
+
+/* dark version */
+.test-table.dark thead th { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.15); }
+.test-table.dark tbody td { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.07); }
+.test-table.dark tbody tr:hover td { background: rgba(200,92,58,0.08); }
+.test-table.dark td:first-child { color: white; }
+
+.freq {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+.fq  { background: var(--rust); color: white; }
+.f6m { background: var(--ink); color: white; }
+.fy  { border: 1px solid var(--ink); color: var(--ink); }
+.fex { border: 1px solid var(--ink-faint); color: var(--ink-faint); }
+
+/* dark freq */
+.dark .fy  { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.6); }
+.dark .fex { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
+
+.note-box {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--rust);
+  background: rgba(200,92,58,0.06);
+}
+.note-box p { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.75; }
+.note-box strong { color: var(--ink); }
+
+.note-box-dark {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--rust);
+  background: rgba(255,255,255,0.05);
+}
+.note-box-dark p { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.75; }
+.note-box-dark strong { color: white; }
+
+/* ── AVAIL KEY ── */
+.avail-key {
+  display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+  padding: 0.8rem 1rem;
+  background: var(--off);
+  border: 1px solid var(--rule);
+  margin-bottom: 2rem;
+}
+.avail-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+.chip { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; padding: 2px 8px; }
+.chip-in  { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+.chip-rx  { background: var(--ink); color: white; }
+.chip-ltd { background: #fff8e1; color: #e65100; border: 1px solid #ffcc80; }
+
+/* ── MED TABLES ── */
+.med-block { margin-bottom: 2.5rem; }
+.med-block-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: white;
+  padding: 0.65rem 1rem;
+}
+.med-block-title em { font-style: normal; color: var(--rust); }
+.med-table-wrap { overflow-x: auto; border: 2px solid var(--ink); border-top: none; }
+.med-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+.med-table thead th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  background: var(--off);
+  white-space: nowrap;
+}
+.med-table tbody td {
+  padding: 0.9rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.86rem;
+  color: var(--ink-mid);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.med-table tbody tr:last-child td { border-bottom: none; }
+.med-table tbody tr:hover td { background: rgba(200,92,58,0.03); }
+.med-table td:first-child strong { color: var(--ink); display: block; margin-bottom: 2px; }
+.drug-sub { font-family: var(--mono); font-size: 10px; color: var(--rust); letter-spacing: 0.04em; }
+.brand-note { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); }
+
+/* ── 2-COL GRID ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--ink); border: 2px solid var(--ink); margin-top: 2.5rem; }
+.grid-card { background: var(--paper); padding: 2.2rem; }
+.grid-card-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.8rem; }
+.grid-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: bold; color: var(--ink); margin-bottom: 0.7rem; }
+.grid-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
+.ul-plain { list-style: none; }
+.ul-plain li {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; gap: 0.7rem; line-height: 1.55;
+}
+.ul-plain li:last-child { border-bottom: none; }
+.ul-plain li::before { content: '—'; color: var(--rust); flex-shrink: 0; }
+
+/* ── COMM ── */
+.comm-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; margin-top: 2.5rem; }
+.comm-step { display: flex; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.comm-step:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+.cs-num {
+  width: 1.8rem; height: 1.8rem;
+  border: 1px solid rgba(200,92,58,0.6);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 11px; color: var(--rust);
+  flex-shrink: 0;
+}
+.cs-content h4 { font-family: var(--serif); font-size: 1rem; font-weight: bold; color: white; margin-bottom: 0.3rem; }
+.cs-content p { font-size: 0.86rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.script-card {
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--rust);
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 0.8rem;
+}
+.script-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.4rem; }
+.script-card p { font-style: italic; font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+/* ── MENTAL HEALTH 3-COL ── */
+.three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.mental-card {
+  padding: 2rem;
+  border: 2px solid var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mental-card:hover { transform: translateY(-3px); box-shadow: 3px 3px 0 var(--ink); }
+.mental-icon { font-size: 1.4rem; margin-bottom: 0.8rem; }
+.mental-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: bold; color: var(--ink); margin-bottom: 0.6rem; }
+.mental-card p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 0.8rem; }
+.ul-mono { list-style: none; }
+.ul-mono li {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.02em;
+  color: var(--ink-soft); padding: 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; gap: 0.4rem;
+}
+.ul-mono li::before { content: '↗'; color: var(--rust); }
+
+/* ── BODY SECTION ── */
+.body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+.body-subtitle {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: bold; color: var(--ink);
+  padding-bottom: 0.8rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.2rem;
+}
+.sym-table { width: 100%; border-collapse: collapse; }
+.sym-table thead th {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft); padding: 0.6rem 0.7rem; text-align: left; border-bottom: 2px solid var(--ink);
+}
+.sym-table tbody td { padding: 0.75rem 0.7rem; border-bottom: 1px solid var(--rule); font-size: 0.86rem; color: var(--ink-mid); }
+.sym-table td:first-child { font-weight: bold; color: var(--ink); }
+.sym-table tbody tr:hover td { background: rgba(200,92,58,0.04); }
+
+.urg { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; white-space: nowrap; }
+.u-now  { background: var(--rust); color: white; }
+.u-week { background: var(--ink); color: white; }
+.u-mon  { border: 1px solid var(--ink); color: var(--ink); }
+
+.vax-list { display: flex; flex-direction: column; }
+.vax-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.vax-item:first-child { border-top: 1px solid var(--rule); }
+.vax-item h4 { font-family: var(--serif); font-size: 0.95rem; font-weight: bold; color: var(--ink); margin-bottom: 0.2rem; }
+.vax-item p { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.6; }
+.vax-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; white-space: nowrap; flex-shrink: 0; }
+.vb-e { background: var(--rust); color: white; }
+.vb-r { border: 2px solid var(--ink); color: var(--ink); }
+
+/* ── TRACKER ── */
+.tracker-box { border: 2px solid var(--ink); margin-top: 2.5rem; }
+.tracker-head {
+  background: var(--ink); color: white;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.tracker-body { padding: 1.5rem; }
+#partner-list { margin-bottom: 1.2rem; min-height: 2rem; }
+.p-form { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 0.8rem; align-items: end; }
+.fg { display: flex; flex-direction: column; gap: 0.3rem; }
+.fl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.fi {
+  border: 2px solid var(--ink); background: var(--off);
+  padding: 0.55rem 0.75rem; font-family: var(--serif); font-size: 0.88rem;
+  color: var(--ink); outline: none; width: 100%; transition: border-color 0.2s;
+}
+.fi:focus { border-color: var(--rust); }
+.btn-add {
+  padding: 0.55rem 1rem; background: var(--ink); border: 2px solid var(--ink);
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: white; cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.btn-add:hover { background: var(--rust); border-color: var(--rust); }
+.btn-del { padding: 0.45rem 0.65rem; background: transparent; border: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; color: var(--ink-faint); cursor: pointer; transition: all 0.2s; }
+.btn-del:hover { border-color: var(--rust); color: var(--rust); }
+.tracker-foot { padding: 0.8rem 1.5rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.tracker-foot p { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 0.04em; }
+
+/* ── CHECKLISTS ── */
+.check-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--ink); border: 2px solid var(--ink); margin-top: 2.5rem; }
+.check-card { background: var(--paper); padding: 2rem; }
+.check-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: bold; color: var(--ink); margin-bottom: 0.4rem; }
+.check-card > p { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 1.2rem; line-height: 1.65; }
+.clist { list-style: none; }
+.clist li {
+  display: flex; gap: 0.7rem;
+  font-size: 0.86rem; color: var(--ink-mid);
+  padding: 0.5rem 0; border-bottom: 1px solid var(--rule); line-height: 1.5; cursor: pointer;
+}
+.clist li input[type=checkbox] { accent-color: var(--rust); width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.clist li.done { opacity: 0.38; text-decoration: line-through; }
+
+/* ── RESOURCES (rust bg) ── */
+.res-section { background: var(--rust); }
+.res-section .section-title { color: white; }
+.res-section .section-tag { color: rgba(255,255,255,0.6); }
+.res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.15); margin-top: 2.5rem; }
+.res-card { background: rgba(255,255,255,0.09); padding: 1.8rem; transition: background 0.2s; }
+.res-card:hover { background: rgba(255,255,255,0.16); }
+.res-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.6rem; }
+.res-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: bold; color: white; margin-bottom: 0.4rem; }
+.res-card p { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer { background: #0a0a0a; padding: 3.5rem 0 2rem; color: rgba(255,255,255,0.35); }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; flex-wrap: wrap; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+.footer-logo { font-family: var(--serif); font-size: 1.7rem; font-weight: bold; color: white; margin-bottom: 0.4rem; }
+.footer-logo em { font-style: normal; color: var(--rust); }
+.footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.4); max-width: 260px; line-height: 1.7; }
+.footer-disc { font-size: 0.72rem; color: rgba(255,255,255,0.22); max-width: 420px; line-height: 1.8; }
+.footer-disc strong { color: rgba(255,255,255,0.4); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: rgba(255,255,255,0.15); }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 2.5rem 1.25rem; border-right: none; border-bottom: 2px solid var(--ink); }
+  .hero-right { padding: 2rem 1.25rem; }
+  .container { padding: 0 1.25rem; }
+  section { padding: 3.5rem 0; }
+  .why-grid, .comm-grid, .body-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .pillars-grid, .two-col, .three-col, .check-grid, .res-grid { grid-template-columns: 1fr; }
+  .pillar { border-right: none; }
+  .p-form { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ WATERMARK — mobile number only ══ -->
+<div id="watermark" aria-hidden="true">
+  <div id="watermark-grid"></div>
+</div>
+
+<!-- ══ COVER PAGE ══ -->
+<div class="cover-page">
+
+  <!-- LEFT: dark brand column -->
+  <div class="cover-left">
+    <div>
+      <div class="cover-brand">Elite<em>Road</em>Maps</div>
+      <div class="cover-brand-sub">eliteroadmaps.in</div>
+    </div>
+
+    <div class="cover-left-mid">
+      <div class="cover-chapter"><span class="ch-num">01</span><span class="ch-text">Why standard health advice falls short</span></div>
+      <div class="cover-chapter"><span class="ch-num">02</span><span class="ch-text">STI testing — complete schedule &amp; what to ask for</span></div>
+      <div class="cover-chapter"><span class="ch-num">03</span><span class="ch-text">Barrier methods — correct use every time</span></div>
+      <div class="cover-chapter"><span class="ch-num">04</span><span class="ch-text">Medications — PrEP, PEP, Doxy-PEP, Indian brands</span></div>
+      <div class="cover-chapter"><span class="ch-num">05</span><span class="ch-text">Body literacy — symptoms &amp; when to act</span></div>
+      <div class="cover-chapter"><span class="ch-num">06</span><span class="ch-text">Mental health, stigma &amp; finding the right doctor</span></div>
+      <div class="cover-chapter"><span class="ch-num">07</span><span class="ch-text">Communication scripts &amp; contact tracker</span></div>
+      <div class="cover-chapter"><span class="ch-num">08</span><span class="ch-text">Checklists — quarterly, monthly, new contact</span></div>
+    </div>
+
+    <div class="cover-customer">
+      <div class="cover-customer-label">Prepared for</div>
+      <p><strong>{{CUSTOMER_NAME}}</strong></p>
+      <p>{{EMAIL}}</p>
+      <p>{{MOBILE}}</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: title + description -->
+  <div class="cover-right">
+    <div class="cover-tag">Complete Sexual Health Guide</div>
+    <div class="cover-title">Unfurl</div>
+    <div class="cover-title-line2">Know your body.</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">A complete, science-based sexual health reference for sexually active adults with multiple partners — covering testing, medications, safer sex, body literacy, and mental health. No judgment. Just knowledge.</p>
+    <div class="cover-pills">
+      <span class="cover-pill">STI Testing</span>
+      <span class="cover-pill">PrEP &amp; PEP</span>
+      <span class="cover-pill">Indian Brands</span>
+      <span class="cover-pill">Body Literacy</span>
+      <span class="cover-pill">Checklists</span>
+      <span class="cover-pill">Doxy-PEP</span>
+    </div>
+    <div class="cover-disclaimer">
+      ⚠ Educational purposes only — not medical advice. All medications require a valid prescription. Always consult a licensed doctor before starting any medication. © 2025 EliteRoadMaps
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ WHY ══ -->
+<section class="why-section">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <span class="section-tag reveal">Why this guide exists</span>
+        <h2 class="section-title reveal">Standard sexual health advice often falls short.</h2>
+        <p class="section-intro reveal">Most resources assume one partner. If you have sex with multiple people, your risk profile, testing needs, and medication options are meaningfully different — and you deserve information built for your actual life.</p>
+      </div>
+      <div class="why-points reveal">
+        <div class="why-point"><div class="why-n">01</div><div><h4>Your testing schedule is different</h4><p>Quarterly testing — not annual — is the CDC evidence-based standard for sexually active people with multiple partners.</p></div></div>
+        <div class="why-point"><div class="why-n">02</div><div><h4>Medications change everything</h4><p>HIV prevention medications, post-exposure options, and suppressive therapies exist — most people don't know they can access them.</p></div></div>
+        <div class="why-point"><div class="why-n">03</div><div><h4>Body literacy is your first defence</h4><p>Knowing what symptoms to watch for, and when to act, lets you catch infections before they become serious.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PILLARS ══ -->
+<section>
+  <div class="container">
+    <span class="section-tag reveal">The Framework</span>
+    <h2 class="section-title reveal">Six pillars of <em>complete</em> sexual health</h2>
+    <p class="section-intro reveal">Each pillar reinforces the others. Skip one and the whole system weakens.</p>
+    <div class="pillars-grid reveal">
+      <div class="pillar"><div class="pillar-n">01 / 06</div><div class="pillar-icon">🧪</div><h3 class="pillar-title">Regular Testing</h3><p class="pillar-desc">Comprehensive STI screening every 3 months — all sites, all relevant infections.</p></div>
+      <div class="pillar"><div class="pillar-n">02 / 06</div><div class="pillar-icon">🛡️</div><h3 class="pillar-title">Barrier Methods</h3><p class="pillar-desc">Condoms, dental dams, gloves — correct use, every time, for every type of sex.</p></div>
+      <div class="pillar"><div class="pillar-n">03 / 06</div><div class="pillar-icon">💊</div><h3 class="pillar-title">Medications</h3><p class="pillar-desc">PrEP, PEP, Doxy-PEP, suppressive therapy — tools most people don't know they can access.</p></div>
+      <div class="pillar"><div class="pillar-n">04 / 06</div><div class="pillar-icon">🌿</div><h3 class="pillar-title">Body Literacy</h3><p class="pillar-desc">Know your baseline. Recognise changes. Know when to see a doctor today vs. next week.</p></div>
+      <div class="pillar"><div class="pillar-n">05 / 06</div><div class="pillar-icon">🧠</div><h3 class="pillar-title">Mental Health</h3><p class="pillar-desc">Stigma and anxiety are real barriers to care. Address them alongside physical health.</p></div>
+      <div class="pillar"><div class="pillar-n">06 / 06</div><div class="pillar-icon">💬</div><h3 class="pillar-title">Communication</h3><p class="pillar-desc">Disclosing status, discussing safer sex, and notifying contacts when needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTING ══ -->
+<section class="dark-section dark" id="testing">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 01</span>
+    <h2 class="section-title reveal">STI Testing <em>Schedule</em></h2>
+    <p class="section-intro reveal">For sexually active adults with multiple partners, test at minimum every 3 months. This is your complete reference — what to test, how often, and what to know.</p>
+    <div class="test-wrap reveal">
+      <table class="test-table dark">
+        <thead><tr><th>Test</th><th>What it covers</th><th>Frequency</th><th>Key notes</th></tr></thead>
+        <tbody>
+          <tr><td>HIV (4th gen Ag/Ab)</td><td>HIV-1, HIV-2, p24 antigen</td><td><span class="freq fq">Every 3 months</span></td><td>Consider PrEP. Window period ~18 days.</td></tr>
+          <tr><td>Gonorrhea &amp; Chlamydia</td><td>Throat, genital, rectal — all three</td><td><span class="freq fq">Every 3 months</span></td><td>Test ALL sites. Throat &amp; rectal infections are usually asymptomatic — ask explicitly.</td></tr>
+          <tr><td>Syphilis (RPR/VDRL)</td><td>Treponema pallidum</td><td><span class="freq fq">Every 3 months</span></td><td>Rates rising. Chancres can appear in the mouth or throat — easy to miss.</td></tr>
+          <tr><td>Herpes HSV-1 &amp; HSV-2</td><td>Both herpes simplex types</td><td><span class="freq f6m">Every 6 months</span></td><td>Know your type. Daily Valacyclovir reduces transmission ~50%. Very common.</td></tr>
+          <tr><td>Hepatitis B &amp; C</td><td>HBsAg, HCV antibody</td><td><span class="freq fy">Annually</span></td><td>Hep B: vaccine-preventable. Hep C: now fully curable with antivirals.</td></tr>
+          <tr><td>HPV</td><td>High-risk cancer-linked strains</td><td><span class="freq fy">Per provider</span></td><td>Gardasil 9 vaccine effective up to age 45, all genders.</td></tr>
+          <tr><td>Trichomonas</td><td>Trichomonas vaginalis</td><td><span class="freq f6m">Every 6 months</span></td><td>Most common curable STI globally. Usually no symptoms — only testing reveals it.</td></tr>
+          <tr><td>Mycoplasma genitalium</td><td>Emerging bacterial STI</td><td><span class="freq fex">If symptomatic</span></td><td>Not on standard panels — request it explicitly. Needs targeted treatment.</td></tr>
+          <tr><td>Mpox</td><td>Monkeypox virus</td><td><span class="freq fex">If exposed</span></td><td>JYNNEOS vaccine recommended for high-risk individuals.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box-dark reveal">
+      <p><strong>Always ask specifically:</strong> Standard panels vary by clinic. Always request <strong>throat and rectal swabs</strong> based on your practices — most clinics skip these unless you ask directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BARRIERS ══ -->
+<section id="barriers">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 02</span>
+    <h2 class="section-title reveal">Barrier <em>Methods</em></h2>
+    <p class="section-intro reveal">Barriers are most effective when used every time, for every type of sex, before any genital contact begins.</p>
+    <div class="two-col reveal">
+      <div class="grid-card">
+        <div class="grid-card-tag">External Condoms</div>
+        <h3>Using Correctly</h3>
+        <ul class="ul-plain">
+          <li>98% effective with perfect use — correct size matters</li>
+          <li>Apply before any genital contact, not just penetration</li>
+          <li>Use water-based lube with latex; silicone with polyurethane</li>
+          <li>Check expiry — never store in wallets or heat</li>
+          <li>One condom per act — do not reuse</li>
+        </ul>
+      </div>
+      <div class="grid-card">
+        <div class="grid-card-tag">Other Barriers</div>
+        <h3>Full Coverage</h3>
+        <ul class="ul-plain">
+          <li>Internal condoms: 95% effective; can insert hours in advance</li>
+          <li>Dental dams for oral sex on vulva or anus</li>
+          <li>Nitrile gloves for manual contact with cuts or skin breaks</li>
+          <li>Finger cots for individual finger protection</li>
+          <li>Barriers reduce risk — they do not eliminate it entirely</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEDICINES ══ -->
+<section style="background:var(--off); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);" id="meds">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 03</span>
+    <h2 class="section-title reveal">Medications — <em>Complete Reference</em></h2>
+    <p class="section-intro reveal">All medications below require a valid doctor's prescription. Indian brand names are listed where available. This is educational reference — not a prescription.</p>
+
+    <div class="avail-key reveal">
+      <span class="avail-label">Key:</span>
+      <span class="chip chip-in">✓ Available in India</span>
+      <span class="chip chip-rx">Rx — Prescription required</span>
+      <span class="chip chip-ltd">⚠ Limited / emerging in India</span>
+    </div>
+
+    <!-- HIV PREVENTION -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🛡 HIV Prevention — <em>PrEP</em></div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Tenofovir + Emtricitabine (TDF/FTC)</strong><br><span class="drug-sub">First-line daily PrEP</span></td>
+              <td>Tenvir-EM, Recovir-EM<br><span class="brand-note">Cipla · Hetero</span></td>
+              <td>Daily PrEP</td>
+              <td>1 tablet daily</td>
+              <td>Most common PrEP in India. Requires quarterly HIV test + kidney function check.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Tenofovir Alafenamide + Emtricitabine (TAF/FTC)</strong><br><span class="drug-sub">Kidney-friendlier option</span></td>
+              <td>Tafero-EM<br><span class="brand-note">Cipla</span></td>
+              <td>Daily PrEP</td>
+              <td>1 tablet daily</td>
+              <td>Better bone and kidney profile than TDF. Preferred for those with kidney concerns.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Cabotegravir LA (CAB-LA)</strong><br><span class="drug-sub">Injectable — no daily pill</span></td>
+              <td>Apretude<br><span class="brand-note">ViiV Healthcare</span></td>
+              <td>Injectable PrEP</td>
+              <td>Injection every 2 months</td>
+              <td>Over 99% effective. Not yet widely available in India — check with specialist.</td>
+              <td><span class="chip chip-ltd">⚠ Limited</span></td>
+            </tr>
+            <tr>
+              <td><strong>On-demand PrEP (2-1-1)</strong><br><span class="drug-sub">Same drug as daily PrEP</span></td>
+              <td>Tenvir-EM / Tafero-EM</td>
+              <td>Event-driven prevention</td>
+              <td>2 pills 2–24h before sex, 1 at 24h, 1 at 48h</td>
+              <td>Only for cis men (MSM). Not validated for other populations. Discuss with doctor.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PEP -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🚨 HIV Emergency Prevention — <em>PEP</em></div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Tenofovir + Emtricitabine + Raltegravir / Dolutegravir</strong><br><span class="drug-sub">Standard PEP regimen</span></td>
+              <td>Tenvir-EM + Isentress / Tivicay<br><span class="brand-note">Cipla · MSD · ViiV</span></td>
+              <td>Post-exposure HIV prevention</td>
+              <td>28-day course — start within 72 hrs</td>
+              <td>Available at government ART centres and private hospitals. Every hour matters — go immediately.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GONORRHEA -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🦠 Gonorrhea Treatment</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Ceftriaxone</strong><br><span class="drug-sub">First-line — injected</span></td>
+              <td>Monocef, Oframax, Cefaxone<br><span class="brand-note">Various Indian generics</span></td>
+              <td>Gonorrhea treatment</td>
+              <td>500mg IM injection, single dose</td>
+              <td>Must be given by a healthcare provider. Most reliable treatment. Often paired with Doxycycline.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Doxycycline</strong><br><span class="drug-sub">Given alongside Ceftriaxone</span></td>
+              <td>Doxy-1, Doxt-SL, Biodoxi<br><span class="brand-note">Sun Pharma, various</span></td>
+              <td>Co-treatment if chlamydia suspected</td>
+              <td>100mg twice daily for 7 days</td>
+              <td>Not used alone for gonorrhea. Same drug used in Doxy-PEP protocol.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CHLAMYDIA -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🔬 Chlamydia Treatment</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Doxycycline</strong><br><span class="drug-sub">First-line preferred</span></td>
+              <td>Doxy-1, Doxt-SL<br><span class="brand-note">Sun Pharma, others</span></td>
+              <td>Chlamydia treatment</td>
+              <td>100mg twice daily for 7 days</td>
+              <td>CDC preferred. More effective than azithromycin at rectal and throat sites.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Azithromycin</strong><br><span class="drug-sub">Alternative / pregnancy safe</span></td>
+              <td>Azee, Azithral, Zithromax<br><span class="brand-note">Cipla, Alkem</span></td>
+              <td>Chlamydia in pregnancy or if doxy not tolerated</td>
+              <td>1g single oral dose</td>
+              <td>Preferred in pregnancy. Less effective at rectal site — test of cure advised after treatment.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Levofloxacin</strong><br><span class="drug-sub">Alternative</span></td>
+              <td>Levoflox, Levobact<br><span class="brand-note">Various</span></td>
+              <td>Chlamydia if doxycycline not suitable</td>
+              <td>500mg once daily for 7 days</td>
+              <td>Reserve for cases where doxycycline is contraindicated.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SYPHILIS -->
+    <div class="med-block reveal">
+      <div class="med-block-title">⚕ Syphilis Treatment</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Benzathine Penicillin G</strong><br><span class="drug-sub">Gold standard for all stages</span></td>
+              <td>Penidure LA<br><span class="brand-note">Pfizer India</span></td>
+              <td>Syphilis — primary, secondary, early latent</td>
+              <td>2.4 million units IM, single dose</td>
+              <td>Must be given by a provider. Watch for Jarisch-Herxheimer reaction (fever within 24h — normal, not allergy).</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Doxycycline</strong><br><span class="drug-sub">Penicillin allergy alternative</span></td>
+              <td>Doxy-1, Biodoxi<br><span class="brand-note">Various</span></td>
+              <td>Syphilis if penicillin allergic</td>
+              <td>100mg twice daily for 14 days</td>
+              <td>Second-line only. Penicillin desensitisation preferred where possible, especially in pregnancy.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- HERPES -->
+    <div class="med-block reveal">
+      <div class="med-block-title">💊 Herpes (HSV) Treatment &amp; Suppression</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Valacyclovir</strong><br><span class="drug-sub">First-line, most prescribed</span></td>
+              <td>Valcivir, Valavir<br><span class="brand-note">Cipla</span><br>Valamac <span class="brand-note">Macleods</span></td>
+              <td>Outbreak treatment &amp; daily suppression</td>
+              <td>Outbreak: 500mg–1g twice daily 5–10 days<br>Suppression: 500mg once daily</td>
+              <td>Daily suppression reduces transmission by ~50%. Most commonly prescribed in India. No cure — manages symptoms and transmission risk.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Acyclovir</strong><br><span class="drug-sub">Older, 3x/day dosing</span></td>
+              <td>Acivir, Zovirax<br><span class="brand-note">Cipla</span><br>Herpex <span class="brand-note">Glenmark</span></td>
+              <td>Outbreak treatment</td>
+              <td>400mg three times daily for 5–7 days</td>
+              <td>Widely available and affordable in India. Less convenient than Valacyclovir due to frequency of dosing.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Famciclovir</strong><br><span class="drug-sub">Alternative antiviral</span></td>
+              <td>Famtrex, Famcimac<br><span class="brand-note">Various</span></td>
+              <td>Outbreak treatment — alternative</td>
+              <td>250mg three times daily for 7 days</td>
+              <td>Alternative when Valacyclovir not tolerated. Similar efficacy.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TRICHOMONAS / BV -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🧫 Trichomonas, BV &amp; Bacterial Infections</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Metronidazole</strong><br><span class="drug-sub">First-line for Trich &amp; BV</span></td>
+              <td>Flagyl, Metrogyl<br><span class="brand-note">Abbott, J&amp;J India</span></td>
+              <td>Trichomoniasis, Bacterial Vaginosis, PID</td>
+              <td>Trich: 500mg twice daily 7 days<br>BV: 400mg twice daily 7 days</td>
+              <td>Both partners must be treated for Trichomoniasis. Avoid alcohol during treatment. One of the most available drugs in India.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Tinidazole</strong><br><span class="drug-sub">Single-dose alternative</span></td>
+              <td>Tiniba, Fasigyn<br><span class="brand-note">Pfizer India</span></td>
+              <td>Trichomoniasis single-dose option</td>
+              <td>2g single oral dose</td>
+              <td>Convenient single dose. Equally effective to Metronidazole for Trichomoniasis.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Clindamycin</strong><br><span class="drug-sub">BV alternative</span></td>
+              <td>Clindac, Dalacin C<br><span class="brand-note">Pfizer India, various</span></td>
+              <td>Bacterial Vaginosis if Metronidazole not tolerated</td>
+              <td>300mg twice daily 7 days or vaginal cream</td>
+              <td>Also available as Clindac V vaginal cream. Do not use with latex condoms — oil base degrades latex.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Moxifloxacin</strong><br><span class="drug-sub">Mycoplasma genitalium</span></td>
+              <td>Avelox, Moxiflox<br><span class="brand-note">Bayer India, various</span></td>
+              <td>Mycoplasma genitalium — preferred treatment</td>
+              <td>400mg once daily for 7–14 days</td>
+              <td>Preferred due to increasing azithromycin resistance in M. genitalium. Specialist prescription.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- HEPATITIS -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🧬 Hepatitis Treatment</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Sofosbuvir + Ledipasvir / Daclatasvir</strong><br><span class="drug-sub">Hep C — curative</span></td>
+              <td>Myhep, Hepcinat<br><span class="brand-note">Natco, Mylan India</span></td>
+              <td>Hepatitis C — cure</td>
+              <td>1 tablet daily for 8–12 weeks</td>
+              <td>India makes the world's cheapest generic Hep C antivirals. Cure rate &gt;95%. Fully accessible.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Tenofovir (TDF)</strong><br><span class="drug-sub">Hep B — long-term management</span></td>
+              <td>Tenvir, Tavin<br><span class="brand-note">Cipla, Hetero</span></td>
+              <td>Chronic Hepatitis B</td>
+              <td>300mg once daily — long-term</td>
+              <td>Suppresses Hep B. Not a cure — lifelong management required for chronic infection.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+            <tr>
+              <td><strong>Entecavir</strong><br><span class="drug-sub">Hep B alternative</span></td>
+              <td>Baraclude, Entavir<br><span class="brand-note">BMS India, Cipla</span></td>
+              <td>Chronic Hepatitis B — alternative</td>
+              <td>0.5mg once daily</td>
+              <td>Alternative when Tenofovir not suitable. Available at generic prices in India.</td>
+              <td><span class="chip chip-in">✓ India</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DOXY-PEP -->
+    <div class="med-block reveal">
+      <div class="med-block-title">🧪 Doxy-PEP — Bacterial STI Prevention</div>
+      <div class="med-table-wrap">
+        <table class="med-table">
+          <thead><tr><th>Drug</th><th>Indian Brands</th><th>Use</th><th>Dose</th><th>Notes</th><th>India</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Doxycycline (as Doxy-PEP)</strong><br><span class="drug-sub">Post-exposure bacterial prevention</span></td>
+              <td>Doxy-1, Doxt-SL, Biodoxi<br><span class="brand-note">Sun Pharma, various</span></td>
+              <td>Prevent chlamydia, syphilis, gonorrhea after exposure</td>
+              <td>200mg single dose within 72 hours of sex</td>
+              <td>Reduces bacterial STI risk by ~65–70%. Doxycycline is widely available in India. The Doxy-PEP protocol is not yet formally in Indian guidelines but the drug is accessible — discuss with doctor. Not for regular use without medical supervision.</td>
+              <td><span class="chip chip-in">✓ Drug available</span><br><span class="chip chip-ltd" style="margin-top:4px;">⚠ Protocol emerging</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note-box reveal">
+      <p><strong>All medicines above require a valid prescription from a licensed doctor.</strong> Dosages listed are standard adult doses — they may vary based on body weight, HIV status, pregnancy, kidney function, liver function, or drug interactions. Indian brand names are examples only and may change. Always consult a qualified physician before starting any medication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMMUNICATION ══ -->
+<section class="dark-section" id="comm">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 06</span>
+    <h2 class="section-title reveal">Talking About <em>Sexual Health</em></h2>
+    <p class="section-intro reveal">These conversations feel awkward the first few times — then they become completely normal.</p>
+    <div class="comm-grid">
+      <div>
+        <div class="comm-step reveal"><div class="cs-num">1</div><div class="cs-content"><h4>Before any new sexual contact</h4><p>Share your last test date and result. Ask the same. Standard practice — not interrogation.</p></div></div>
+        <div class="comm-step reveal"><div class="cs-num">2</div><div class="cs-content"><h4>Agree on what protection you'll use</h4><p>Before things start, agree on barriers and for which acts. Don't assume.</p></div></div>
+        <div class="comm-step reveal"><div class="cs-num">3</div><div class="cs-content"><h4>Share test results as a habit</h4><p>After every test, let sexual contacts know — even when all-clear. Make it routine.</p></div></div>
+        <div class="comm-step reveal"><div class="cs-num">4</div><div class="cs-content"><h4>If positive — disclose promptly</h4><p>Contact everyone who may have been exposed. Most STIs are treatable. Early notification = faster care.</p></div></div>
+        <div class="comm-step reveal"><div class="cs-num">5</div><div class="cs-content"><h4>Use anonymous notification if needed</h4><p>inSPOT.org and local health departments offer free anonymous partner notification by text.</p></div></div>
+        <div class="comm-step reveal"><div class="cs-num">6</div><div class="cs-content"><h4>Revisit as your situation changes</h4><p>As your number of partners shifts, adjust your testing frequency and protection approach.</p></div></div>
+      </div>
+      <div>
+        <div class="script-card reveal"><div class="script-lbl">Opening the conversation</div><p>"I was last tested on [date] — all clear. When were you last tested?"</p></div>
+        <div class="script-card reveal"><div class="script-lbl">Before sex</div><p>"Before we go further, can we talk about what protection we'll use?"</p></div>
+        <div class="script-card reveal"><div class="script-lbl">Disclosing a positive result</div><p>"I just got my results — I need to let you know I tested positive for [X]. You should get tested."</p></div>
+        <div class="script-card reveal"><div class="script-lbl">Sharing your approach</div><p>"I'm on PrEP and test every 3 months. Here's my most recent result."</p></div>
+        <div class="script-card reveal"><div class="script-lbl">If someone refuses to disclose</div><p>Anyone who won't share their status is not giving you the information needed to consent. It's completely reasonable to decline.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MENTAL HEALTH ══ -->
+<section style="background:var(--warm); border-top:2px solid var(--ink);">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 05</span>
+    <h2 class="section-title reveal">Mental Health &amp; <em>Stigma</em></h2>
+    <p class="section-intro reveal">Shame and stigma are genuine barriers to testing and treatment. Here is how to protect your mental health alongside your physical health.</p>
+    <div class="three-col">
+      <div class="mental-card reveal"><div class="mental-icon">🧘</div><h3>Health Anxiety</h3><p>Obsessively checking symptoms between tests is health anxiety — a real, treatable condition.</p><ul class="ul-mono"><li>Stick to a fixed testing schedule</li><li>Avoid Googling symptoms obsessively</li><li>Testing resolves uncertainty</li><li>Consider therapy if anxiety affects your life</li></ul></div>
+      <div class="mental-card reveal"><div class="mental-icon">💊</div><h3>Positive Result ≠ Failure</h3><p>STIs happen to careful, informed adults all the time. A positive result means you need treatment — nothing more.</p><ul class="ul-mono"><li>Most STIs are fully curable</li><li>Your status says nothing about character</li><li>Shame delays treatment — refuse it</li><li>Find a non-judgmental provider</li></ul></div>
+      <div class="mental-card reveal"><div class="mental-icon">🏥</div><h3>Sex-Positive Healthcare</h3><p>Not all providers are comfortable with multiple partners. Finding the right one matters.</p><ul class="ul-mono"><li>DrSafeHands.com — India-based</li><li>LGBTQ+ health centres: most affirming</li><li>Be direct about your number of partners</li><li>Switch if you feel judged</li></ul></div>
+      <div class="mental-card reveal"><div class="mental-icon">🔋</div><h3>Alcohol, Drugs &amp; Risk</h3><p>Substance use significantly increases exposure risk and impairs safer sex decisions.</p><ul class="ul-mono"><li>Alcohol reduces consistent condom use</li><li>Plan your approach before you're impaired</li><li>Non-judgmental support exists</li><li>Awareness is the first step</li></ul></div>
+      <div class="mental-card reveal"><div class="mental-icon">📣</div><h3>Dealing with Stigma</h3><p>You may face stigma from partners or providers. You do not have to accept it.</p><ul class="ul-mono"><li>You owe no one your sexual history</li><li>STI history is private medical info</li><li>Stigma is the problem, not you</li><li>Community support exists — seek it</li></ul></div>
+      <div class="mental-card reveal"><div class="mental-icon">🌱</div><h3>Ongoing Self-Care</h3><p>Sexual health is part of overall health. The same fundamentals apply.</p><ul class="ul-mono"><li>Sleep supports immune function</li><li>Stress worsens herpes outbreaks</li><li>Build a healthcare team you trust</li><li>Regular physical &amp; emotional check-ins</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BODY LITERACY ══ -->
+<section id="body">
+  <div class="container">
+    <span class="section-tag reveal">Pillar 04</span>
+    <h2 class="section-title reveal">Body Literacy &amp; <em>Symptoms</em></h2>
+    <p class="section-intro reveal">Know your body's baseline — so you recognise when something has changed, and know exactly how urgently to act.</p>
+    <div class="body-grid">
+      <div class="reveal">
+        <div class="body-subtitle">Symptoms &amp; When to Act</div>
+        <table class="sym-table">
+          <thead><tr><th>Symptom</th><th>Possible cause</th><th>Act</th></tr></thead>
+          <tbody>
+            <tr><td>Sores / ulcers (genital, oral, anal)</td><td>Herpes, Syphilis, Mpox</td><td><span class="urg u-now">Today</span></td></tr>
+            <tr><td>Rash on palms or soles</td><td>Secondary syphilis</td><td><span class="urg u-now">Today</span></td></tr>
+            <tr><td>Flu-like illness after new exposure</td><td>Possible HIV seroconversion</td><td><span class="urg u-now">Today</span></td></tr>
+            <tr><td>Jaundice / severe sudden fatigue</td><td>Hepatitis A, B, or C</td><td><span class="urg u-now">Today</span></td></tr>
+            <tr><td>Unusual genital discharge</td><td>Gonorrhea, Chlamydia, BV, Trich</td><td><span class="urg u-week">This week</span></td></tr>
+            <tr><td>Burning during urination</td><td>UTI, Gonorrhea, Chlamydia</td><td><span class="urg u-week">This week</span></td></tr>
+            <tr><td>Pelvic or lower abdominal pain</td><td>PID, Chlamydia, Gonorrhea</td><td><span class="urg u-week">This week</span></td></tr>
+            <tr><td>Swollen lymph nodes (groin)</td><td>LGV, Syphilis, HIV seroconversion</td><td><span class="urg u-week">This week</span></td></tr>
+            <tr><td>Anal itching / irritation</td><td>Herpes, HPV warts, Pinworms</td><td><span class="urg u-mon">This month</span></td></tr>
+            <tr><td>Genital or anal warts</td><td>HPV (low-risk strains)</td><td><span class="urg u-mon">This month</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reveal">
+        <div class="body-subtitle">Vaccines That Protect You</div>
+        <div class="vax-list">
+          <div class="vax-item"><div><h4>Hepatitis B</h4><p>3-dose series. Prevents liver disease and cancer. Available free at government centres.</p></div><span class="vax-badge vb-e">Essential</span></div>
+          <div class="vax-item"><div><h4>HPV — Gardasil 9</h4><p>3-dose series. Prevents cancer-causing strains and warts. Works up to age 45, all genders.</p></div><span class="vax-badge vb-e">Essential</span></div>
+          <div class="vax-item"><div><h4>Hepatitis A</h4><p>2-dose series. Transmitted via oral-anal contact. Often overlooked in STI conversations.</p></div><span class="vax-badge vb-e">Essential</span></div>
+          <div class="vax-item"><div><h4>Mpox / JYNNEOS</h4><p>2-dose series. Recommended for adults with multiple partners or close-contact networks.</p></div><span class="vax-badge vb-r">Recommended</span></div>
+          <div class="vax-item"><div><h4>Meningococcal</h4><p>Relevant for people in close-contact sexual or social communities.</p></div><span class="vax-badge vb-r">Recommended</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRACKER ══ -->
+<section style="background:var(--off); border-top:2px solid var(--ink);">
+  <div class="container">
+    <span class="section-tag reveal">Personal Tool</span>
+    <h2 class="section-title reveal">Contact <em>Tracker</em></h2>
+    <p class="section-intro reveal">Track contacts and test dates for your reference. Useful for exposure tracing. Private — nothing leaves your browser.</p>
+    <div class="tracker-box reveal">
+      <div class="tracker-head">
+        <span>Contact Log — Session Only</span>
+        <span style="opacity:0.45; font-size:10px;">Not saved · Not transmitted</span>
+      </div>
+      <div class="tracker-body">
+        <div id="partner-list"></div>
+        <div class="p-form">
+          <div class="fg"><label class="fl">Name / Alias</label><input class="fi" id="p-name" type="text" placeholder="Initials or alias"></div>
+          <div class="fg"><label class="fl">Their last test</label><input class="fi" id="p-date" type="date"></div>
+          <div class="fg"><label class="fl">Their result</label>
+            <select class="fi" id="p-result">
+              <option value="">— select —</option>
+              <option>All clear</option>
+              <option>Positive — treated</option>
+              <option>Positive — in treatment</option>
+              <option>Pending</option>
+              <option>Unknown / not disclosed</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl">Protection used</label>
+            <select class="fi" id="p-barrier">
+              <option value="">— select —</option>
+              <option>Full barriers every time</option>
+              <option>Condoms for penetration only</option>
+              <option>No barriers</option>
+              <option>Varies by act</option>
+            </select>
+          </div>
+          <button class="btn-add" onclick="addPartner()">+ Add</button>
+        </div>
+      </div>
+      <div class="tracker-foot">
+        <p>Data cleared when you close this tab.</p>
+        <button class="btn-add" onclick="clearAll()" style="background:transparent;color:var(--rust);border-color:var(--rust);">Clear all</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHECKLISTS ══ -->
+<section id="checks" style="border-top:2px solid var(--ink);">
+  <div class="container">
+    <span class="section-tag reveal">Practical Tools</span>
+    <h2 class="section-title reveal">Health <em>Checklists</em></h2>
+    <p class="section-intro reveal">Consistent small actions compound into excellent long-term sexual health.</p>
+    <div class="check-grid">
+      <div class="check-card reveal">
+        <h3>📆 Quarterly</h3>
+        <p>Every 3 months — your full health reset.</p>
+        <ul class="clist">
+          <li><input type="checkbox"> Full STI panel — HIV, gonorrhea, chlamydia, syphilis at all relevant sites</li>
+          <li><input type="checkbox"> Herpes &amp; Trichomonas (every 6 months minimum)</li>
+          <li><input type="checkbox"> PrEP refill + kidney function labs if on daily oral PrEP</li>
+          <li><input type="checkbox"> Restock barriers — condoms, lube, dental dams</li>
+          <li><input type="checkbox"> Update contact tracker</li>
+          <li><input type="checkbox"> Schedule any specialist visits</li>
+          <li><input type="checkbox"> Mental health check-in</li>
+        </ul>
+      </div>
+      <div class="check-card reveal">
+        <h3>🌙 Monthly</h3>
+        <p>Self-check between testing cycles.</p>
+        <ul class="clist">
+          <li><input type="checkbox"> Visual self-exam — any new sores, warts, rashes?</li>
+          <li><input type="checkbox"> Any burning, unusual discharge, or pain?</li>
+          <li><input type="checkbox"> Barrier supply check</li>
+          <li><input type="checkbox"> Any symptoms to follow up on?</li>
+          <li><input type="checkbox"> Cycle / hormonal changes if relevant</li>
+          <li><input type="checkbox"> Any health anxiety you've been avoiding?</li>
+        </ul>
+      </div>
+      <div class="check-card reveal">
+        <h3>🆕 New Contact</h3>
+        <p>Before sex with someone new.</p>
+        <ul class="clist">
+          <li><input type="checkbox"> Share your last test date and result</li>
+          <li><input type="checkbox"> Ask for theirs</li>
+          <li><input type="checkbox"> Agree on what barriers to use and for which acts</li>
+          <li><input type="checkbox"> Discuss PrEP / prevention approach</li>
+          <li><input type="checkbox"> Add to contact tracker after</li>
+          <li><input type="checkbox"> 2-week buffer before unprotected sex (window period)</li>
+        </ul>
+      </div>
+      <div class="check-card reveal">
+        <h3>🚨 If You Test Positive</h3>
+        <p>A positive result is information — not a verdict.</p>
+        <ul class="clist">
+          <li><input type="checkbox"> Start treatment immediately</li>
+          <li><input type="checkbox"> Notify all recent contacts who may be exposed</li>
+          <li><input type="checkbox"> Use inSPOT.org for anonymous notification</li>
+          <li><input type="checkbox"> Pause unprotected sex until treatment complete</li>
+          <li><input type="checkbox"> Identify the exposure window</li>
+          <li><input type="checkbox"> Confirm contacts have tested and treated</li>
+          <li><input type="checkbox"> No shame — you did the right thing by testing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESOURCES ══ -->
+<section class="res-section">
+  <div class="container">
+    <span class="section-tag reveal">Further Information</span>
+    <h2 class="section-title reveal">Resources &amp; Support</h2>
+    <div class="res-grid reveal">
+      <div class="res-card"><div class="res-cat">India — Sexual Health</div><h3>DrSafeHands.com</h3><p>India's leading digital sexual health platform. Online STI testing, PrEP advisory, counselling. India-specific.</p></div>
+      <div class="res-card"><div class="res-cat">Testing &amp; Medical</div><h3>ASHA</h3><p>American Sexual Health Association — comprehensive STI info and testing guidance. ashasexualhealth.org</p></div>
+      <div class="res-card"><div class="res-cat">PrEP — Free (US)</div><h3>Ready, Set, PrEP</h3><p>Free PrEP for uninsured individuals. GetYourPrEP.com. For Indian access speak to a private HIV specialist.</p></div>
+      <div class="res-card"><div class="res-cat">At-Home Testing</div><h3>Thyrocare / SRL / Metropolis</h3><p>India-wide lab chains offering at-home STI test collection. Discrete, reliable, nationwide.</p></div>
+      <div class="res-card"><div class="res-cat">Anonymous Notification</div><h3>inSPOT.org</h3><p>Send anonymous e-cards to past contacts notifying them to get tested. Free and confidential.</p></div>
+      <div class="res-card"><div class="res-cat">HIV Support India</div><h3>iPartner / NACO</h3><p>National AIDS Control Organisation — free ART, PEP at government hospitals. naco.gov.in</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Un<em>f</em>url</div>
+        <p class="footer-tag">Complete sexual health knowledge — science-based, zero judgment.</p>
+      </div>
+      <p class="footer-disc">
+        <strong>Medical Disclaimer:</strong> This guide is for general educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Drug names, dosages, and availability information are provided for awareness only and may change. Indian brand names listed are examples — availability varies by region. Always consult a qualified doctor before starting, stopping, or changing any medication. If you are experiencing a medical emergency, contact emergency services immediately.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Unfurl Health Guide</span>
+      <span>Educational use only · Not medical advice · Always consult a doctor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── WATERMARK — mobile number only ──
+(function() {
+  var MOBILE = '{{MOBILE}}';
+  var grid = document.getElementById('watermark-grid');
+  if (!grid) return;
+  var html = '';
+  for (var i = 0; i < 80; i++) {
+    html += '<div class="wm-tile"><span>' + MOBILE + '</span></div>';
+  }
+  grid.innerHTML = html;
+})();
+
+// ── SCROLL REVEAL ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function(){ e.target.classList.add('on'); }, i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+
+// ── TRACKER ──
+var partners = [];
+function addPartner() {
+  var name = document.getElementById('p-name').value.trim();
+  if (!name) { document.getElementById('p-name').focus(); return; }
+  partners.push({
+    id: Date.now(),
+    name: name,
+    date: document.getElementById('p-date').value,
+    result: document.getElementById('p-result').value,
+    barrier: document.getElementById('p-barrier').value
+  });
+  renderPartners();
+  ['p-name','p-date','p-result','p-barrier'].forEach(function(id){ document.getElementById(id).value = ''; });
+}
+function removePartner(id) { partners = partners.filter(function(p){ return p.id !== id; }); renderPartners(); }
+function clearAll() { if (partners.length && confirm('Clear all entries?')) { partners = []; renderPartners(); } }
+function daysAgo(d) {
+  if (!d) return '—';
+  var diff = Math.floor((Date.now() - new Date(d)) / 86400000);
+  if (diff === 0) return 'Today';
+  if (diff === 1) return '1 day ago';
+  if (diff < 30) return diff + ' days ago';
+  if (diff < 60) return '~1 month ago';
+  return Math.floor(diff/30) + ' months ago';
+}
+function renderPartners() {
+  var list = document.getElementById('partner-list');
+  if (!partners.length) {
+    list.innerHTML = '<p style="font-family:\'Courier New\',monospace;font-size:11px;color:#aaa;padding:1rem 0;text-align:center;border-bottom:1px solid #eee;">No entries yet — add a contact below.</p>';
+    return;
+  }
+  list.innerHTML = partners.map(function(p) {
+    return '<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.7rem 0;border-bottom:1px solid #e0dbd4;flex-wrap:wrap;">' +
+      '<span style="font-weight:bold;color:#0f0f0f;min-width:80px;">' + p.name + '</span>' +
+      '<span style="font-family:\'Courier New\',monospace;font-size:11px;color:#555;">' + (p.date ? new Date(p.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}) : '—') + ' · ' + daysAgo(p.date) + '</span>' +
+      '<span style="font-family:\'Courier New\',monospace;font-size:11px;color:#555;">' + (p.result || '—') + '</span>' +
+      '<span style="font-family:\'Courier New\',monospace;font-size:11px;color:#555;">' + (p.barrier || '—') + '</span>' +
+      '<button class="btn-del" onclick="removePartner(' + p.id + ')">✕</button>' +
+    '</div>';
+  }).join('');
+}
+renderPartners();
+
+// ── CHECKLISTS ──
+document.querySelectorAll('.clist li').forEach(function(li) {
+  li.addEventListener('click', function(e) {
+    if (e.target.tagName === 'INPUT') {
+      var self = this;
+      setTimeout(function(){ self.classList.toggle('done', self.querySelector('input').checked); }, 10);
+    }
+  });
+});
+</script>
+</body>
+</html>

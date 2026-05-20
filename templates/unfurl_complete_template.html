@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unfurl — The Complete Guide to Sexual Health & Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-wine: #2D0A14;
+    --burgundy: #7A1E35;
+    --burgundy-light: #9B2D47;
+    --gold: #D4A574;
+    --gold-dark: #B8894E;
+    --cream: #F5ECD7;
+    --cream-dark: #ECD9BB;
+    --cream-deeper: #E0C99A;
+    --body-text: #3A1020;
+    --muted: #8A5A6A;
+    --white: #FFFDF8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--body-text);
+    line-height: 1.7;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--burgundy); border-radius: 3px; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--deep-wine);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(122,30,53,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, rgba(212,165,116,0.08) 0%, transparent 50%);
+  }
+
+  .cover-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  .cover-content { position: relative; z-index: 1; max-width: 700px; }
+
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0.8;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 16vw, 130px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  .cover-rule {
+    width: 120px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto;
+    opacity: 0.6;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .cover-tags {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .cover-box {
+    border: 1px solid rgba(212,165,116,0.3);
+    padding: 28px 36px;
+    max-width: 520px;
+    margin: 0 auto 48px;
+  }
+
+  .cover-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+
+  .cover-edition {
+    font-size: 8px;
+    letter-spacing: 5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ── DISCLAIMER PAGE ── */
+  .disclaimer-page {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    position: relative;
+  }
+
+  .disclaimer-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--deep-wine), var(--burgundy), var(--gold));
+  }
+
+  .disclaimer-inner {
+    max-width: 620px;
+    width: 100%;
+  }
+
+  .disclaimer-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .disclaimer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .disclaimer-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 16px 0 24px;
+  }
+
+  .disclaimer-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--body-text);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .disclaimer-body {
+    font-size: 13px;
+    color: var(--body-text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .disclaimer-col-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .disclaimer-col h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .disclaimer-col li {
+    font-size: 12px;
+    color: var(--body-text);
+    line-height: 1.7;
+    margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+    list-style: none;
+  }
+
+  .disclaimer-col li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-size: 11px;
+  }
+
+  .disclaimer-quote {
+    background: var(--deep-wine);
+    padding: 24px 28px;
+    margin-top: 28px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .disclaimer-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  .toc-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(45, 10, 20, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border-bottom: 1px solid rgba(212,165,116,0.15);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .toc-nav.visible { transform: translateY(0); }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    overflow-x: auto;
+  }
+
+  .nav-links a {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.5;
+    text-decoration: none;
+    padding: 0 12px;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── SECTION BASE ── */
+  .section {
+    padding: 100px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-alt {
+    background: var(--white);
+    padding: 100px 40px;
+  }
+
+  .section-alt .section { padding: 0; }
+
+  .section-dark {
+    background: var(--deep-wine);
+    padding: 100px 40px;
+  }
+
+  .section-dark .section { padding: 0; }
+
+  /* ── SECTION HEADER ── */
+  .sec-eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .sec-eyebrow-light {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--deep-wine);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .sec-title-light {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .sec-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 560px;
+  }
+
+  .sec-intro-light {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--cream);
+    opacity: 0.6;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 560px;
+  }
+
+  .sec-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 36px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--burgundy);
+    margin: 40px 0 10px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--deep-wine);
+    margin: 28px 0 8px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--body-text);
+    margin-bottom: 14px;
+    max-width: 680px;
+  }
+
+  .dark-text p { color: var(--cream); opacity: 0.82; }
+  .dark-text h2 { color: var(--gold); }
+  .dark-text h3 { color: var(--cream-dark); }
+
+  ul { list-style: none; margin: 12px 0 20px; }
+
+  ul li {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--body-text);
+    padding: 6px 0 6px 22px;
+    position: relative;
+    border-bottom: 1px solid rgba(212,165,116,0.12);
+    max-width: 680px;
+  }
+
+  ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-size: 7px;
+    top: 11px;
+  }
+
+  .dark-text ul li {
+    color: var(--cream);
+    opacity: 0.85;
+    border-bottom-color: rgba(212,165,116,0.08);
+  }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 28px 0;
+    background: rgba(212,165,116,0.07);
+    max-width: 680px;
+  }
+
+  .callout p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--burgundy);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .callout-dark {
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 28px 0;
+    background: rgba(212,165,116,0.05);
+    max-width: 680px;
+  }
+
+  .callout-dark p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: var(--burgundy);
+    padding: 20px 24px;
+    margin: 28px 0;
+    max-width: 680px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .warning-box p {
+    font-size: 12px;
+    color: var(--cream);
+    margin: 0;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  .warning-box strong {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── STAT BLOCKS ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 36px 0;
+    max-width: 680px;
+  }
+
+  .stat-block {
+    background: var(--deep-wine);
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.5;
+    line-height: 1.4;
+  }
+
+  /* ── ANATOMY CARDS ── */
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 36px 0;
+    max-width: 680px;
+  }
+
+  .anatomy-card {
+    border: 1px solid var(--cream-dark);
+    padding: 24px 22px;
+    background: var(--white);
+    position: relative;
+  }
+
+  .anatomy-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--burgundy);
+    padding: 2px 10px;
+    letter-spacing: 2px;
+  }
+
+  .anatomy-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--deep-wine);
+    margin-bottom: 8px;
+  }
+
+  .anatomy-card p {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── HORMONE CARDS ── */
+  .hormone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 36px 0;
+    max-width: 680px;
+  }
+
+  .hormone-card {
+    padding: 22px 20px;
+    border-top: 3px solid var(--gold);
+    background: rgba(212,165,116,0.06);
+  }
+
+  .hormone-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin-bottom: 4px;
+  }
+
+  .hormone-role {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .hormone-card p {
+    font-size: 12.5px;
+    color: var(--body-text);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── MED TABLE ── */
+  .med-table {
+    width: 100%;
+    max-width: 680px;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 12.5px;
+  }
+
+  .med-table th {
+    background: var(--deep-wine);
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .med-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--cream-dark);
+    color: var(--body-text);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .med-table tr:nth-child(even) td { background: rgba(212,165,116,0.05); }
+
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  .pill-red { background: rgba(122,30,53,0.15); color: var(--burgundy); }
+  .pill-gold { background: rgba(212,165,116,0.2); color: var(--gold-dark); }
+  .pill-green { background: rgba(70,100,70,0.12); color: #3A6040; }
+
+  /* ── TOY SAFETY ── */
+  .safety-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+    max-width: 680px;
+  }
+
+  .safety-card {
+    padding: 20px 18px;
+    text-align: center;
+  }
+
+  .safety-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .safety-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .safety-card p {
+    font-size: 11.5px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .safety-green { background: rgba(70,100,70,0.08); border-top: 2px solid #3A6040; }
+  .safety-green h4 { color: #3A6040; }
+  .safety-yellow { background: rgba(212,165,116,0.1); border-top: 2px solid var(--gold-dark); }
+  .safety-yellow h4 { color: var(--gold-dark); }
+  .safety-red { background: rgba(122,30,53,0.08); border-top: 2px solid var(--burgundy); }
+  .safety-red h4 { color: var(--burgundy); }
+
+  /* ── WHEN TO SEE DOC ── */
+  .sign-list {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 680px;
+  }
+
+  .sign-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--cream-dark);
+    border-left: 3px solid var(--burgundy);
+    align-items: flex-start;
+  }
+
+  .sign-item span {
+    font-size: 13px;
+    color: var(--body-text);
+    line-height: 1.6;
+  }
+
+  /* ── FINAL DISCLAIMER ── */
+  .final-disclaimer {
+    background: var(--deep-wine);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .final-disclaimer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: #1a0509;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(212,165,116,0.1);
+  }
+
+  .site-footer p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.5;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .anatomy-grid, .safety-grid, .sign-list, .disclaimer-col-wrap { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr; gap: 2px; }
+    .hormone-grid { grid-template-columns: 1fr; }
+    .section { padding: 60px 24px; }
+    .toc-nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+  /* ── WATERMARK ── */
+  .wm-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+  }
+
+  .wm-line {
+    position: absolute;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(122, 30, 53, 0.07);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    transform: rotate(-35deg);
+    transform-origin: left center;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="toc-nav" id="mainNav">
+  <a href="#cover" class="nav-logo">Unfurl</a>
+  <ul class="nav-links">
+    <li><a href="#women">Women</a></li>
+    <li><a href="#men">Men</a></li>
+    <li><a href="#gap">Orgasm Gap</a></li>
+    <li><a href="#hormones">Hormones</a></li>
+    <li><a href="#medicines">Medicines</a></li>
+    <li><a href="#taste">Taste</a></li>
+    <li><a href="#drive">Drive</a></li>
+    <li><a href="#toys">Toys</a></li>
+    <li><a href="#doctor">Doctor</a></li>
+  </ul>
+</nav>
+
+<!-- ══ WATERMARK OVERLAY ══════════════════════════════════ -->
+<div class="wm-overlay" id="wmOverlay"></div>
+
+<!-- ══ COVER ══════════════════════════════════════════════ -->
+<section class="cover" id="cover">
+  <div class="cover-noise"></div>
+  <div class="cover-content">
+    <p class="cover-eyebrow">Unfurl Health Series</p>
+    <h1 class="cover-title">Unfurl</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-subtitle">The Complete Guide to Sexual Health & Wellness</p>
+    <p class="cover-tags">Anatomy · Hormones · Medicines · Pleasure · Safety</p>
+    <div class="cover-box">
+      <p>A comprehensive, evidence-based resource for understanding your body, your health, and your pleasure — with honesty, depth, and respect.</p>
+    </div>
+    <div style="margin-top:32px; border:1px solid rgba(212,165,116,0.25); padding:18px 24px; max-width:380px; margin-left:auto; margin-right:auto;">
+      <p style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); opacity:0.6; margin-bottom:6px; max-width:100%;">Prepared exclusively for</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--cream); font-weight:600; margin-bottom:4px; max-width:100%;">{{CUSTOMER_NAME}}</p>
+      <p style="font-size:11px; color:var(--gold); opacity:0.7; letter-spacing:1px; margin-bottom:2px; max-width:100%;">{{CUSTOMER_MOBILE}}</p>
+      <p style="font-size:11px; color:var(--gold); opacity:0.5; max-width:100%;">{{CUSTOMER_EMAIL}}</p>
+    </div>
+    <p class="cover-edition" style="margin-top:24px;">For Educational Purposes Only · Adult Readers</p>
+  </div>
+</section>
+
+<!-- ══ DISCLAIMER (Page 2) ══════════════════════════════════ -->
+<section class="disclaimer-page" id="disclaimer">
+  <div class="disclaimer-inner">
+    <p class="disclaimer-label">Editorial Notice</p>
+    <h2 class="disclaimer-title">Before You Begin</h2>
+    <div class="disclaimer-rule"></div>
+    <p class="disclaimer-intro">
+      This guide exists because honest, accurate information about sexual health is still hard to find — and even harder to talk about openly. Unfurl is here to change that.
+    </p>
+    <p class="disclaimer-body">
+      Unfurl is an educational resource created to support informed, healthy decisions about your body. Everything in this document is designed to help you understand your health, recognise important signs, ask better questions, and seek the right professional support when you need it.
+    </p>
+
+    <div class="disclaimer-col-wrap">
+      <div class="disclaimer-col">
+        <h4>This guide is here to</h4>
+        <ul>
+          <li>Present evidence-based health information in plain language</li>
+          <li>Empower you to have more informed conversations with your doctor</li>
+          <li>Help you understand your body with clarity and without shame</li>
+          <li>Guide you toward safe, informed decisions about your wellbeing</li>
+        </ul>
+      </div>
+      <div class="disclaimer-col">
+        <h4>This guide does not</h4>
+        <ul>
+          <li>Substitute for medical advice, diagnosis, or treatment</li>
+          <li>Replace consultation with a qualified specialist or therapist</li>
+          <li>Recommend or endorse any specific medication or product</li>
+          <li>Replace honest communication with your healthcare provider</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="disclaimer-body">
+      All health content in this guide should be discussed with a qualified healthcare provider before acting on it. Individual health needs vary — what applies generally may not apply to your specific situation. This guide is for adults. Use it as a starting point for greater self-knowledge — not as a final answer.
+    </p>
+
+    <div class="disclaimer-quote">
+      <p>Knowledge is the foundation of health. This guide is your compass, not your clinician.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TABLE OF CONTENTS ══════════════════════════════════ -->
+<section style="background:var(--deep-wine); padding:100px 40px;">
+<div style="max-width:860px; margin:0 auto;">
+  <span style="font-size:9px; letter-spacing:5px; color:var(--gold); opacity:0.6; text-transform:uppercase; display:block; margin-bottom:12px;">What's Inside</span>
+  <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(36px,5vw,52px); font-weight:700; color:var(--cream); line-height:1.1; margin-bottom:8px;">Contents</h1>
+  <div style="width:48px; height:2px; background:var(--gold); margin-bottom:48px;"></div>
+
+  <div style="display:flex; flex-direction:column; gap:0;">
+
+    <a href="#women" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">01</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Women's Anatomy & Pleasure Map</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">The clitoris, G-spot, A-spot, erogenous zones & female ejaculation</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#men" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">02</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Men's Anatomy & Pleasure Map</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">The frenulum, prostate, perineum & overlooked erogenous zones</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#gap" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">03</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">The Orgasm Gap</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">What the data reveals — and the one variable that changes everything</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#hormones" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">04</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">The Hormone Map</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Eight hormones that shape desire, function, and sexual health</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#medicines" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">05</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Medicines & Your Sex Life</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">SSRIs, contraceptives, blood pressure meds, PSSD & supplements</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#taste" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">06</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Fluid Taste & Body Chemistry</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Diet, hydration, pH balance and the science behind taste</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#drive" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">07</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Natural Drive Boosters</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Sleep, strength training, pelvic floor, nutrition & stress management</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#toys" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">08</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Sex Toys — Safe Use Guide</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Materials, lubricants, hygiene, anal safety & what to avoid</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#doctor" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; border-bottom:1px solid rgba(212,165,116,0.1); gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">09</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">When to See a Doctor</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Signs that need professional attention & specialists to know</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+    <a href="#final-disclaimer" style="text-decoration:none; display:flex; align-items:center; justify-content:space-between; padding:18px 0; gap:16px;">
+      <div style="display:flex; align-items:baseline; gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--gold); opacity:0.4; min-width:36px;">10</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); line-height:1.2;">Medical Disclaimer</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:3px; font-style:italic;">Full health and safety notice</div>
+        </div>
+      </div>
+      <span style="color:var(--gold); opacity:0.4; font-size:18px;">→</span>
+    </a>
+
+  </div>
+</div>
+</section>
+
+<!-- ══ 01 — WOMEN'S ANATOMY ════════════════════════════════ -->
+<div class="section-alt" id="women">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 01</span>
+  <h1 class="sec-title">Women's Anatomy<br>& Pleasure Map</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">The female body contains one of the most complex pleasure systems in human anatomy — and most of it goes completely unacknowledged.</p>
+
+  <h2>The Clitoris — Far More Than You Think</h2>
+  <p>The visible tip of the clitoris is just the beginning. The full clitoral structure extends 9–11cm inside the body, with internal legs (crura) and bulbs wrapping around the vaginal canal. It contains approximately 8,000 nerve endings — more than any other human structure — and exists solely for pleasure. This is not a small organ. It is an extensive, intricate system.</p>
+  <p>Modern 3D imaging, only available from the early 2000s onward, revealed the true complexity of this structure. Prior to this, medical textbooks largely ignored or minimised it. Much of what we call "vaginal orgasm" is actually the internal clitoris being indirectly stimulated.</p>
+
+  <div class="callout"><p>The clitoris has no reproductive function. It exists entirely for pleasure — which is, in itself, a remarkable biological fact.</p></div>
+
+  <div class="anatomy-grid">
+    <div class="anatomy-card" data-num="G-SPOT">
+      <h4>The G-Spot</h4>
+      <p>Located 5–7cm inside the vagina on the front (anterior) wall. Has a slightly ribbed texture. Connected to the internal clitoris, urethral sponge, and Skene's glands. Stimulation here can lead to intense orgasm and, for some, ejaculation. Not universal — sensitivity varies enormously between individuals.</p>
+    </div>
+    <div class="anatomy-card" data-num="A-SPOT">
+      <h4>The A-Spot</h4>
+      <p>The Anterior Fornix Erogenous zone — located deeper than the G-spot, near the cervix on the front wall. Less widely known but highly responsive in many women. Can produce intense lubrication rapidly. Requires deeper penetration or longer fingers to reach.</p>
+    </div>
+    <div class="anatomy-card" data-num="CERVIX">
+      <h4>The Cervix</h4>
+      <p>For some women, deep cervical pressure produces a distinct, full-body orgasmic sensation unlike clitoral orgasm. For others it can be uncomfortable or painful — especially mid-cycle when the cervix is lower. Approach slowly and always with communication.</p>
+    </div>
+    <div class="anatomy-card" data-num="CLITORAL TIP">
+      <h4>The Glans Clitoris</h4>
+      <p>The external, visible part. The most nerve-dense point on the body. For most women, direct stimulation here is the most reliable path to orgasm. Can become oversensitive post-orgasm — indirect stimulation through the clitoral hood is often preferable.</p>
+    </div>
+  </div>
+
+  <h2>External Erogenous Zones</h2>
+  <p>Beyond the genitals, research confirms several consistently high-sensitivity zones across the female body:</p>
+  <ul>
+    <li><strong>Inner thighs</strong> — high nerve density, builds arousal without direct stimulation</li>
+    <li><strong>Nipples and breast tissue</strong> — activate the same brain regions as genital stimulation in many women. Sensitivity varies widely and can change throughout the menstrual cycle</li>
+    <li><strong>Nape of the neck</strong> — rich with sensory nerve endings, particularly responsive to light touch</li>
+    <li><strong>Lower back and sacrum</strong> — connected to pelvic nerve pathways</li>
+    <li><strong>Ears and earlobes</strong> — highly sensitive to warmth and light contact</li>
+    <li><strong>Lips and mouth</strong> — among the most nerve-dense areas outside the genitals</li>
+  </ul>
+
+  <h2>Clitoral vs Vaginal Orgasm — What Research Says</h2>
+  <p>Studies using the Orgasmometer scale found significant differences in how these orgasms are experienced. Clitoral orgasms are consistently described as sharper, easier to achieve, and more controllable. Vaginal orgasms are described as deeper, wilder, more pulsating, and more full-body. Neither is superior — they are genuinely different experiences, and many women experience both.</p>
+
+  <h2>Female Ejaculation (Squirting)</h2>
+  <p>Research confirms that ejaculation occurs from the Skene's glands — small glands near the urethra, considered the female equivalent of the prostate. The fluid is a combination of a prostate-specific antigen (PSA), glucose, and small amounts of urine. It is not urine. It is a genuine physiological response, not universal, and cannot be forced — it is typically associated with G-spot stimulation and significant arousal.</p>
+</div>
+</div>
+
+<!-- ══ 02 — MEN'S ANATOMY ══════════════════════════════════ -->
+<div class="section-dark" id="men">
+<div class="section reveal dark-text">
+  <span class="sec-eyebrow-light">Section 02</span>
+  <h1 class="sec-title-light">Men's Anatomy<br>& Pleasure Map</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro-light">Male sexual anatomy is widely assumed to be simple. It isn't. Several of the most powerful erogenous zones are almost never discussed.</p>
+
+  <h2>The Frenulum — The Most Overlooked Point</h2>
+  <p>The frenulum is the V-shaped band of skin on the underside of the penis, where the foreskin meets the glans. It is the single most nerve-dense point on the male body and is considered the primary trigger of orgasm in most men — more so than the glans itself. Often referred to as the "male clitoris" in anatomy research. Even after circumcision, a portion typically remains. Applying focused stimulation here — with fingers, mouth, or a toy — dramatically intensifies sensation.</p>
+
+  <div class="anatomy-grid">
+    <div class="anatomy-card" data-num="P-SPOT">
+      <h4>The Prostate (P-Spot)</h4>
+      <p>A walnut-sized gland between the bladder and rectum. Research describes prostate-stimulated orgasms as potentially surpassing penile orgasms in intensity. Accessible externally via firm perineum pressure, or internally via the rectum. Requires full relaxation, generous lubrication, and no rush. Not for everyone — but widely reported as transformative for those who explore it.</p>
+    </div>
+    <div class="anatomy-card" data-num="PERINEUM">
+      <h4>The Perineum</h4>
+      <p>The stretch of skin between the scrotum and anus. Densely packed with nerve endings and directly overlies the prostate. Firm external pressure here — particularly just before or during orgasm — significantly amplifies intensity. Easy to access in any position. One of the most underused erogenous zones in male anatomy.</p>
+    </div>
+    <div class="anatomy-card" data-num="GLANS">
+      <h4>The Glans (Head)</h4>
+      <p>The most visible sensitive zone. Packed with nerve endings, particularly around the coronal ridge (the rim). Sensitivity varies — for some men the glans is intensely sensitive, for others indirect stimulation is preferable. Fully exposed stimulation can become overwhelming post-orgasm, similar to the clitoral tip in women.</p>
+    </div>
+    <div class="anatomy-card" data-num="SCROTUM">
+      <h4>Scrotum & Testicles</h4>
+      <p>The scrotum contains extensive nerve endings often ignored during sexual activity. Gentle cupping, light pulling, or warmth applied to the scrotum adds significant sensation. The testicles themselves are sensitive to pressure — approach with care. Many men report that scrotum attention dramatically intensifies build-up to orgasm.</p>
+    </div>
+  </div>
+
+  <h2>Non-Genital Erogenous Zones</h2>
+  <ul>
+    <li><strong>Nipples</strong> — made of identical erectile tissue to the penis. Brain imaging shows nipple stimulation activates the same neural pathways as genital stimulation in many men. Massively underexplored</li>
+    <li><strong>Inner thighs</strong> — build arousal and anticipation without direct stimulation</li>
+    <li><strong>Neck and ears</strong> — highly responsive to breath, lips, and light touch</li>
+    <li><strong>Lower back</strong> — connected to pelvic nerve clusters</li>
+    <li><strong>Behind the knees</strong> — surprisingly high nerve density, responds to light touch</li>
+  </ul>
+
+  <div class="callout-dark"><p>The prostate has been called the male G-spot for good reason. It is the anatomical equivalent — deeply sensitive, widely ignored, and genuinely transformative when explored with patience and care.</p></div>
+</div>
+</div>
+
+<!-- ══ 03 — ORGASM GAP ═════════════════════════════════════ -->
+<div id="gap">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 03</span>
+  <h1 class="sec-title">The Orgasm Gap</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">One of the most significant and least discussed inequalities in sexual health. The data is clear — and so is the cause.</p>
+
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="stat-num">61%</div>
+      <div class="stat-label">Men who orgasm<br>every time</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">30%</div>
+      <div class="stat-label">Women who orgasm<br>every time</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">37%</div>
+      <div class="stat-label">Women who need<br>clitoral stimulation<br>to orgasm</div>
+    </div>
+  </div>
+
+  <p>Research consistently shows that only around 30% of women orgasm every time they have sex, compared to over 61% of men. During casual sexual encounters, the gap widens dramatically: 82% of men report orgasming, compared to just 32% of women.</p>
+
+  <p>The cause is anatomical education — or more precisely, the lack of it. Orgasm researcher Laurie Mintz has identified the primary driver as "cultural ignorance of the clitoris." Studies show that only 18% of women can reliably orgasm from penetration alone. Around 37% require direct clitoral stimulation. Yet penetration remains the default model of "sex" in most cultural frameworks.</p>
+
+  <h2>The Single Variable That Changes Everything</h2>
+  <p>Across all research into the orgasm gap, one factor consistently predicts whether a woman orgasms: whether clitoral stimulation is included. When it is — regardless of the type of sexual encounter or the gender of the partner — orgasm rates rise significantly. When it isn't, they drop. The gap is not physiological. It is not about compatibility, effort, or attraction. It is about one thing: whether the clitoris is involved. Studies confirm that women who consistently receive clitoral stimulation during partnered sex are 38% more likely to orgasm every time.</p>
+  <p>This is the central, evidence-based insight of all orgasm gap research. The anatomy is there. The knowledge, and the willingness to act on it, is what makes the difference.</p>
+
+  <h2>Clitoral vs Vaginal Orgasm — The Data</h2>
+  <ul>
+    <li>37% of women require direct clitoral stimulation to orgasm</li>
+    <li>18% say vaginal penetration alone is sufficient</li>
+    <li>The remainder benefit from a combination of both</li>
+    <li>Orgasm rates increase significantly with concurrent clitoral stimulation during intercourse</li>
+    <li>Women who always orgasm during partnered sex are 38% more likely to receive regular clitoral stimulation</li>
+  </ul>
+
+  <div class="callout"><p>Closing the orgasm gap requires no new technology. It requires knowledge — and the willingness to apply it.</p></div>
+</div>
+</div>
+
+<!-- ══ 04 — HORMONES ══════════════════════════════════════ -->
+<div class="section-alt" id="hormones">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 04</span>
+  <h1 class="sec-title">The Hormone Map</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">Eight hormones regulate your sexual health, drive, and function. Understanding how they interact gives you real power over your wellbeing.</p>
+
+  <div class="hormone-grid">
+    <div class="hormone-card">
+      <div class="hormone-name">Testosterone</div>
+      <span class="hormone-role">Primary Drive Hormone · Both Sexes</span>
+      <p>The most important hormone for libido in both men and women. In men, primarily produced in the testes. In women, produced in the ovaries and adrenal glands at lower but critical levels. Controls desire, arousal, energy, and sexual confidence. Declines with age, poor sleep, chronic stress, obesity, and alcohol. Rises with strength training, quality sleep, zinc, vitamin D, and sunlight.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Estrogen</div>
+      <span class="hormone-role">Lubrication, Sensation & Mood · Women</span>
+      <p>Maintains vaginal tissue health, lubrication, and sensitivity. Also affects mood, energy, and emotional connection to sex. Levels fluctuate throughout the menstrual cycle — highest just before ovulation (peak desire window), lowest during menstruation and menopause. Low estrogen causes vaginal dryness, reduced sensitivity, and discomfort during sex.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Progesterone</div>
+      <span class="hormone-role">Cycle Balance · Women</span>
+      <p>Rises in the second half of the menstrual cycle (luteal phase). Generally has a dampening effect on libido compared to estrogen. Can cause fatigue and mood shifts that reduce sexual interest. High progesterone from synthetic sources (some contraceptives) can significantly lower desire and lubrication.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Cortisol</div>
+      <span class="hormone-role">The Libido Killer · Both Sexes</span>
+      <p>The primary stress hormone. When chronically elevated, the body literally deprioritises sex hormone production — cortisol and testosterone share the same precursor (pregnenolone), and the body favours cortisol under stress. Chronic high cortisol suppresses testosterone in men, disrupts estrogen cycles in women, reduces lubrication, and lowers desire across the board. Managing stress is not separate from sexual health — it is central to it.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Dopamine</div>
+      <span class="hormone-role">Desire & Anticipation · Both Sexes</span>
+      <p>The neurotransmitter of motivation and reward. Drives sexual desire and the urge to pursue intimacy. Highest during anticipation and early arousal. Activities that dysregulate dopamine — excessive pornography, social media, processed food — can blunt natural sexual desire by raising the baseline threshold for stimulation. Exercise, novelty, and meaningful connection boost dopamine naturally.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Oxytocin</div>
+      <span class="hormone-role">Bonding & Connection · Both Sexes</span>
+      <p>The bonding hormone. Released during touch, orgasm, eye contact, and physical closeness. Deepens emotional connection and trust. Naturally boosted by non-sexual physical affection — hugging, cuddling, skin-to-skin contact. In long-term relationships, oxytocin is a key driver of sustained desire and intimacy beyond the initial dopamine-driven phase.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Prolactin</div>
+      <span class="hormone-role">Post-Orgasm Reset · Both Sexes</span>
+      <p>Rises sharply after orgasm, producing the refractory period — the recovery time before desire returns. Higher prolactin levels extend this recovery window. Chronically elevated prolactin (hyperprolactinaemia) can suppress testosterone, estrogen, and libido significantly. Certain medications, thyroid disorders, and pituitary conditions can raise prolactin. Worth checking if desire has suddenly and persistently dropped.</p>
+    </div>
+    <div class="hormone-card">
+      <div class="hormone-name">Thyroid Hormones</div>
+      <span class="hormone-role">The Silent Disruptor · Both Sexes</span>
+      <p>Hypothyroidism (underactive thyroid) is one of the most commonly missed causes of low libido in both men and women. The thyroid regulates metabolism and energy — when it underperforms, everything slows, including sexual function. Symptoms include fatigue, weight gain, depression, and significantly reduced drive. A simple TSH blood test identifies it. Treated with medication, restoration of function is typically complete.</p>
+    </div>
+  </div>
+
+  <div class="callout"><p>Cortisol is the single most controllable variable in your hormone profile. Addressing chronic stress is one of the most powerful things you can do for your sexual health.</p></div>
+</div>
+</div>
+
+<!-- ══ 05 — MEDICINES ════════════════════════════════════ -->
+<div id="medicines">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 05</span>
+  <h1 class="sec-title">Medicines &<br>Your Sex Life</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">Many of the most commonly prescribed drugs have significant sexual side effects. Most patients are never told about them.</p>
+
+  <div class="warning-box">
+    <strong>⚕ Medical Disclaimer</strong>
+    <p>Never stop, start, or alter any medication based on information in this guide. Always consult a qualified doctor or pharmacist before making any changes to your medication. Sexual side effects should be discussed openly with your prescriber — alternatives often exist.</p>
+  </div>
+
+  <table class="med-table">
+    <thead>
+      <tr>
+        <th>Medication Type</th>
+        <th>Common Examples</th>
+        <th>Sexual Side Effects</th>
+        <th>Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>SSRIs / SNRIs</strong><br><em>Antidepressants</em></td>
+        <td>Sertraline, Fluoxetine, Escitalopram, Venlafaxine</td>
+        <td>Delayed orgasm, anorgasmia, reduced desire, vaginal dryness, erectile dysfunction</td>
+        <td><span class="pill pill-red">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hormonal Contraceptives</strong></td>
+        <td>Combined pill, mini pill, hormonal IUD, implant, injection</td>
+        <td>Raises SHBG (Sex Hormone Binding Globulin), which binds and inactivates testosterone — reducing desire, lubrication, and sensitivity. Effect varies by formulation.</td>
+        <td><span class="pill pill-red">Significant</span></td>
+      </tr>
+      <tr>
+        <td><strong>Beta Blockers</strong><br><em>Blood pressure</em></td>
+        <td>Propranolol, Atenolol, Metoprolol</td>
+        <td>Erectile dysfunction in men, reduced lubrication in women, fatigue lowering desire</td>
+        <td><span class="pill pill-gold">Moderate</span></td>
+      </tr>
+      <tr>
+        <td><strong>Antihypertensives</strong></td>
+        <td>Thiazide diuretics, Spironolactone</td>
+        <td>Spironolactone is anti-androgenic — lowers testosterone in men and women, reduces drive. Thiazides associated with erectile dysfunction.</td>
+        <td><span class="pill pill-gold">Moderate</span></td>
+      </tr>
+      <tr>
+        <td><strong>Antihistamines</strong></td>
+        <td>Diphenhydramine (older types)</td>
+        <td>Anticholinergic drying effect — reduces vaginal lubrication and overall arousal response</td>
+        <td><span class="pill pill-gold">Mild–Mod</span></td>
+      </tr>
+      <tr>
+        <td><strong>PDE5 Inhibitors</strong><br><em>Erectile support</em></td>
+        <td>Sildenafil (Viagra), Tadalafil (Cialis)</td>
+        <td>Increase blood flow to genital tissue. Effective for erectile dysfunction. Also used off-label in women for arousal. Not a substitute for addressing underlying hormonal or psychological causes.</td>
+        <td><span class="pill pill-green">Positive use</span></td>
+      </tr>
+      <tr>
+        <td><strong>Opioids</strong><br><em>Pain management</em></td>
+        <td>Codeine, Morphine, Oxycodone</td>
+        <td>Suppress testosterone production, reduce desire, cause erectile dysfunction with prolonged use</td>
+        <td><span class="pill pill-red">High</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Post-SSRI Sexual Dysfunction (PSSD)</h2>
+  <p>A critically underreported condition where sexual dysfunction persists even after discontinuing SSRI or SNRI antidepressants. Symptoms include persistent genital numbness, anorgasmia, emotional blunting, and reduced desire. Can last months to years. Estimated to affect a significant minority of long-term SSRI users. If you experience this, speak with a specialist — awareness is growing and management options are emerging.</p>
+
+  <h2>The Pill and SHBG — What You're Not Told</h2>
+  <p>Combined oral contraceptives raise levels of Sex Hormone Binding Globulin (SHBG) — a protein that binds testosterone and estrogen, rendering them biologically inactive. In some women this effect is significant and persistent, resulting in noticeably reduced desire, lubrication, and genital sensitivity. Research also shows that SHBG levels can remain elevated for months after stopping the pill. If you have experienced these effects, discuss non-hormonal alternatives or different progestogen formulations with your doctor.</p>
+
+  <div class="warning-box">
+    <strong>Natural Supplements — Honest Assessment</strong>
+    <p>Ashwagandha: Evidence supports modest cortisol reduction and testosterone maintenance, particularly in men under chronic stress. Maca Root: Limited but promising evidence for libido in women and men — particularly helpful for SSRI-related sexual dysfunction. Zinc: Genuine evidence for testosterone support in zinc-deficient individuals. Vitamin D: Low levels consistently associated with lower testosterone. Always verify supplements with a healthcare provider — quality and dosage vary enormously between products.</p>
+  </div>
+</div>
+</div>
+
+<!-- ══ 06 — FLUID TASTE ═══════════════════════════════════ -->
+<div class="section-alt" id="taste">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 06</span>
+  <h1 class="sec-title">Fluid Taste &<br>Body Chemistry</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">Diet, hydration, and lifestyle measurably affect the chemical composition of bodily fluids. Here is what the evidence actually shows.</p>
+
+  <h2>The Science</h2>
+  <p>Vaginal secretions and semen are both biochemically complex fluids whose composition is affected by diet, hydration, overall health, hormonal balance, and microbiome health. The vagina maintains a naturally acidic pH (3.8–4.5), regulated by Lactobacillus bacteria. Semen is naturally alkaline (pH 7.2–8.0). Taste is a product of this chemistry.</p>
+
+  <h2>What Improves Taste</h2>
+  <ul>
+    <li><strong>Hydration</strong> — the single most impactful factor. Well-hydrated fluids are more dilute and neutral. Dehydration concentrates compounds that produce bitter or sharp flavours</li>
+    <li><strong>Fruits</strong> — pineapple, citrus, berries, and melon are consistently reported to improve taste. The bromelain enzyme in pineapple and natural sugars in fresh fruit alter fluid chemistry positively. Evidence is largely anecdotal but physiologically plausible</li>
+    <li><strong>Cinnamon and parsley</strong> — reported to reduce pungency, likely through their effect on gut bacteria and sulphur compounds</li>
+    <li><strong>Yoghurt and fermented foods</strong> — support vaginal and gut microbiome health, maintaining healthy pH balance</li>
+    <li><strong>Green vegetables</strong> — chlorophyll-rich foods (wheatgrass, spinach, cucumber) reported to reduce bitterness</li>
+  </ul>
+
+  <h2>What Worsens Taste</h2>
+  <ul>
+    <li><strong>Alcohol</strong> — directly alters fluid chemistry and contributes to dehydration</li>
+    <li><strong>Asparagus</strong> — contains asparagusic acid which breaks down into sulfur-containing compounds, affecting all bodily fluids</li>
+    <li><strong>Red meat</strong> — particularly in excess, associated with stronger, more pungent taste</li>
+    <li><strong>Smoking</strong> — significantly alters body chemistry across all secretions</li>
+    <li><strong>Coffee and strong spices</strong> — temporary effect, particularly with excessive consumption</li>
+    <li><strong>Medications</strong> — certain antibiotics, antifungals, and blood pressure medications can affect taste</li>
+  </ul>
+
+  <h2>Vaginal Health & pH Balance</h2>
+  <p>A healthy vaginal environment has a specific pH maintained by Lactobacillus bacteria. Disruption of this balance (bacterial vaginosis, yeast infections, hormonal changes) significantly affects odour and secretions. A sudden change in smell or discharge is a signal to see a doctor — not to alter diet. Douching disrupts this balance and should be avoided entirely. The vagina is self-cleaning.</p>
+
+  <div class="callout"><p>A sudden or significant change in the smell or taste of vaginal discharge is a medical signal, not a dietary problem. Speak with a doctor.</p></div>
+</div>
+</div>
+
+<!-- ══ 07 — NATURAL DRIVE ════════════════════════════════ -->
+<div id="drive">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 07</span>
+  <h1 class="sec-title">Natural Drive<br>Boosters</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">Before pharmaceuticals, there are lifestyle interventions with genuine, evidence-based impact on hormones, desire, and sexual function.</p>
+
+  <h2>Sleep — The Most Underrated Sexual Health Tool</h2>
+  <p>The majority of daily testosterone production occurs during deep sleep — specifically during the REM and slow-wave phases. One week of sleeping 5 hours per night reduces testosterone levels by 10–15% in young healthy men, equivalent to ageing 10–15 years. In women, poor sleep disrupts cortisol regulation, estrogen balance, and the luteinising hormone that regulates ovulation and desire. Quality sleep is not a lifestyle preference. It is a fundamental hormone regulation mechanism.</p>
+
+  <h2>Strength Training</h2>
+  <p>Resistance exercise — particularly compound movements like squats, deadlifts, and presses — produces an acute testosterone spike post-workout and supports sustained higher baseline testosterone over time. Equally effective for women, where it supports testosterone, confidence, and body awareness. Aim for 3–4 sessions per week for meaningful hormonal impact.</p>
+
+  <h2>Pelvic Floor Health</h2>
+  <p>The pelvic floor is a hammock of muscles supporting the bladder, bowel, and sexual organs. In women, strong pelvic floor muscles increase orgasm intensity, improve lubrication response, and enhance sensitivity. In men — this is almost never discussed — pelvic floor strength directly improves erectile quality, ejaculatory control, and orgasm intensity. Both sexes benefit equally from pelvic floor training.</p>
+  <ul>
+    <li><strong>Kegel exercises</strong> — contract the pelvic floor (the muscles you'd use to stop urination), hold 5 seconds, release. 10–15 repetitions, 3 times daily. Results typically noticeable in 6–8 weeks</li>
+    <li><strong>Reverse Kegels</strong> — deliberate relaxation and lengthening of the pelvic floor. Important for men with tension-related erectile issues and for women with vaginismus or painful sex</li>
+    <li>A pelvic floor physiotherapist can assess and guide individual needs — particularly important post-childbirth or with persistent symptoms</li>
+  </ul>
+
+  <h2>Diet & Nutrition</h2>
+  <ul>
+    <li><strong>Zinc</strong> — essential for testosterone synthesis. Found in oysters, red meat, pumpkin seeds, and legumes. Deficiency directly suppresses testosterone</li>
+    <li><strong>Vitamin D</strong> — acts as a hormone precursor. Low vitamin D is consistently associated with lower testosterone. Sunlight is the primary source — supplementation is effective in deficiency</li>
+    <li><strong>Healthy fats</strong> — testosterone is synthesised from cholesterol. Diets very low in fat are associated with lower testosterone. Include avocado, olive oil, nuts, and fatty fish</li>
+    <li><strong>Cruciferous vegetables</strong> — broccoli, cauliflower, Brussels sprouts contain DIM (diindolylmethane), which supports healthy estrogen metabolism in both sexes</li>
+    <li><strong>Magnesium</strong> — reduces SHBG (the protein that inactivates testosterone), potentially increasing free testosterone. Found in dark chocolate, nuts, leafy greens</li>
+  </ul>
+
+  <h2>Stress Management</h2>
+  <p>Given cortisol's direct suppression of sex hormones, stress management is a genuine sexual health intervention. Chronic psychological stress — not just major events, but sustained low-level pressure — maintains elevated cortisol that consistently lowers desire, function, and satisfaction. Evidence-based approaches include: regular cardiovascular exercise, consistent sleep schedules, mindfulness or breathwork practice, and addressing the sources of stress directly rather than managing symptoms alone.</p>
+
+  <h2>Gut-Estrogen Connection</h2>
+  <p>A specific collection of gut bacteria — the estrobolome — regulates how estrogen is metabolised and recirculated in the body. A disrupted gut microbiome can lead to estrogen imbalance, affecting desire, lubrication, and mood. Fermented foods (yoghurt, kefir, kimchi, kombucha) and fibre-rich diets support a healthy estrobolome. This is an emerging area of research with significant implications for women's sexual health.</p>
+</div>
+</div>
+
+<!-- ══ 08 — SEX TOYS ══════════════════════════════════════ -->
+<div class="section-alt" id="toys">
+<div class="section reveal">
+  <span class="sec-eyebrow">Section 08</span>
+  <h1 class="sec-title">Sex Toys —<br>Safe Use Guide</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro">The sex toy industry is almost entirely unregulated. Most people don't know that "body-safe" has no legal definition — or what materials to actually avoid.</p>
+
+  <h2>The Regulation Gap</h2>
+  <p>Unlike food, pharmaceuticals, or children's toys, sex toys are not required to meet any specific safety standards in most countries. The terms "body-safe," "phthalate-free," and "non-toxic" on packaging carry no legal requirement. Independent testing has found phthalates — endocrine-disrupting chemicals linked to reproductive harm — in products marketed as safe, at levels exceeding hazard thresholds. Knowing your materials is the only real protection.</p>
+
+  <div class="safety-grid">
+    <div class="safety-card safety-green">
+      <span class="safety-icon">✓</span>
+      <h4>Safe Materials</h4>
+      <p>Medical-grade / platinum-cured silicone · Borosilicate glass · Stainless steel · ABS hard plastic · Ceramic (glazed)</p>
+    </div>
+    <div class="safety-card safety-yellow">
+      <span class="safety-icon">⚠</span>
+      <h4>Use With Caution</h4>
+      <p>TPE / TPR — porous, cannot be fully sterilised. Single-person use only. Always use a condom on porous toys.</p>
+    </div>
+    <div class="safety-card safety-red">
+      <span class="safety-icon">✕</span>
+      <h4>Avoid</h4>
+      <p>Jelly rubber · PVC · "Silicone blends" · Latex (if sensitive) — porous, leach phthalates, cannot be sterilised</p>
+    </div>
+  </div>
+
+  <h2>Lubricant Compatibility</h2>
+  <p>Using the wrong lubricant with a toy is one of the most common mistakes — and it can degrade the material, creating micro-tears that harbour bacteria.</p>
+  <ul>
+    <li><strong>Water-based lubricant</strong> — safe with all toy materials and all condoms. Best all-purpose choice. Reapply more frequently as it absorbs</li>
+    <li><strong>Silicone-based lubricant</strong> — excellent for glass, metal, and anal play. Long-lasting. <em>Never use with silicone toys</em> — it degrades the material at a molecular level, even premium silicone</li>
+    <li><strong>Oil-based lubricant</strong> — safe for glass and metal only. Degrades latex condoms entirely. Not suitable for internal use with porous toys. Natural oils (coconut, almond) disrupt vaginal pH — use externally only</li>
+  </ul>
+
+  <h2>Hygiene Rules</h2>
+  <ul>
+    <li>Wash toys before and after every use, without exception</li>
+    <li><strong>Non-porous toys (silicone, glass, metal, ABS):</strong> Can be boiled for 3 minutes, run through a dishwasher (non-motorised parts only), or sanitised with a 10% bleach solution and rinsed thoroughly</li>
+    <li><strong>Porous toys (TPE/TPR):</strong> Cannot be fully sterilised. Use a condom on them. Replace regularly</li>
+    <li>Dry completely before storage — moisture creates bacterial and mould growth</li>
+    <li>Store in a clean pouch or dedicated container — not loose in a drawer</li>
+    <li>Inspect before each use — cracks, discolouration, tacky surfaces, or persistent odour after cleaning means replace immediately</li>
+  </ul>
+
+  <h2>Anal Toy Safety — Non-Negotiable Rules</h2>
+  <p>Unlike the vagina, the anus does not have a natural stopping point. Any toy used anally must have a flared base or retrieval mechanism. This is a medical safety rule, not a preference.</p>
+  <ul>
+    <li>Flared base is mandatory — without it, objects can be lost internally, requiring medical intervention</li>
+    <li>Lubrication is mandatory — the anus does not self-lubricate under any circumstances</li>
+    <li>Start small, go slowly — the anal sphincter requires relaxation before penetration is comfortable</li>
+    <li>Never use a vaginal toy anally and then vaginally without thorough cleaning — this introduces rectal bacteria</li>
+    <li>Silicone toys are ideal for anal use — non-porous and easy to sterilise</li>
+  </ul>
+
+  <h2>Sharing Between Partners</h2>
+  <ul>
+    <li>Use a fresh condom when switching a toy between partners</li>
+    <li>Sterilise non-porous toys thoroughly between uses with different partners</li>
+    <li>Porous toys should not be shared between partners regardless of cleaning</li>
+  </ul>
+
+  <div class="callout"><p>The best toy is one made from a safe material, kept clean, and used with appropriate lubrication. Quality matters — and so does maintenance.</p></div>
+</div>
+</div>
+
+<!-- ══ 09 — WHEN TO SEE A DOCTOR ══════════════════════════ -->
+<div class="section-dark" id="doctor">
+<div class="section reveal dark-text">
+  <span class="sec-eyebrow-light">Section 09</span>
+  <h1 class="sec-title-light">When to See<br>a Doctor</h1>
+  <div class="sec-rule"></div>
+  <p class="sec-intro-light">Self-education has limits. These are the signs and situations that need professional assessment — not lifestyle changes.</p>
+
+  <h2>Signs That Need Medical Attention</h2>
+
+  <div class="sign-list" style="margin-bottom:32px">
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Sudden, significant, or unexplained drop in libido — particularly if persistent for more than 4–6 weeks</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Painful sex (dyspareunia) — for any gender. Always warrants investigation, never normalise</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Inability to orgasm that is new and unexplained (particularly if post-medication changes)</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Erectile dysfunction — particularly if new onset, consistent, or occurring in younger men</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Significant change in vaginal discharge — colour, odour, consistency, or volume</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Unusual lumps, sores, blisters, or rashes on or around the genitals</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Bleeding after sex, between periods, or post-menopause — always needs assessment</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Persistent genital numbness, particularly if following antidepressant use — may indicate PSSD</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Signs of STIs: burning during urination, unusual discharge, pain, or confirmed exposure</span>
+    </div>
+    <div class="sign-item" style="background:rgba(212,165,116,0.07); border-left-color:var(--gold)">
+      <span style="color:var(--cream)">Extreme fatigue, weight changes, and low libido together — may indicate thyroid dysfunction</span>
+    </div>
+  </div>
+
+  <h2>Specialists to Know</h2>
+  <ul>
+    <li><strong>Sexual health clinic / GUM clinic</strong> — STI testing, contraception, sexual dysfunction, confidential and non-judgmental</li>
+    <li><strong>Gynaecologist</strong> — female reproductive and sexual health, hormonal concerns, pain conditions</li>
+    <li><strong>Urologist</strong> — male sexual health, erectile dysfunction, prostate health</li>
+    <li><strong>Endocrinologist</strong> — hormone imbalances, thyroid disorders, testosterone and estrogen issues</li>
+    <li><strong>Pelvic floor physiotherapist</strong> — pain during sex, pelvic floor dysfunction, post-childbirth recovery, incontinence</li>
+    <li><strong>Sex therapist / psychosexual counsellor</strong> — psychological components of sexual dysfunction, relationship dynamics, trauma-informed care</li>
+  </ul>
+
+  <div class="callout-dark"><p>Seeking help for sexual health concerns is not embarrassing. It is one of the most informed, self-respecting things a person can do.</p></div>
+</div>
+</div>
+
+<!-- ══ FINAL DISCLAIMER ════════════════════════════════════ -->
+<div class="final-disclaimer" id="final-disclaimer">
+  <div class="final-disclaimer-inner">
+    <p style="font-size:9px; letter-spacing:5px; color:var(--gold); opacity:0.6; text-transform:uppercase; margin-bottom:16px; max-width:100%">Section 10 · Full Medical Disclaimer</p>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--cream); margin-bottom:16px; max-width:100%">A Final Word</h2>
+    <div style="width:48px; height:2px; background:var(--gold); margin-bottom:28px"></div>
+    <p style="color:var(--cream); opacity:0.75; font-size:13.5px; margin-bottom:18px; max-width:100%">The information in this guide is provided for general educational purposes only. It does not constitute medical advice, diagnosis, or treatment. Nothing in this document should be interpreted as a recommendation to take, stop, or change any medication, supplement, or healthcare regimen.</p>
+    <p style="color:var(--cream); opacity:0.75; font-size:13.5px; margin-bottom:18px; max-width:100%">Sexual health is personal, complex, and individual. What applies generally may not apply to your specific circumstances. Always consult a qualified healthcare provider — doctor, specialist, pharmacist, or therapist — before making changes to your health based on any information you encounter, including this guide.</p>
+    <p style="color:var(--cream); opacity:0.75; font-size:13.5px; margin-bottom:32px; max-width:100%">Unfurl has made every effort to present information that is accurate, evidence-based, and up to date. However, medical science evolves continuously. Some recommendations may change as research develops. Use this guide as a starting point for informed self-knowledge — and always verify with a qualified professional.</p>
+    <div style="border:1px solid rgba(212,165,116,0.25); padding:24px 28px; margin-bottom:0">
+      <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--gold); text-align:center; margin:0; max-width:100%">Your body deserves accurate information and qualified care — in equal measure.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p>Unfurl · The Complete Guide to Sexual Health & Wellness · For Educational Purposes Only · Adult Readers · © Unfurl Health Series</p>
+</footer>
+
+<script>
+  // Nav reveal on scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ── WATERMARK ──────────────────────────────────────────
+  function buildWatermark(text) {
+    const overlay = document.getElementById('wmOverlay');
+    overlay.innerHTML = '';
+    if (!text) return;
+    const label = text + '  ·  UNFURL  ·  ' + text + '  ·  UNFURL  ·  ' + text;
+    const lineH = 90;
+    const rows = Math.ceil(window.innerHeight / lineH) + 4;
+    for (let i = 0; i < rows; i++) {
+      const div = document.createElement('div');
+      div.className = 'wm-line';
+      div.textContent = label;
+      div.style.top = (i * lineH - 40) + 'px';
+      div.style.left = '-10%';
+      div.style.width = '140%';
+      overlay.appendChild(div);
+    }
+  }
+
+  // Auto-run on load using the mobile placeholder baked in by backend
+  buildWatermark('{{CUSTOMER_MOBILE}}');
+  window.addEventListener('resize', () => buildWatermark('{{CUSTOMER_MOBILE}}'));
+</script>
+</body>
+</html>

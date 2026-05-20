@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>From Salary to Wealth — EliteRoadMaps</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0D0D0D;
+  --amber:   #BA7517;
+  --amber-light: #F5A623;
+  --offwhite: #FAFAF8;
+  --light-bg: #F2F0EB;
+  --border:  #DCDCDC;
+  --muted:   #6B6B6B;
+  --text:    #1A1A1A;
+  --white:   #FFFFFF;
+  --ch1:     #C0392B;
+  --ch2:     #2980B9;
+  --ch3:     #8E44AD;
+  --ch4:     #27AE60;
+  --ch5:     #E67E22;
+  --ch6:     #BA7517;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 10pt;
+  color: var(--text);
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── WATERMARK ── */
+.wm-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+.wm-line {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 11pt;
+  font-family: 'Source Sans 3', sans-serif;
+  color: rgba(0,0,0,0.055);
+  transform: rotate(-35deg);
+  letter-spacing: 2px;
+}
+
+/* ── PAGE WRAPPER ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+}
+
+/* ══════════════════════════════
+   COVER PAGE
+══════════════════════════════ */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-topbar {
+  background: var(--amber);
+  padding: 11px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cover-topbar .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.5px;
+}
+.cover-topbar .price-badge {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--black);
+  background: rgba(0,0,0,0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.cover-body {
+  flex: 1;
+  display: flex;
+  padding: 40px 28px 0 28px;
+  gap: 24px;
+}
+
+.cover-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cover-eyebrow {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34pt;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.cover-title span {
+  color: var(--amber);
+}
+
+.cover-dash {
+  width: 50px;
+  height: 3px;
+  background: var(--amber);
+  margin: 16px 0;
+}
+
+.cover-subtitle {
+  font-size: 11pt;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  max-width: 240px;
+}
+
+.cover-chapters {
+  margin-top: 28px;
+}
+.cover-chapters-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.cover-ch-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.cover-ch-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--amber);
+  min-width: 18px;
+}
+.cover-ch-text {
+  font-size: 9pt;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.4;
+}
+.cover-ch-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.cover-right {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 60px;
+}
+.cover-stat-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(186,117,23,0.3);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.cover-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+}
+.cover-stat-label {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.cover-prepared {
+  background: rgba(186,117,23,0.12);
+  border-top: 1px solid rgba(186,117,23,0.25);
+  padding: 16px 28px;
+  margin-top: auto;
+}
+.cover-prepared-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.cover-prepared-row {
+  display: flex;
+  gap: 32px;
+}
+.cover-prep-field label {
+  font-size: 7pt;
+  color: rgba(255,255,255,0.45);
+  display: block;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.cover-prep-field .val {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.cover-bottombar {
+  background: var(--amber);
+  padding: 9px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cover-bottombar .url {
+  font-size: 8pt;
+  font-weight: 600;
+  color: var(--black);
+}
+.cover-bottombar .tagline {
+  font-size: 7.5pt;
+  color: rgba(0,0,0,0.65);
+  font-style: italic;
+}
+
+/* ══════════════════════════════
+   INNER PAGE STRUCTURE
+══════════════════════════════ */
+.inner-page {
+  width: 210mm;
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+  page-break-before: always;
+}
+
+.page-header {
+  background: var(--black);
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-header .doc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0.5px;
+}
+.page-header .ch-label {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+}
+
+.page-content {
+  flex: 1;
+  padding: 28px 32px;
+  background: var(--offwhite);
+}
+
+.page-footer {
+  background: var(--amber);
+  padding: 8px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-footer .footer-brand {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--black);
+}
+.page-footer .footer-customer {
+  font-size: 7pt;
+  color: rgba(0,0,0,0.6);
+}
+.page-footer .footer-page {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* ── CHAPTER HEADER ── */
+.ch-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+.ch-big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52pt;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.12;
+  color: var(--text);
+  min-width: 60px;
+}
+.ch-header-text { flex: 1; padding-top: 4px; }
+.ch-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20pt;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.2;
+}
+.ch-subtitle {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* ── SECTION HEADING ── */
+.sec-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--black);
+  margin: 22px 0 10px 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--amber);
+}
+
+/* ── BODY TEXT ── */
+.body-text {
+  font-size: 10pt;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.body-text strong { font-weight: 700; }
+
+/* ── CALLOUT BOX ── */
+.callout {
+  background: var(--white);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+.callout.red    { border-left-color: var(--ch1); }
+.callout.blue   { border-left-color: var(--ch2); }
+.callout.purple { border-left-color: var(--ch3); }
+.callout.green  { border-left-color: var(--ch4); }
+.callout-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.callout.red .callout-label    { color: var(--ch1); }
+.callout.blue .callout-label   { color: var(--ch2); }
+.callout.purple .callout-label { color: var(--ch3); }
+.callout.green .callout-label  { color: var(--ch4); }
+.callout-text {
+  font-size: 10pt;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* ── DEFINITION CARD ── */
+.def-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+.def-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 5px;
+}
+.def-badge {
+  display: inline-block;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  color: var(--white);
+}
+.def-badge.safe   { background: var(--ch4); }
+.def-badge.medium { background: var(--ch2); }
+.def-badge.growth { background: var(--amber); }
+.def-badge.bad    { background: var(--ch1); }
+.def-badge.good   { background: var(--ch4); }
+.def-text {
+  font-size: 9.5pt;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* ── TABLE ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 9pt;
+}
+.data-table th {
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 8.5pt;
+  letter-spacing: 0.3px;
+}
+.data-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.data-table tr:nth-child(even) td { background: var(--light-bg); }
+.data-table tr:last-child td {
+  background: rgba(186,117,23,0.1);
+  font-weight: 700;
+  color: var(--amber);
+  border-bottom: none;
+}
+.data-table .highlight-row td {
+  background: rgba(186,117,23,0.1);
+  font-weight: 700;
+  color: var(--amber);
+}
+
+/* ── STEP CARD ── */
+.step-card {
+  display: flex;
+  gap: 0;
+  margin: 10px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.step-num-block {
+  width: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--white);
+}
+.step-body {
+  flex: 1;
+  background: var(--white);
+  padding: 12px 14px;
+}
+.step-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── RULE LINE ── */
+.rule { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+/* ── TWO COL ── */
+.two-col { display: flex; gap: 14px; margin: 10px 0; }
+.two-col > * { flex: 1; }
+
+/* ── MILESTONE TABLE ── */
+.milestone-section { margin-bottom: 20px; }
+.milestone-header {
+  background: var(--black);
+  color: var(--white);
+  padding: 9px 14px;
+  border-radius: 6px 6px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 11pt;
+  font-weight: 700;
+}
+.milestone-header span { color: var(--amber); }
+.milestone-year {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+.milestone-year:last-child { border-bottom: none; border-radius: 0 0 6px 6px; }
+.milestone-year-num {
+  min-width: 64px;
+  background: var(--amber);
+  color: var(--black);
+  font-family: 'Playfair Display', serif;
+  font-size: 11pt;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.milestone-year-content {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── INTRO PAGE ── */
+.intro-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 14pt;
+  font-style: italic;
+  color: var(--black);
+  line-height: 1.6;
+  border-left: 4px solid var(--amber);
+  padding: 16px 20px;
+  background: var(--white);
+  margin: 20px 0;
+}
+
+/* ── CLOSING PAGE ── */
+.closing-hero {
+  text-align: center;
+  padding: 30px 20px 20px 20px;
+}
+.closing-hero .big-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 28pt;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1.2;
+}
+.closing-hero .big-text span { color: var(--amber); }
+
+
+/* ── PLATFORM CARD ── */
+.platform-row {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.platform-card {
+  flex: 1;
+  min-width: 100px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.platform-name {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.platform-desc {
+  font-size: 8.5pt;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── PRINT ── */
+@media print {
+  .inner-page { page-break-before: always; }
+  .page-break { page-break-before: always; }
+}
+</style>
+</head>
+<body>
+
+<div class="wm-overlay" id="wmOverlay"></div>
+
+<!-- ══════════════════════════════════════════
+     COVER PAGE
+══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-topbar">
+    <div class="brand">EliteRoadMaps</div>
+    <div class="price-badge">Complete Guide</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-left">
+      <div class="cover-eyebrow">EliteRoadMaps Finance Series</div>
+      <div class="cover-title">
+        From Salary<br>to <span>Wealth</span>
+      </div>
+      <div class="cover-dash"></div>
+      <div class="cover-subtitle">A complete system to protect, grow and multiply your salary in India.</div>
+
+      <div class="cover-chapters">
+        <div class="cover-chapters-label">What's Inside</div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">01</div>
+          <div class="cover-ch-text"><strong>Why We Overspend</strong> — where does the money go, lifestyle inflation, emotional spending</div>
+        </div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">02</div>
+          <div class="cover-ch-text"><strong>Where to Put Your Money</strong> — SIPs, index funds, PPF vs NPS vs ELSS</div>
+        </div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">03</div>
+          <div class="cover-ch-text"><strong>Killing Debt</strong> — good debt vs bad debt, EMI strategy, CIBIL score</div>
+        </div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">04</div>
+          <div class="cover-ch-text"><strong>Tax Saving</strong> — 80C, HRA, new vs old regime</div>
+        </div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">05</div>
+          <div class="cover-ch-text"><strong>Building a Second Income</strong> — freelancing, monetising skills</div>
+        </div>
+        <div class="cover-ch-item">
+          <div class="cover-ch-num">06</div>
+          <div class="cover-ch-text"><strong>The 5 Year Wealth Plan</strong> — reverse engineer your number, milestone targets</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-right">
+      <div class="cover-stat-card">
+        <div class="cover-stat-num">6</div>
+        <div class="cover-stat-label">Complete Chapters</div>
+      </div>
+      <div class="cover-stat-card">
+        <div class="cover-stat-num">3</div>
+        <div class="cover-stat-label">Salary Levels Covered</div>
+      </div>
+      <div class="cover-stat-card">
+        <div class="cover-stat-num">90</div>
+        <div class="cover-stat-label">Day Action Plan</div>
+      </div>
+      <div class="cover-stat-card">
+        <div class="cover-stat-num">5yr</div>
+        <div class="cover-stat-label">Wealth Roadmap</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-prepared">
+    <div class="cover-prepared-label">Prepared For</div>
+    <div class="cover-prepared-row">
+      <div class="cover-prep-field">
+        <label>Name</label>
+        <div class="val">{{CUSTOMER_NAME}}</div>
+      </div>
+      <div class="cover-prep-field">
+        <label>Mobile</label>
+        <div class="val">{{MOBILE_NO}}</div>
+      </div>
+      <div class="cover-prep-field">
+        <label>Email</label>
+        <div class="val">{{EMAIL}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottombar">
+    <div class="url">eliteroadmaps.in/finance</div>
+    <div class="tagline">Real problems. Self-built systems. Packaged so you never need a coach.</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     INTRODUCTION PAGE
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Introduction</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num">—</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--amber)">Before You Begin</div>
+        <div class="ch-title">Introduction</div>
+        <div class="ch-subtitle">What this guide is, who it is for, and how to use it</div>
+      </div>
+    </div>
+
+    <p class="body-text">This guide has one job. To take your salary — whatever the number — and turn it into something that actually works for you.</p>
+
+    <p class="body-text">Not a motivational book. Not a collection of tips. A complete system. From the moment your salary hits your account to where it should be in five years.</p>
+
+    <div class="intro-quote">"Most people who are bad with money are not bad people. They were simply never taught. School spent years on trigonometry and zero minutes on what to do when your salary arrives. This guide fills that gap."</div>
+
+    <p class="body-text">You will not find advice here about cutting chai or skipping restaurants. That is not what this is about. This is about understanding where your money goes, making deliberate decisions about it and building a life where money is not a constant source of stress.</p>
+
+    <p class="body-text">It is written for someone earning a salary in India — whether that is ₹25,000 a month or ₹2 lakh a month. The principles do not change with the number. Only the scale does.</p>
+
+    <div class="callout">
+      <div class="callout-label">How to Use This Guide</div>
+      <div class="callout-text">Read it once fully. Then go back to the chapters that apply most to where you are right now. You do not have to do everything at once. You have to do something — and then keep going. That is the only formula that works.</div>
+    </div>
+
+
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">Intro</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 1 — WHY WE OVERSPEND
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 1 — Why We Overspend</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch1)">01</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch1)">Chapter One</div>
+        <div class="ch-title">Why We Overspend</div>
+        <div class="ch-subtitle">Where does the money go, lifestyle inflation, emotional spending</div>
+      </div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch1)">Where Does The Money Go</div>
+
+    <p class="body-text">Most people who overspend are not careless. They are not bad with money. They simply never had a clear picture of where it was going. The problem is not one big purchase. It is twenty small ones that felt completely reasonable at the time.</p>
+
+    <p class="body-text">A ₹200 coffee. A ₹499 app subscription you forgot about. A cab instead of the metro because you were tired. Dinner out because you didn't feel like cooking. None of these feel like decisions. They feel like life. And that is exactly why they are so dangerous.</p>
+
+    <div class="callout red">
+      <div class="callout-label">The Real Problem</div>
+      <div class="callout-text">By the time you sit down to check your account, the money is gone. Not stolen. Not wasted on one thing. Just distributed quietly across a hundred small moments that each felt reasonable. We spend with intention. We just never know where it all went.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch1)">Lifestyle Inflation</div>
+
+    <p class="body-text">When you got your first salary, you were happy with simple things. A meal out on weekends felt like a treat. A budget phone felt perfectly fine. Public transport was normal.</p>
+
+    <p class="body-text">Then your salary grew. And quietly, without any conscious decision, your standards grew with it. The weekend meal became a regular thing. The budget phone became embarrassing. The cab replaced the metro permanently. This is lifestyle inflation. And the dangerous part is that it never feels like a choice. It feels like progress.</p>
+
+    <p class="body-text">The problem is not that you spend more as you earn more — some of that is natural and deserved. The problem is when your expenses grow at the same rate as your income — or faster. When a ₹20,000 raise disappears into a bigger flat, a newer phone and slightly better restaurants, and your savings number stays exactly the same.</p>
+
+    <div class="callout red">
+      <div class="callout-label">The Hard Truth</div>
+      <div class="callout-text">Lifestyle inflation is the reason people earning ₹2 lakh a month feel as financially stressed as people earning ₹40,000. The number changes. The gap between income and savings does not.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch1)">Emotional Spending</div>
+
+    <p class="body-text">Not all spending is about need. Not even most of it. A lot of what we buy is bought in a feeling. You had a bad day at work and ordered food you didn't really want. You got a bonus and bought something expensive to mark the moment. You felt behind your friends and upgraded something to feel equal. You were bored on a Sunday and opened an app and bought something you forgot about by Monday.</p>
+
+    <p class="body-text">This is emotional spending. And it is not a character flaw. It is wiring. The human brain is designed to seek relief from discomfort and reward from pleasure. Buying something delivers both — instantly. The problem is that the relief lasts about as long as the delivery notification. The money, however, is gone permanently.</p>
+
+    <p class="body-text">Emotional spending is hardest to catch because it hides behind logic. You will always find a reason the purchase made sense. The sale was too good. You needed it eventually anyway. You deserved it. And maybe all of that is true. But if the real trigger was a feeling and not a need, the purchase was emotional — regardless of how reasonable it sounds in hindsight.</p>
+
+    <div class="callout red">
+      <div class="callout-label">The First Step</div>
+      <div class="callout-text">The first step is not to stop spending. It is to notice the feeling before you open your wallet. That pause — even one second — changes the nature of the decision entirely. Most emotional purchases don't survive a 10 minute wait.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">01</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 2 — WHERE TO PUT YOUR MONEY
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 2 — Where to Put Your Money</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch2)">02</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch2)">Chapter Two</div>
+        <div class="ch-title">Where to Put Your Money</div>
+        <div class="ch-subtitle">SIPs, index funds, PPF vs NPS vs ELSS</div>
+      </div>
+    </div>
+
+    <p class="body-text">You have money set aside to invest. Now it needs a place to go. Not a savings account. Not your parents' FD advice. An actual plan. There are three types of investments you need to know. Safe. Medium. Growth. Every rupee you invest goes into one of these three depending on when you need it and how much risk you can handle.</p>
+
+    <div class="sec-heading" style="border-left-color:var(--ch4)">Safe Investments — For Money You Cannot Afford to Lose</div>
+
+    <p class="body-text">Safe investments do not make you rich. That is not their job. Their job is to protect your money, beat inflation slightly, and be there when you need it.</p>
+
+    <div class="two-col">
+      <div class="def-card">
+        <div class="def-badge safe">Safe</div>
+        <div class="def-title">PPF — Public Provident Fund</div>
+        <div class="def-text">Government backed. ~7 to 7.5% interest. 15 year lock-in. Tax free in, tax free out. Forces you to leave it alone — that is the feature, not the bug.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-badge safe">Safe</div>
+        <div class="def-title">NPS — National Pension System</div>
+        <div class="def-text">Built for retirement. Invests across equity and debt. Additional tax benefit under 80CCD(1B) beyond the 80C limit. Not flexible — but fixes the retirement blind spot automatically.</div>
+      </div>
+    </div>
+    <div class="def-card">
+      <div class="def-badge safe">Safe</div>
+      <div class="def-title">FD — Fixed Deposit</div>
+      <div class="def-text">Safe, predictable, 6 to 7.5% returns. Fully taxable. Use only for short term goals — money you need within 1 to 2 years. Not for long term wealth building.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch2)">Medium Investments — For Money You Can Leave for 3 to 5 Years</div>
+
+    <div class="def-card">
+      <div class="def-badge medium">Medium</div>
+      <div class="def-title">SIP — Systematic Investment Plan</div>
+      <div class="def-text">A SIP is not an investment — it is a method. You invest a fixed amount every month automatically into a mutual fund. ₹2,000, ₹5,000, ₹10,000 — whatever your budget. The power is not the returns. It is the habit. You invest before you can spend it. Every month. Without thinking.</div>
+    </div>
+
+    <div class="two-col">
+      <div class="def-card">
+        <div class="def-badge medium">Medium</div>
+        <div class="def-title">Debt Mutual Funds</div>
+        <div class="def-text">Invest in government bonds and corporate debt. Returns 6 to 8%. Better than FD post-tax for higher tax brackets. Good for 2 to 4 year goals.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-badge medium">Medium</div>
+        <div class="def-title">Balanced / Hybrid Funds</div>
+        <div class="def-text">Mix of equity and debt in one fund. Less volatile than pure equity. Best starting point if you are new and not yet comfortable with market swings.</div>
+      </div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--amber)">Growth Investments — For Money You Will Not Touch for 7 to 10 Years</div>
+
+    <div class="def-card">
+      <div class="def-badge growth">Growth</div>
+      <div class="def-title">Index Funds</div>
+      <div class="def-text">Copies the market exactly — buys every stock in Nifty 50 or Sensex in the same proportion. No fund manager, no guesswork. Most actively managed funds do not beat the index over the long term. Index funds charge as little as 0.1% in fees vs 1 to 2% for active funds. Over 20 years that fee difference alone is worth lakhs. For most salaried individuals with no time to research stocks, an index fund SIP is the single best long term investment available.</div>
+    </div>
+
+    <div class="two-col">
+      <div class="def-card">
+        <div class="def-badge growth">Growth</div>
+        <div class="def-title">ELSS — Equity Linked Savings Scheme</div>
+        <div class="def-text">Mutual fund that invests in equity and gives tax deduction under 80C. Only 3 year lock-in. Higher returns than PPF over long term. Two jobs in one — tax saving and wealth building.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-badge growth">Growth</div>
+        <div class="def-title">Direct Stocks</div>
+        <div class="def-text">Highest potential returns. Highest risk. Requires research and patience. Not a starting point — explore only after index funds and ELSS are already running.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">02</div>
+  </div>
+</div>
+
+
+<!-- ── CH2 PAGE 2: SPLIT + PLATFORMS ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 2 — Where to Put Your Money (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch2)">How to Split Your Investment Money</div>
+    <p class="body-text">There is no single perfect split. It depends on your age and when you need the money. Here is a simple starting framework.</p>
+
+    <div style="display:flex; flex-direction:column; gap:10px; margin:14px 0;">
+
+      <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 22 to 30 — Maximise Growth</div>
+        <div style="display:flex; flex-wrap:wrap; background:var(--white);">
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">50%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 30 to 40 — Balance Growth and Security</div>
+        <div style="display:flex; flex-wrap:wrap; background:var(--white);">
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF + NPS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">30%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">25%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">35%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 40 and Above — Protect and Grow</div>
+        <div style="display:flex; flex-wrap:wrap; background:var(--white);">
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF+NPS+FD)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">40%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Debt+Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">30%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout blue">
+      <div class="callout-label">Remember</div>
+      <div class="callout-text">These are starting points, not rules. The important thing is to start with any split rather than wait for the perfect one. You will adjust as you learn.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch2)">Where to Actually Invest — Platforms</div>
+
+    <p class="body-text">Knowing what to invest in is half the job. Knowing where to do it is the other half.</p>
+
+    <p class="body-text"><strong>For Mutual Funds and Index Funds</strong> — always use direct plans (no middleman, lower fees):</p>
+
+    <div class="platform-row">
+      <div class="platform-card">
+        <div class="platform-name">Groww</div>
+        <div class="platform-desc">Simplest interface. Best for first time investors. KYC in under 10 minutes. Free.</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-name">Kuvera</div>
+        <div class="platform-desc">Cleaner portfolio view, more control. Also free. No transaction charges.</div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-name">Coin by Zerodha</div>
+        <div class="platform-desc">Good if you already use Zerodha for stocks. Keeps everything in one place.</div>
+      </div>
+    </div>
+
+    <p class="body-text"><strong>For PPF</strong> — open directly through your bank's net banking. SBI, HDFC, ICICI all allow online PPF opening. Takes 15 minutes.</p>
+    <p class="body-text"><strong>For NPS</strong> — open through the eNPS portal at npscra.nsdl.co.in or through your employer. Check if your employer contributes to NPS — that is free money.</p>
+
+    <div class="callout blue">
+      <div class="callout-label">One Rule Across All Platforms</div>
+      <div class="callout-text">Always use your own bank account linked to your own PAN. Never invest through someone else's account. And always choose direct plans over regular — the fee difference compounded over 10 years is significant.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch2)">Start Here</div>
+
+    <p class="body-text">If you have read this chapter and are not sure where to start — start here. Download Groww. Complete your KYC. Search for any Nifty 50 Index Fund. Start a SIP of whatever amount you can commit to every month without thinking twice. Even ₹500. Do this before you close this guide. Everything else — the splits, the platforms, the rebalancing — comes after the habit exists. The habit starts with one SIP. Start it today.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">03</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 3 — KILLING DEBT
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 3 — Killing Debt</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch3)">03</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch3)">Chapter Three</div>
+        <div class="ch-title">Killing Debt</div>
+        <div class="ch-subtitle">Good debt vs bad debt, EMI strategy, CIBIL score</div>
+      </div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch3)">Good Debt vs Bad Debt</div>
+
+    <p class="body-text">Not all debt is the same. Some debt builds your life. Some debt quietly destroys it. The difference is what the money was used for and what it costs you.</p>
+
+    <div class="two-col">
+      <div class="def-card">
+        <div class="def-badge good">Good Debt</div>
+        <div class="def-title">Borrowed money that builds value</div>
+        <div class="def-text">A home loan — the property has a chance to grow in value. An education loan that leads to a significantly higher salary. The debt had a return on the other side. Typically lower interest rates: home loans at 8 to 9%.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-badge bad">Bad Debt</div>
+        <div class="def-title">Borrowed money that loses value</div>
+        <div class="def-text">A personal loan for a vacation. A credit card balance carried month to month. A BNPL purchase for a phone upgrade you didn't need. These leave you with nothing except the repayment. Credit cards charge 36 to 42% per year.</div>
+      </div>
+    </div>
+
+    <div class="callout purple">
+      <div class="callout-label">Priority Rule</div>
+      <div class="callout-text">If you are currently carrying bad debt of any kind, nothing else in this guide matters more than killing it first. No investment gives you a guaranteed 36% return. Paying off a credit card balance does.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch3)">EMI Strategy</div>
+
+    <p class="body-text">EMIs feel manageable because they are small. That is exactly what makes them dangerous. A ₹15,000 EMI does not feel like ₹15,000. It feels like a small monthly deduction. Until you have three of them running simultaneously and ₹45,000 of your salary is gone before you have made a single decision about it.</p>
+
+    <div class="callout purple">
+      <div class="callout-label">The First Rule of EMIs</div>
+      <div class="callout-text">Total EMIs should never exceed 30% of your take-home salary. If you take home ₹60,000, your total EMI burden across all loans should not cross ₹18,000. Beyond that you are not living on your salary — you are living on what is left after your past decisions.</div>
+    </div>
+
+    <p class="body-text"><strong>How to kill existing EMIs faster — the Avalanche Method:</strong> If you have multiple loans running, do not spread extra money equally across all of them. Pick the one with the highest interest rate and throw every extra rupee at that one first. Minimum payments on everything else. Full force on the most expensive debt. Once that is gone, move to the next.</p>
+
+    <div class="callout purple">
+      <div class="callout-label">Example — Avalanche in Action</div>
+      <div class="callout-text">You have a credit card debt at 36% (₹80,000 outstanding) and a personal loan at 14% (₹2,00,000 outstanding). Your extra ₹5,000 each month goes entirely to the credit card — not split. The credit card is cleared in ~16 months. Then that ₹5,000 plus the freed credit card minimum goes to the personal loan. You save significantly more in interest than if you split evenly.</div>
+    </div>
+
+    <p class="body-text"><strong>Before signing any new EMI:</strong> Calculate the total amount you will actually pay over the full tenure. A ₹50,000 personal loan at 14% for 3 years costs you nearly ₹12,000 extra. Know the real number before you commit.</p>
+
+    <p class="body-text"><strong>Buy Now Pay Later:</strong> Treat it exactly like a credit card. It is not free money. It is future salary you are spending today. Use it only if you can pay the full amount before the due date.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">04</div>
+  </div>
+</div>
+
+
+<!-- ── CH3 PAGE 2: CIBIL ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 3 — Killing Debt (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch3)">CIBIL Score</div>
+
+    <p class="body-text">Your CIBIL score is a number between 300 and 900 that tells every bank and lender how trustworthy you are with money. The higher the number, the better the terms you get on any loan — lower interest rate, faster approval, higher limit.</p>
+
+    <table class="data-table">
+      <thead><tr><th>Score Range</th><th>What It Means</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>750 – 900</strong></td><td>Excellent</td><td>Best rates, fast approvals, high limits</td></tr>
+        <tr><td><strong>700 – 749</strong></td><td>Good</td><td>Most loans approved at decent rates</td></tr>
+        <tr><td><strong>650 – 699</strong></td><td>Average</td><td>Some rejections or higher interest charged</td></tr>
+        <tr><td><strong>Below 650</strong></td><td>Poor</td><td>Frequent rejections or very high rates</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec-heading" style="border-left-color:var(--ch3)">What Affects Your Score</div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch3)">1</div>
+      <div class="step-body">
+        <div class="step-title">Payment History — Biggest Factor</div>
+        <div class="step-desc">Every EMI and credit card bill paid on time improves your score. Every missed or delayed payment damages it. Even one missed payment stays on your record for years.</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch3)">2</div>
+      <div class="step-body">
+        <div class="step-title">Credit Utilisation</div>
+        <div class="step-desc">If your credit card limit is ₹1 lakh and you regularly use ₹80,000 of it, your score takes a hit. Keep usage below 30% of your total limit. ₹1 lakh limit → try not to carry a balance above ₹30,000.</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch3)">3</div>
+      <div class="step-body">
+        <div class="step-title">Loan Applications</div>
+        <div class="step-desc">Every application triggers a hard inquiry on your credit report. Too many in a short period signals financial stress and pulls your score down. Do not apply for multiple loans or cards simultaneously.</div>
+      </div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch3)">How to Check and Build Your Score</div>
+
+    <p class="body-text"><strong>Check it:</strong> Free on the CIBIL website once a year. Also available for free on Groww, Paytm and BankBazaar anytime. Check every few months.</p>
+
+    <p class="body-text"><strong>Build it:</strong> Pay every bill and EMI on time without exception. Reduce credit card utilisation. Do not close old credit cards even if you don't use them — the age of your credit history helps your score. Give it 6 to 12 months of clean behaviour and it will recover.</p>
+
+    <div class="callout purple">
+      <div class="callout-label">One More Thing</div>
+      <div class="callout-text">Do not obsess over your CIBIL score daily. But do not ignore it for years either. One check every quarter is enough. It is a lagging indicator — it reflects the last 12 to 24 months of your financial behaviour. Build good habits and the score follows.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">05</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 4 — TAX SAVING
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 4 — Tax Saving</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch4)">04</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch4)">Chapter Four</div>
+        <div class="ch-title">Tax Saving</div>
+        <div class="ch-subtitle">80C, HRA, new vs old regime</div>
+      </div>
+    </div>
+
+    <p class="body-text">Tax is the one area where the government has built legal ways for you to pay less. Not loopholes. Not tricks. Actual provisions written into the law specifically so that salaried individuals can reduce their tax burden. Most people either do not use them fully or find out about them in March when it is already too late.</p>
+
+    <div class="sec-heading" style="border-left-color:var(--ch4)">Section 80C — The Most Important Section for Salaried People</div>
+
+    <p class="body-text">Section 80C allows you to deduct up to <strong>₹1.5 lakh</strong> from your taxable income every financial year. If you earn ₹8 lakh and use the full 80C limit, you are taxed on ₹6.5 lakh instead.</p>
+
+    <table class="data-table">
+      <thead><tr><th>What Counts Under 80C</th><th>Lock-in · Tax on Returns</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ELSS Mutual Funds</strong> — market linked, best returns historically</td><td>3 years · LTCG above ₹1L</td></tr>
+        <tr><td><strong>PPF</strong> — safe, government backed</td><td>15 years · Tax free</td></tr>
+        <tr><td><strong>EPF</strong> — auto-deducted from salary, counts automatically</td><td>Till retirement · Tax free</td></tr>
+        <tr><td><strong>Term insurance premium</strong> — if you have a term plan</td><td>— · —</td></tr>
+        <tr><td><strong>Home loan principal repayment</strong></td><td>— · —</td></tr>
+        <tr><td><strong>5-year tax saving FD</strong> — safe but returns are taxable</td><td>5 years · Fully taxable</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <div class="callout-label">Quick Check</div>
+      <div class="callout-text">Most salaried people already have EPF running — check how much that covers first. Then top up with ELSS or PPF to reach the full ₹1.5 lakh limit. Do not leave this money on the table.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch4)">HRA — House Rent Allowance</div>
+
+    <p class="body-text">If you live in a rented house and your salary includes HRA, you can claim a tax exemption on it. One of the most underused tax benefits among salaried employees.</p>
+
+    <p class="body-text">The exemption is the <strong>lowest</strong> of these three:</p>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch4)">A</div><div class="step-body"><div class="step-title">Actual HRA received from employer</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch4)">B</div><div class="step-body"><div class="step-title">Actual rent paid minus 10% of basic salary</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch4)">C</div><div class="step-body"><div class="step-title">50% of basic salary (metro cities) or 40% (non-metro)</div><div class="step-desc">Metro = Mumbai, Delhi, Chennai, Kolkata</div></div></div>
+
+    <div class="callout green">
+      <div class="callout-label">Example — Bangalore</div>
+      <div class="callout-text">Basic ₹40,000 · HRA received ₹20,000 · Rent paid ₹18,000 · City: Bangalore (non-metro)<br><br>A = ₹20,000 · B = ₹18,000 − ₹4,000 = ₹14,000 · C = 40% of ₹40,000 = ₹16,000<br><br>Lowest = ₹14,000/month → Annual exemption = ₹1,68,000 you do not pay tax on.</div>
+    </div>
+
+    <p class="body-text"><strong>What you need:</strong> Rent receipts for the full year. If annual rent exceeds ₹1 lakh, your landlord's PAN is also required. <strong>Can you pay rent to a parent?</strong> Yes — it is legal. Rent must be genuinely paid via bank transfer and the parent must declare it as rental income in their ITR.</p>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">06</div>
+  </div>
+</div>
+
+
+<!-- ── CH4 PAGE 2: NEW VS OLD REGIME ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 4 — Tax Saving (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch4)">New vs Old Tax Regime</div>
+
+    <p class="body-text">Since 2020 you have had two choices when filing your taxes. Every year you can pick whichever results in lower tax for you.</p>
+
+    <div class="two-col">
+      <div class="def-card">
+        <div class="def-title">Old Regime</div>
+        <div class="def-text">Higher tax rates but allows all deductions — 80C, HRA, home loan interest, NPS and more. You bring your taxable income down significantly through planning. Requires more effort but can save more money.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-title">New Regime</div>
+        <div class="def-text">Lower tax rates but almost no deductions allowed. You pay tax on your full income at a reduced slab rate. Simpler to file. Less planning required. This is now the default — your employer will use this automatically unless you say otherwise.</div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Your Situation</th><th>Better Regime</th></tr></thead>
+      <tbody>
+        <tr><td>You fully use 80C + HRA + NPS</td><td><strong>Old Regime</strong></td></tr>
+        <tr><td>You use 80C only</td><td><strong>Calculate both</strong></td></tr>
+        <tr><td>You live with parents, no HRA</td><td><strong>New Regime likely</strong></td></tr>
+        <tr><td>You have a home loan</td><td><strong>Old Regime</strong></td></tr>
+        <tr><td>You use no deductions at all</td><td><strong>New Regime</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <div class="callout-label">Simple Rule of Thumb</div>
+      <div class="callout-text">If your total deductions add up to more than ₹3.75 lakh, the old regime saves you more. Below that, the new regime is likely better. Use ClearTax or Tax2Win — enter your numbers in both regimes and pick the lower one. Takes 10 minutes and can save you thousands.</div>
+    </div>
+
+    <div class="callout green">
+      <div class="callout-label">Critical — Do Not Miss This</div>
+      <div class="callout-text">The new regime is the default. If you do nothing, your employer deducts TDS under the new regime automatically. If you want the old regime you must inform your employer explicitly at the start of the financial year. This is one of the most commonly missed steps in tax planning.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">07</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 5 — BUILDING A SECOND INCOME
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 5 — Building a Second Income</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch5)">05</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch5)">Chapter Five</div>
+        <div class="ch-title">Building a Second Income</div>
+        <div class="ch-subtitle">Freelancing, monetising skills</div>
+      </div>
+    </div>
+
+    <p class="body-text">Your salary has a ceiling. It grows once a year if you are lucky, by a percentage decided by someone else, based on a process you have limited control over. A second income does not work like that. It can start small and grow on its own terms.</p>
+
+    <p class="body-text">This chapter is not about quitting your job. It is about building something on the side that adds to your salary while your salary continues. Even an extra ₹10,000 a month changes your financial position significantly — that is ₹1.2 lakh a year that can go entirely into investments.</p>
+
+    <div class="sec-heading" style="border-left-color:var(--ch5)">What Skills Can Actually Be Monetised</div>
+
+    <p class="body-text">Most people underestimate what they already know. If you have been doing something professionally for 2 or more years, there is someone willing to pay you for it outside your job.</p>
+
+    <table class="data-table">
+      <thead><tr><th>Skill</th><th>What You Can Offer</th><th>Starting Point</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Writing</strong></td><td>Content, copywriting, LinkedIn ghostwriting, technical writing</td><td>Easiest to start, zero investment</td></tr>
+        <tr><td><strong>Design</strong></td><td>Logo design, social media creatives, presentation design</td><td>Canva makes entry level accessible</td></tr>
+        <tr><td><strong>Excel / Data</strong></td><td>MIS reports, dashboards, financial models</td><td>Massively underrated, high demand</td></tr>
+        <tr><td><strong>Teaching</strong></td><td>Tutoring, skill workshops, structured guides</td><td>What you take for granted is valuable to a beginner</td></tr>
+        <tr><td><strong>Video Editing</strong></td><td>Content for businesses and creators</td><td>Demand has exploded with short-form video</td></tr>
+        <tr><td><strong>Code / Tech</strong></td><td>Web development, automation, WordPress, Shopify</td><td>Even basic tech work pays well for SMBs</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sec-heading" style="border-left-color:var(--ch5)">How to Actually Start Freelancing</div>
+
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">1</div><div class="step-body"><div class="step-title">Pick one skill only</div><div class="step-desc">Do not try to offer everything. One clear skill gets you hired faster than a long list. You can add more later.</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">2</div><div class="step-body"><div class="step-title">Build two or three samples</div><div class="step-desc">You do not need twenty projects. You need two or three pieces of work that show what you can do. If you have no client work yet, create samples — nobody asks if it was paid work.</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">3</div><div class="step-body"><div class="step-title">Tell people you exist</div><div class="step-desc">Your first client will almost certainly come from someone you already know. Tell five people what you are now offering. Send a simple message. Post once on LinkedIn. The discomfort is temporary. The income is not.</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">4</div><div class="step-body"><div class="step-title">Use platforms as backup, not primary</div><div class="step-desc">Fiverr and Upwork are useful for initial reviews. Long term, your best clients come from referrals and direct outreach — not platforms where you compete on price.</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">5</div><div class="step-body"><div class="step-title">Price yourself properly from day one</div><div class="step-desc">Underpricing attracts the wrong clients and is very hard to reverse. Research what others charge. Start in the middle of that range — not the bottom.</div></div></div>
+    <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">6</div><div class="step-body"><div class="step-title">Keep it simple legally</div><div class="step-desc">Declare freelance income in your ITR under income from other sources. Keep records. You do not need a company or GST registration until your freelance income crosses ₹20 lakh a year.</div></div></div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">08</div>
+  </div>
+</div>
+
+
+<!-- ── CH5 PAGE 2: MONETISING BEYOND FREELANCING ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 5 — Building a Second Income (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch5)">Monetising Skills Beyond Freelancing</div>
+
+    <p class="body-text">Freelancing trades time for money. You work, you get paid. You stop working, the money stops. The next step is building something that earns without requiring your direct time every single time.</p>
+
+    <div class="def-card">
+      <div class="def-title">Teaching What You Know</div>
+      <div class="def-text">If you have a skill you can package your knowledge and sell it repeatedly. A recorded workshop. A structured PDF guide. A short course on Graphy, Teachable or Gumroad. You create it once and it sells while you sleep. The bar is not perfection. The bar is being genuinely useful to someone who knows less than you. A ₹499 guide on how to build better Excel dashboards written by a finance professional is genuinely valuable to a fresher who has never touched Excel properly.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">Consulting and Advisory</div>
+      <div class="def-text">Once you have 4 to 5 years of experience in any field, there are people and businesses who will pay for your opinion — not your execution, just your thinking. An hour of your time on a specific problem they cannot solve themselves. This works especially well in finance, marketing, HR, operations and technology. Start by offering one free session to someone in your network. Let the quality of your thinking speak. Referrals follow naturally. What feels ordinary to you after years of practice is genuinely rare to someone just starting in your field.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">Content That Compounds</div>
+      <div class="def-text">A YouTube channel, a newsletter, a LinkedIn presence built around your expertise. These take time to build but the economics are different from freelancing. A piece of content you created two years ago can still bring you clients, subscribers or income today. You are not trying to become an influencer. You are trying to be the most useful person in a specific small topic. That is a much smaller and more achievable goal than it sounds — and far more sustainable.</div>
+    </div>
+
+    <div class="callout" style="border-left-color:var(--ch5)">
+      <div class="callout-label" style="color:var(--ch5)">The Honest Truth</div>
+      <div class="callout-text">None of this happens in 30 days. The people who build meaningful second incomes are the ones who started something small, stayed consistent for 12 to 18 months and did not quit when it felt like nothing was happening. The first 6 months of almost any second income looks like wasted effort. It is not. It is compounding silently.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">09</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 6 — THE 5 YEAR WEALTH PLAN
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 6 — The 5 Year Wealth Plan</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch6)">06</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch6)">Chapter Six</div>
+        <div class="ch-title">The 5 Year Wealth Plan</div>
+        <div class="ch-subtitle">Reverse engineer your number, milestone targets per salary level</div>
+      </div>
+    </div>
+
+    <p class="body-text">Most people have a vague idea that they want to be financially secure someday. Someday is not a plan. Someday has no deadline, no number and no steps. This chapter turns someday into a specific target with a clear path to get there.</p>
+
+    <div class="sec-heading" style="border-left-color:var(--ch6)">Step 1 — Find Your Number</div>
+
+    <p class="body-text">Before you can build a plan you need to know what you are building toward. Start with one question:</p>
+
+    <div class="intro-quote">If I lost my job tomorrow and had no income for 12 months, how much money would I need to not panic?</div>
+
+    <p class="body-text">That is your first target — your 12 month financial cushion. For most people this is between ₹3 lakh and ₹10 lakh depending on monthly expenses and obligations.</p>
+
+    <p class="body-text">Once the cushion is built, your next target is your <strong>5 year wealth number</strong>. Take your current monthly expenses and multiply by 120. That is 10 years of expenses saved and invested.</p>
+
+    <table class="data-table">
+      <thead><tr><th>Monthly Expenses</th><th>5 Year Wealth Number</th><th>What It Means</th></tr></thead>
+      <tbody>
+        <tr><td>₹25,000/month</td><td>₹30 lakh</td><td>10 years of expenses invested</td></tr>
+        <tr><td>₹40,000/month</td><td>₹48 lakh</td><td>10 years of expenses invested</td></tr>
+        <tr><td>₹80,000/month</td><td>₹96 lakh</td><td>10 years of expenses invested</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="border-left-color:var(--ch6)">
+      <div class="callout-label" style="color:var(--ch6)">This Is Not Your Retirement Number</div>
+      <div class="callout-text">This is your freedom number. The point at which money stops being a source of daily stress and financial decisions start being made from choice, not pressure.</div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch6)">Milestone Targets — ₹25,000 to ₹40,000/month</div>
+
+    <div class="milestone-section">
+      <div class="milestone-header">Salary Range: <span>₹25,000 – ₹40,000/month</span></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 1</div><div class="milestone-year-content">Emergency fund of ₹50,000 to ₹75,000 fully built. SIP of ₹2,000 to ₹4,000/month started. All bad debt identified with a repayment plan in place.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 2</div><div class="milestone-year-content">Emergency fund complete at 3 months expenses. SIP running without breaks. ELSS started for tax saving under 80C.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 3</div><div class="milestone-year-content">PPF account opened and contributing annually. Total invested corpus between ₹1.5 lakh and ₹2.5 lakh. Credit card debt fully cleared if any existed.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 4</div><div class="milestone-year-content">SIP amount increased by at least 10% following salary growth. Second income exploration started even if small.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 5</div><div class="milestone-year-content">Total invested corpus between ₹3 lakh and ₹5 lakh. Emergency fund fully intact. No bad debt. Basic tax planning in place. Financial stress significantly reduced.</div></div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">10</div>
+  </div>
+</div>
+
+
+<!-- ── CH6 PAGE 2: MORE MILESTONES ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 6 — The 5 Year Wealth Plan (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="milestone-section">
+      <div class="milestone-header">Salary Range: <span>₹40,000 – ₹80,000/month</span></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 1</div><div class="milestone-year-content">Emergency fund of ₹1 lakh to ₹1.5 lakh built. SIP of ₹5,000 to ₹10,000 started. 80C limit being used at least partially.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 2</div><div class="milestone-year-content">Full 80C limit utilised. NPS contribution started. Total corpus between ₹1.5 lakh and ₹3 lakh.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 3</div><div class="milestone-year-content">Home loan research begun if relevant. Second income generating at least ₹5,000 to ₹10,000/month. Total corpus between ₹3 lakh and ₹6 lakh.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 4</div><div class="milestone-year-content">SIP stepped up annually. Portfolio reviewed and rebalanced. Total corpus between ₹5 lakh and ₹10 lakh.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 5</div><div class="milestone-year-content">Total invested corpus between ₹8 lakh and ₹15 lakh. Full tax optimisation in place. Clear visibility on retirement number and timeline.</div></div>
+    </div>
+
+    <div class="milestone-section">
+      <div class="milestone-header">Salary Range: <span>₹80,000 – ₹1.5 lakh/month</span></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 1</div><div class="milestone-year-content">Emergency fund of ₹2 lakh to ₹3 lakh built. SIP of ₹15,000 to ₹25,000 started. Full 80C utilised. HRA claimed. New vs old regime evaluated.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 2</div><div class="milestone-year-content">NPS contribution maximised for additional 80CCD benefit. Second income active. Total corpus between ₹4 lakh and ₹8 lakh.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 3</div><div class="milestone-year-content">Direct index fund investments running alongside SIPs. Total corpus between ₹8 lakh and ₹15 lakh. Lifestyle inflation consciously controlled despite salary growth.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 4</div><div class="milestone-year-content">Portfolio diversified across equity, debt and PPF. Second income contributing meaningfully to investments. Total corpus between ₹12 lakh and ₹22 lakh.</div></div>
+      <div class="milestone-year"><div class="milestone-year-num">Yr 5</div><div class="milestone-year-content">Total invested corpus between ₹18 lakh and ₹35 lakh. Freedom number within visible range. Financial decisions made from a position of choice — not pressure.</div></div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">11</div>
+  </div>
+</div>
+
+
+<!-- ── CH6 PAGE 3: THE FIRST 90 DAYS ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 6 — The First 90 Days</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch6)">The First 90 Days — Where Everything Actually Starts</div>
+
+    <p class="body-text">Five years sounds far. Ninety days is close enough to feel real. Everything in this guide comes down to what you do in the next 90 days. Not perfectly. Just started.</p>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch6); flex-direction:column; font-size:8pt; font-family:'Source Sans 3',sans-serif; font-weight:700; letter-spacing:0.5px;">Days<br>1–30</div>
+      <div class="step-body">
+        <div class="step-title">Get Clear</div>
+        <div class="step-desc">Open your last 3 months of bank statements. Do not judge. Just look. Categorise every expense into needs, wants and obligations. This single exercise will show you more about your money habits than anything else. Also: check your CIBIL score, list every loan with its outstanding amount and interest rate, open a separate savings account for your emergency fund.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch6); flex-direction:column; font-size:8pt; font-family:'Source Sans 3',sans-serif; font-weight:700; letter-spacing:0.5px;">Days<br>31–60</div>
+      <div class="step-body">
+        <div class="step-title">Set Up the System</div>
+        <div class="step-desc">Decide your salary split. Write the actual rupee numbers — not percentages. Open a Groww or Kuvera account, complete KYC, and start one SIP — even ₹1,000. The amount does not matter yet. The habit does. Open a PPF account if you don't have one. Inform your employer which tax regime you want for the current financial year.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--ch6); flex-direction:column; font-size:8pt; font-family:'Source Sans 3',sans-serif; font-weight:700; letter-spacing:0.5px;">Days<br>61–90</div>
+      <div class="step-body">
+        <div class="step-title">Build Momentum</div>
+        <div class="step-desc">Increase your SIP to your actual target amount. Pay one extra EMI toward your highest interest loan. Tell one person in your network about a skill you can offer professionally. Review your salary split at the end of month 2 and adjust anything that did not work in practice.</div>
+      </div>
+    </div>
+
+    <div class="sec-heading" style="border-left-color:var(--ch6)">Year by Year After That</div>
+
+    <table class="data-table">
+      <thead><tr><th>End of Year</th><th>What Should Be True</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Year 1</strong></td><td>Emergency fund complete. SIP running every month without a break. Bad debt repayment plan active. Tax saving in place before March.</td></tr>
+        <tr><td><strong>Year 2</strong></td><td>SIP increased by 10–15% after appraisal. Full 80C used. CIBIL above 750. Second income explored.</td></tr>
+        <tr><td><strong>Year 3</strong></td><td>Portfolio reviewed and rebalanced. Second income generating something every month. Lifestyle inflation consciously checked after salary increases.</td></tr>
+        <tr><td><strong>Year 4</strong></td><td>Investment corpus clearly visible and growing. Tax regime evaluated freshly. Emergency fund untouched and intact.</td></tr>
+        <tr><td><strong>Year 5</strong></td><td>You have a number. You know what it means. You know how far you are from it. Financial decisions made from clarity, not anxiety.</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">12</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     WEEK 1 CHECKLIST
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Week 1 Checklist</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--amber)">✓</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--amber)">Action Plan</div>
+        <div class="ch-title">Your First 7 Days</div>
+        <div class="ch-subtitle">5 tasks. Less than 2 hours total. Do them in order.</div>
+      </div>
+    </div>
+
+    <p class="body-text">You have read the guide. Now here is the only thing that matters — what you do in the next 7 days. Not next month. Not after your next salary. This week.</p>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">1</div>
+      <div class="step-body">
+        <div class="step-title">Day 1 — Know Your Number</div>
+        <div class="step-desc">Open your last 3 months of bank statements. Add up what came in and what went out. Write one number — how much was left. Do not judge it. Just know it. This is your starting point.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">2</div>
+      <div class="step-body">
+        <div class="step-title">Day 2 — Check Your CIBIL Score</div>
+        <div class="step-desc">Go to Groww or BankBazaar. Check your score for free. Write it down. Above 750 — good. Below — you now know. Either way you needed to know this.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">3</div>
+      <div class="step-body">
+        <div class="step-title">Day 3 — Open a Groww Account</div>
+        <div class="step-desc">Download Groww. Complete KYC with your Aadhaar and PAN. Takes 10 to 15 minutes. Do not invest anything yet. Just get the account open and verified.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">4</div>
+      <div class="step-body">
+        <div class="step-title">Day 4 — Start One SIP</div>
+        <div class="step-desc">Open Groww. Search for "Nifty 50 Index Fund." Pick any one — Nippon India Nifty 50 or UTI Nifty 50 are both fine. Start a monthly SIP. Even ₹500 counts. The habit starting today is what matters.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">5</div>
+      <div class="step-body">
+        <div class="step-title">Day 5 — Open Your Emergency Fund Account</div>
+        <div class="step-desc">Call or visit your bank. Open a second savings account. Nothing else goes in here. Transfer whatever you can spare right now — even ₹1,000. The account existing is what matters.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">6</div>
+      <div class="step-body">
+        <div class="step-title">Day 6 — Check Your Tax Regime</div>
+        <div class="step-desc">Check your payslip or email HR. Find out which tax regime your employer is using. One email. Takes 2 minutes. Could save you thousands.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num-block" style="background:var(--amber)">7</div>
+      <div class="step-body">
+        <div class="step-title">Day 7 — Tell One Person</div>
+        <div class="step-desc">Think of one skill you have that someone would pay for. Tell one person — a friend, a former colleague, anyone — that you are open to doing that work on the side. One message. That is it.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="border-left-color:var(--amber); margin-top:16px;">
+      <div class="callout-label" style="color:var(--amber)">This Is Where the 5 Year Plan Actually Begins</div>
+      <div class="callout-text">Seven days. Five tasks. Two hours total. Not someday. This week.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">13</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     COMMON MISTAKES
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Common Mistakes</div>
+  </div>
+  <div class="page-content">
+
+    <div class="ch-header">
+      <div class="ch-big-num" style="color:var(--ch1)">!</div>
+      <div class="ch-header-text">
+        <div class="ch-eyebrow" style="color:var(--ch1)">Watch Out</div>
+        <div class="ch-title">Common Mistakes</div>
+        <div class="ch-subtitle">Things people do after reading a guide like this — and still get wrong</div>
+      </div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">1. Starting a SIP and pausing it after one bad month</div>
+      <div class="def-text">The market falls 10%. Your portfolio shows red. You pause the SIP to "wait for it to recover." A SIP works precisely because you keep buying when the market is down — you get more units for the same money. Pausing it during a fall is like stopping eating because food got cheaper. Keep it running. Do not look at it more than once a quarter.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">2. Paying only the minimum on credit cards</div>
+      <div class="def-text">A ₹50,000 credit card balance paid at minimum every month takes over 5 years to clear and costs you nearly ₹40,000 in interest. Pay the full outstanding every month. If you cannot — stop using the card immediately and treat clearing it as an emergency.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">3. Waiting until March to think about tax</div>
+      <div class="def-text">By March most tax saving decisions have already been made for you. PPF contributions, ELSS investments, HRA declarations — these need to be planned in April, not scrambled in February. One hour in April saves more money than three panicked hours in March.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">4. Taking a personal loan to invest</div>
+      <div class="def-text">Borrowed money at 14% invested in something returning 12% is a loss. And something returning 18% one year might return minus 10% the next. Never invest borrowed money. The maths only works on paper and only in the best case.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">5. Closing old credit cards to "clean up"</div>
+      <div class="def-text">The age of your credit history is a significant part of your CIBIL score. Closing a 5 year old card removes that history. Keep old cards open. Cut them up if you do not trust yourself with them. But do not close the account.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">14</div>
+  </div>
+</div>
+
+<!-- ── COMMON MISTAKES PAGE 2 ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Common Mistakes (continued)</div>
+  </div>
+  <div class="page-content">
+
+    <div class="def-card">
+      <div class="def-title">6. Treating EPF as the only retirement plan</div>
+      <div class="def-text">EPF is a start, not a strategy. Most people discover at 55 that their EPF corpus covers 3 to 4 years of retirement expenses. Retirement in India now routinely lasts 25 to 30 years. EPF alone will not get you there. Start a PPF and NPS alongside it as early as possible.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">7. Splitting extra money equally across all EMIs</div>
+      <div class="def-text">If you have a credit card at 36% and a home loan at 9% and extra money each month — every extra rupee should go to the credit card. Not split equally. Equal distribution feels fair. It is not efficient. The avalanche method saves you significantly more in total interest.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">8. Investing before building an emergency fund</div>
+      <div class="def-text">A ₹50,000 SIP portfolio sounds great until your bike breaks down and you redeem it at a loss to pay for repairs. The emergency fund is not optional and it is not the same as your investment account. Build 3 months of expenses in a separate account first. Then invest. In that order. Every time.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">9. Assuming a higher salary will fix everything</div>
+      <div class="def-text">Salaries double. Lifestyles double with them. The person earning ₹1.5 lakh with no savings was the same person earning ₹60,000 with no savings five years ago. The number changes. The habits do not — unless you deliberately change them. A higher salary without a system is just a faster leak.</div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-title">10. Never reviewing the portfolio</div>
+      <div class="def-text">Set and forget works for the SIP habit. It does not work for the portfolio itself. Once a year — not once a month — sit down and check. Is the split still right for your age? Did one fund underperform its benchmark for 3 straight years? Is your emergency fund still the right size? One hour a year is enough. Zero hours a year is a mistake.</div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">15</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CLOSING PAGE
+══════════════════════════════════════════ -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Closing</div>
+  </div>
+  <div class="page-content">
+
+    <div class="closing-hero">
+      <div class="big-text">Now <span>use it.</span></div>
+    </div>
+
+    <p class="body-text" style="text-align:center; color:var(--muted); margin-bottom:20px;">You have read the whole guide. That already puts you ahead of most people who buy something like this and never open it past page two.</p>
+
+    <p class="body-text">But reading is not the work. The work starts now.</p>
+
+    <p class="body-text">You do not need to fix everything this month. You do not need a perfect salary split or a fully loaded portfolio or a second income running before you feel like you are doing this right. You need one thing done this week. Then one more next week. That is how this actually works — not in a single motivated afternoon but in small consistent actions that compound quietly over months and years.</p>
+
+    <p class="body-text">The people who end up financially secure are not smarter than you. They are not luckier than you. They simply started and did not stop when it got boring. Because it will get boring. Checking your investments and seeing small numbers is boring. Saying no to an upgrade you could technically afford is boring. Running the same SIP for the fourth year in a row is boring.</p>
+
+    <div class="intro-quote">Do it anyway. Five years from now you will either look back at this moment as the point where things changed — or as another thing you read and meant to act on. That difference is entirely in your hands.</div>
+
+    <hr class="rule">
+
+    <p style="text-align:center; font-size:8pt; color:var(--muted); margin-top:16px;">
+      Licensed to <strong>{{CUSTOMER_NAME}}</strong> · {{MOBILE_NO}} · {{EMAIL}}<br>
+      © EliteRoadMaps · eliteroadmaps.in · Not for redistribution
+    </p>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">16</div>
+  </div>
+</div>
+
+
+<script>
+// Watermark
+const mob = "{{MOBILE_NO}}";
+const overlay = document.getElementById('wmOverlay');
+const text = "  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  ";
+for (let i = 0; i < 22; i++) {
+  const d = document.createElement('div');
+  d.className = 'wm-line';
+  d.textContent = text;
+  d.style.top = (i * 120 - 100) + 'px';
+  d.style.left = '-30%';
+  overlay.appendChild(d);
+}
+</script>
+</body>
+</html>
