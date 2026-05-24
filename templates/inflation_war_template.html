@@ -49,12 +49,13 @@ body {
   flex-direction: column;
 }
 
+@page { size: A4; margin: 0; }
 @media print {
   body { background: white; }
   .page { margin: 0; box-shadow: none; page-break-after: always; }
   .page:last-child { page-break-after: auto; }
-  @page { size: A4; margin: 0; }
 }
+body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
 /* ══════════════════════════════════
    WATERMARK
@@ -198,7 +199,7 @@ p.c  { text-align: center; }
 .ft thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; letter-spacing:0.3px; border-bottom:1px solid var(--border); }
 .ft thead th:last-child { text-align:left; }
 .ft tbody tr:nth-child(even) { background:#FAFAF8; }
-.ft tbody td { padding:2.5mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; }
+.ft tbody td { padding:2.5mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; background:#fff; color:#1A1A1A; }
 .ft tbody td:last-child { text-align:right; font-weight:600; white-space:nowrap; }
 .ft.no-last-right tbody td:last-child { text-align:left; font-weight:400; white-space:normal; }
 .ft .tot td { background:#FFF8EE; border-top:1px solid var(--amber); font-weight:700; }
@@ -273,7 +274,7 @@ p.c  { text-align: center; }
 .rt thead tr { background:#EFEFED; }
 .rt thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; border-bottom:1px solid var(--border); }
 .rt tbody tr:nth-child(even) { background:#FAFAF8; }
-.rt tbody td { padding:3mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; }
+.rt tbody td { padding:3mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; background:#fff; color:#1A1A1A; }
 
 /* ══════════════════════════════════
    WORKSHEET
