@@ -2,2323 +2,1250 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Inflation War — EliteRoadMaps</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0A1628;
-    --navy-mid: #112240;
-    --navy-light: #1a3050;
-    --red: #C0392B;
-    --red-bright: #E74C3C;
-    --red-soft: #ff6b5b;
-    --gold: #D4A837;
-    --gold-light: #F0C040;
-    --gold-pale: #FFF8E7;
-    --white: #FFFFFF;
-    --off-white: #F5F5F0;
-    --gray: #8892a4;
-    --gray-light: #e8edf5;
-    --text: #1a1a2e;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body { overflow-x: hidden; width: 100%; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--off-white);
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  /* ── PAGE WRAPPER ── */
-  .page {
-    max-width: 820px;
-    margin: 0 auto;
-    background: white;
-    box-shadow: 0 0 60px rgba(0,0,0,0.15);
-  }
-
-  /* ── COVER ── */
-  .cover {
-    background: var(--navy);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cover::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(192,57,43,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(212,168,55,0.1) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .cover-badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(212,168,55,0.4);
-    padding: 6px 20px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cover-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 10vw, 80px);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 0.95;
-    letter-spacing: -2px;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 1;
-    word-break: break-word;
-  }
-
-  .cover-title span {
-    color: var(--red-bright);
-    display: block;
-  }
-
-  .cover-line {
-    width: 80px;
-    height: 3px;
-    background: var(--gold);
-    margin: 30px auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cover-subtitle {
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cover-tagline {
-    font-family: 'Barlow', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--gold);
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cover-quote {
-    margin-top: 60px;
-    padding: 24px 40px;
-    border-left: 3px solid var(--red);
-    text-align: left;
-    position: relative;
-    z-index: 1;
-    max-width: 560px;
-  }
-
-  .cover-quote p {
-    font-size: 15px;
-    font-style: italic;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.7;
-  }
-
-  .cover-footer {
-    position: absolute;
-    bottom: 40px;
-    left: 0; right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 60px;
-    z-index: 1;
-  }
-
-  .cover-footer-brand {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,0.4);
-    text-transform: uppercase;
-  }
-
-  .cover-footer-date {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  /* ── TOC PAGE ── */
-  .toc-page {
-    background: var(--navy-mid);
-    padding: 80px 60px;
-    color: white;
-  }
-
-  .toc-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 40px;
-  }
-
-  .toc-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .toc-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--red);
-    line-height: 1;
-    min-width: 50px;
-    opacity: 0.7;
-  }
-
-  .toc-content h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-
-  .toc-content p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-  }
-
-  /* ── CHAPTER ── */
-  .chapter {
-    padding: 0;
-    page-break-before: always;
-  }
-
-  .chapter-header {
-    background: var(--navy);
-    padding: 60px 60px 50px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .chapter-header::after {
-    content: '';
-    position: absolute;
-    right: -20px; top: -20px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .chapter-number {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .chapter-number::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(212,168,55,0.2);
-    max-width: 60px;
-  }
-
-  .chapter-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
-    max-width: 600px;
-  }
-
-  .chapter-title em {
-    color: var(--red-soft);
-    font-style: normal;
-  }
-
-  .chapter-subtitle {
-    margin-top: 12px;
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.5px;
-  }
-
-  /* ── CONTENT AREA ── */
-  .content {
-    padding: 56px 60px;
-  }
-
-  .content p {
-    font-size: 15px;
-    line-height: 1.85;
-    color: #2a2a3e;
-    margin-bottom: 18px;
-  }
-
-  .content p strong {
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  .content p em {
-    color: var(--red);
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  /* ── SECTION HEADINGS ── */
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--navy);
-    letter-spacing: 0.5px;
-    margin: 40px 0 16px;
-    padding-left: 16px;
-    border-left: 4px solid var(--red);
-    line-height: 1.3;
-  }
-
-  .weapon-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--navy);
-    letter-spacing: 0.5px;
-    margin: 36px 0 8px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .weapon-title .weapon-num {
-    background: var(--red);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 2px;
-    letter-spacing: 1px;
-  }
-
-  .weapon-sub {
-    font-size: 13px;
-    color: var(--gray);
-    font-style: italic;
-    margin-bottom: 14px;
-    margin-top: -4px;
-  }
-
-  /* ── CALLOUT BOXES ── */
-  .callout {
-    background: var(--gold-pale);
-    border-left: 4px solid var(--gold);
-    padding: 20px 24px;
-    margin: 24px 0;
-    border-radius: 0 6px 6px 0;
-  }
-
-  .callout p {
-    font-size: 14px !important;
-    color: #5a4010 !important;
-    margin: 0 !important;
-  }
-
-  .callout-red {
-    background: #fff5f5;
-    border-left: 4px solid var(--red);
-  }
-
-  .callout-red p {
-    color: #7a1010 !important;
-  }
-
-  .callout-navy {
-    background: #f0f4ff;
-    border-left: 4px solid var(--navy);
-  }
-
-  .callout-navy p {
-    color: #1a2a4a !important;
-  }
-
-  .callout-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .callout-red .callout-label { color: var(--red); }
-  .callout-navy .callout-label { color: var(--navy); }
-
-  /* ── STATS ROW ── */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 28px 0;
-  }
-
-  .stat-card {
-    background: var(--navy);
-    padding: 24px 20px;
-    border-radius: 4px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--red);
-  }
-
-  .stat-card.gold-card::before { background: var(--gold); }
-  .stat-card.green-card::before { background: #27ae60; }
-
-  .stat-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .stat-note {
-    font-size: 10px;
-    color: rgba(255,255,255,0.3);
-    margin-top: 4px;
-  }
-
-  /* ── TABLES ── */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 13.5px;
-  }
-
-  .data-table th {
-    background: var(--navy);
-    color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 16px;
-    text-align: left;
-  }
-
-  .data-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e8ecf5;
-    color: #2a2a3e;
-    vertical-align: top;
-  }
-
-  .data-table tr:nth-child(even) td {
-    background: #f8f9fc;
-  }
-
-  .data-table tr:last-child td {
-    border-bottom: none;
-  }
-
-  .data-table .highlight-row td {
-    background: var(--gold-pale);
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  /* ── BULLET LISTS ── */
-  .war-list {
-    list-style: none;
-    margin: 16px 0;
-  }
-
-  .war-list li {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #2a2a3e;
-    padding: 8px 0 8px 28px;
-    border-bottom: 1px solid #f0f2f8;
-    position: relative;
-  }
-
-  .war-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--red);
-    font-size: 14px;
-  }
-
-  .war-list li strong { color: var(--navy); }
-
-  /* ── FEAR CARDS ── */
-  .fear-card {
-    background: white;
-    border: 1px solid #e8ecf5;
-    border-top: 3px solid var(--red);
-    padding: 28px;
-    margin: 20px 0;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .fear-card h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
-  }
-
-  .fear-card p {
-    font-size: 14px !important;
-    margin-bottom: 10px !important;
-  }
-
-  /* ── GOAL SECTION ── */
-  .goal-block {
-    background: var(--navy-mid);
-    padding: 32px;
-    margin: 24px 0;
-    border-radius: 4px;
-    color: white;
-  }
-
-  .goal-block h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--gold);
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  .goal-block .goal-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 20px;
-  }
-
-  .goal-block p {
-    font-size: 14px !important;
-    color: rgba(255,255,255,0.8) !important;
-    margin-bottom: 10px !important;
-  }
-
-  .goal-block strong { color: var(--gold) !important; }
-
-  /* ── WEAPON CARD ── */
-  .weapon-card {
-    background: white;
-    border: 1px solid #e0e5f0;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 28px 0;
-  }
-
-  .weapon-card-header {
-    background: var(--navy);
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .weapon-icon {
-    background: var(--red);
-    color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 2px;
-  }
-
-  .weapon-card-header h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 0.5px;
-  }
-
-  .weapon-card-header p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    margin: 0 !important;
-  }
-
-  .weapon-card-body {
-    padding: 24px;
-  }
-
-  .weapon-card-body p {
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .weapon-meta {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid #e8ecf5;
-    margin-top: 16px;
-  }
-
-  .weapon-meta-item {
-    padding: 12px 16px;
-    border-right: 1px solid #e8ecf5;
-    text-align: center;
-  }
-
-  .weapon-meta-item:last-child { border-right: none; }
-
-  .weapon-meta-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: var(--gray);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .weapon-meta-value {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  /* ── TIMING TABLE ── */
-  .timing-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 13.5px;
-  }
-
-  .timing-table th {
-    background: var(--navy);
-    color: var(--gold);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 16px;
-    text-align: left;
-  }
-
-  .timing-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e8ecf5;
-    vertical-align: top;
-  }
-
-  .timing-table tr:nth-child(even) td { background: #f8f9fc; }
-  .timing-table td:first-child { font-weight: 600; color: var(--navy); }
-  .timing-table td:last-child { color: #444; }
-
-  /* ── BUCKET SYSTEM ── */
-  .bucket {
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 20px 0;
-  }
-
-  .bucket-header {
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .bucket-1 .bucket-header { background: var(--red); }
-  .bucket-2 .bucket-header { background: var(--navy); }
-  .bucket-3 .bucket-header { background: #27ae60; }
-
-  .bucket-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.3);
-    line-height: 1;
-  }
-
-  .bucket-info h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .bucket-info p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    margin: 0 !important;
-  }
-
-  .bucket-body {
-    background: white;
-    border: 1px solid #e8ecf5;
-    border-top: none;
-  }
-
-  /* ── PERSON EXAMPLES ── */
-  .person-card {
-    background: var(--navy-mid);
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 28px 0;
-  }
-
-  .person-header {
-    padding: 20px 28px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .person-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 0.5px;
-  }
-
-  .person-salary {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 2px;
-  }
-
-  .person-tag {
-    background: var(--red);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 2px;
-    letter-spacing: 1px;
-  }
-
-  .person-body { padding: 24px 28px; }
-
-  /* ── WEEK CARDS ── */
-  .week-card {
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 24px 0;
-  }
-
-  .week-header {
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .week-1 .week-header { background: var(--red); }
-  .week-2 .week-header { background: var(--navy); }
-  .week-3 .week-header { background: #8B4513; }
-  .week-4 .week-header { background: #27ae60; }
-
-  .week-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-  }
-
-  .week-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .week-body {
-    background: white;
-    border: 1px solid #e8ecf5;
-    border-top: none;
-    padding: 28px;
-  }
-
-  /* ── ACTION ITEMS ── */
-  .action-item {
-    display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid #f0f2f8;
-    align-items: flex-start;
-  }
-
-  .action-item:last-child { border-bottom: none; }
-
-  .action-num {
-    background: var(--navy);
-    color: var(--gold);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border-radius: 2px;
-  }
-
-  .action-content h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 17px;
-    font-weight: 800;
-    color: var(--navy);
-    letter-spacing: 0.3px;
-    margin-bottom: 6px;
-  }
-
-  .action-content p {
-    font-size: 14px !important;
-    margin-bottom: 8px !important;
-    color: #444 !important;
-  }
-
-  .time-needed {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--red);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* ── WORKSHEET ── */
-  .worksheet {
-    background: var(--navy);
-    padding: 40px 60px;
-    color: white;
-  }
-
-  .worksheet-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .worksheet-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 40px;
-  }
-
-  .ws-section {
-    margin-bottom: 36px;
-  }
-
-  .ws-section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(212,168,55,0.2);
-  }
-
-  .ws-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .ws-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .ws-input {
-    width: 140px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 2px;
-    padding: 8px 12px;
-    color: white;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    text-align: right;
-  }
-
-  .ws-total {
-    background: rgba(212,168,55,0.1);
-    border-color: rgba(212,168,55,0.3);
-    font-weight: 700;
-    color: var(--gold);
-  }
-
-  .ws-goal-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .ws-goal-box {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-top: 3px solid var(--red);
-    padding: 20px;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .ws-goal-box.gold-top { border-top-color: var(--gold); }
-  .ws-goal-box.green-top { border-top-color: #27ae60; }
-
-  .ws-goal-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 12px;
-  }
-
-  .ws-goal-input {
-    width: 100%;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 2px;
-    padding: 10px 14px;
-    color: white;
-    font-family: 'Barlow', sans-serif;
-    font-size: 15px;
-    margin-bottom: 8px;
-  }
-
-  /* ── CLOSING PAGE ── */
-  .closing {
-    background: var(--navy);
-    padding: 80px 60px;
-    text-align: center;
-  }
-
-  .closing-line {
-    width: 60px;
-    height: 3px;
-    background: var(--red);
-    margin: 0 auto 40px;
-  }
-
-  .closing-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    font-weight: 700;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  .closing-title span { color: var(--red-bright); }
-
-  .closing-body {
-    font-size: 16px;
-    color: rgba(255,255,255,0.65);
-    max-width: 520px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
-  }
-
-  .closing-brand {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-top: 60px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, #e0e5f0, transparent);
-    margin: 32px 0;
-  }
-
-  /* ── PRINT STYLES ── */
-  @media (max-width: 600px) {
-    /* Global overflow fix */
-    * { max-width: 100%; box-sizing: border-box; }
-    .page { overflow-x: hidden; }
-
-    /* Cover */
-    .cover { padding: 50px 24px 80px; min-height: auto; }
-    .cover-footer { padding: 0 24px; }
-    .cover-quote { padding: 20px 20px; margin-top: 32px; }
-    .cover-badge { font-size: 10px; letter-spacing: 2px; padding: 5px 14px; }
-
-    /* TOC */
-    .toc-page { padding: 48px 24px; }
-    .toc-num { font-size: 26px; min-width: 36px; }
-    .toc-content h3 { font-size: 15px; }
-
-    /* Chapter headers */
-    .chapter-header { padding: 40px 24px 32px; }
-    .chapter-title { font-size: 26px; line-height: 1.2; }
-    .chapter-number { font-size: 10px; }
-
-    /* Content */
-    .content { padding: 32px 24px; }
-    .content p { font-size: 14px; line-height: 1.75; }
-    .section-title { font-size: 18px; padding-left: 12px; margin: 28px 0 12px; }
-    .weapon-title { font-size: 17px; }
-
-    /* Stats grid — single column */
-    .stats-row { grid-template-columns: 1fr; gap: 12px; }
-    .stat-value { font-size: 22px; }
-
-    /* Tables — scrollable wrapper */
-    .data-table, .timing-table {
-      font-size: 12px;
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-    .data-table th, .data-table td,
-    .timing-table th, .timing-table td { padding: 8px 10px; white-space: normal; min-width: 80px; }
-
-    /* Weapon cards */
-    .weapon-meta { grid-template-columns: 1fr 1fr; }
-    .weapon-meta-item { border-bottom: 1px solid #e8ecf5; }
-    .weapon-card-header { padding: 14px 16px; gap: 12px; }
-    .weapon-card-body { padding: 16px; }
-    .weapon-icon { width: 34px; height: 34px; font-size: 12px; }
-
-    /* Fear cards */
-    .fear-card { padding: 20px; }
-    .fear-card h3 { font-size: 16px; }
-
-    /* Buckets */
-    .bucket-header { padding: 14px 18px; gap: 12px; }
-    .bucket-num { font-size: 24px; }
-    .bucket-info h3 { font-size: 16px; }
-
-    /* Person cards */
-    .person-header { flex-direction: column; gap: 10px; align-items: flex-start; padding: 16px 20px; }
-    .person-name { font-size: 17px; }
-    .person-body { padding: 16px 20px; }
-
-    /* Week cards */
-    .week-header { padding: 14px 18px; }
-    .week-title { font-size: 18px; }
-    .week-body { padding: 20px; }
-    .action-item { gap: 14px; padding: 16px 0; }
-    .action-num { width: 30px; height: 30px; font-size: 12px; flex-shrink: 0; }
-    .action-content h4 { font-size: 15px; }
-    .action-content p { font-size: 13px !important; }
-
-    /* Goal blocks */
-    .goal-block { padding: 24px 20px; }
-
-    /* Callouts */
-    .callout { padding: 16px 18px; }
-
-    /* Worksheet */
-    .worksheet { padding: 36px 24px; }
-    .worksheet-title { font-size: 26px; }
-    .ws-row { flex-direction: column; gap: 6px; padding: 10px 0; }
-    .ws-input { width: 100%; text-align: left; }
-    .ws-goal-row { grid-template-columns: 1fr; }
-    .ws-goal-input { font-size: 14px; }
-
-    /* Closing */
-    .closing { padding: 56px 24px; }
-    .closing-title { font-size: 28px; line-height: 1.3; }
-    .closing-body { font-size: 14px; }
-
-    /* TOC items */
-    .toc-item { gap: 16px; padding: 16px 0; }
-  }
-
-  @media print {
-    body { background: white; }
-    .page { box-shadow: none; max-width: 100%; }
-    .chapter { page-break-before: always; }
-    .cover { min-height: auto; padding: 60px; }
-    .ws-input, .ws-goal-input {
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      background: transparent;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-    }
-  }
-
-/* ── WATERMARK — mobile number only ── */
-#iw-watermark {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+/* System font fallbacks — no external network calls (Puppeteer safe) */
+</style>
+<style>
+/* ══════════════════════════════════
+   RESET & ROOT
+══════════════════════════════════ */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --amber:  #BA7517;
+  --black:  #0D0D0D;
+  --white:  #FAFAF8;
+  --gray:   #777;
+  --border: #DCDCDC;
+  --light:  #F5F5F3;
+  --b1: #1565C0;
+  --b2: #2E7D32;
+  --b3: #E65100;
+  --b4: #880E4F;
+  --b5: #4A148C;
+}
+
+body {
+  background: #CCCCCC;
+  font-family: 'Source Sans 3', Georgia, sans-serif;
+  font-size: 11pt;
+  color: var(--black);
+}
+
+/* ══════════════════════════════════
+   PAGE SHELL
+══════════════════════════════════ */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--white);
+  margin: 10mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  @page { size: A4; margin: 0; }
+}
+
+/* ══════════════════════════════════
+   WATERMARK
+══════════════════════════════════ */
+.wm-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   z-index: 9999;
   overflow: hidden;
 }
-#iw-watermark-grid {
+.wm-line {
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  transform: rotate(-35deg);
-  transform-origin: center;
-}
-.iw-wm-tile {
-  padding: 3rem 1rem;
-  opacity: 0.07;
-}
-.iw-wm-tile span {
-  font-family: monospace;
-  font-size: 13px;
-  font-weight: bold;
-  color: #000;
   white-space: nowrap;
-  letter-spacing: 0.04em;
-  display: block;
+  font-size: 11pt;
+  color: rgba(0,0,0,0.055);
+  transform: rotate(-35deg);
+  letter-spacing: 2px;
 }
 
-/* ── COVER CUSTOMER ── */
-.cover-customer {
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: 1.2rem;
+/* ══════════════════════════════════
+   INNER PAGE HEADER + FOOTER
+══════════════════════════════════ */
+.ph {
+  background: var(--black);
+  height: 10mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+.ph-brand {
+  font-size: 8pt; font-weight: 700;
+  color: var(--amber); letter-spacing: 2px; text-transform: uppercase;
+}
+.ph-title {
+  font-size: 8pt; color: #555; letter-spacing: 0.3px;
+}
+
+.pf {
+  background: var(--amber);
+  height: 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
   margin-top: auto;
+  position: relative;
+  z-index: 2;
 }
-.cover-customer-label {
-  font-family: monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.cover-customer p {
-  font-size: 11.5px;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.7;
-}
-.cover-customer strong { color: white; font-size: 13px; }
+.pf-text { font-size: 7pt; color: rgba(255,255,255,0.85); }
+.pf-num  { font-size: 8pt; font-weight: 700; color: white; }
 
+/* ══════════════════════════════════
+   PAGE BODY
+══════════════════════════════════ */
+.pb {
+  padding: 10mm 14mm 8mm;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* ══════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════ */
+p { margin-bottom: 3mm; font-size: 11pt; line-height: 1.75; text-align: justify; }
+p.i  { font-style: italic; color: #444; }
+p.b  { font-weight: 700; }
+p.c  { text-align: center; }
+
+.sec-lbl {
+  font-size: 8.5pt; font-weight: 700; color: var(--amber);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 3mm; margin-top: 5mm;
+  padding-bottom: 2mm; border-bottom: 1px solid var(--border);
+}
+.sec-h {
+  font-size: 13pt; font-weight: 700; color: var(--black);
+  margin-top: 5mm; margin-bottom: 3mm; line-height: 1.3;
+}
+.rule { height: 1px; background: var(--border); margin: 4mm 0; }
+
+/* ══════════════════════════════════
+   CHAPTER HEADER
+══════════════════════════════════ */
+.ch {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 1px solid var(--border);
+}
+.ch-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 68pt; font-weight: 900;
+  color: #EBEBEB; line-height: 0.85;
+  flex-shrink: 0; margin-top: -2px;
+}
+.ch-lt {
+  border-left: 3px solid var(--amber);
+  padding-left: 11px; padding-top: 5px;
+}
+.ch-lbl {
+  font-size: 8pt; font-weight: 700; color: var(--amber);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22pt; font-weight: 700; color: var(--black); line-height: 1.1;
+}
+
+/* ══════════════════════════════════
+   CALLOUT
+══════════════════════════════════ */
+.box {
+  border: 1px solid var(--amber);
+  padding: 4mm 5mm; margin: 4mm 0;
+  background: var(--white);
+}
+.box p { margin: 0; font-weight: 600; text-align: left; }
+
+/* ══════════════════════════════════
+   TWO-COL TABLE
+══════════════════════════════════ */
+.tc { display:grid; grid-template-columns:1fr 1fr; border:0.5px solid var(--border); margin:3mm 0; }
+.tc-h { background:#F0F0EE; padding:3mm 4mm; font-size:10pt; font-weight:700; border-bottom:1px solid var(--border); }
+.tc-c { padding:3mm 4mm; font-size:10.5pt; line-height:1.6; border-bottom:0.5px solid var(--border); border-right:0.5px solid var(--border); }
+.tc-c:nth-child(even) { border-right:none; }
+
+/* ══════════════════════════════════
+   FINANCE TABLE
+══════════════════════════════════ */
+.ft { width:100%; border-collapse:collapse; margin:3mm 0; font-size:10.5pt; }
+.ft thead tr { background:#EFEFED; }
+.ft thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; letter-spacing:0.3px; border-bottom:1px solid var(--border); }
+.ft thead th:last-child { text-align:left; }
+.ft tbody tr:nth-child(even) { background:#FAFAF8; }
+.ft tbody td { padding:2.5mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; vertical-align:top; word-wrap:break-word; overflow-wrap:break-word; }
+.ft tbody td:last-child { text-align:right; font-weight:600; white-space:nowrap; }
+.ft.no-last-right tbody td:last-child { text-align:left; font-weight:400; white-space:normal; }
+.ft .tot td { background:#FFF8EE; border-top:1px solid var(--amber); font-weight:700; }
+.ft .tot td:last-child { text-align:right; }
+
+/* ══════════════════════════════════
+   EXAMPLE HEADER
+══════════════════════════════════ */
+.ex-h {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:3mm 4mm;
+  border-top:1.5px solid var(--black); border-bottom:1.5px solid var(--black);
+  margin-top:5mm;
+}
+.ex-tag  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:1.5px; text-transform:uppercase; }
+.ex-name { font-size:11pt; font-weight:700; }
+.ex-note { background:var(--light); padding:2.5mm 4mm; font-size:10pt; font-style:italic; color:#444; border-bottom:0.5px solid var(--border); margin-bottom:3mm; line-height:1.6; }
+
+/* ══════════════════════════════════
+   STEP CARD
+══════════════════════════════════ */
+.step { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; background:var(--light); }
+.step-l { width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; padding:4mm 0; }
+.step-sl { font-size:6.5pt; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; }
+.step-sn { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; line-height:1; }
+.step-r { padding:4mm 5mm; flex:1; }
+.step-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:1mm; }
+.step-tm { font-size:9pt; color:var(--amber); font-style:italic; margin-bottom:2mm; }
+.step-d { font-size:10.5pt; color:#333; line-height:1.65; margin:0; text-align:left; }
+
+/* ══════════════════════════════════
+   BUCKET ROW
+══════════════════════════════════ */
+.brow { display:flex; align-items:center; border:0.5px solid var(--border); margin-bottom:2mm; background:white; }
+.brow-l { width:44px; display:flex; align-items:center; justify-content:center; align-self:stretch; flex-shrink:0; min-height:48px; }
+.brow-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:white; }
+.brow-m { flex:1; padding:3mm 4mm; }
+.brow-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
+.brow-sub { font-size:9.5pt; color:var(--gray); margin-top:1px; }
+.brow-r { width:88px; padding:3mm 4mm; border-left:0.5px solid var(--border); }
+.brow-rs { font-size:10pt; color:#AAA; margin-bottom:6px; }
+.brow-line { height:1px; background:#BBB; }
+.brow.tot { background:#FFF8EE; border-color:var(--amber); border-width:1px; }
+.brow.tot .brow-line { background:var(--amber); }
+
+/* ══════════════════════════════════
+   ACCOUNT CARD
+══════════════════════════════════ */
+.acc { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; }
+.acc-l { width:70px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; gap:2px; padding:4mm 0; }
+.acc-lw { font-size:8pt; font-weight:700; color:white; letter-spacing:0.5px; }
+.acc-ln { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; }
+.acc-r { flex:1; padding:4mm 5mm; background:var(--light); }
+.acc-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:2mm; }
+.acc-d { font-size:10.5pt; color:#333; line-height:1.65; margin:0; text-align:left; }
+
+/* ══════════════════════════════════
+   SPLIT TABLE
+══════════════════════════════════ */
+.spl { display:grid; grid-template-columns:1fr 1fr; margin:3mm 0; }
+.spl-c { padding:4mm 5mm; border:0.5px solid var(--border); }
+.spl-c.g { background:#F1F8F1; }
+.spl-c.b { background:#EFF4FC; }
+.spl-h { font-size:11pt; font-weight:700; margin-bottom:2mm; }
+.spl-b { font-size:10.5pt; line-height:1.6; color:#333; }
+.spl-f { font-size:9pt; color:var(--gray); margin-top:2mm; font-style:italic; }
+
+/* ══════════════════════════════════
+   RAISE TABLE
+══════════════════════════════════ */
+.rt { width:100%; border-collapse:collapse; margin:3mm 0; font-size:10.5pt; }
+.rt thead tr { background:#EFEFED; }
+.rt thead th { padding:3mm 4mm; text-align:left; font-size:9pt; font-weight:700; border-bottom:1px solid var(--border); }
+.rt tbody tr:nth-child(even) { background:#FAFAF8; }
+.rt tbody td { padding:3mm 4mm; border-bottom:0.5px solid #E8E8E8; line-height:1.5; }
+
+/* ══════════════════════════════════
+   WORKSHEET
+══════════════════════════════════ */
+.ws-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:4mm 0; }
+.ws-f { border:1px solid var(--border); border-radius:2px; }
+.ws-fl { background:#EFEFED; padding:2mm 3mm; font-size:8.5pt; font-weight:700; color:#555; border-bottom:0.5px solid var(--border); }
+.ws-fi { padding:3mm 3mm 2mm; display:flex; align-items:flex-end; gap:5px; height:11mm; }
+.ws-rs { font-size:10pt; color:#AAA; }
+.ws-ln { flex:1; border-bottom:1px solid var(--border); }
+
+/* ══════════════════════════════════
+   CHECKLIST
+══════════════════════════════════ */
+.cl { list-style:none; margin:3mm 0; }
+.cl li { display:flex; align-items:flex-start; gap:10px; padding:3mm 0; border-bottom:0.5px solid #F0F0F0; font-size:11pt; line-height:1.5; }
+.cl li:last-child { border-bottom:none; }
+.cb { width:16px; height:16px; border:1.5px solid var(--black); flex-shrink:0; margin-top:2px; }
+
+/* ══════════════════════════════════
+   CTA BOX
+══════════════════════════════════ */
+.cta { border:1px solid var(--amber); padding:5mm 6mm; margin:4mm 0; background:white; }
+.cta p { margin:0 0 2mm; font-size:11pt; text-align:left; }
+.cta-link { font-size:12pt; font-weight:700; color:var(--amber); margin-top:3mm !important; }
+
+/* ══════════════════════════════════
+   COVER PAGE — self-contained
+══════════════════════════════════ */
+.cover-page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  margin: 10mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+@media print {
+  .cover-page { margin:0; box-shadow:none; page-break-after:always; }
+}
+.cover-topbar {
+  background: var(--black); height: 11mm;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 14mm; flex-shrink:0; z-index:2; position:relative;
+}
+.cover-topbar-brand { font-size:9pt; font-weight:700; color:var(--amber); letter-spacing:2.5px; text-transform:uppercase; }
+.cover-topbar-logo  { font-size:8pt; color:#444; border:1px solid #333; padding:2px 8px; letter-spacing:1px; }
+.cover-main {
+  flex:1; display:grid; grid-template-columns:90mm 1fr;
+  min-height:0; position:relative; z-index:2;
+}
+.cover-left {
+  padding:9mm 9mm 7mm 14mm;
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+}
+.cover-right {
+  padding:9mm 14mm 7mm 9mm;
+  display:flex; flex-direction:column;
+}
+.cover-series {
+  font-size:8pt; font-weight:600; color:var(--gray);
+  letter-spacing:3px; text-transform:uppercase; margin-bottom:4mm;
+}
+.cover-title {
+  font-family:'Playfair Display',serif; font-size:38pt; font-weight:900;
+  color:var(--black); line-height:1.0; letter-spacing:-0.5px; margin-bottom:3mm;
+}
+.cover-title em { font-style:normal; position:relative; display:inline-block; }
+.cover-title em::after { content:''; display:block; height:4px; background:var(--amber); margin-top:2px; }
+.cover-subtitle {
+  font-size:10pt; font-weight:700; color:var(--amber);
+  letter-spacing:0.8px; text-transform:uppercase;
+  margin-bottom:5mm; line-height:1.5;
+}
+.cover-rule { height:1px; background:var(--border); margin-bottom:4mm; }
+.cover-slbl { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3mm; }
+.cover-about { font-size:10.5pt; color:var(--black); line-height:1.8; margin-bottom:4mm; }
+.cover-chs { list-style:none; display:flex; flex-direction:column; gap:3px; flex:1; }
+.cover-chs li { display:flex; align-items:center; gap:8px; padding:3px 0; border-bottom:1px solid #F0F0F0; }
+.cover-chs li:last-child { border-bottom:none; }
+.ch-badge { width:18px; height:18px; background:var(--black); color:white; font-size:8pt; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ch-badge.am { background:var(--amber); }
+.ch-nm { font-size:10.5pt; color:var(--black); line-height:1.3; }
+.cover-bkt-lbl { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:4mm; }
+.cover-bkts { display:flex; flex-direction:column; gap:5px; margin-bottom:auto; }
+.cv-bkt { display:flex; align-items:center; gap:10px; padding:8px 10px; background:white; border:0.5px solid #E0E0E0; }
+.cv-bkt-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; min-width:22px; line-height:1; }
+.cv-bkt-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
+.cv-bkt-d  { font-size:9.5pt; color:var(--gray); margin-top:1px; }
+.cover-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:5mm; }
+.cv-stat { background:var(--light); padding:8px 10px; border-top:2px solid var(--amber); }
+.cv-stat-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:var(--black); line-height:1; }
+.cv-stat-l { font-size:8.5pt; color:var(--gray); margin-top:3px; line-height:1.3; }
+.cover-prep {
+  background:var(--black); padding:5mm 14mm;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-shrink:0; z-index:2; position:relative;
+}
+.prep-lbl  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px; }
+.prep-name { font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:white; line-height:1.1; }
+.prep-con  { font-size:10.5pt; color:#666; margin-top:2px; }
+.prep-tag  { font-size:10pt; color:#666; font-style:italic; line-height:1.9; text-align:right; }
+.cover-bot {
+  background:var(--amber); height:8mm;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 14mm; flex-shrink:0; z-index:2; position:relative;
+}
+.cover-bot span { font-size:8pt; color:rgba(255,255,255,0.9); letter-spacing:0.3px; }
+</style>
+<style>
+/* IW overrides */
+:root {
+  --red:    #C0392B;
+  --navy:   #0A1628;
+  --gold:   #D4A837;
+}
+/* Chapter header uses large number like salary formula */
+.ch-n { color: #E8E8E8; }
+/* Callout with red left border */
+.box-red { border-color: var(--red); }
+.box-red p { color: #5a1010; }
+/* Red accent for cover badge */
+.ch-badge.rd { background: var(--red); }
+/* Stat card accent */
+.cv-stat.rd { border-top-color: var(--red); }
+/* Cover: override amber → navy+red scheme */
+.cover-page { background: #0A1628; }
+.cover-topbar { background: var(--red); }
+.cover-topbar-brand { color: white; }
+.cover-topbar-logo  { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
+.cover-series { color: var(--gold); }
+.cover-title  { color: white; }
+.cover-title em::after { background: var(--red); }
+.cover-subtitle { color: var(--gold); }
+.cover-rule   { background: rgba(255,255,255,0.15); }
+.cover-slbl   { color: var(--gold); }
+.cover-about  { color: rgba(255,255,255,0.8); }
+.cover-chs li { border-bottom-color: rgba(255,255,255,0.08); }
+.ch-nm        { color: white; }
+.cover-bkt-lbl { color: var(--gold); }
+.cv-bkt       { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+.cv-bkt-nm    { color: white; }
+.cv-bkt-d     { color: rgba(255,255,255,0.5); }
+.cv-stat      { background: rgba(255,255,255,0.06); border-top-color: var(--gold); }
+.cv-stat-n    { color: white; }
+.cv-stat-l    { color: rgba(255,255,255,0.5); }
+.cover-bot    { background: var(--red); }
+.cover-main   { border-right-color: rgba(255,255,255,0.1); }
+.cover-left   { border-right: 1px solid rgba(255,255,255,0.1); }
+.ch-badge     { background: var(--red); }
+/* War chapters: red chapter header left border */
+.ch-lt        { border-left-color: var(--red); }
+.ch-lbl       { color: var(--red); }
+/* Inner page footer: red instead of amber */
+.pf           { background: var(--red); }
+/* Inner page header: navy */
+.ph           { background: var(--navy); }
+.ph-brand     { color: var(--gold); }
+/* Sec label: gold */
+.sec-lbl      { color: var(--red); border-bottom-color: #eee; }
+/* Weapon meta row */
+.wmeta { display:grid; grid-template-columns:repeat(3,1fr); margin-top:3mm; border-top:1px solid #eee; }
+.wmeta-i { padding:2mm 3mm; text-align:center; border-right:1px solid #eee; }
+.wmeta-i:last-child { border-right:none; }
+.wmeta-lbl { font-size:8.5pt; color:#888; text-transform:uppercase; letter-spacing:0.5px; }
+.wmeta-val { font-size:10.5pt; font-weight:700; color: var(--navy); }
+/* Person/salary example row */
+.prow { background:#F8F9FC; border:0.5px solid var(--border); margin-bottom:2mm; padding:3mm 4mm; }
+.prow-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:2mm; }
+.prow-name { font-size:12pt; font-weight:700; }
+.prow-tag  { font-size:9pt; background:var(--red); color:white; padding:2px 8px; }
+/* Week block */
+.wk { border-left:4px solid var(--red); padding:3mm 4mm 3mm 4mm; margin:3mm 0; background:#FFF8F8; }
+.wk.wk2 { border-left-color:#1565C0; background:#F8F9FF; }
+.wk.wk3 { border-left-color:#8B4513; background:#FFF9F5; }
+.wk.wk4 { border-left-color:#27ae60; background:#F5FFF8; }
+.wk-title { font-size:11pt; font-weight:700; margin-bottom:2mm; }
+.wk-lbl   { font-size:8pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:1mm; }
+/* Action item */
+.ai { display:flex; gap:3mm; padding:3mm 0; border-bottom:0.5px solid #F0F0F0; align-items:flex-start; }
+.ai:last-child { border-bottom:none; }
+.ai-n { background:var(--navy); color:var(--gold); font-size:10pt; font-weight:700; width:26px; height:26px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ai-t { font-size:11pt; font-weight:700; margin-bottom:1mm; }
+.ai-d { font-size:10.5pt; color:#333; line-height:1.6; margin:0; }
+.ai-tm{ font-size:9pt; color:var(--red); font-weight:700; margin-top:1mm; }
+/* Upsell box (closing page) */
+.upsell { background:var(--navy); border-left:4px solid var(--red); padding:5mm 6mm; margin:5mm 0 0; }
+.upsell-lbl   { font-size:8pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:2mm; }
+.upsell-title { font-size:16pt; font-weight:700; color:white; margin-bottom:2mm; font-family:'Playfair Display',serif; }
+.upsell-title em { color:var(--gold); font-style:italic; }
+.upsell p     { font-size:10pt; color:rgba(255,255,255,0.65); margin-bottom:3mm; text-align:left; }
+.upsell ul    { list-style:none; margin-bottom:3mm; }
+.upsell ul li { font-size:10.5pt; color:rgba(255,255,255,0.8); padding:1.5mm 0; border-bottom:0.5px solid rgba(255,255,255,0.08); display:flex; gap:8px; }
+.upsell ul li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+.upsell-bot   { display:flex; align-items:baseline; justify-content:space-between; padding-top:3mm; border-top:1px solid rgba(212,168,55,0.2); margin-top:2mm; }
+.upsell-url   { font-size:9pt; color:var(--gold); font-weight:600; }
+.upsell-price { font-size:18pt; font-weight:700; color:white; font-family:'Playfair Display',serif; }
 </style>
 </head>
 <body>
-<!-- ══ WATERMARK — mobile number only ══ -->
-<div id="iw-watermark" aria-hidden="true">
-  <div id="iw-watermark-grid"></div>
+<div class="cover-page">
+  <div class="cover-topbar">
+    <span class="cover-topbar-brand">EliteRoadMaps.in</span>
+    <span class="cover-topbar-logo">2026 Edition</span>
+  </div>
+  <div class="cover-main">
+    <div class="cover-left">
+      <p class="cover-series">EliteRoadMaps · India Finance Series</p>
+      <div class="cover-title">THE INFLATION<br><em>WAR</em></div>
+      <p class="cover-subtitle">A Salaried Person's Survival &amp; Wealth Guide</p>
+      <div class="cover-rule"></div>
+      <p class="cover-slbl">What's Inside</p>
+      <ul class="cover-chs">
+        <li><div class="ch-badge">01</div><span class="ch-nm">The Enemy Is Real</span></li>
+        <li><div class="ch-badge">02</div><span class="ch-nm">How War Kills Your Salary Silently</span></li>
+        <li><div class="ch-badge">03</div><span class="ch-nm">What Is Actually Worrying You</span></li>
+        <li><div class="ch-badge">04</div><span class="ch-nm">What Are You Actually Investing FOR?</span></li>
+        <li><div class="ch-badge">05</div><span class="ch-nm">What NOT To Do Right Now</span></li>
+        <li><div class="ch-badge">06</div><span class="ch-nm">Your Inflation War Battle Plan</span></li>
+        <li><div class="ch-badge">07</div><span class="ch-nm">The War Budget</span></li>
+        <li><div class="ch-badge">08</div><span class="ch-nm">Your 30 Day Action Plan</span></li>
+        <li><div class="ch-badge am">+</div><span class="ch-nm">Your Personal War Budget Worksheet</span></li>
+      </ul>
+    </div>
+    <div class="cover-right">
+      <p class="cover-bkt-lbl">The 3 Bucket System</p>
+      <div class="cover-bkts">
+        <div class="cv-bkt" style="border-left:3px solid #C0392B"><div><div class="cv-bkt-nm">01 Survive</div><div class="cv-bkt-d">Non-negotiable fixed expenses — rent, EMI, food, insurance</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid #1565C0"><div><div class="cv-bkt-nm">02 Protect &amp; Grow</div><div class="cv-bkt-d">SIPs, emergency fund, NPS, child education</div></div></div>
+        <div class="cv-bkt" style="border-left:3px solid #27ae60"><div><div class="cv-bkt-nm">03 Live</div><div class="cv-bkt-d">Guilt-free spending — yours completely</div></div></div>
+      </div>
+      <div class="cover-stats" style="margin-top:auto;">
+        <div class="cv-stat"><div class="cv-stat-n">8</div><div class="cv-stat-l">Battle chapters</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">3</div><div class="cv-stat-l">Wars on your salary</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">30</div><div class="cv-stat-l">Day action plan</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-prep">
+    <div>
+      <div class="prep-lbl">Prepared For</div>
+      <div class="prep-name">{{CUSTOMER_NAME}}</div>
+      <div class="prep-con">{{MOBILE_NO}} &nbsp;|&nbsp; {{EMAIL}}</div>
+    </div>
+    <div class="prep-tag">
+      Oil. War. Prices. Your Salary. Here's How To Win.<br>
+      Real problems. Self-built systems. Packaged so you never need a coach.
+    </div>
+  </div>
+  <div class="cover-bot">
+    <span>https://eliteroadmaps.in/finance/moneyplan/inflationwar</span>
+    <span>EliteRoadMaps.in — Finance — May 2026</span>
+  </div>
+</div>
+
+<div class="wm-overlay" id="wmOverlay"></div>
+<script>
+const mob = "{{MOBILE_NO}}";
+const overlay = document.getElementById('wmOverlay');
+const text = "  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  ";
+for (let i = 0; i < 22; i++) {
+  const d = document.createElement('div');
+  d.className = 'wm-line';
+  d.textContent = text;
+  d.style.top = (i * 120 - 100) + 'px';
+  d.style.left = '-30%';
+  overlay.appendChild(d);
+}
+</script>
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Table of Contents</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n"></div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Contents</div>
+        <div class="ch-title">Table of Contents</div>
+        
+      </div>
+    </div>
+    <table class="ft no-last-right" style="margin-top:2mm;">
+      <thead><tr><th style="width:40px;">No.</th><th>Chapter</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>The Enemy Is Real</td><td>Iran, Operation Sindoor, oil prices — how three wars attack your salary simultaneously</td></tr>
+        <tr><td>02</td><td>How War Kills Your Salary Silently</td><td>The 5 silent killers — petrol, food, rent, rupee, taxes. Real numbers, real impact.</td></tr>
+        <tr><td>03</td><td>What Is Actually Worrying You</td><td>Job security, EMIs, parents, children, retirement — the 6 fears every salaried person carries</td></tr>
+        <tr><td>04</td><td>What Are You Actually Investing FOR?</td><td>Survival, protection, freedom — give your money a purpose before giving it a destination</td></tr>
+        <tr><td>05</td><td>What NOT To Do Right Now</td><td>6 dangerous mistakes salaried Indians make when fear takes over</td></tr>
+        <tr><td>06</td><td>Your Inflation War Battle Plan</td><td>8 weapons — liquid funds, SGBs, NPS, index funds, REITs, defence, international, EPF</td></tr>
+        <tr><td>07</td><td>The War Budget</td><td>The 3-bucket system — Survive, Protect &amp; Grow, Live. Real salary examples.</td></tr>
+        <tr><td>08</td><td>Your 30 Day Action Plan</td><td>4 weeks, 12 actions, one per week. Start today. Not tomorrow.</td></tr>
+        <tr><td>+</td><td>Your Personal War Budget</td><td>Fill-in worksheet — your exact numbers, your exact plan</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="pf"><span class="pf-text">The Inflation War — A Salaried Person's Survival &amp; Wealth Guide</span><span class="pf-num">TOC</span></div>
 </div>
 
 <div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 01</span></div>
+  <div class="pb">
 
-  <!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
-  <div class="cover">
-    <div class="cover-badge">EliteRoadMaps · 2026 Edition</div>
-    <div class="cover-title">
-      THE INFLATION
-      <span>WAR</span>
+        <div class="ch">
+      <div class="ch-n">01</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter One</div>
+        <div class="ch-title">The Enemy <em style="color:var(--red);font-style:normal;">Is Real</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">Iran. Operation Sindoor. Oil. Three wars. One target — your salary.</div>
+      </div>
     </div>
-    <div class="cover-line"></div>
-    <div class="cover-subtitle">A Salaried Person's Survival & Wealth Guide</div>
-    <div class="cover-tagline">Oil. War. Prices. Your Salary. Here's How To Win.</div>
+    <p>Petrol is expensive. Vegetables cost more than last year. Your rent went up. Your EMI didn't change — but somehow, money runs out faster.</p>
+    <p>You're not imagining it. <strong>There is a war happening. And your salary is losing.</strong></p>
+    <p>Not the war on TV. Not India-Pakistan. Not Iran. All of those — yes. But the war we're talking about is quieter. It happens every month. On the 1st. When your salary hits your account. And by the 30th — you wonder where it went.</p>
+    <div class="sec-lbl">In 2026, Three Wars Are Attacking Your Money Simultaneously</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0;">
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">$105</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Crude Oil Now</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Brent, May 2026 — up from $73 in Feb</div>
+      </div>
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">₹95.63</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Rupee Record Low</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Per USD, May 13 2026 — all-time low</div>
+      </div>
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">85%</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Oil Imported</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">50% via Strait of Hormuz alone</div>
+      </div>
+    </div>
+    <div class="sec-h">War 1 — The Oil War</div>
+    <p>America attacked Iran. Iran blocked the Strait of Hormuz — the narrow sea passage through which 20% of the world's oil travels. Crude oil prices shot to $141 per barrel.</p>
+    <p>India imports 85% of its oil — with 50% of crude imports passing through the Strait of Hormuz alone. That means every litre of petrol you put in your bike or car — you're paying the price of a war you didn't start.</p>
+    <div class="box">
+      <p><strong>⚡ The Chain Reaction:</strong> Oil rises → Petrol rises → Trucks cost more → Vegetables cost more → Your grocery bill rises → Your Swiggy order costs more → Your auto fare rises → Everything costs more. You pay for the war. Every single day.</p>
+    </div>
 
-    <div class="cover-quote">
-      <p>"While the world is at war, your money is bleeding silently. This is not doom and gloom — this is arithmetic. And arithmetic has a solution."</p>
-    </div>
-
-    <div class="cover-customer">
-      <div class="cover-customer-label">Prepared for</div>
-      <p><strong>{{CUSTOMER_NAME}}</strong></p>
-      <p>{{EMAIL}}</p>
-      <p>{{MOBILE}}</p>
-    </div>
-
-    <div class="cover-footer">
-      <div class="cover-footer-brand">EliteRoadMaps</div>
-      <div class="cover-footer-date">May 2026 · India Edition</div>
-    </div>
   </div>
-
-  <!-- ═══════════════════════════════ TOC ═══════════════════════════════ -->
-  <div class="toc-page">
-    <div class="toc-title">— Table of Contents</div>
-
-    <div class="toc-item">
-      <div class="toc-num">01</div>
-      <div class="toc-content">
-        <h3>The Enemy Is Real</h3>
-        <p>Iran, Operation Sindoor, oil prices — how three wars attack your salary simultaneously</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">02</div>
-      <div class="toc-content">
-        <h3>How War Kills Your Salary Silently</h3>
-        <p>The 5 silent killers — petrol, food, rent, rupee, taxes. Real numbers, real impact.</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">03</div>
-      <div class="toc-content">
-        <h3>What Is Actually Worrying You</h3>
-        <p>Job security, EMIs, parents, children, retirement — the 6 fears every salaried person carries</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">04</div>
-      <div class="toc-content">
-        <h3>What Are You Actually Investing FOR</h3>
-        <p>Survival, protection, freedom — give your money a purpose before giving it a destination</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">05</div>
-      <div class="toc-content">
-        <h3>What NOT To Do Right Now</h3>
-        <p>6 dangerous mistakes salaried Indians make when fear takes over</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">06</div>
-      <div class="toc-content">
-        <h3>Your Inflation War Battle Plan</h3>
-        <p>8 weapons — liquid funds, SGBs, NPS, index funds, REITs, defence, international, EPF</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">07</div>
-      <div class="toc-content">
-        <h3>The War Budget</h3>
-        <p>The 3-bucket system — Survive, Protect & Grow, Live. Real salary examples.</p>
-      </div>
-    </div>
-    <div class="toc-item">
-      <div class="toc-num">08</div>
-      <div class="toc-content">
-        <h3>Your 30 Day Action Plan</h3>
-        <p>4 weeks, 12 actions, one per week. Start today. Not tomorrow.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 1 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 01</div>
-      <div class="chapter-title">The Enemy <em>Is Real</em></div>
-      <div class="chapter-subtitle">Iran. Operation Sindoor. Oil. Three wars. One target — your salary.</div>
-    </div>
-    <div class="content">
-
-      <p>Petrol is expensive.</p>
-      <p>Vegetables cost more than last year. Your rent went up. Your EMI didn't change — but somehow, money runs out faster.</p>
-      <p>You're not imagining it. <strong>There is a war happening. And your salary is losing.</strong></p>
-
-      <div class="divider"></div>
-
-      <p>Not the war on TV. Not India-Pakistan. Not Iran. All of those — yes. But the war we're talking about is quieter. It happens every month. On the 1st. When your salary hits your account. And by the 30th — you wonder where it went.</p>
-
-      <div class="section-title">In 2026, Three Wars Are Attacking Your Money Simultaneously</div>
-
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-value">$105</div>
-          <div class="stat-label">Crude Oil Now</div>
-          <div class="stat-note">Brent, May 2026 — up from $73 in Feb</div>
-        </div>
-        <div class="stat-card gold-card">
-          <div class="stat-value">₹95.63</div>
-          <div class="stat-label">Rupee Record Low</div>
-          <div class="stat-note">Per USD, May 13 2026 — all-time low</div>
-        </div>
-        <div class="stat-card green-card">
-          <div class="stat-value">85%</div>
-          <div class="stat-label">Oil Imported</div>
-          <div class="stat-note">50% via Strait of Hormuz alone</div>
-        </div>
-      </div>
-
-      <div class="section-title">War 1 — The Oil War</div>
-      <p>America attacked Iran. Iran blocked the Strait of Hormuz — the narrow sea passage through which 20% of the world's oil travels. Crude oil prices shot to $141 per barrel.</p>
-      <p>India imports 85% of its oil — with 50% of crude imports passing through the Strait of Hormuz alone. That means every litre of petrol you put in your bike or car — you're paying the price of a war you didn't start.</p>
-
-      <div class="callout">
-        <div class="callout-label">⚡ The Chain Reaction</div>
-        <p><strong>Oil rises → Petrol rises → Trucks cost more → Vegetables cost more → Your grocery bill rises → Your Swiggy order costs more → Your auto fare rises → Everything costs more.</strong> You pay for the war. Every single day.</p>
-      </div>
-
-      <div class="section-title">War 2 — The Rupee War</div>
-      <p>When oil prices rise, India needs more dollars to buy that oil. More dollars needed = rupee weakens. The rupee has crashed to a record low of ₹95.63 to a dollar in May 2026 — the worst in India's history.</p>
-      <p>A weaker rupee means everything imported costs more — your phone, laptop, medicines, electronics. <strong>Your salary is in rupees. The world prices things in dollars. You lose.</strong></p>
-
-      <div class="section-title">War 3 — The Coming Food War</div>
-      <p>This one is the most dangerous. And most people don't see it yet.</p>
-
-      <div class="callout callout-red">
-        <div class="callout-label">⚠️ The Hidden Delay</div>
-        <p>Oil rises → Fertiliser rises → Farming costs rise → Food prices rise. <strong>But this has a 3 to 6 month delay.</strong> The food inflation you will feel in October–December 2026 is already set in motion. Today. Right now. India needs 17 million tons of urea by August 2026. There's already a shortage.</p>
-      </div>
-
-      <div class="section-title">And Then There's Operation Sindoor</div>
-      <p>India struck Pakistan. Markets panicked. Airports closed. Flights rerouted. The conflict may be over for now — but defence spending goes up. Government money that could have gone to roads, hospitals, subsidies — goes to missiles and soldiers.</p>
-      <p><strong>Every war has a bill. The salaried middle class always pays it.</strong></p>
-
-      <div class="callout callout-red">
-        <div class="callout-label">🚨 Breaking — PM Modi's Public Warning, May 11 2026</div>
-        <p>In a rare public address, Prime Minister Modi urged every Indian citizen to <strong>cut fuel use, stop overseas travel, and pause gold purchases</strong> to protect India's foreign exchange reserves. When the Prime Minister asks you to change your daily habits — the war on your wallet is officially real. This is not a TV debate. This is your government telling you the economy is under stress.</p>
-      </div>
-
-      <div class="callout callout-navy">
-        <div class="callout-label">📊 The SBI Research Number You Need To Know</div>
-        <p>Every <strong>$10 per barrel rise in crude oil</strong> widens India's current account deficit by 35 basis points and raises inflation by 35–40 basis points. Oil was $73/barrel in February 2026. It is <strong>$105/barrel today — a 44% rise in just 3 months.</strong> Do the math on what's coming to your grocery bill.</p>
-      </div>
-
-      <div class="divider"></div>
-
-      <table class="data-table">
-        <thead>
-          <tr><th>Your Expense</th><th>Before (2025)</th><th>Now (2026)</th><th>Your Extra Cost</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Petrol (bike, monthly)</td><td>₹1,800</td><td>₹2,800*</td><td>+₹1,000*</td></tr>
-          <tr><td>Groceries</td><td>₹4,500</td><td>₹5,800</td><td>+₹1,300</td></tr>
-          <tr><td>Eating out / Swiggy</td><td>₹2,000</td><td>₹2,600</td><td>+₹600</td></tr>
-          <tr><td>Auto / cab fares</td><td>₹1,200</td><td>₹1,600</td><td>+₹400</td></tr>
-          <tr><td>Medicines / health</td><td>₹500</td><td>₹750</td><td>+₹250</td></tr>
-          <tr><td>Electricity bill</td><td>₹1,400</td><td>₹1,800</td><td>+₹400</td></tr>
-          <tr class="highlight-row"><td><strong>Total extra per month</strong></td><td></td><td></td><td><strong>+₹3,550</strong></td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout callout-navy">
-        <div class="callout-label">📊 The Real Math</div>
-        <p>Average salary increase in 2025 — ₹2,000/month. Inflation took ₹3,550. <strong>Net loss every single month — ₹1,550. That's ₹18,600 lost in one year. Silently. Without anyone telling you.</strong></p>
-      </div>
-
-      <p>This is not doom and gloom. This is arithmetic. The question is not whether inflation is coming. <strong>The question is — are you ready for it?</strong></p>
-      <p>The next chapters are your battle plan. Not theory. Exactly what to do. With your salary. In 2026. Starting this month.</p>
-      <p><strong>The war is real. It's time to fight back.</strong></p>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 2 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 02</div>
-      <div class="chapter-title">How War Kills Your <em>Salary Silently</em></div>
-      <div class="chapter-subtitle">The 5 silent killers eating your purchasing power every month</div>
-    </div>
-    <div class="content">
-
-      <p>Fear makes people do stupid things with money. Not because they're stupid. Because nobody told them what to do — so they do what feels safe. And in a war — what feels safe is usually the most dangerous thing you can do.</p>
-
-      <div class="section-title">The 5 Silent Killers in 2026</div>
-
-      <div class="fear-card">
-        <h3>Killer 1 — Transport Costs</h3>
-        <p>Petrol prices are directly linked to crude oil. Crude oil is directly linked to the Iran war. Every ₹10 rise in petrol costs the average bike owner ₹300–400 extra per month. Car owners — ₹800–1,200 extra.</p>
-        <p>But it doesn't stop at your vehicle. Every delivery on Blinkit, Zepto, Swiggy — that delivery person's fuel cost went up. That cost is passed to you. Every truck that brings vegetables to your city — fuel cost went up. Vendor passes to you.</p>
-        <p><strong>You pay the oil price. Even if you don't own a vehicle.</strong></p>
-        <div class="callout callout-red" style="margin-top:12px">
-          <div class="callout-label">⚠️ Petrol Price Hike Is Coming — Very Soon</div>
-          <p>The government has kept petrol prices artificially stable. But oil companies are currently losing <strong>₹1,000 crore every single day.</strong> Under-recoveries have hit ₹2 lakh crore in Q1 2026 alone. This cannot continue. When the government finally raises fuel prices — and it will — your transport costs will jump overnight. <strong>Be prepared. It is not a question of if. It is when.</strong></p>
-        </div>
-      </div>
-
-      <div class="fear-card">
-        <h3>Killer 2 — Food Prices</h3>
-        <p>Vegetables in India move by truck. Trucks run on diesel. Diesel is expensive. But there's a second hit coming — fertiliser. Oil is used to make urea. When oil prices rise, urea prices rise. When urea prices rise — wheat, rice, dal, vegetables all cost more to grow.</p>
-        <p><strong>Your dal-chawal is now a casualty of the Middle East war.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Killer 3 — The Rent Trap</h3>
-        <p>Rent rises because landlords have expenses too — maintenance, property tax, their own rising costs. In cities where jobs are — Mumbai, Bengaluru, Pune, Hyderabad, Delhi — housing demand never drops.</p>
-        <p><strong>Average rent increases in Tier 1 cities in 2026 — 8 to 12%. Your salary increase — 5 to 8%. Rent is already winning. And with inflation rising for 6 straight months — it will get worse before it gets better.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Killer 4 — The Rupee Trap</h3>
-        <p>You might think — I don't buy dollars. Why does this affect me? Because almost everything you buy has an imported component. Your phone — imported chips. Laptop — imported. Medicines — active ingredients imported. Cooking oil — partially imported.</p>
-        <p><strong>You don't need to travel abroad for the dollar to hurt you.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Killer 5 — The Tax Squeeze</h3>
-        <p>India spent ₹6.81 lakh crore on defence in 2025-26. Operation Sindoor added more pressure. Defence budgets will go up next year. That money has to come from somewhere.</p>
-        <p>The salaried person is the easiest to tax — your income is visible, documented, automatic. Businessmen can manage. Cash economy can hide.</p>
-        <p><strong>You cannot hide. You are the government's most reliable ATM.</strong></p>
-      </div>
-
-      <div class="section-title">What This Means In Real Numbers</div>
-
-      <table class="data-table">
-        <thead>
-          <tr><th>Monthly Salary</th><th>Real Purchasing Power Dec 2026</th><th>Effective Loss</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>₹30,000</td><td>₹27,000 real value</td><td>-₹3,000/month</td></tr>
-          <tr><td>₹45,000</td><td>₹40,500 real value</td><td>-₹4,500/month</td></tr>
-          <tr><td>₹75,000</td><td>₹67,500 real value</td><td>-₹7,500/month</td></tr>
-          <tr><td>₹1,00,000</td><td>₹90,000 real value</td><td>-₹10,000/month</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout callout-red">
-        <div class="callout-label">⚠️ New Labour Code Warning — 2026</div>
-        <p>New Labour Codes being implemented in 2026 require basic pay to be at least 50% of total compensation. Your EPF and gratuity will be calculated on a higher base — meaning <strong>your take-home may drop slightly but your long-term wealth increases.</strong> Don't panic when this happens. It's working in your favour.</p>
-      </div>
-
-      <p>This is not to scare you. This is to make you angry enough to act. Because the people who understand this — who see the silent killers — they are the ones who protect themselves. The rest just wonder why money feels tight.</p>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 3 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 03</div>
-      <div class="chapter-title">What Is Actually <em>Worrying You</em></div>
-      <div class="chapter-subtitle">The 6 fears every salaried Indian carries — but nobody talks about</div>
-    </div>
-    <div class="content">
-
-      <p>Let's stop talking about oil prices and rupees for a moment. Let's talk about you. Because behind every financial decision — every SIP you started and stopped, every time you said "I'll start investing next month" — there is a feeling.</p>
-      <p>Not a number. A feeling. And most finance books never talk about it. <strong>This chapter does.</strong></p>
-
-      <div class="callout callout-navy">
-        <div class="callout-label">The Salaried Person's Trap</div>
-        <p>It's not really inflation that keeps you up at night. It's what inflation represents. The fear that no matter how hard you work — it won't be enough. Almost every working Indian between 25 and 45 is living inside this trap right now.</p>
-      </div>
-
-      <div class="section-title">The 6 Fears</div>
-
-      <div class="fear-card">
-        <h3>Fear 1 — "What if I lose my job?"</h3>
-        <p>You don't say this out loud. But you think it. Companies are cutting costs. AI is replacing roles. India-Pakistan tension rattled markets. Oil prices are squeezing business margins. When businesses hurt — the first thing they cut is people.</p>
-        <p><strong>The best job security in the world is having 6 months of expenses saved.</strong> Not because it helps you keep your job. Because it means losing your job isn't a disaster anymore. It's an inconvenience.</p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Fear 2 — "My EMIs are eating me alive"</h3>
-        <p>You took a home loan. Or a car loan. Or both. At the time it made sense. But now petrol is expensive. Groceries cost more. And that EMI sits there every month — fixed, unmovable, unforgiving. It doesn't care that onions are ₹80/kg now.</p>
-        <p><strong>The EMI trap is real. And in wartime inflation — it tightens. Chapter 7 will show you exactly how to restructure around it.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Fear 3 — "My parents are getting older"</h3>
-        <p>Nobody talks about this in finance books. But every Indian salaried person between 28 and 42 carries it. Medical costs in India are rising at 10–14% every year. A single hospitalisation — heart, kidney, ortho — can cost ₹3 to ₹8 lakh easily.</p>
-        <p>One health insurance policy for your parents — ₹15,000 to ₹25,000 per year — can protect ₹5 to ₹10 lakh of medical costs. <strong>That's not an expense. That's armour.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Fear 4 — "What about my children?"</h3>
-        <p>An engineering degree today costs ₹8 to ₹15 lakh. An MBA — ₹15 to ₹25 lakh. Medical — ₹50 lakh to ₹1 crore. Education costs double every 7 to 10 years.</p>
-        <p><strong>Hope is not a financial plan.</strong> A SIP started today — even ₹2,000 per month — specifically for your child's education, grows into something real by the time they need it.</p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Fear 5 — "Will I have enough when I retire?"</h3>
-        <p>Picture this. You're 60. Your salary stops. What do you live on? Most Indians say — "my children will take care of me." But do you want to be a burden on them?</p>
-        <p>At 25, ₹3,000/month gets you to dignity at retirement. At 35, you need ₹9,000/month. At 45, ₹28,000/month. <strong>Every year you wait — the price of dignity goes up.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Fear 6 — "I earn well but have nothing to show for it"</h3>
-        <p>You earn ₹60,000. Or ₹80,000. And yet — at the end of the year — your savings are the same as someone earning ₹30,000. This isn't a character flaw. This is what happens when income grows but financial structure doesn't.</p>
-        <p><strong>Earning more is not the solution. Structuring better is.</strong></p>
-      </div>
-
-      <div class="callout">
-        <div class="callout-label">The Common Thread</div>
-        <p>Every fear above has the same root cause — <strong>no financial structure built to survive uncertainty.</strong> Not because you're irresponsible. Because nobody taught you. School didn't. College didn't. Your employer didn't. You were handed a salary and expected to figure it out. <strong>This PDF is what you should have been given on your first salary day.</strong></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 4 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 04</div>
-      <div class="chapter-title">What Are You Actually <em>Investing FOR?</em></div>
-      <div class="chapter-subtitle">Give your money a purpose before giving it a destination</div>
-    </div>
-    <div class="content">
-
-      <div class="callout callout-red">
-        <div class="callout-label">📊 The Number That Should Stop You</div>
-        <p><strong>₹1,00,000 today → ₹24,000 purchasing power in 25 years.</strong> Not because you spent it. Not because you lost it. Simply because you kept it as cash and did nothing. Doing nothing is the most expensive financial decision you will ever make.</p>
-      </div>
-
-      <p>Most people who invest without a reason — stop when markets fall, break FDs for holidays, use "investment money" for a new phone. The SIP didn't fail. <strong>The reason failed. Because there was no reason.</strong></p>
-
-      <div class="section-title">The 3 Goals Every Salaried Indian Actually Has</div>
-
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-value">01</div>
-          <div class="stat-label">Survive</div>
-          <div class="stat-note">Emergency buffer — 6 months</div>
-        </div>
-        <div class="stat-card gold-card">
-          <div class="stat-value">02</div>
-          <div class="stat-label">Protect</div>
-          <div class="stat-note">Kids, parents, family safety</div>
-        </div>
-        <div class="stat-card green-card">
-          <div class="stat-value">03</div>
-          <div class="stat-label">Freedom</div>
-          <div class="stat-note">Retirement — work by choice</div>
-        </div>
-      </div>
-
-      <div class="goal-block">
-        <h3>Goal 1 — Your Survival Fund</h3>
-        <div class="goal-sub">Non-negotiable. Build this first. Before everything else.</div>
-        <table class="data-table" style="margin-top:0">
-          <thead><tr><th>Monthly Expenses</th><th>Survival Fund Needed</th><th>Where To Keep It</th></tr></thead>
-          <tbody>
-            <tr><td style="color:rgba(255,255,255,0.8)">₹20,000</td><td style="color:rgba(255,255,255,0.8)">₹1,20,000</td><td style="color:rgba(255,255,255,0.8)">Liquid mutual fund</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.8)">₹35,000</td><td style="color:rgba(255,255,255,0.8)">₹2,10,000</td><td style="color:rgba(255,255,255,0.8)">Liquid mutual fund</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.8)">₹50,000</td><td style="color:rgba(255,255,255,0.8)">₹3,00,000</td><td style="color:rgba(255,255,255,0.8)">Liquid mutual fund</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.8)">₹75,000</td><td style="color:rgba(255,255,255,0.8)">₹4,50,000</td><td style="color:rgba(255,255,255,0.8)">Liquid mutual fund</td></tr>
-          </tbody>
-        </table>
-        <p>Not a savings account. A liquid mutual fund — same safety, better returns, available in 24 hours. Set aside 10% of salary every month until you hit the number. <strong>Nothing else before this.</strong></p>
-      </div>
-
-      <div class="section-title">Your Child's Education — The Real Number</div>
-
-      <table class="data-table">
-        <thead><tr><th>Child's Age Today</th><th>Years to College</th><th>Education Cost Then</th><th>Monthly SIP Needed (@12%)</th></tr></thead>
-        <tbody>
-          <tr><td>1 year old</td><td>17 years</td><td>₹50 lakh</td><td>₹5,200/month</td></tr>
-          <tr><td>5 years old</td><td>13 years</td><td>₹34 lakh</td><td>₹7,800/month</td></tr>
-          <tr><td>8 years old</td><td>10 years</td><td>₹26 lakh</td><td>₹11,500/month</td></tr>
-          <tr><td>12 years old</td><td>6 years</td><td>₹18 lakh</td><td>₹19,000/month</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout callout-red">
-        <div class="callout-label">⚠️ Every Year You Wait</div>
-        <p>The monthly amount you need goes up significantly. <strong>Start today. Even ₹1,000/month in a dedicated child education fund is a start.</strong> Increase every year.</p>
-      </div>
-
-      <div class="section-title">Your Freedom Number — Retirement Made Real</div>
-      <p>Take your current monthly expenses. Add 30% for inflation by retirement. Multiply by 300. That's your Freedom Number.</p>
-
-      <table class="data-table">
-        <thead><tr><th>Monthly Expenses Now</th><th>Freedom Number</th><th>SIP @ 25yrs</th><th>SIP @ 35yrs</th><th>SIP @ 45yrs</th></tr></thead>
-        <tbody>
-          <tr><td>₹30,000</td><td>₹1.17 crore</td><td>₹1,200/mo</td><td>₹4,400/mo</td><td>₹17,600/mo</td></tr>
-          <tr><td>₹50,000</td><td>₹1.95 crore</td><td>₹2,100/mo</td><td>₹7,400/mo</td><td>₹29,500/mo</td></tr>
-          <tr><td>₹75,000</td><td>₹2.92 crore</td><td>₹3,100/mo</td><td>₹11,100/mo</td><td>₹44,300/mo</td></tr>
-          <tr><td>₹1,00,000</td><td>₹3.90 crore</td><td>₹4,100/mo</td><td>₹14,800/mo</td><td>₹59,100/mo</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout">
-        <div class="callout-label">💡 The Time Lesson</div>
-        <p><strong>At 25 — ₹2,100/month builds ₹2 crore. At 45 — you need ₹30,000/month for the same result.</strong> Time is the most powerful investment tool you have. And it's running. Every investment decision from now on — ask: which of my 3 goals does this serve?</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 5 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 05</div>
-      <div class="chapter-title">What <em>NOT</em> To Do Right Now</div>
-      <div class="chapter-subtitle">6 dangerous mistakes salaried Indians make when fear takes over</div>
-    </div>
-    <div class="content">
-
-      <p>Fear makes people do stupid things with money. Not because they're stupid. Because nobody told them what to do — so they do what feels safe. And in a war — what feels safe is usually the most dangerous thing you can do.</p>
-
-      <div class="section-title">The 6 Costly Mistakes</div>
-
-      <div class="fear-card">
-        <h3>Mistake 1 — Stopping Your SIP</h3>
-        <p>Markets fall. News is scary. Your SIP statement shows red. So you stop it — "just for a few months." Things never settle. You never restart. And you miss the most important months of your investment journey.</p>
-        <p>When markets fall — your SIP buys MORE units for the same money. Think of it like tomatoes. When tomatoes are ₹80/kg you buy less. When they fall to ₹20/kg you buy more. <strong>A market crash is a tomato sale. Your SIP automatically buys more when prices are low.</strong></p>
-        <p>The people who kept SIPs running through Corona March 2020 doubled their money by 2022. The people who stopped — made almost nothing.</p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Mistake 2 — Putting Everything In FD</h3>
-        <p>Best FD rate today — 7.5%. After tax (20-30% bracket) — 5.25% to 6%. Inflation coming in FY27 — RBI projects 4.6%, food inflation already at 4.2% in April 2026 and rising for 6 straight months.</p>
-        <p><strong>Your real return from FD — 0% to 1.5%.</strong> You're not growing your money. You're barely keeping it alive. FD has a place — emergency fund, short term goals, retirees. But as your primary wealth building tool in 2026 — it is a slow, guaranteed loss.</p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Mistake 3 — Buying Physical Gold Right Now</h3>
-        <p>Gold has already run up significantly. Everyone who should have bought gold — already bought it. Now you're buying at a high price. Paying GST. Paying making charges. Storing it. Worrying about theft. And physical gold gives you zero income while you hold it.</p>
-        <p><strong>There is a better way to own gold in 2026 — Sovereign Gold Bonds. Same exposure + 2.5% interest + zero GST + tax free at maturity. Chapter 6 explains this in detail.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Mistake 4 — Taking A Personal Loan To Cover Rising Expenses</h3>
-        <p>Personal loan interest rate — 12% to 24% per year. Credit card — 36% to 42% per year. You are borrowing money at 36% to buy things that inflation made 6% costlier.</p>
-        <p><strong>You are losing 30% every year just to keep up.</strong> This is how people with decent salaries end up with zero savings at 45. The solution to rising expenses is never more debt. It is restructured spending — Chapter 7 shows you how.</p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Mistake 5 — Waiting For The "Right Time" To Invest</h3>
-        <p>"I'll start when markets stabilise." "After the Iran situation settles." "Once I get my increment." There is always a reason to wait. And the people who wait — wait forever.</p>
-        <p>If you missed just the 10 best days of the last 30 years of stock markets — your returns were cut in half. <strong>The right time to invest was yesterday. The second best time is today.</strong></p>
-      </div>
-
-      <div class="fear-card">
-        <h3>Mistake 6 — Doing Nothing And Hoping</h3>
-        <p>Hoping inflation will settle. Hoping your salary increases enough. Hoping someone will take care of you. This is the most expensive bet you will ever make.</p>
-        <p><strong>A ₹2,000 SIP started today — imperfect, small — beats a perfectly planned ₹10,000 SIP that starts next year. Every single time.</strong></p>
-      </div>
-
-      <div class="callout">
-        <div class="callout-label">The Common Thread</div>
-        <p>Every mistake above comes from <strong>fear without direction.</strong> You feel the danger but don't know what to do. So you freeze or make a move that feels safe but isn't. The antidote — is a plan. Not complicated. Not perfect. <strong>Simple. Clear. Actionable. That's Chapter 6.</strong></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 6 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 06</div>
-      <div class="chapter-title">Your Inflation War <em>Battle Plan</em></div>
-      <div class="chapter-subtitle">8 weapons chosen specifically for 2026. Real options. Real numbers. Real action.</div>
-    </div>
-    <div class="content">
-
-      <p>You've seen the enemy. You've felt the fear. You know what not to do. Now we fight back. Eight weapons. Each one chosen specifically for 2026 — for the inflation coming, for the wars happening, for the salaried Indian earning between ₹25,000 and ₹2,00,000 a month.</p>
-
-      <!-- WEAPON 1 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W1</div>
-          <div>
-            <h3>Liquid Mutual Funds</h3>
-            <p>Your emergency fund's true home</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>Most people keep emergency money in a savings account at 3.5%. Inflation is 3.4% today. Rising tomorrow. Your emergency fund is already losing.</p>
-          <p>Liquid mutual funds invest in government securities and high quality short term bonds. Completely safe. Returns — <strong>6.5 to 7.5% currently.</strong> And your money is available within 24 hours. Just like a savings account.</p>
-          <p><strong>Same safety. Double the return. Zero compromise on access.</strong> Move your emergency fund here this week. Recommended: Parag Parikh Liquid Fund, HDFC Liquid Fund, SBI Liquid Fund.</p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">6.5–7.5%</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Zero</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Liquidity</div><div class="weapon-meta-value">24 Hours</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 2 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W2</div>
-          <div>
-            <h3>Sovereign Gold Bonds (SGBs)</h3>
-            <p>The smartest way to own gold — but timing is everything</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>SGBs are issued by the Reserve Bank of India. You get: gold price appreciation + 2.5% annual interest paid every 6 months + zero GST + zero storage cost + completely tax free at maturity (8 years).</p>
-          <div class="callout callout-red" style="margin: 12px 0">
-            <div class="callout-label">⚠️ Honest Warning — Read This</div>
-            <p>Gold is currently near all-time highs — driven by Iran war and global uncertainty. <strong>Buying SGBs at peak prices = limited upside in short term. If the war ends in 1–2 years, gold could fall 15–25%.</strong></p>
-            <p style="margin-top:8px !important"><strong>If you believe the war continues long term</strong> — small 5% allocation now makes sense. You earn 2.5% interest while waiting.<br><strong>If you think war could end in 1–2 years</strong> — wait. Buy on a 10–15% correction. That's when SGBs become truly attractive. <em>Never chase gold at all-time highs.</em></p>
-          <p style="margin-top:8px !important; font-weight:600">📌 On May 11, 2026 — PM Modi publicly asked Indians to pause gold purchases to protect forex reserves. When the PM says don't buy gold right now — that's your clearest signal to wait.</p>
-          </div>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">Gold + 2.5%</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Low (timing risk)</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Allocation</div><div class="weapon-meta-value">5% now / more on dip</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 3 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W3</div>
-          <div>
-            <h3>NPS — National Pension System</h3>
-            <p>The most ignored tax saver — free money most people leave on the table</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>NPS gives you an ADDITIONAL ₹50,000 deduction under Section 80CCD(1B) — over and above your regular ₹1.5L 80C limit.</p>
-          <table class="data-table" style="margin: 12px 0">
-            <thead><tr><th>Tax Bracket</th><th>Tax Saved From NPS ₹50,000</th></tr></thead>
-            <tbody>
-              <tr><td>20% bracket</td><td><strong>₹10,000 saved every year</strong></td></tr>
-              <tr><td>30% bracket</td><td><strong>₹15,000 saved every year</strong></td></tr>
-            </tbody>
-          </table>
-          <p>NPS invests in equity + government bonds — historically returning 9 to 12% annually. The only catch — you can't touch it until 60. Which is exactly the point. <strong>Do this before March 31st every year. Never miss this tax saving.</strong></p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">9–12% p.a.</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Tax Saved</div><div class="weapon-meta-value">₹10K–₹15K/yr</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Min. Amount</div><div class="weapon-meta-value">₹50,000/yr</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 4 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W4</div>
-          <div>
-            <h3>Index Funds</h3>
-            <p>Own all of India's best companies for ₹500 a month</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>An index fund buys all 50 companies in the Nifty 50 — Reliance, TCS, HDFC Bank, Infosys. All of them. In one investment. When India grows — your investment grows. <strong>Nifty 50 historical returns — 12 to 14% annually over 15+ years.</strong></p>
-          <p>No fund manager needed. No research needed. Lowest fees of any mutual fund — 0.1% per year. Start a monthly SIP of whatever you can — ₹500, ₹1,000, ₹5,000. <strong>Never stop this SIP. Not for Iran. Not for Pakistan. Not for any reason.</strong></p>
-          <p>Recommended: UTI Nifty 50 Index Fund, HDFC Index Fund Nifty 50 Plan.</p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">12–14% p.a.</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Medium</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Allocation</div><div class="weapon-meta-value">30–40% of portfolio</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 5 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W5</div>
-          <div>
-            <h3>REITs — Real Estate Investment Trusts</h3>
-            <p>Own premium office buildings for ₹10,000</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>Embassy, Mindspace, Nexus Malls, Brookfield — these are the buildings where MNCs, IT companies, banks operate. REITs are legally required to distribute 90% of income to investors as dividends. <strong>Returns — 7 to 9% annual yield plus capital appreciation. Better than FD. Less volatile than stocks.</strong></p>
-          <p>And in an inflation environment — commercial rents rise. Your REIT income rises with it. Buy through Zerodha, Groww, or Upstox.</p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">8–12% p.a.</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Low–Medium</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Min. Entry</div><div class="weapon-meta-value">~₹10,000</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 6 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W6</div>
-          <div>
-            <h3>Defence Sector Funds</h3>
-            <p>Turn the war into an opportunity</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>India's defence budget — ₹6.81 lakh crore in 2025-26. Going up after Operation Sindoor. HAL order book — ₹1.89 lakh crore. BEL order book — ₹75,000 crore. <strong>These companies will be billing and generating cash through 2026, 2027, 2028.</strong></p>
-          <p>Defence sector mutual funds give you exposure to all of them — diversified, professionally managed. This is not speculation. This is following government spending. Recommended: Mirae Asset Defence Fund, SBI Defence Opportunities Fund.</p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">Market-linked</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Medium–High</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Allocation</div><div class="weapon-meta-value">5–10% of portfolio</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 7 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W7</div>
-          <div>
-            <h3>International Funds</h3>
-            <p>Profit from a weakening rupee</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>The rupee touched a record low of ₹95.63 to a dollar in May 2026. If you had invested in US markets via an Indian international fund — you'd have gained from both the US stock market AND the rupee depreciation. When rupee falls — your dollar investments are worth more in rupee terms.</p>
-          <p><strong>Diversifying into international funds is not speculation. It is basic protection against rupee risk.</strong> Recommended: Parag Parikh Flexi Cap Fund, Motilal Oswal Nasdaq 100 Fund.</p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">Market + ₹ gain</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Medium</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Allocation</div><div class="weapon-meta-value">10–15% of portfolio</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEAPON 8 -->
-      <div class="weapon-card">
-        <div class="weapon-card-header">
-          <div class="weapon-icon">W8</div>
-          <div>
-            <h3>EPF / VPF — Your Hidden Weapon</h3>
-            <p>Most people don't realise how good this already is</p>
-          </div>
-        </div>
-        <div class="weapon-card-body">
-          <p>If you're salaried — you already have EPF. EPF currently gives <strong>8.25% annual return. Tax free. Guaranteed by the government.</strong> 8.25% tax free is better than most FDs after tax.</p>
-          <p>Consider VPF — Voluntary Provident Fund. You can contribute MORE than the mandatory 12%. Same 8.25% return. Same tax free status. Same government guarantee. Even ₹1,000 extra per month — at 8.25% over 20 years — adds ₹6.5 lakh to your retirement.</p>
-          <p><strong>Check your EPF balance today on the EPFO portal. You will be surprised how much is already there.</strong></p>
-          <div class="weapon-meta">
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Returns</div><div class="weapon-meta-value">8.25% tax-free</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Risk</div><div class="weapon-meta-value">Zero</div></div>
-            <div class="weapon-meta-item"><div class="weapon-meta-label">Action</div><div class="weapon-meta-value">Consider VPF top-up</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TIMING MATTERS -->
-      <div class="section-title">Timing Matters — What To Buy When</div>
-      <p>The eight weapons above are not all equal at all times. Buying the right weapon at the wrong time reduces your returns significantly. Here's your simple timing guide:</p>
-
-      <table class="timing-table">
-        <thead><tr><th>Market Situation</th><th>What To Do</th></tr></thead>
-        <tbody>
-          <tr><td>Gold at all-time high</td><td>Wait. Small SGB only if long-term war view. Buy on 10–15% dip.</td></tr>
-          <tr><td>Gold falls 15–25%</td><td>Strong SGB buying opportunity. Increase allocation.</td></tr>
-          <tr><td>Stock market at all-time high</td><td>Keep SIP running. Don't lump sum. Rupee cost averaging protects you.</td></tr>
-          <tr><td>Stock market crashes 20–30%</td><td>Increase SIP amount aggressively. This is your Corona moment.</td></tr>
-          <tr><td>Rupee weakening sharply</td><td>Increase international fund allocation. Dollar assets protect you.</td></tr>
-          <tr><td>Interest rates falling (like now)</td><td>REITs and bonds more attractive. Good time to add.</td></tr>
-          <tr><td>War escalates further</td><td>Defence funds. Small SGB. Reduce luxury spending.</td></tr>
-          <tr><td>War ends suddenly</td><td>Reduce gold. Increase equity. Markets typically rally on peace.</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout">
-        <div class="callout-label">🏆 One Golden Rule</div>
-        <p><strong>Never stop your index fund SIP. Regardless of market conditions.</strong> Everything else — time intelligently. Index fund SIP — runs always. Through war, peace, crash, rally. That one habit alone builds more wealth than any timing strategy ever will.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 7 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 07</div>
-      <div class="chapter-title">The <em>War Budget</em></div>
-      <div class="chapter-subtitle">The 3-bucket system that makes wealth building automatic</div>
-    </div>
-    <div class="content">
-
-      <p>A soldier going to war doesn't carry everything he owns. He carries exactly what he needs. Organized. Purposeful. Ready. Your salary is your ammunition. Right now — most salaried people fire it randomly. <strong>The War Budget changes that.</strong></p>
-
-      <div class="callout callout-red">
-        <div class="callout-label">⚠️ The Backwards Order Most People Follow</div>
-        <p>Lifestyle first → Bills second → EMIs third → Whatever is left — save. <strong>This is completely backwards. And it's why most people with decent salaries have nothing to show after 10 years.</strong></p>
-      </div>
-
-      <div class="callout">
-        <div class="callout-label">✅ The War Budget Order</div>
-        <p><strong>Invest first → Protect second → Live on the rest.</strong> Pay yourself first. This one change is the single biggest shift between people who build wealth and people who wonder where it went.</p>
-      </div>
-
-      <div class="section-title">The 3 Bucket War System</div>
-
-      <div class="bucket bucket-1">
-        <div class="bucket-header">
-          <div class="bucket-num">01</div>
-          <div class="bucket-info">
-            <h3>Survive</h3>
-            <p>Non-negotiable. Fixed. Untouchable. 44–67% of salary.</p>
-          </div>
-        </div>
-        <div class="bucket-body">
-          <table class="data-table" style="margin:0">
-            <thead><tr><th>Expense</th><th>% of Salary</th></tr></thead>
-            <tbody>
-              <tr><td>Rent / Home loan EMI</td><td>20–30%</td></tr>
-              <tr><td>Groceries & cooking</td><td>8–10%</td></tr>
-              <tr><td>Transport</td><td>5–7%</td></tr>
-              <tr><td>Utilities</td><td>3–5%</td></tr>
-              <tr><td>Insurance premiums</td><td>3–5%</td></tr>
-              <tr><td>Family support</td><td>5–10%</td></tr>
-              <tr class="highlight-row"><td><strong>Total Bucket 1</strong></td><td><strong>44–67%</strong></td></tr>
-            </tbody>
-          </table>
-          <div style="padding: 16px 24px; background: #fff5f5; font-size: 13px; color: #7a1010;">
-            <strong>Rule:</strong> Reduce wherever possible. But <strong>never compromise on insurance.</strong> Insurance is armour — it stays.
-          </div>
-        </div>
-      </div>
-
-      <div class="bucket bucket-2">
-        <div class="bucket-header">
-          <div class="bucket-num">02</div>
-          <div class="bucket-info">
-            <h3>Protect & Grow</h3>
-            <p>Your future. Paid first. Before lifestyle. Minimum 20% of salary.</p>
-          </div>
-        </div>
-        <div class="bucket-body">
-          <table class="data-table" style="margin:0">
-            <thead><tr><th>Investment</th><th>% of Salary</th></tr></thead>
-            <tbody>
-              <tr><td>Emergency liquid fund (until target)</td><td>5–10%</td></tr>
-              <tr><td>Index fund SIP</td><td>10–15%</td></tr>
-              <tr><td>NPS contribution</td><td>3–5%</td></tr>
-              <tr><td>Child education SIP</td><td>3–5%</td></tr>
-              <tr><td>SGBs / REITs / Defence funds</td><td>3–5%</td></tr>
-              <tr class="highlight-row"><td><strong>Total Bucket 2</strong></td><td><strong>24–40%</strong></td></tr>
-            </tbody>
-          </table>
-          <div style="padding: 16px 24px; background: #f0f4ff; font-size: 13px; color: #1a2a4a;">
-            <strong>Set up automatic transfers on salary day. So it moves before you can spend it.</strong> Can't manage 20%? Start with 10%. Increase by 1% every month.
-          </div>
-        </div>
-      </div>
-
-      <div class="bucket bucket-3">
-        <div class="bucket-header">
-          <div class="bucket-num">03</div>
-          <div class="bucket-info">
-            <h3>Live</h3>
-            <p>Everything else. Spend completely. Zero guilt.</p>
-          </div>
-        </div>
-        <div class="bucket-body" style="padding: 20px 24px;">
-          <p style="font-size:14px; color:#444; margin:0">Whatever remains after Bucket 1 and 2 — is yours. Dining out. Movies. Shopping. Travel. Subscriptions. Spend it completely. Enjoy it fully. <strong>Because your future is already taken care of — in Bucket 2.</strong> A budget that makes you miserable — you abandon. A budget that pays your future first and lets you enjoy the rest — you actually follow.</p>
-        </div>
-      </div>
-
-      <div class="section-title">Real Salary Examples</div>
-
-      <div class="person-card">
-        <div class="person-header">
-          <div>
-            <div class="person-name">Priya — Bengaluru</div>
-            <div class="person-salary">₹30,000/month · Single · Sends ₹5,000 home</div>
-          </div>
-          <div class="person-tag">₹30K SALARY</div>
-        </div>
-        <div class="person-body">
-          <table class="data-table" style="margin:0">
-            <thead><tr><th>Bucket</th><th>Amount</th><th>What It Covers</th></tr></thead>
-            <tbody>
-              <tr><td>Bucket 1 — Survive</td><td>₹18,000</td><td>Rent ₹8K, food ₹3.5K, transport ₹2K, family ₹5K, insurance ₹1.5K</td></tr>
-              <tr><td>Bucket 2 — Grow</td><td>₹6,000</td><td>Emergency ₹2K, index SIP ₹2.5K, NPS ₹1.5K</td></tr>
-              <tr><td>Bucket 3 — Live</td><td>₹6,000</td><td>Dining, entertainment, shopping, self care</td></tr>
-            </tbody>
-          </table>
-          <div style="padding: 12px 0; font-size: 13px; color: rgba(255,255,255,0.6)">
-            ₹6,000/month Bucket 2 → <strong style="color:var(--gold)">₹13.9L in 10 years · ₹54.5L in 20 years</strong> at 12% returns.
-          </div>
-        </div>
-      </div>
-
-      <div class="person-card">
-        <div class="person-header">
-          <div>
-            <div class="person-name">Rahul — Pune</div>
-            <div class="person-salary">₹50,000/month · Married · 1 child (age 3) · Home loan EMI ₹12,000</div>
-          </div>
-          <div class="person-tag">₹50K SALARY</div>
-        </div>
-        <div class="person-body">
-          <table class="data-table" style="margin:0">
-            <thead><tr><th>Bucket</th><th>Amount</th><th>What It Covers</th></tr></thead>
-            <tbody>
-              <tr><td>Bucket 1 — Survive</td><td>₹28,000</td><td>EMI ₹12K, groceries ₹6K, transport ₹3K, utilities ₹2.5K, insurance ₹2.5K, school ₹2K</td></tr>
-              <tr><td>Bucket 2 — Grow</td><td>₹12,000</td><td>Emergency ₹2K, index SIP ₹4K, child edu SIP ₹3K, NPS ₹2K, SGB ₹1K</td></tr>
-              <tr><td>Bucket 3 — Live</td><td>₹10,000</td><td>Dining, family outings, streaming, small purchases</td></tr>
-            </tbody>
-          </table>
-          <div style="padding: 12px 0; font-size: 13px; color: rgba(255,255,255,0.6)">
-            Child edu SIP ₹3K × 15 years → <strong style="color:var(--gold)">₹15.1L for college</strong> · Index SIP ₹4K × 25 years → <strong style="color:var(--gold)">₹75L at retirement</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="person-card">
-        <div class="person-header">
-          <div>
-            <div class="person-name">Sneha — Mumbai</div>
-            <div class="person-salary">₹80,000/month · Married · 2 kids · Home loan + car loan</div>
-          </div>
-          <div class="person-tag">₹80K SALARY</div>
-        </div>
-        <div class="person-body">
-          <table class="data-table" style="margin:0">
-            <thead><tr><th>Bucket</th><th>Amount</th><th>What It Covers</th></tr></thead>
-            <tbody>
-              <tr><td>Bucket 1 — Survive</td><td>₹42,000</td><td>Home EMI ₹18K, car EMI ₹8K, groceries ₹7K, transport ₹3K, utilities ₹3K, insurance ₹3K</td></tr>
-              <tr><td>Bucket 2 — Grow</td><td>₹22,000</td><td>Index SIP ₹8K, child edu SIPs ₹6K, NPS ₹3K, REITs ₹3K, intl funds ₹2K</td></tr>
-              <tr><td>Bucket 3 — Live</td><td>₹16,000</td><td>Dining, movies, shopping, family activities</td></tr>
-            </tbody>
-          </table>
-          <div style="padding: 12px 0; font-size: 13px; color: rgba(255,255,255,0.6)">
-            Bucket 2 ₹22K/month → <strong style="color:var(--gold)">₹2.2 crore in 20 years</strong> at 12% returns.
-          </div>
-        </div>
-      </div>
-
-      <div class="callout callout-navy">
-        <div class="callout-label">⚡ The Automation Rule</div>
-        <p>The War Budget only works if it's automatic. Set up standing instructions from your salary account on day 1 or 2 of every month — all Bucket 2 investments transfer automatically. <strong>What remains is Bucket 1 and 3. You don't need discipline to not spend Bucket 2. It's already gone. Invested. Working.</strong></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CHAPTER 8 ═══════════════════════════════ -->
-  <div class="chapter">
-    <div class="chapter-header">
-      <div class="chapter-number">Chapter 08</div>
-      <div class="chapter-title">Your <em>30 Day Action Plan</em></div>
-      <div class="chapter-subtitle">4 weeks. 12 actions. Start today — not tomorrow.</div>
-    </div>
-    <div class="content">
-
-      <p>You've read seven chapters. You understand the enemy. You know your fears. You have your goals. You have your weapons. You have your war budget. Now there is only one thing left. <strong>Action. This month. This week. Today.</strong></p>
-
-      <!-- WEEK 1 -->
-      <div class="week-card week-1">
-        <div class="week-header">
-          <div>
-            <div class="week-num">Week One</div>
-            <div class="week-title">DEFEND</div>
-          </div>
-        </div>
-        <div class="week-body">
-          <div class="action-item">
-            <div class="action-num">01</div>
-            <div class="action-content">
-              <h4>Calculate Your War Budget</h4>
-              <p>Open the worksheet on the next page. Fill every line tonight. Not perfectly — approximately is fine. Identify your 3 bucket numbers. Is Bucket 2 at least 20% of salary? If not — find one Bucket 3 expense to cut and move it.</p>
-              <span class="time-needed">⏱ 20 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">02</div>
-            <div class="action-content">
-              <h4>Check Your Emergency Fund</h4>
-              <p>Do you have 6 months of expenses saved? If yes — move it to a liquid mutual fund. If partial — move what you have, set up 10% monthly auto-transfer. If nothing — start with ₹2,000 this month.</p>
-              <span class="time-needed">⏱ 15 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">03</div>
-            <div class="action-content">
-              <h4>Get Insured If You Aren't</h4>
-              <p>Term life insurance — ₹1 crore cover, ~₹8,000–₹12,000/year via PolicyBazaar or Ditto. Parents health insurance — ₹5–10 lakh cover, ~₹15,000–₹30,000/year. If you already have both — skip. This is the most important action of Week 1.</p>
-              <span class="time-needed">⏱ 45 minutes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEEK 2 -->
-      <div class="week-card week-2">
-        <div class="week-header">
-          <div>
-            <div class="week-num">Week Two</div>
-            <div class="week-title">INVEST</div>
-          </div>
-        </div>
-        <div class="week-body">
-          <div class="action-item">
-            <div class="action-num">04</div>
-            <div class="action-content">
-              <h4>Open Your Investment Accounts</h4>
-              <p>Download Groww or Zerodha. Complete KYC. Link bank account. Go to enps.nsdl.com — register for NPS account. Both free. Both take 15 minutes each.</p>
-              <span class="time-needed">⏱ 30 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">05</div>
-            <div class="action-content">
-              <h4>Start Your First SIP</h4>
-              <p>Search UTI Nifty 50 Index Fund or HDFC Index Fund Nifty 50. Start monthly SIP — whatever fits Bucket 2. Set date: 2nd or 3rd of month. Confirm. Done. You just did what most people talk about for years.</p>
-              <span class="time-needed">⏱ 10 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">06</div>
-            <div class="action-content">
-              <h4>Set Up NPS</h4>
-              <p>Contribute ₹50,000 this financial year. Can't do lump sum? Set up ₹4,200/month auto-debit. That's ₹50,400/year. Saves you ₹10,000–₹15,000 in taxes. Every year. This is free money — no reason to skip it.</p>
-              <span class="time-needed">⏱ 30 minutes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEEK 3 -->
-      <div class="week-card week-3">
-        <div class="week-header">
-          <div>
-            <div class="week-num">Week Three</div>
-            <div class="week-title">DIVERSIFY</div>
-          </div>
-        </div>
-        <div class="week-body">
-          <div class="action-item">
-            <div class="action-num">07</div>
-            <div class="action-content">
-              <h4>Check Your EPF Balance</h4>
-              <p>Go to epfindia.gov.in. Log in with your UAN. Check balance — most people are shocked how much is there. Then consider VPF — ask HR to increase your PF contribution voluntarily. Even ₹1,000 extra/month adds ₹6.5L over 20 years.</p>
-              <span class="time-needed">⏱ 20 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">08</div>
-            <div class="action-content">
-              <h4>Buy One SGB — When Price Is Right</h4>
-              <p>Remember: gold is near all-time highs. Don't rush. Check if RBI has an open tranche. If gold has corrected 10–15% from current levels — that's your signal. Minimum 1 gram, ~₹9,000–₹10,000. Set a price alert on Groww for gold rates.</p>
-              <span class="time-needed">⏱ 20 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">09</div>
-            <div class="action-content">
-              <h4>Explore REITs</h4>
-              <p>Open Zerodha or Groww. Search Embassy REIT or Mindspace REIT. Read about it. Check current yield. You don't need to buy this week if not ready. Understand first. Invest when comfortable.</p>
-              <span class="time-needed">⏱ 15 minutes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- WEEK 4 -->
-      <div class="week-card week-4">
-        <div class="week-header">
-          <div>
-            <div class="week-num">Week Four</div>
-            <div class="week-title">AUTOMATE & WIN</div>
-          </div>
-        </div>
-        <div class="week-body">
-          <div class="action-item">
-            <div class="action-num">10</div>
-            <div class="action-content">
-              <h4>Automate Everything</h4>
-              <p>Go to your bank netbanking. Set up standing instructions on salary day — liquid fund transfer, NPS auto-debit, all SIPs already set. Once automated — your wealth builds whether you think about it or not. This is the secret of every wealthy person. Not intelligence. Not timing. <strong>Systems.</strong></p>
-              <span class="time-needed">⏱ 30 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">11</div>
-            <div class="action-content">
-              <h4>Tell One Person</h4>
-              <p>Tell your spouse, sibling, or close friend — "I started investing this month. Here's what I did." You feel accountable. Harder to quit when someone knows. And you might help them start too.</p>
-              <span class="time-needed">⏱ 5 minutes</span>
-            </div>
-          </div>
-          <div class="action-item">
-            <div class="action-num">12</div>
-            <div class="action-content">
-              <h4>Schedule Your Quarterly Review</h4>
-              <p>Open your phone calendar. Add recurring reminder every 3 months — "Review investments — 30 minutes." In that 30 minutes: check emergency fund, confirm SIPs running, increase SIP amount by 10% annually. That's it. Investing is not a daily activity. <strong>Set it up right. Review quarterly. Live your life.</strong></p>
-              <span class="time-needed">⏱ 5 minutes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="callout callout-navy" style="margin-top: 32px">
-        <div class="callout-label">📋 30 Day Summary</div>
-        <p><strong>Week 1 — Defend:</strong> War budget + emergency fund + insurance &nbsp;|&nbsp; <strong>Week 2 — Invest:</strong> Open accounts + start SIP + NPS &nbsp;|&nbsp; <strong>Week 3 — Diversify:</strong> EPF check + SGB watch + REIT exploration &nbsp;|&nbsp; <strong>Week 4 — Automate:</strong> Standing instructions + accountability + quarterly review</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ WORKSHEET ═══════════════════════════════ -->
-  <div class="worksheet">
-    <div class="worksheet-title">Your Personal War Budget</div>
-    <div class="worksheet-sub">Fill this in. It takes 5 minutes. It could change the next 20 years.</div>
-
-    <div class="ws-section">
-      <div class="ws-section-title">My Monthly Salary</div>
-      <div class="ws-row">
-        <div class="ws-label">Take-home salary (after tax)</div>
-        <input class="ws-input" type="text" placeholder="₹ ________">
-      </div>
-    </div>
-
-    <div class="ws-section">
-      <div class="ws-section-title">Bucket 1 — Survive (Fixed Expenses)</div>
-      <div class="ws-row"><div class="ws-label">Rent / Home EMI</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Groceries & cooking</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Transport (petrol, auto, cab)</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Utilities (electricity, internet, water)</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Insurance premiums</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Family support / parents</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">School / childcare fees</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Other fixed costs</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label" style="color:var(--gold);font-weight:700">BUCKET 1 TOTAL</div><input class="ws-input ws-total" type="text" placeholder="₹ ________"></div>
-    </div>
-
-    <div class="ws-section">
-      <div class="ws-section-title">Bucket 2 — Protect & Grow (Investments)</div>
-      <div class="ws-row"><div class="ws-label">Emergency liquid fund (until target)</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Index fund SIP</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">NPS contribution</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">Child education SIP</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">SGBs / REITs / Defence funds</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label">International funds</div><input class="ws-input" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label" style="color:var(--gold);font-weight:700">BUCKET 2 TOTAL</div><input class="ws-input ws-total" type="text" placeholder="₹ ________"></div>
-      <div class="ws-row"><div class="ws-label" style="color:#aaa">Bucket 2 as % of salary (target: 20%+)</div><input class="ws-input" type="text" placeholder="_____ %"></div>
-    </div>
-
-    <div class="ws-section">
-      <div class="ws-section-title">Bucket 3 — Live (Guilt-Free Spending)</div>
-      <div class="ws-row"><div class="ws-label">Salary − Bucket 1 − Bucket 2 = Bucket 3</div><input class="ws-input ws-total" type="text" placeholder="₹ ________"></div>
-      <div style="font-size: 13px; color: rgba(255,255,255,0.4); padding: 8px 0">Spend this completely. Zero guilt. Your future is already taken care of.</div>
-    </div>
-
-    <div class="ws-section">
-      <div class="ws-section-title">My 3 Goal Numbers</div>
-      <div class="ws-goal-row">
-        <div class="ws-goal-box">
-          <div class="ws-goal-label">Survival Fund Target</div>
-          <input class="ws-goal-input" type="text" placeholder="₹ ____________">
-          <div style="font-size: 11px; color: rgba(255,255,255,0.3)">Monthly expenses × 6</div>
-        </div>
-        <div class="ws-goal-box gold-top">
-          <div class="ws-goal-label">Child Education Target</div>
-          <input class="ws-goal-input" type="text" placeholder="₹ ____________">
-          <input class="ws-goal-input" type="text" placeholder="By year ______">
-        </div>
-      </div>
-      <div class="ws-goal-box green-top" style="margin-top: 0">
-        <div class="ws-goal-label">My Freedom Number (Retirement)</div>
-        <input class="ws-goal-input" type="text" placeholder="₹ ____________">
-        <div style="font-size: 11px; color: rgba(255,255,255,0.3)">Monthly expenses × 1.3 × 300</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ CLOSING ═══════════════════════════════ -->
-  <div class="closing">
-    <div class="closing-line"></div>
-    <div class="closing-title">
-      The War Is Real.<br>
-      <span>So Is Your Ability To Win It.</span>
-    </div>
-    <div class="closing-body">
-      You have a salary. You have a plan. You have eight weapons. You have a budget. You have a 30-day action plan. The salaried Indian who reads this and acts — even imperfectly, even partially — is already winning. Because most people will do nothing. <strong style="color:white">You are not most people.</strong>
-    </div>
-    <div class="closing-brand">EliteRoadMaps · May 2026</div>
-  </div>
-
+  <div class="pf"><span class="pf-text">Iran. Operation Sindoor. Oil. Three wars. One target — your salary.</span><span class="pf-num">01</span></div>
 </div>
 
-// ── WATERMARK — mobile number only ──
-(function() {
-  var MOBILE = '{{MOBILE}}';
-  var grid = document.getElementById('iw-watermark-grid');
-  if (!grid) return;
-  var html = '';
-  for (var i = 0; i < 80; i++) {
-    html += '<div class="iw-wm-tile"><span>' + MOBILE + '</span></div>';
-  }
-  grid.innerHTML = html;
-})();
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 01</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 01 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">The Enemy Is Real</div>
+    </div>
+    <div class="sec-h">War 2 — The Rupee War</div>
+    <p>When oil prices rise, India needs more dollars to buy that oil. More dollars needed = rupee weakens. The rupee has crashed to a record low of ₹95.63 to a dollar in May 2026 — the worst in India's history.</p>
+    <p>A weaker rupee means everything imported costs more — your phone, laptop, medicines, electronics. Your salary is in rupees. The world prices things in dollars. You lose.</p>
+    <div class="sec-h">War 3 — The Coming Food War</div>
+    <p>This one is the most dangerous. And most people don't see it yet. Oil rises → Fertiliser rises → Farming costs rise → Food prices rise. But this has a 3 to 6 month delay. The food inflation you will feel in October–December 2026 is already set in motion. Today. Right now.</p>
+    <div class="sec-h">And Then There's Operation Sindoor</div>
+    <p>India struck Pakistan. Markets panicked. Airports closed. Flights rerouted. Defence spending goes up. Government money that could have gone to roads, hospitals, subsidies — goes to missiles and soldiers. Every war has a bill. The salaried middle class always pays it.</p>
+    <table class="ft no-last-right">
+      <thead><tr><th>Your Expense</th><th>Before (2025)</th><th>Now (2026)</th><th>Extra Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Petrol (bike, monthly)</td><td>₹1,800</td><td>₹2,800</td><td>+₹1,000</td></tr>
+        <tr><td>Groceries</td><td>₹4,500</td><td>₹5,800</td><td>+₹1,300</td></tr>
+        <tr><td>Eating out / Swiggy</td><td>₹2,000</td><td>₹2,600</td><td>+₹600</td></tr>
+        <tr><td>Auto / cab fares</td><td>₹1,200</td><td>₹1,600</td><td>+₹400</td></tr>
+        <tr><td>Medicines / health</td><td>₹500</td><td>₹750</td><td>+₹250</td></tr>
+        <tr><td>Electricity bill</td><td>₹1,400</td><td>₹1,800</td><td>+₹400</td></tr>
+        <tr class="tot"><td colspan="3"><strong>Total extra per month</strong></td><td>+₹3,950</td></tr>
+      </tbody>
+    </table>
+    <div class="box">
+      <p><strong>The Real Math:</strong> Average salary increase in 2025 — ₹2,000/month. Inflation took ₹3,950. Net loss every single month — ₹1,950. That's ₹23,400 lost in one year. Silently. Without anyone telling you.</p>
+    </div>
+    <p class="i">This is not doom and gloom. This is arithmetic. The question is not whether inflation is coming. The question is — are you ready for it? The next chapters are your battle plan.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">01</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 02</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">02</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Two</div>
+        <div class="ch-title">How War Kills Your <em style="color:var(--red);font-style:normal;">Salary Silently</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">The 5 silent killers eating your purchasing power every month</div>
+      </div>
+    </div>
+    <p>Fear makes people do stupid things with money. Not because they're stupid. Because nobody told them what to do — so they do what feels safe. And in a war — what feels safe is usually the most dangerous thing you can do.</p>
+    <div class="sec-lbl">The 5 Silent Killers in 2026</div>
+    <div class="sec-h">Killer 1 — Transport Costs</div>
+    <p>Petrol prices are directly linked to crude oil. Every ₹10 rise in petrol costs the average bike owner ₹300–400 extra per month. Car owners — ₹800–1,200 extra. But it doesn't stop at your vehicle. Every delivery on Blinkit, Zepto, Swiggy — that delivery person's fuel cost went up. That cost is passed to you.</p>
+    <div class="box box-red"><p>⚠️ <strong>Petrol Price Hike Is Coming — Very Soon.</strong> The government has kept petrol prices artificially stable. But oil companies are currently losing ₹1,000 crore every single day. Under-recoveries have hit ₹2 lakh crore in Q1 2026 alone. When the government finally raises fuel prices — and it will — your transport costs will jump overnight.</p></div>
+    <div class="sec-h">Killer 2 — Food Prices</div>
+    <p>Vegetables in India move by truck. Trucks run on diesel. Diesel is expensive. But there's a second hit coming — fertiliser. Oil is used to make urea. When oil prices rise, urea prices rise. When urea prices rise — wheat, rice, dal, vegetables all cost more to grow. Your dal-chawal is now a casualty of the Middle East war.</p>
+    <div class="sec-h">Killer 3 — The Rent Trap</div>
+    <p>Rent rises because landlords have expenses too — maintenance, property tax, their own rising costs. In cities where jobs are — Mumbai, Bengaluru, Pune, Hyderabad, Delhi — housing demand never drops. Average rent increases in Tier 1 cities in 2026 — 8 to 12%. Your salary increase — 5 to 8%. Rent is already winning.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Your salary is losing ground every single month.</span><span class="pf-num">02</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 02</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 02 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">How War Kills Your Salary Silently</div>
+    </div>
+    <div class="sec-h">Killer 4 — The Rupee Trap</div>
+    <p>You might think — I don't buy dollars. Why does this affect me? Because almost everything you buy has an imported component. Your phone — imported chips. Laptop — imported. Medicines — active ingredients imported. Cooking oil — partially imported. You don't need to travel abroad for the dollar to hurt you.</p>
+    <div class="sec-h">Killer 5 — The Tax Squeeze</div>
+    <p>India spent ₹6.81 lakh crore on defence in 2025-26. Operation Sindoor added more pressure. Defence budgets will go up next year. The salaried person is the easiest to tax — your income is visible, documented, automatic. Businessmen can manage. Cash economy can hide. You cannot hide. You are the government's most reliable ATM.</p>
+    <div class="sec-lbl">What This Means In Real Numbers</div>
+    <table class="ft no-last-right">
+      <thead><tr><th>Monthly Salary</th><th>Real Purchasing Power Dec 2026</th><th>Effective Loss</th></tr></thead>
+      <tbody>
+        <tr><td>₹30,000</td><td>₹27,000 real value</td><td>-₹3,000/month</td></tr>
+        <tr><td>₹45,000</td><td>₹40,500 real value</td><td>-₹4,500/month</td></tr>
+        <tr><td>₹75,000</td><td>₹67,500 real value</td><td>-₹7,500/month</td></tr>
+        <tr><td>₹1,00,000</td><td>₹90,000 real value</td><td>-₹10,000/month</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-red"><p>⚠️ <strong>New Labour Code Warning — 2026:</strong> New Labour Codes require basic pay to be at least 50% of total compensation. Your EPF and gratuity will be calculated on a higher base — meaning your take-home may drop slightly but your long-term wealth increases. Don't panic when this happens. It's working in your favour.</p></div>
+    <p class="i">This is not to scare you. This is to make you angry enough to act. Because the people who understand this — who see the silent killers — they are the ones who protect themselves.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">02</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 03</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">03</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Three</div>
+        <div class="ch-title">What Is Actually <em style="color:var(--red);font-style:normal;">Worrying You</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">The 6 fears every salaried Indian carries — but nobody talks about</div>
+      </div>
+    </div>
+    <p>Let's stop talking about oil prices and rupees for a moment. Let's talk about you. Because behind every financial decision — every SIP you started and stopped, every time you said "I'll start investing next month" — there is a feeling. Not a number. A feeling.</p>
+    <div class="box"><p><strong>The Salaried Person's Trap:</strong> It's not really inflation that keeps you up at night. It's what inflation represents. The fear that no matter how hard you work — it won't be enough.</p></div>
+    <div class="sec-lbl">The 6 Fears</div>
+    <div class="sec-h">Fear 1 — "What if I lose my job?"</div>
+    <p>You don't say this out loud. But you think it. Companies are cutting costs. AI is replacing roles. India-Pakistan tension rattled markets. When businesses hurt — the first thing they cut is people. The best job security in the world is having 6 months of expenses saved. Not because it helps you keep your job. Because it means losing your job isn't a disaster anymore.</p>
+    <div class="sec-h">Fear 2 — "My EMIs are eating me alive"</div>
+    <p>You took a home loan. Or a car loan. Or both. At the time it made sense. But now petrol is expensive. Groceries cost more. And that EMI sits there every month — fixed, unmovable, unforgiving. It doesn't care that onions are ₹80/kg now. Chapter 7 will show you exactly how to restructure around it.</p>
+    <div class="sec-h">Fear 3 — "My parents are getting older"</div>
+    <p>Nobody talks about this in finance books. But every Indian salaried person between 28 and 42 carries it. Medical costs in India are rising at 10–14% every year. A single hospitalisation — heart, kidney, ortho — can cost ₹3 to ₹8 lakh easily. One health insurance policy for your parents — ₹15,000 to ₹25,000 per year — can protect ₹5 to ₹10 lakh of medical costs.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Every fear has the same root cause — no financial structure. That changes today.</span><span class="pf-num">03</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 03</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 03 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What Is Actually Worrying You</div>
+    </div>
+    <div class="sec-h">Fear 4 — "What about my children?"</div>
+    <p>An engineering degree today costs ₹8 to ₹15 lakh. An MBA — ₹15 to ₹25 lakh. Medical — ₹50 lakh to ₹1 crore. Education costs double every 7 to 10 years. Hope is not a financial plan. A SIP started today — even ₹2,000 per month — specifically for your child's education, grows into something real by the time they need it.</p>
+    <div class="sec-h">Fear 5 — "Will I have enough when I retire?"</div>
+    <p>Picture this. You're 60. Your salary stops. What do you live on? At 25, ₹3,000/month gets you to dignity at retirement. At 35, you need ₹9,000/month. At 45, ₹28,000/month. Every year you wait — the price of dignity goes up.</p>
+    <div class="sec-h">Fear 6 — "I earn well but have nothing to show for it"</div>
+    <p>You earn ₹60,000. Or ₹80,000. And yet — at the end of the year — your savings are the same as someone earning ₹30,000. This isn't a character flaw. This is what happens when income grows but financial structure doesn't. Earning more is not the solution. Structuring better is.</p>
+    <div class="box"><p><strong>The Common Thread:</strong> Every fear above has the same root cause — no financial structure built to survive uncertainty. Not because you're irresponsible. Because nobody taught you. School didn't. College didn't. Your employer didn't. You were handed a salary and expected to figure it out. <em>This guide is what you should have been given on your first salary day.</em></p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">03</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 04</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">04</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Four</div>
+        <div class="ch-title">What Are You Actually <em style="color:var(--red);font-style:normal;">Investing FOR?</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">Give your money a purpose before giving it a destination</div>
+      </div>
+    </div>
+    <div class="box"><p><strong>₹1,00,000 today → ₹24,000 purchasing power in 25 years.</strong> Not because you spent it. Not because you lost it. Simply because you kept it as cash and did nothing. Doing nothing is the most expensive financial decision you will ever make.</p></div>
+    <p>Most people who invest without a reason — stop when markets fall, break FDs for holidays, use "investment money" for a new phone. The SIP didn't fail. The reason failed. Because there was no reason.</p>
+    <div class="sec-lbl">The 3 Goals Every Salaried Indian Actually Has</div>
+    <div class="brow"><div class="brow-l" style="background:#C0392B;"><span class="brow-n">01</span></div><div class="brow-m"><div class="brow-nm">Survive — Emergency Buffer</div><div class="brow-sub">6 months of expenses. Non-negotiable. Built first. Before everything else.</div></div></div>
+    <div class="brow"><div class="brow-l" style="background:#1565C0;"><span class="brow-n">02</span></div><div class="brow-m"><div class="brow-nm">Protect — Kids, Parents, Family Safety</div><div class="brow-sub">Insurance, child education SIP, parent health cover.</div></div></div>
+    <div class="brow"><div class="brow-l" style="background:#27ae60;"><span class="brow-n">03</span></div><div class="brow-m"><div class="brow-nm">Freedom — Retirement by Choice</div><div class="brow-sub">Work because you want to — not because you have to.</div></div></div>
+    <div class="sec-h" style="margin-top:4mm;">Goal 1 — Your Survival Fund</div>
+    <table class="ft no-last-right">
+      <thead><tr><th>Monthly Expenses</th><th>Survival Fund Needed</th><th>Where to Keep It</th></tr></thead>
+      <tbody>
+        <tr><td>₹20,000</td><td>₹1,20,000</td><td>Liquid mutual fund</td></tr>
+        <tr><td>₹35,000</td><td>₹2,10,000</td><td>Liquid mutual fund</td></tr>
+        <tr><td>₹50,000</td><td>₹3,00,000</td><td>Liquid mutual fund</td></tr>
+        <tr><td>₹75,000</td><td>₹4,50,000</td><td>Liquid mutual fund</td></tr>
+      </tbody>
+    </table>
+    <p>Not a savings account. A liquid mutual fund — same safety, better returns, available in 24 hours. Set aside 10% of salary every month until you hit the number.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Give your money a purpose before giving it a destination.</span><span class="pf-num">04</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 04</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 04 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What Are You Actually Investing FOR?</div>
+    </div>
+    <div class="sec-h">Goal 2 — Your Child's Education</div>
+    <table class="ft no-last-right">
+      <thead><tr><th>Child's Age</th><th>Years to College</th><th>Education Cost Then</th><th>Monthly SIP Needed</th></tr></thead>
+      <tbody>
+        <tr><td>1 year old</td><td>17 years</td><td>₹50 lakh</td><td>₹5,200/month</td></tr>
+        <tr><td>5 years old</td><td>13 years</td><td>₹34 lakh</td><td>₹7,800/month</td></tr>
+        <tr><td>8 years old</td><td>10 years</td><td>₹26 lakh</td><td>₹11,500/month</td></tr>
+        <tr><td>12 years old</td><td>6 years</td><td>₹18 lakh</td><td>₹19,000/month</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-red"><p>⚠️ <strong>Every year you wait</strong> — the monthly amount you need goes up significantly. Start today. Even ₹1,000/month in a dedicated child education fund is a start. Increase every year.</p></div>
+    <div class="sec-h">Goal 3 — Your Freedom Number (Retirement)</div>
+    <p>Take your current monthly expenses. Add 30% for inflation by retirement. Multiply by 300. That's your Freedom Number.</p>
+    <table class="ft no-last-right">
+      <thead><tr><th>Monthly Expenses</th><th>Freedom Number</th><th>SIP @ 25</th><th>SIP @ 35</th><th>SIP @ 45</th></tr></thead>
+      <tbody>
+        <tr><td>₹30,000</td><td>₹1.17 crore</td><td>₹1,200/mo</td><td>₹4,400/mo</td><td>₹17,600/mo</td></tr>
+        <tr><td>₹50,000</td><td>₹1.95 crore</td><td>₹2,100/mo</td><td>₹7,400/mo</td><td>₹29,500/mo</td></tr>
+        <tr><td>₹75,000</td><td>₹2.92 crore</td><td>₹3,100/mo</td><td>₹11,100/mo</td><td>₹44,300/mo</td></tr>
+      </tbody>
+    </table>
+    <div class="box"><p><strong>The Time Lesson:</strong> At 25 — ₹2,100/month builds ₹2 crore. At 45 — you need ₹30,000/month for the same result. Time is the most powerful investment tool you have. And it's running. Every investment decision from now on — ask: which of my 3 goals does this serve?</p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">04</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 05</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">05</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Five</div>
+        <div class="ch-title">What <em style="color:var(--red);font-style:normal;">NOT</em> To Do Right Now</div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">6 dangerous mistakes salaried Indians make when fear takes over</div>
+      </div>
+    </div>
+    <p>Fear makes people do stupid things with money. Not because they're stupid. Because nobody told them what to do — so they do what feels safe. And in a war — what feels safe is usually the most dangerous thing you can do.</p>
+    <div class="sec-lbl">The 6 Costly Mistakes</div>
+    <div class="sec-h">Mistake 1 — Stopping Your SIP</div>
+    <p>Markets fall. News is scary. Your SIP statement shows red. So you stop it — "just for a few months." Things never settle. You never restart. When markets fall — your SIP buys MORE units for the same money. A market crash is a tomato sale. Your SIP automatically buys more when prices are low. The people who kept SIPs running through Corona March 2020 doubled their money by 2022.</p>
+    <div class="sec-h">Mistake 2 — Putting Everything In FD</div>
+    <p>Best FD rate today — 7.5%. After tax (20-30% bracket) — 5.25% to 6%. Inflation coming in FY27 — RBI projects 4.6%, food inflation already at 4.2% in April 2026 and rising for 6 straight months. Your real return from FD — 0% to 1.5%. You're not growing your money. You're barely keeping it alive.</p>
+    <div class="sec-h">Mistake 3 — Buying Physical Gold Right Now</div>
+    <p>Gold has already run up significantly. Everyone who should have bought gold — already bought it. Now you're buying at a high price. Paying GST. Paying making charges. Storing it. Worrying about theft. And physical gold gives you zero income while you hold it. There is a better way to own gold in 2026 — Sovereign Gold Bonds. Same exposure + 2.5% interest + zero GST + tax free at maturity. Chapter 6 explains this.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">The antidote to fear is a plan. Simple. Clear. Actionable. That's Chapter 6.</span><span class="pf-num">05</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 05</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 05 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What NOT To Do Right Now</div>
+    </div>
+    <div class="sec-h">Mistake 4 — Taking A Personal Loan To Cover Rising Expenses</div>
+    <p>Personal loan interest rate — 12% to 24% per year. Credit card — 36% to 42% per year. You are borrowing money at 36% to buy things that inflation made 6% costlier. You are losing 30% every year just to keep up. The solution to rising expenses is never more debt. It is restructured spending — Chapter 7 shows you how.</p>
+    <div class="sec-h">Mistake 5 — Waiting For The "Right Time" To Invest</div>
+    <p>"I'll start when markets stabilise." "After the Iran situation settles." "Once I get my increment." There is always a reason to wait. And the people who wait — wait forever. If you missed just the 10 best days of the last 30 years of stock markets — your returns were cut in half. The right time to invest was yesterday. The second best time is today.</p>
+    <div class="sec-h">Mistake 6 — Doing Nothing And Hoping</div>
+    <p>Hoping inflation will settle. Hoping your salary increases enough. Hoping someone will take care of you. This is the most expensive bet you will ever make. A ₹2,000 SIP started today — imperfect, small — beats a perfectly planned ₹10,000 SIP that starts next year. Every single time.</p>
+    <div class="box"><p><strong>The Common Thread:</strong> Every mistake above comes from fear without direction. You feel the danger but don't know what to do. So you freeze or make a move that feels safe but isn't. The antidote — is a plan. Not complicated. Not perfect. Simple. Clear. Actionable. That's Chapter 6.</p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">05</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">06</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Six</div>
+        <div class="ch-title">Your Inflation War <em style="color:var(--red);font-style:normal;">Battle Plan</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">8 weapons chosen specifically for 2026</div>
+      </div>
+    </div>
+    <p>You've seen the enemy. You've felt the fear. You know what not to do. Now we fight back. Eight weapons. Each one chosen specifically for 2026 — for the inflation coming, for the wars happening, for the salaried Indian earning between ₹25,000 and ₹2,00,000 a month.</p>
+    <div class="sec-h">W1 — Liquid Mutual Funds: Your Emergency Fund's True Home</div>
+    <p>Most people keep emergency money in a savings account at 3.5%. Inflation is 3.4% today. Rising tomorrow. Your emergency fund is already losing. Liquid mutual funds invest in government securities and high quality short term bonds. Completely safe. Returns — 6.5 to 7.5% currently. Your money is available within 24 hours. Same safety. Double the return.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">6.5–7.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Liquidity</div><div class="wmeta-val">24 Hours</div></div></div>
+    <div class="sec-h" style="margin-top:3mm;">W2 — Sovereign Gold Bonds (SGBs): The Smartest Way to Own Gold</div>
+    <p>SGBs are issued by the Reserve Bank of India. You get: gold price appreciation + 2.5% annual interest paid every 6 months + zero GST + zero storage cost + completely tax free at maturity (8 years).</p>
+    <div class="box box-red"><p>⚠️ <strong>Honest Warning:</strong> Gold is currently near all-time highs. Buying SGBs at peak prices = limited upside in short term. If the war ends in 1–2 years, gold could fall 15–25%. On May 11, 2026 — PM Modi publicly asked Indians to pause gold purchases. When the PM says don't buy gold right now — that's your clearest signal to wait. Buy on a 10–15% correction.</p></div>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Gold + 2.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low (timing)</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5% now</div></div></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">8 weapons chosen for 2026. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+    </div>
+    <div class="sec-h">W3 — NPS: The Most Ignored Tax Saver</div>
+    <p>NPS gives you an ADDITIONAL ₹50,000 deduction under Section 80CCD(1B) — over and above your regular ₹1.5L 80C limit. NPS invests in equity + government bonds — historically returning 9 to 12% annually. Tax saved: ₹10,000–₹15,000/year. Do this before March 31st every year. Never miss this free money.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">9–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Tax Saved</div><div class="wmeta-val">₹10K–15K/yr</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Amount</div><div class="wmeta-val">₹50,000/yr</div></div></div>
+    <div class="sec-h" style="margin-top:3mm;">W4 — Index Funds: Own All of India for ₹500/month</div>
+    <p>An index fund buys all 50 companies in the Nifty 50 — Reliance, TCS, HDFC Bank, Infosys. All of them. In one investment. When India grows — your investment grows. Nifty 50 historical returns — 12 to 14% annually over 15+ years. Lowest fees of any mutual fund — 0.1% per year. Never stop this SIP. Not for Iran. Not for Pakistan. Not for any reason.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">12–14% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">30–40%</div></div></div>
+    <div class="sec-h" style="margin-top:3mm;">W5 — REITs: Own Premium Office Buildings for ₹10,000</div>
+    <p>Embassy, Mindspace, Nexus Malls, Brookfield — these are the buildings where MNCs, IT companies, banks operate. REITs are legally required to distribute 90% of income to investors as dividends. Returns — 7 to 9% annual yield plus capital appreciation. And in an inflation environment — commercial rents rise. Your REIT income rises with it.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low–Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Entry</div><div class="wmeta-val">~₹10,000</div></div></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+    </div>
+    <div class="sec-h">W6 — Defence Sector Funds: Turn the War Into an Opportunity</div>
+    <p>India's defence budget — ₹6.81 lakh crore in 2025-26. Going up after Operation Sindoor. HAL order book — ₹1.89 lakh crore. BEL order book — ₹75,000 crore. These companies will be billing and generating cash through 2026, 2027, 2028. Defence sector mutual funds give you exposure to all of them. This is not speculation. This is following government spending.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market-linked</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium–High</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5–10%</div></div></div>
+    <div class="sec-h" style="margin-top:3mm;">W7 — International Funds: Profit From a Weakening Rupee</div>
+    <p>The rupee touched a record low of ₹95.63 to a dollar in May 2026. If you had invested in US markets via an Indian international fund — you'd have gained from both the US stock market AND the rupee depreciation. When rupee falls — your dollar investments are worth more in rupee terms. Diversifying into international funds is not speculation. It is basic protection against rupee risk.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market + ₹ gain</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">10–15%</div></div></div>
+    <div class="sec-h" style="margin-top:3mm;">W8 — EPF / VPF: Your Hidden Weapon</div>
+    <p>If you're salaried — you already have EPF. EPF currently gives 8.25% annual return. Tax free. Guaranteed by the government. 8.25% tax free is better than most FDs after tax. Consider VPF — Voluntary Provident Fund. You can contribute MORE than the mandatory 12%. Even ₹1,000 extra per month — at 8.25% over 20 years — adds ₹6.5 lakh to your retirement.</p>
+    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8.25% tax-free</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Action</div><div class="wmeta-val">Consider VPF</div></div></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+    </div>
+    <div class="sec-lbl">Timing Matters — What To Buy When</div>
+    <p>The eight weapons above are not all equal at all times. Buying the right weapon at the wrong time reduces your returns significantly.</p>
+    <table class="ft no-last-right">
+      <thead><tr><th>Market Situation</th><th>What To Do</th></tr></thead>
+      <tbody>
+        <tr><td>Gold at all-time high</td><td>Wait. Small SGB only if long-term war view. Buy on 10–15% dip.</td></tr>
+        <tr><td>Gold falls 15–25%</td><td>Strong SGB buying opportunity. Increase allocation.</td></tr>
+        <tr><td>Stock market at all-time high</td><td>Keep SIP running. Don't lump sum. Rupee cost averaging protects you.</td></tr>
+        <tr><td>Stock market crashes 20–30%</td><td>Increase SIP amount aggressively. This is your Corona moment.</td></tr>
+        <tr><td>Rupee weakening sharply</td><td>Increase international fund allocation. Dollar assets protect you.</td></tr>
+        <tr><td>Interest rates falling</td><td>REITs and bonds more attractive. Good time to add.</td></tr>
+        <tr><td>War escalates further</td><td>Defence funds. Small SGB. Reduce luxury spending.</td></tr>
+        <tr><td>War ends suddenly</td><td>Reduce gold. Increase equity. Markets typically rally on peace.</td></tr>
+      </tbody>
+    </table>
+    <div class="box"><p><strong>One Golden Rule:</strong> Never stop your index fund SIP. Regardless of market conditions. Everything else — time intelligently. Index fund SIP — runs always. Through war, peace, crash, rally. That one habit alone builds more wealth than any timing strategy ever will.</p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 07</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">07</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Seven</div>
+        <div class="ch-title">The <em style="color:var(--red);font-style:normal;">War Budget</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">The 3-bucket system that makes wealth building automatic</div>
+      </div>
+    </div>
+    <div class="box box-red"><p>⚠️ <strong>The Backwards Order Most People Follow:</strong> Lifestyle first → Bills second → EMIs third → Whatever is left — save. This is completely backwards. And it's why most people with decent salaries have nothing to show after 10 years.</p></div>
+    <div class="box"><p>✅ <strong>The War Budget Order:</strong> Invest first → Protect second → Live on the rest. Pay yourself first. This one change is the single biggest shift between people who build wealth and people who wonder where it went.</p></div>
+    <div class="sec-lbl">The 3 Bucket War System</div>
+    <div class="brow"><div class="brow-l" style="background:#C0392B;"><span class="brow-n">01</span></div><div class="brow-m"><div class="brow-nm">SURVIVE — Non-negotiable. Fixed. Untouchable.</div><div class="brow-sub">Rent/EMI 20–30% · Groceries 8–10% · Transport 5–7% · Utilities 3–5% · Insurance 3–5% · Family support 5–10%</div></div></div>
+    <div class="brow"><div class="brow-l" style="background:#1565C0;"><span class="brow-n">02</span></div><div class="brow-m"><div class="brow-nm">PROTECT &amp; GROW — Your future. Paid first. Minimum 20%.</div><div class="brow-sub">Emergency liquid fund · Index fund SIP · NPS · Child education SIP · SGBs / REITs / Defence funds</div></div></div>
+    <div class="brow"><div class="brow-l" style="background:#27ae60;"><span class="brow-n">03</span></div><div class="brow-m"><div class="brow-nm">LIVE — Everything else. Spend completely. Zero guilt.</div><div class="brow-sub">Whatever remains after Bucket 1 and 2 — is yours. Spend it fully. Enjoy it fully.</div></div></div>
+    <div class="box"><p><strong>The Automation Rule:</strong> Set up standing instructions from your salary account on day 1 or 2 of every month — all Bucket 2 investments transfer automatically. What remains is Bucket 1 and 3. You don't need discipline to not spend Bucket 2. It's already gone. Invested. Working.</p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Pay yourself first. This one change builds wealth. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">07</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 07</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 07 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">The War Budget</div>
+    </div>
+    <div class="sec-lbl">Real Salary Examples</div>
+    <div class="ex-h"><span class="ex-tag">₹30K Salary — Bangalore</span><span class="ex-name">Priya — Single, sends ₹5,000 home</span></div>
+    <table class="ft no-last-right" style="margin-top:0;">
+      <thead><tr><th>Bucket</th><th>What It Covers</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>01 Survive</td><td>Rent ₹8K, food ₹3.5K, transport ₹2K, family ₹5K, insurance ₹1.5K</td><td>₹20,000</td></tr>
+        <tr><td>02 Grow</td><td>Emergency ₹2K, index SIP ₹2.5K, NPS ₹1.5K</td><td>₹6,000</td></tr>
+        <tr class="tot"><td>03 Live</td><td>Dining, entertainment, shopping, self care</td><td>₹4,000</td></tr>
+      </tbody>
+    </table>
+    <p class="i" style="font-size:9.5pt;">₹6,000/month Bucket 2 → ₹13.9L in 10 years · ₹54.5L in 20 years at 12% returns.</p>
+    <div class="ex-h" style="margin-top:4mm;"><span class="ex-tag">₹50K Salary — Pune</span><span class="ex-name">Rahul — Married, 1 child, home loan EMI ₹12K</span></div>
+    <table class="ft no-last-right" style="margin-top:0;">
+      <thead><tr><th>Bucket</th><th>What It Covers</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>01 Survive</td><td>EMI ₹12K, groceries ₹6K, transport ₹3K, utilities ₹2.5K, insurance ₹2.5K, school ₹2K</td><td>₹28,000</td></tr>
+        <tr><td>02 Grow</td><td>Emergency ₹2K, index SIP ₹4K, child edu SIP ₹3K, NPS ₹2K, SGB ₹1K</td><td>₹12,000</td></tr>
+        <tr class="tot"><td>03 Live</td><td>Dining, family outings, streaming, small purchases</td><td>₹10,000</td></tr>
+      </tbody>
+    </table>
+    <p class="i" style="font-size:9.5pt;">Child edu SIP ₹3K × 15 years → ₹15.1L for college · Index SIP ₹4K × 25 years → ₹75L at retirement</p>
+    <div class="ex-h" style="margin-top:4mm;"><span class="ex-tag">₹80K Salary — Mumbai</span><span class="ex-name">Sneha — Married, 2 kids, home loan + car loan</span></div>
+    <table class="ft no-last-right" style="margin-top:0;">
+      <thead><tr><th>Bucket</th><th>What It Covers</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>01 Survive</td><td>Home EMI ₹18K, car EMI ₹8K, groceries ₹7K, transport ₹3K, utilities ₹3K, insurance ₹3K</td><td>₹42,000</td></tr>
+        <tr><td>02 Grow</td><td>Index SIP ₹8K, child edu SIPs ₹6K, NPS ₹3K, REITs ₹3K, intl funds ₹2K</td><td>₹22,000</td></tr>
+        <tr class="tot"><td>03 Live</td><td>Dining, movies, shopping, family activities</td><td>₹16,000</td></tr>
+      </tbody>
+    </table>
+    <p class="i" style="font-size:9.5pt;">Bucket 2 ₹22K/month → ₹2.2 crore in 20 years at 12% returns.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">07</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 08</span></div>
+  <div class="pb">
+
+        <div class="ch">
+      <div class="ch-n">08</div>
+      <div class="ch-lt">
+        <div class="ch-lbl">Chapter Eight</div>
+        <div class="ch-title">Your <em style="color:var(--red);font-style:normal;">30 Day Action Plan</em></div>
+        <div style="font-size:10pt;color:#777;font-style:italic;margin-top:2mm;">4 weeks. 12 actions. Start today — not tomorrow.</div>
+      </div>
+    </div>
+    <p>You've read seven chapters. You understand the enemy. You know your fears. You have your goals. You have your weapons. You have your war budget. Now there is only one thing left. Action. This month. This week. Today.</p>
+    <div class="sec-lbl">Week 1 — Defend</div>
+    <div class="wk">
+      <div class="wk-lbl">Action 01</div>
+      <div class="wk-title">Calculate Your War Budget</div>
+      <p style="margin:0;font-size:10.5pt;">Open the worksheet on the next page. Fill every line tonight. Identify your 3 bucket numbers. Is Bucket 2 at least 20% of salary? If not — find one Bucket 3 expense to cut and move it.</p>
+      <div class="ai-tm">⏱ 20 minutes</div>
+    </div>
+    <div class="wk">
+      <div class="wk-lbl">Action 02</div>
+      <div class="wk-title">Check Your Emergency Fund</div>
+      <p style="margin:0;font-size:10.5pt;">Do you have 6 months of expenses saved? If yes — move it to a liquid mutual fund. If partial — move what you have, set up 10% monthly auto-transfer. If nothing — start with ₹2,000 this month.</p>
+      <div class="ai-tm">⏱ 15 minutes</div>
+    </div>
+    <div class="wk">
+      <div class="wk-lbl">Action 03</div>
+      <div class="wk-title">Get Insured If You Aren't</div>
+      <p style="margin:0;font-size:10.5pt;">Term life insurance — ₹1 crore cover, ~₹8,000–₹12,000/year via PolicyBazaar or Ditto. Parents health insurance — ₹5–10 lakh cover, ~₹15,000–₹30,000/year. This is the most important action of Week 1.</p>
+      <div class="ai-tm">⏱ 45 minutes</div>
+    </div>
+    <div class="sec-lbl" style="margin-top:3mm;">Week 2 — Invest</div>
+    <div class="wk wk2">
+      <div class="wk-lbl">Action 04</div>
+      <div class="wk-title">Open Your Investment Accounts</div>
+      <p style="margin:0;font-size:10.5pt;">Download Groww or Zerodha. Complete KYC. Link bank account. Go to enps.nsdl.com — register for NPS account. Both free. Both take 15 minutes each.</p>
+      <div class="ai-tm">⏱ 30 minutes</div>
+    </div>
+    <div class="wk wk2">
+      <div class="wk-lbl">Action 05</div>
+      <div class="wk-title">Start Your First SIP</div>
+      <p style="margin:0;font-size:10.5pt;">Search UTI Nifty 50 Index Fund or HDFC Index Fund Nifty 50. Start monthly SIP — whatever fits Bucket 2. Set date: 2nd or 3rd of month. You just did what most people talk about for years.</p>
+      <div class="ai-tm">⏱ 10 minutes</div>
+    </div>
+    <div class="wk wk2">
+      <div class="wk-lbl">Action 06</div>
+      <div class="wk-title">Set Up NPS</div>
+      <p style="margin:0;font-size:10.5pt;">Contribute ₹50,000 this financial year. Can't do lump sum? Set up ₹4,200/month auto-debit. Saves you ₹10,000–₹15,000 in taxes. Every year. This is free money — no reason to skip it.</p>
+      <div class="ai-tm">⏱ 30 minutes</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">08</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 08</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your 30 Day Action Plan</div>
+    </div>
+    <div class="sec-lbl">Week 3 — Diversify</div>
+    <div class="wk wk3">
+      <div class="wk-lbl">Action 07</div>
+      <div class="wk-title">Check Your EPF Balance</div>
+      <p style="margin:0;font-size:10.5pt;">Go to epfindia.gov.in. Log in with your UAN. Check balance — most people are shocked how much is there. Consider VPF — ask HR to increase your PF contribution voluntarily. Even ₹1,000 extra/month adds ₹6.5L over 20 years.</p>
+      <div class="ai-tm">⏱ 20 minutes</div>
+    </div>
+    <div class="wk wk3">
+      <div class="wk-lbl">Action 08</div>
+      <div class="wk-title">Buy One SGB — When Price Is Right</div>
+      <p style="margin:0;font-size:10.5pt;">Remember: gold is near all-time highs. Don't rush. Check if RBI has an open tranche. If gold has corrected 10–15% from current levels — that's your signal. Set a price alert on Groww for gold rates.</p>
+      <div class="ai-tm">⏱ 20 minutes</div>
+    </div>
+    <div class="wk wk3">
+      <div class="wk-lbl">Action 09</div>
+      <div class="wk-title">Explore REITs</div>
+      <p style="margin:0;font-size:10.5pt;">Open Zerodha or Groww. Search Embassy REIT or Mindspace REIT. Read about it. Check current yield. You don't need to buy this week if not ready. Understand first. Invest when comfortable.</p>
+      <div class="ai-tm">⏱ 15 minutes</div>
+    </div>
+    <div class="sec-lbl" style="margin-top:3mm;">Week 4 — Automate &amp; Win</div>
+    <div class="wk wk4">
+      <div class="wk-lbl">Action 10</div>
+      <div class="wk-title">Automate Everything</div>
+      <p style="margin:0;font-size:10.5pt;">Go to your bank netbanking. Set up standing instructions on salary day — liquid fund transfer, NPS auto-debit, all SIPs already set. Once automated — your wealth builds whether you think about it or not. This is the secret of every wealthy person. Not intelligence. Not timing. Systems.</p>
+      <div class="ai-tm">⏱ 30 minutes</div>
+    </div>
+    <div class="wk wk4">
+      <div class="wk-lbl">Action 11</div>
+      <div class="wk-title">Tell One Person</div>
+      <p style="margin:0;font-size:10.5pt;">Tell your spouse, sibling, or close friend — "I started investing this month. Here's what I did." You feel accountable. Harder to quit when someone knows.</p>
+      <div class="ai-tm">⏱ 5 minutes</div>
+    </div>
+    <div class="wk wk4">
+      <div class="wk-lbl">Action 12</div>
+      <div class="wk-title">Schedule Your Quarterly Review</div>
+      <p style="margin:0;font-size:10.5pt;">Add recurring reminder every 3 months — "Review investments — 30 minutes." In that 30 minutes: check emergency fund, confirm SIPs running, increase SIP amount by 10% annually. That's it.</p>
+      <div class="ai-tm">⏱ 5 minutes</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">08</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Your Personal War Budget</span></div>
+  <div class="pb">
+
+    <div class="ch">
+      <div class="ch-lt">
+        <div class="ch-lbl">Fill This In</div>
+        <div class="ch-title">Your Personal War Budget</div>
+      </div>
+    </div>
+    <p>Fill this using your last month's bills. Be honest. Takes 5 minutes. Could change the next 20 years.</p>
+    <div class="sec-lbl">My Monthly Salary</div>
+    <div class="ws-grid" style="grid-template-columns:1fr;">
+      <div class="ws-f"><div class="ws-fl">Monthly take-home salary (after tax)</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+    </div>
+    <div class="sec-lbl">Bucket 1 — Survive (Fixed Expenses)</div>
+    <div class="ws-grid">
+      <div class="ws-f"><div class="ws-fl">Rent / Home EMI</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Groceries &amp; cooking</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Transport (petrol, auto, cab)</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Utilities (electricity, internet, water)</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Insurance premiums</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Family support / parents</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">School / childcare fees</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Other fixed costs</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+    </div>
+    <div class="brow tot" style="margin-top:2mm;"><div class="brow-l" style="background:var(--red);"><span class="brow-n" style="font-size:14pt;">B1</span></div><div class="brow-m"><div class="brow-nm">Bucket 1 Total</div></div><div class="brow-r"><div class="brow-rs">₹</div><div class="brow-line"></div></div></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">WS-1</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Your Personal War Budget</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter WS — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Personal War Budget</div>
+    </div>
+    <div class="sec-lbl">Bucket 2 — Protect &amp; Grow (Investments)</div>
+    <div class="ws-grid">
+      <div class="ws-f"><div class="ws-fl">Emergency liquid fund (until target)</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Index fund SIP</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">NPS contribution</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">Child education SIP</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">SGBs / REITs / Defence funds</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+      <div class="ws-f"><div class="ws-fl">International funds</div><div class="ws-fi"><span class="ws-rs">₹</span><div class="ws-ln"></div></div></div>
+    </div>
+    <div class="brow tot" style="margin-top:2mm;"><div class="brow-l" style="background:#1565C0;"><span class="brow-n" style="font-size:14pt;">B2</span></div><div class="brow-m"><div class="brow-nm">Bucket 2 Total</div><div class="brow-sub">Target: minimum 20% of take-home salary</div></div><div class="brow-r"><div class="brow-rs">₹</div><div class="brow-line"></div></div></div>
+    <div class="sec-lbl" style="margin-top:4mm;">Bucket 3 — Live (Guilt-Free Spending)</div>
+    <div class="brow tot" style="margin-top:2mm;"><div class="brow-l" style="background:#27ae60;"><span class="brow-n" style="font-size:14pt;">B3</span></div><div class="brow-m"><div class="brow-nm">Salary − Bucket 1 − Bucket 2 = Bucket 3</div><div class="brow-sub">Spend this completely. Zero guilt. Your future is already taken care of.</div></div><div class="brow-r"><div class="brow-rs">₹</div><div class="brow-line"></div></div></div>
+    <div class="sec-lbl" style="margin-top:4mm;">My 3 Goal Numbers</div>
+    <div class="tc">
+      <div class="tc-h" style="color:var(--red);">Survival Fund Target</div>
+      <div class="tc-h" style="color:#1565C0;">Child Education Target</div>
+      <div class="tc-c" style="height:16mm;vertical-align:top;">₹ ________________<br><span style="font-size:9pt;color:#999;">Monthly expenses × 6</span></div>
+      <div class="tc-c" style="height:16mm;vertical-align:top;">₹ ________________<br><span style="font-size:9pt;color:#999;">By year ______</span></div>
+    </div>
+    <div style="background:#FFF8F8;border:1px solid #f5c6cb;padding:3mm 4mm;margin-top:3mm;">
+      <div style="font-size:9pt;font-weight:700;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:2mm;">My Freedom Number (Retirement)</div>
+      <div style="font-size:14pt;color:#333;">₹ ________________________</div>
+      <div style="font-size:9pt;color:#999;margin-top:1mm;">Monthly expenses × 1.3 × 300</div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">WS-2</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Closing</span></div>
+  <div class="pb">
+
+    <div style="text-align:center;padding-top:8mm;">
+      <div style="width:40px;height:3px;background:var(--red);margin:0 auto 6mm;"></div>
+      <div style="font-family:'Playfair Display',serif;font-size:30pt;font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:5mm;">The War Is Real.<br><span style="color:var(--red);">So Is Your Ability To Win It.</span></div>
+      <p style="font-size:12pt;color:#555;max-width:440px;margin:0 auto 5mm;line-height:1.8;text-align:center;">You have a salary. You have a plan. You have eight weapons. You have a budget. You have a 30-day action plan. The salaried Indian who reads this and acts — even imperfectly, even partially — is already winning. Because most people will do nothing. <strong>You are not most people.</strong></p>
+      <div style="font-size:10pt;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:5mm;">EliteRoadMaps · May 2026</div>
+    </div>
+    <div class="upsell">
+      <div class="upsell-lbl">Complete Your Finance System</div>
+      <div class="upsell-title">The <em>Salary</em> Formula</div>
+      <p>The Inflation War shows you where to invest. The Salary Formula shows you how to structure your salary so the money is actually there. Together — a complete personal finance system.</p>
+      <ul>
+        <li>The 5-bucket system — every rupee gets a job</li>
+        <li>Invest first automatically before you can spend it</li>
+        <li>Real examples for ₹35K, ₹65K, ₹1L, ₹1.5L salaries</li>
+        <li>The Payday Ritual — a 2-hour monthly checklist</li>
+        <li>The Raise Protocol — split every raise 50-50</li>
+      </ul>
+      <div class="upsell-bot">
+        <span class="upsell-url">eliteroadmaps.in/finance/salaryplan/salaryformula</span>
+        <span class="upsell-price">₹299</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span class="pf-text">eliteroadmaps.in/finance/moneyplan/inflationwar | eliteroadmaps.in/finance/salaryplan/salaryformula</span><span class="pf-num">End</span></div>
+</div>
+
 
 </body>
 </html>

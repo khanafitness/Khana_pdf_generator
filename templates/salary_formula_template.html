@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>The Salary Formula — EliteRoadMaps</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* System font fallbacks — no external network calls (Puppeteer safe) */
+</style>
 <style>
 /* ══════════════════════════════════
    RESET & ROOT
@@ -56,32 +58,20 @@ body {
 /* ══════════════════════════════════
    WATERMARK
 ══════════════════════════════════ */
-.wm {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+.wm-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;
+  overflow: hidden;
 }
-.wm-inner {
+.wm-line {
   position: absolute;
-  top: -60%; left: -60%;
-  width: 220%; height: 220%;
-  transform: rotate(-35deg);
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-}
-.wm-row {
-  display: flex;
-  gap: 44px;
   white-space: nowrap;
-}
-.wm-row span {
-  font-size: 8pt;
-  color: #000;
-  opacity: 0.055;
-  letter-spacing: 0.8px;
+  font-size: 11pt;
+  color: rgba(0,0,0,0.055);
+  transform: rotate(-35deg);
+  letter-spacing: 2px;
 }
 
 /* ══════════════════════════════════
@@ -388,7 +378,7 @@ p.c  { text-align: center; }
 .prep-lbl  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px; }
 .prep-name { font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:white; line-height:1.1; }
 .prep-con  { font-size:10.5pt; color:#666; margin-top:2px; }
-.prep-tag  { font-size:10pt; color:#666; font-style:italic; line-height:1.9; text-align:right; white-space:nowrap; }
+.prep-tag  { font-size:10pt; color:#666; font-style:italic; line-height:1.9; text-align:right; }
 .cover-bot {
   background:var(--amber); height:8mm;
   display:flex; align-items:center; justify-content:space-between;
@@ -403,20 +393,6 @@ p.c  { text-align: center; }
      PAGE 1 — COVER
 ════════════════════════════════════════════════════ -->
 <div class="cover-page">
-  <div class="wm"><div class="wm-inner">
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-  </div></div>
 
   <div class="cover-topbar">
     <span class="cover-topbar-brand">EliteRoadMaps.in</span>
@@ -479,31 +455,19 @@ p.c  { text-align: center; }
 </div>
 
 <!-- WATERMARK MACRO — reused on every inner page -->
-<!-- wm-block start -->
-<template id="wm-tpl">
-  <div class="wm"><div class="wm-inner">
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-    <div class="wm-row"><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span><span>EliteRoadMaps &nbsp; {{MOBILE_NO}}</span></div>
-  </div></div>
-</template>
+<div class="wm-overlay" id="wmOverlay"></div>
 <script>
-  // Inject watermark into every .page div
-  document.addEventListener('DOMContentLoaded',function(){
-    var tpl = document.getElementById('wm-tpl');
-    document.querySelectorAll('.page').forEach(function(p){
-      p.insertBefore(tpl.content.cloneNode(true), p.firstChild);
-    });
-  });
+const mob = "{{MOBILE_NO}}";
+const overlay = document.getElementById('wmOverlay');
+const text = "  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  " + mob + "  ·  EliteRoadMaps  ·  ";
+for (let i = 0; i < 22; i++) {
+  const d = document.createElement('div');
+  d.className = 'wm-line';
+  d.textContent = text;
+  d.style.top = (i * 120 - 100) + 'px';
+  d.style.left = '-30%';
+  overlay.appendChild(d);
+}
 </script>
 
 <!-- ════════════════════════════════════════════════════
@@ -524,7 +488,7 @@ p.c  { text-align: center; }
     <p>So I built one. A simple formula to calculate exactly where every rupee goes — so you spend all month without worry, guilt, or running out.</p>
     <p class="i">This guide is me handing it to you.</p>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">2</span></div>
+  <div class="pf"><span class="pf-text">The formula is the foundation. The wealth plan is what comes next. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">2</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -582,7 +546,7 @@ p.c  { text-align: center; }
     <div class="step"><div class="step-l" style="background:var(--b5)"><span class="step-sl">Step</span><span class="step-sn">4</span></div><div class="step-r"><div class="step-t">The One Rule for the Rest of the Month</div><div class="step-tm">All month</div><p class="step-d">Spend freely from your lifestyle bucket. When it is empty — stop. Not because you're strict. Because the rest is already working for you. No guilt. No mental math.</p></div></div>
     <p class="i" style="margin-top:4mm;">The whole ritual takes 2 hours maximum. Most of it is just transfers. You do this once a month. That's it.</p>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">4</span></div>
+  <div class="pf"><span class="pf-text">Formula sets up in 2 hours. Wealth compounds for 20 years. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">4</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -609,7 +573,7 @@ p.c  { text-align: center; }
     </div>
     <div class="box"><p><strong>Bucket 5 is calculated last</strong> — it's whatever remains after the first four. It's your reward for getting the first four right.</p></div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">5</span></div>
+  <div class="pf"><span class="pf-text">Know the formula? Now learn where to actually send your Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">5</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -631,9 +595,9 @@ p.c  { text-align: center; }
       </tbody>
     </table>
     <p class="i" style="margin-top:5mm;">The first month will feel strange. Some buckets too small, some too big. That's normal. Adjust each month. The formula is your starting point — your life shapes the exact numbers.</p>
-    <div class="box" style="margin-top:5mm;"><p>Not sure how much to invest given your rent and obligations? The EliteRoadMaps Salary Calculator takes your exact numbers and tells you the right amount for each bucket.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</strong></p></div>
+    <div class="box" style="margin-top:5mm;"><p>Know the formula? Now learn where to actually send your Bucket 2.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</strong></p></div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">6</span></div>
+  <div class="pf"><span class="pf-text">Know the formula? Now learn where to actually send your Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">6</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -655,7 +619,7 @@ p.c  { text-align: center; }
     </tbody></table>
     <div class="ex-note">Priya's rent eats more than half her obligations. She still invests Rs.3,500 every month. In 10 years at 12% — over Rs.8 lakhs. From a tight budget.</div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">7</span></div>
+  <div class="pf"><span class="pf-text">Same salary, very different wealth — depending on what you do with Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">7</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -676,7 +640,7 @@ p.c  { text-align: center; }
     </tbody></table>
     <div class="ex-note">Same salary. Lower rent, higher family obligation. Bucket 5 is nearly Rs.4,000 more than Priya's. Tier 2 gives breathing room — if you don't fill it with new EMIs.</div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">8</span></div>
+  <div class="pf"><span class="pf-text">Same salary, very different wealth — depending on what you do with Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">8</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -697,7 +661,7 @@ p.c  { text-align: center; }
     </tbody></table>
     <div class="ex-note">Car EMI sits in obligations. One decision — Rs.7,500 auto-debit on payday. In 10 years at 12% — Rs.17.5 lakhs. Flexible spending still leaves Rs.16,800 guilt-free every month.</div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">9</span></div>
+  <div class="pf"><span class="pf-text">Same salary, very different wealth — depending on what you do with Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">9</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -717,9 +681,9 @@ p.c  { text-align: center; }
       <tr class="tot"><td colspan="2">Take-home</td><td>Rs.75,000</td></tr>
     </tbody></table>
     <div class="ex-note">Same salary in Jaipur — flexible spending is Rs.30,200. Nearly double Sneha's. Tier 2 advantage is real. Without the formula all of it disappears on guesswork.</div>
-    <div class="box" style="margin-top:5mm;"><p>Investing only 10%? See how much more you could be building with your exact numbers.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</strong></p></div>
+    <div class="box" style="margin-top:5mm;"><p>Same salary, very different wealth — depending on what you do with Bucket 2.<br><strong>https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</strong></p></div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">10</span></div>
+  <div class="pf"><span class="pf-text">Same salary, very different wealth — depending on what you do with Bucket 2. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">10</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -744,7 +708,7 @@ p.c  { text-align: center; }
     </div>
     <div class="box"><p>Salary account is for <strong>spending</strong>. Emergency account is for <strong>surviving</strong>. Investment account is for <strong>growing</strong>. Never mix them.</p></div>
   </div>
-  <div class="pf"><span class="pf-text">To calculate per your exact numbers — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">11</span></div>
+  <div class="pf"><span class="pf-text">3 accounts set up. Next: make your investment account actually work. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">11</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -772,7 +736,7 @@ p.c  { text-align: center; }
     <p>Weddings. Festivals. Family functions. Your colleague's farewell collection. Your building's Diwali fund. These feel unpredictable — but they're not really.</p>
     <p><strong>The fix — a sinking fund.</strong> Put aside a fixed amount every month for occasions you know are coming. When the wedding arrives — the money is already there. No stress. No debt. No guilt.</p>
   </div>
-  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">12</span></div>
+  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job.</span><span class="pf-num">12</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -790,7 +754,7 @@ p.c  { text-align: center; }
     <p>No rules. No tracking. No justification. Midnight Swiggy order — yes. Impulsive kurta from Instagram — yes. The only rule — when Bucket 5 is empty, the month is done. Not because you're being strict. Because everything else is already working for you.</p>
     <div class="box"><p><em>A budget isn't a cage. It's the reason you can spend freely without fear.</em></p></div>
   </div>
-  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">13</span></div>
+  <div class="pf"><span class="pf-text">Guilt disappears when every rupee has a job.</span><span class="pf-num">13</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -827,7 +791,7 @@ p.c  { text-align: center; }
       <div class="spl-c b"><div class="spl-h">50% of the raise</div><div class="spl-b">Upgrade your lifestyle. Bigger flat, better food, nicer clothes. Guilt free.</div><div class="spl-f">Your present grows.</div></div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">14</span></div>
+  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">14</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -842,7 +806,7 @@ p.c  { text-align: center; }
     <div class="box"><p><strong>Before taking any new EMI, ask one question —</strong> Does this EMI come from Bucket 5, or is it eating into Bucket 2? If it eats Bucket 2 — wait. Save up. Buy it later. Your future self will thank you.</p></div>
     <p class="i" style="margin-top:5mm;">Lifestyle growth is not the enemy. You work hard. You should live better as you earn more. The enemy is unconscious lifestyle growth. The raise protocol makes it a decision. Half for your future. Half for your present. Both matter. Neither gets sacrificed.</p>
   </div>
-  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">15</span></div>
+  <div class="pf"><span class="pf-text">Salary going up? Make sure your wealth goes up with it. — https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</span><span class="pf-num">15</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -878,7 +842,7 @@ p.c  { text-align: center; }
       <div class="ws-f" style="border-color:var(--amber); background:#FFF8EE;"><div class="ws-fl" style="background:#FFF8EE; color:var(--amber); border-color:var(--amber);">Bucket 4 Total</div><div class="ws-fi"><span class="ws-rs">Rs.</span><div class="ws-ln" style="border-color:var(--amber);"></div></div></div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">Still not sure if your numbers add up? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">16</span></div>
+  <div class="pf"><span class="pf-text">Still not sure if your Bucket 2 is enough? salary2wealth tells you exactly where it should go. — Rs.999</span><span class="pf-num">16</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -904,7 +868,7 @@ p.c  { text-align: center; }
     </ul>
     <div class="box" style="margin-top:5mm;"><p><em>The whole ritual takes 2 hours. You do this once a month. That's it. Your money works for the entire month after this.</em></p></div>
   </div>
-  <div class="pf"><span class="pf-text">Still not sure if your numbers add up? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">17</span></div>
+  <div class="pf"><span class="pf-text">Still not sure if your Bucket 2 is enough? salary2wealth tells you exactly where it should go. — Rs.999</span><span class="pf-num">17</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -930,7 +894,7 @@ p.c  { text-align: center; }
     </div>
     <p class="i c" style="margin-top:5mm;">Print this page. Stick it on your fridge. Fill it on payday. Every month.</p>
   </div>
-  <div class="pf"><span class="pf-text">Want these numbers calculated for your exact salary? — https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</span><span class="pf-num">18</span></div>
+  <div class="pf"><span class="pf-text">Still not sure if your Bucket 2 is enough? salary2wealth tells you exactly where it should go. — Rs.999</span><span class="pf-num">18</span></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════
@@ -943,26 +907,27 @@ p.c  { text-align: center; }
     <p>You know where every rupee goes. You have a payday ritual. Your 5 buckets are set. Lifestyle inflation won't catch you off guard.</p>
     <p class="i">That's more than most people figure out in a lifetime.</p>
     <div class="rule" style="margin:6mm 0;"></div>
-    <div class="sec-lbl">Calculate Per Your Exact Numbers</div>
-    <p>The examples in this guide use standard percentages. Your actual salary, your city, your obligations are different. The EliteRoadMaps Salary Calculator lets you enter your exact numbers — modify each bucket size per your choice and get precise calculations tailored to your life.</p>
+    <div class="sec-lbl">What's Next</div>
+    <p>You've sorted your salary. The next question is: where does it actually go from here? The formula manages money. This guide builds wealth.</p>
     <div class="cta">
-      <p><strong>Go to the Salary Calculator</strong></p>
-      <p>Enter your salary, your rent, your obligations. Choose your own bucket percentages. Get your personalised salary split instantly.</p>
-      <p class="cta-link">https://eliteroadmaps.in/finance/salaryplan/salarycalculator — Rs.999</p>
+      <p><strong>From Salary to Wealth — Rs.999</strong></p>
+      <p>&#x2022; Where your salary actually should go after the 5 buckets<br>
+      &#x2022; How much to actually invest at your salary level — not just 10%<br>
+      &#x2022; SIPs, index funds, PPF, NPS — what goes where and how much<br>
+      &#x2022; How to kill debt fast without killing your lifestyle<br>
+      &#x2022; Tax saving — legally keep more of what you earn<br>
+      &#x2022; The 5-year wealth plan — reverse engineer your financial freedom number</p>
+      <p class="cta-link">https://eliteroadmaps.in/finance/salaryplan/salary2wealth — Rs.999</p>
     </div>
     <div class="rule" style="margin:6mm 0;"></div>
-    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-      <div>
-        <p style="font-size:10pt; font-weight:700; margin-bottom:1mm;">Made by Asha at EliteRoadMaps</p>
-        <p style="font-size:9pt; color:var(--gray);">Real problems. Self-built systems. Packaged so you never need a coach.</p>
-      </div>
-      <div style="text-align:right;">
-        <p style="font-size:9pt; color:var(--gray);">https://eliteroadmaps.in/finance/salaryplan/salaryformula</p>
-        <p style="font-size:9pt; color:var(--gray); margin-top:1mm;">https://eliteroadmaps.in/finance/salaryplan/salarycalculator</p>
-      </div>
+    <div>
+      <p style="font-size:10pt; font-weight:700; margin-bottom:1mm;">Made by Asha at EliteRoadMaps</p>
+      <p style="font-size:9pt; color:var(--gray); margin-bottom:2mm;">Real problems. Self-built systems. Packaged so you never need a coach.</p>
+      <p style="font-size:9pt; color:var(--gray);">https://eliteroadmaps.in/finance/salaryplan/salaryformula</p>
+      <p style="font-size:9pt; color:var(--gray); margin-top:1mm;">https://eliteroadmaps.in/finance/salaryplan/salary2wealth</p>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">https://eliteroadmaps.in/finance/salaryplan/salaryformula  |  https://eliteroadmaps.in/finance/salaryplan/salarycalculator</span><span class="pf-num">19</span></div>
+  <div class="pf"><span class="pf-text">https://eliteroadmaps.in/finance/salaryplan/salaryformula  |  https://eliteroadmaps.in/finance/salaryplan/salary2wealth</span><span class="pf-num">19</span></div>
 </div>
 
 </body>

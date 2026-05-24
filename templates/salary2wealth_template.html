@@ -63,204 +63,216 @@ body {
 }
 
 /* ══════════════════════════════
-   COVER PAGE
+   COVER PAGE — Salary Formula style
 ══════════════════════════════ */
 .cover {
   width: 210mm;
   height: 297mm;
-  background: var(--black);
+  background: var(--offwhite);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
   page-break-after: always;
 }
-
 .cover-topbar {
-  background: var(--amber);
-  padding: 11px 28px;
+  background: var(--black);
+  height: 11mm;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
 }
 .cover-topbar .brand {
   font-family: 'Playfair Display', serif;
-  font-size: 14pt;
-  font-weight: 700;
-  color: var(--black);
-  letter-spacing: 0.5px;
-}
-.cover-topbar .price-badge {
-  font-family: 'Source Sans 3', sans-serif;
   font-size: 9pt;
   font-weight: 700;
-  color: var(--black);
-  background: rgba(0,0,0,0.15);
-  padding: 4px 12px;
-  border-radius: 20px;
+  color: var(--amber);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
-
-.cover-body {
+.cover-topbar .price-badge {
+  font-size: 8pt;
+  color: #444;
+  border: 1px solid #333;
+  padding: 2px 8px;
+  letter-spacing: 1px;
+}
+.cover-main {
   flex: 1;
-  display: flex;
-  padding: 40px 28px 0 28px;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 95mm 1fr;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
 }
-
 .cover-left {
-  flex: 1;
+  padding: 9mm 9mm 7mm 14mm;
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
-
-.cover-eyebrow {
+.cover-right {
+  padding: 9mm 14mm 7mm 9mm;
+  display: flex;
+  flex-direction: column;
+}
+.cover-series {
   font-size: 8pt;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--muted);
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 14px;
+  margin-bottom: 4mm;
 }
-
 .cover-title {
   font-family: 'Playfair Display', serif;
   font-size: 34pt;
   font-weight: 900;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 10px;
+  color: var(--black);
+  line-height: 1.0;
+  letter-spacing: -0.5px;
+  margin-bottom: 3mm;
 }
-.cover-title span {
-  color: var(--amber);
+.cover-title em {
+  font-style: normal;
+  position: relative;
+  display: inline-block;
 }
-
-.cover-dash {
-  width: 50px;
-  height: 3px;
+.cover-title em::after {
+  content: '';
+  display: block;
+  height: 4px;
   background: var(--amber);
-  margin: 16px 0;
+  margin-top: 2px;
 }
-
 .cover-subtitle {
-  font-size: 11pt;
-  font-weight: 300;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.6;
-  max-width: 240px;
-}
-
-.cover-chapters {
-  margin-top: 28px;
-}
-.cover-chapters-label {
-  font-size: 7.5pt;
+  font-size: 10pt;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  color: var(--amber);
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 10px;
+  margin-bottom: 5mm;
+  line-height: 1.5;
 }
-.cover-ch-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.cover-ch-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 9pt;
+.cover-rule { height: 1px; background: var(--border); margin-bottom: 4mm; }
+.cover-slbl {
+  font-size: 8pt;
   font-weight: 700;
   color: var(--amber);
-  min-width: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3mm;
 }
-.cover-ch-text {
-  font-size: 9pt;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.4;
+.cover-about {
+  font-size: 10.5pt;
+  color: var(--black);
+  line-height: 1.8;
+  margin-bottom: 4mm;
 }
-.cover-ch-text strong {
-  color: var(--white);
-  font-weight: 600;
-}
-
-.cover-right {
-  width: 140px;
+.cover-chs {
+  list-style: none;
   display: flex;
   flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.cover-chs li {
+  display: flex;
+  align-items: center;
   gap: 8px;
-  padding-top: 60px;
+  padding: 3px 0;
+  border-bottom: 1px solid #F0F0F0;
 }
-.cover-stat-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(186,117,23,0.3);
-  border-radius: 8px;
-  padding: 12px 14px;
-  text-align: center;
+.cover-chs li:last-child { border-bottom: none; }
+.ch-badge {
+  width: 18px;
+  height: 18px;
+  background: var(--black);
+  color: white;
+  font-size: 8pt;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.cover-stat-num {
+.cover-ch-nm { font-size: 10.5pt; color: var(--black); line-height: 1.3; }
+.cover-ch-sub { font-size: 8.5pt; color: var(--muted); margin-top: 1px; }
+.cover-stats-label {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4mm;
+  margin-top: 5mm;
+}
+.cover-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.cv-stat {
+  background: var(--light-bg);
+  padding: 8px 10px;
+  border-top: 2px solid var(--amber);
+}
+.cv-stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 20pt;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1;
+}
+.cv-stat-l {
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+.cover-prep {
+  background: var(--black);
+  padding: 5mm 14mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.prep-lbl {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.prep-name {
   font-family: 'Playfair Display', serif;
   font-size: 22pt;
   font-weight: 700;
-  color: var(--amber);
-  line-height: 1;
+  color: white;
+  line-height: 1.1;
 }
-.cover-stat-label {
-  font-size: 7.5pt;
-  color: rgba(255,255,255,0.6);
-  margin-top: 4px;
-  line-height: 1.3;
-}
-
-.cover-prepared {
-  background: rgba(186,117,23,0.12);
-  border-top: 1px solid rgba(186,117,23,0.25);
-  padding: 16px 28px;
-  margin-top: auto;
-}
-.cover-prepared-label {
-  font-size: 7.5pt;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 8px;
-}
-.cover-prepared-row {
-  display: flex;
-  gap: 32px;
-}
-.cover-prep-field label {
-  font-size: 7pt;
-  color: rgba(255,255,255,0.45);
-  display: block;
-  margin-bottom: 2px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.cover-prep-field .val {
-  font-size: 9.5pt;
-  font-weight: 600;
-  color: var(--white);
-}
-
-.cover-bottombar {
-  background: var(--amber);
-  padding: 9px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.cover-bottombar .url {
-  font-size: 8pt;
-  font-weight: 600;
-  color: var(--black);
-}
-.cover-bottombar .tagline {
-  font-size: 7.5pt;
-  color: rgba(0,0,0,0.65);
+.prep-con { font-size: 10.5pt; color: #666; margin-top: 2px; }
+.prep-tag {
+  font-size: 10pt;
+  color: #666;
   font-style: italic;
+  line-height: 1.9;
+  text-align: right;
 }
+.cover-bot {
+  background: var(--amber);
+  height: 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14mm;
+  flex-shrink: 0;
+}
+.cover-bot span { font-size: 8pt; color: rgba(255,255,255,0.9); letter-spacing: 0.3px; }
 
 /* ══════════════════════════════
    INNER PAGE STRUCTURE
@@ -635,91 +647,58 @@ body {
 <!-- ══════════════════════════════════════════
      COVER PAGE
 ══════════════════════════════════════════ -->
-<div class="page cover">
+<div class="cover">
+
   <div class="cover-topbar">
-    <div class="brand">EliteRoadMaps</div>
-    <div class="price-badge">Complete Guide</div>
+    <span class="brand">EliteRoadMaps.in</span>
+    <span class="price-badge">Complete Guide</span>
   </div>
 
-  <div class="cover-body">
+  <div class="cover-main">
     <div class="cover-left">
-      <div class="cover-eyebrow">EliteRoadMaps Finance Series</div>
-      <div class="cover-title">
-        From Salary<br>to <span>Wealth</span>
-      </div>
-      <div class="cover-dash"></div>
-      <div class="cover-subtitle">A complete system to protect, grow and multiply your salary in India.</div>
-
-      <div class="cover-chapters">
-        <div class="cover-chapters-label">What's Inside</div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">01</div>
-          <div class="cover-ch-text"><strong>Why We Overspend</strong> — where does the money go, lifestyle inflation, emotional spending</div>
-        </div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">02</div>
-          <div class="cover-ch-text"><strong>Where to Put Your Money</strong> — SIPs, index funds, PPF vs NPS vs ELSS</div>
-        </div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">03</div>
-          <div class="cover-ch-text"><strong>Killing Debt</strong> — good debt vs bad debt, EMI strategy, CIBIL score</div>
-        </div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">04</div>
-          <div class="cover-ch-text"><strong>Tax Saving</strong> — 80C, HRA, new vs old regime</div>
-        </div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">05</div>
-          <div class="cover-ch-text"><strong>Building a Second Income</strong> — freelancing, monetising skills</div>
-        </div>
-        <div class="cover-ch-item">
-          <div class="cover-ch-num">06</div>
-          <div class="cover-ch-text"><strong>The 5 Year Wealth Plan</strong> — reverse engineer your number, milestone targets</div>
-        </div>
-      </div>
+      <p class="cover-series">EliteRoadMaps Finance Series</p>
+      <div class="cover-title">From Salary<br>to <em>Wealth</em></div>
+      <p class="cover-subtitle">A complete system to protect,<br>grow and multiply your salary in India.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-slbl">About This Guide</p>
+      <p class="cover-about">A 6-part guide that takes your salary — whatever the number — and turns it into something that actually builds your future. Not tips. A complete system.</p>
+      <div class="cover-rule"></div>
+      <p class="cover-slbl">What's Inside</p>
+      <ul class="cover-chs">
+        <li><div class="ch-badge">01</div><div><div class="cover-ch-nm">Why We Overspend</div><div class="cover-ch-sub">Lifestyle inflation, emotional spending</div></div></li>
+        <li><div class="ch-badge">02</div><div><div class="cover-ch-nm">Where to Put Your Money</div><div class="cover-ch-sub">SIPs, index funds, PPF vs NPS vs ELSS</div></div></li>
+        <li><div class="ch-badge">03</div><div><div class="cover-ch-nm">Killing Debt</div><div class="cover-ch-sub">Good debt vs bad debt, EMI strategy, CIBIL</div></div></li>
+        <li><div class="ch-badge">04</div><div><div class="cover-ch-nm">Tax Saving</div><div class="cover-ch-sub">80C, HRA, new vs old regime</div></div></li>
+        <li><div class="ch-badge">05</div><div><div class="cover-ch-nm">Building a Second Income</div><div class="cover-ch-sub">Freelancing, monetising skills</div></div></li>
+        <li><div class="ch-badge">06</div><div><div class="cover-ch-nm">The 5 Year Wealth Plan</div><div class="cover-ch-sub">Reverse engineer your number, milestones</div></div></li>
+      </ul>
     </div>
-
     <div class="cover-right">
-      <div class="cover-stat-card">
-        <div class="cover-stat-num">6</div>
-        <div class="cover-stat-label">Complete Chapters</div>
-      </div>
-      <div class="cover-stat-card">
-        <div class="cover-stat-num">3</div>
-        <div class="cover-stat-label">Salary Levels Covered</div>
-      </div>
-      <div class="cover-stat-card">
-        <div class="cover-stat-num">90</div>
-        <div class="cover-stat-label">Day Action Plan</div>
-      </div>
-      <div class="cover-stat-card">
-        <div class="cover-stat-num">5yr</div>
-        <div class="cover-stat-label">Wealth Roadmap</div>
+      <p class="cover-stats-label">At a Glance</p>
+      <div class="cover-stats">
+        <div class="cv-stat"><div class="cv-stat-n">6</div><div class="cv-stat-l">Complete Chapters</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">3</div><div class="cv-stat-l">Salary Levels Covered</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">90</div><div class="cv-stat-l">Day Action Plan</div></div>
+        <div class="cv-stat"><div class="cv-stat-n">5yr</div><div class="cv-stat-l">Wealth Roadmap</div></div>
       </div>
     </div>
   </div>
 
-  <div class="cover-prepared">
-    <div class="cover-prepared-label">Prepared For</div>
-    <div class="cover-prepared-row">
-      <div class="cover-prep-field">
-        <label>Name</label>
-        <div class="val">{{CUSTOMER_NAME}}</div>
-      </div>
-      <div class="cover-prep-field">
-        <label>Mobile</label>
-        <div class="val">{{MOBILE_NO}}</div>
-      </div>
-      <div class="cover-prep-field">
-        <label>Email</label>
-        <div class="val">{{EMAIL}}</div>
-      </div>
+  <div class="cover-prep">
+    <div>
+      <div class="prep-lbl">Prepared For</div>
+      <div class="prep-name">{{CUSTOMER_NAME}}</div>
+      <div class="prep-con">{{MOBILE_NO}} &nbsp;|&nbsp; {{EMAIL}}</div>
+    </div>
+    <div class="prep-tag">
+      Read once. Use for life.<br>
+      Real problems. Self-built systems. Packaged so you never need a coach.
     </div>
   </div>
 
-  <div class="cover-bottombar">
-    <div class="url">eliteroadmaps.in/finance</div>
-    <div class="tagline">Real problems. Self-built systems. Packaged so you never need a coach.</div>
+  <div class="cover-bot">
+    <span>https://eliteroadmaps.in/finance/salaryplan/salary2wealth</span>
+    <span>EliteRoadMaps.in — Finance — Salary Plan</span>
   </div>
 </div>
 
@@ -762,7 +741,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">Intro</div>
   </div>
@@ -827,7 +806,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">01</div>
   </div>
@@ -921,7 +900,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">02</div>
   </div>
@@ -1013,7 +992,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">03</div>
   </div>
@@ -1083,7 +1062,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">04</div>
   </div>
@@ -1149,7 +1128,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">05</div>
   </div>
@@ -1216,7 +1195,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">06</div>
   </div>
@@ -1269,7 +1248,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">07</div>
   </div>
@@ -1326,7 +1305,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">08</div>
   </div>
@@ -1367,7 +1346,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">09</div>
   </div>
@@ -1419,7 +1398,24 @@ body {
       <div class="callout-text">This is your freedom number. The point at which money stops being a source of daily stress and financial decisions start being made from choice, not pressure.</div>
     </div>
 
-    <div class="sec-heading" style="border-left-color:var(--ch6)">Milestone Targets — ₹25,000 to ₹40,000/month</div>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">10</div>
+  </div>
+</div>
+
+
+<!-- ── CH6 PAGE 2: ALL MILESTONE TARGETS ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 6 — Milestone Targets</div>
+  </div>
+  <div class="page-content">
+
+    <div class="sec-heading" style="border-left-color:var(--ch6)">Milestone Targets — Per Salary Level</div>
 
     <div class="milestone-section">
       <div class="milestone-header">Salary Range: <span>₹25,000 – ₹40,000/month</span></div>
@@ -1429,23 +1425,6 @@ body {
       <div class="milestone-year"><div class="milestone-year-num">Yr 4</div><div class="milestone-year-content">SIP amount increased by at least 10% following salary growth. Second income exploration started even if small.</div></div>
       <div class="milestone-year"><div class="milestone-year-num">Yr 5</div><div class="milestone-year-content">Total invested corpus between ₹3 lakh and ₹5 lakh. Emergency fund fully intact. No bad debt. Basic tax planning in place. Financial stress significantly reduced.</div></div>
     </div>
-
-  </div>
-  <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
-    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">10</div>
-  </div>
-</div>
-
-
-<!-- ── CH6 PAGE 2: MORE MILESTONES ── -->
-<div class="inner-page">
-  <div class="page-header">
-    <div class="doc-title">From Salary to Wealth</div>
-    <div class="ch-label">Chapter 6 — The 5 Year Wealth Plan (continued)</div>
-  </div>
-  <div class="page-content">
 
     <div class="milestone-section">
       <div class="milestone-header">Salary Range: <span>₹40,000 – ₹80,000/month</span></div>
@@ -1467,7 +1446,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">11</div>
   </div>
@@ -1525,7 +1504,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">12</div>
   </div>
@@ -1616,7 +1595,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">13</div>
   </div>
@@ -1669,7 +1648,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">14</div>
   </div>
@@ -1710,7 +1689,7 @@ body {
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">15</div>
   </div>
@@ -1741,16 +1720,40 @@ body {
 
     <div class="intro-quote">Do it anyway. Five years from now you will either look back at this moment as the point where things changed — or as another thing you read and meant to act on. That difference is entirely in your hands.</div>
 
-    <hr class="rule">
+    <hr class="rule" style="margin:16px 0;">
 
-    <p style="text-align:center; font-size:8pt; color:var(--muted); margin-top:16px;">
+    <!-- UPSELL — matches thank you page -->
+    <div style="margin:16px 0;">
+      <p style="font-size:8pt;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">While You&#x2019;re Here</p>
+      <p style="font-size:10pt;font-weight:700;color:var(--black);margin-bottom:6px;">You&#x2019;ve sorted your finances. Now unfurl your mind.</p>
+      <p style="font-size:9.5pt;color:var(--muted);line-height:1.6;margin-bottom:14px;">Two more things worth your attention &#x2014; one to sharpen how you think and live, one that shows you everything EliteRoadMaps has built.</p>
+      <div style="display:flex;gap:12px;">
+        <div style="flex:1;border:1px solid var(--border);padding:14px 16px;background:var(--white);">
+          <div style="font-size:8pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Up next</div>
+          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">Unfurl Comprehensive</div>
+          <p style="font-size:9pt;color:var(--muted);line-height:1.55;margin-bottom:8px;">India&#x2019;s first honest guide to sexual health and hormones &#x2014; what nobody tells you about your body, your libido, and how to actually feel like yourself.</p>
+          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--amber);">&#x20B9;299</div>
+          <p style="font-size:8pt;color:var(--muted);margin-top:4px;">eliteroadmaps.in/health/unfurl-basic</p>
+        </div>
+        <div style="flex:1;border:1px solid var(--amber);padding:14px 16px;background:rgba(186,117,23,0.05);">
+          <div style="font-size:8pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">All guides</div>
+          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">EliteRoadMaps</div>
+          <p style="font-size:9pt;color:var(--muted);line-height:1.55;margin-bottom:8px;">Real problems. Self-built systems. No coaches, no fluff. Every guide EliteRoadMaps has built &#x2014; salary, wealth, inflation, health &#x2014; in one place.</p>
+          <p style="font-size:8.5pt;font-weight:600;color:var(--amber);">eliteroadmaps.in</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin:14px 0;">
+
+    <p style="text-align:center; font-size:8pt; color:var(--muted); margin-top:10px;">
       Licensed to <strong>{{CUSTOMER_NAME}}</strong> · {{MOBILE_NO}} · {{EMAIL}}<br>
-      © EliteRoadMaps · eliteroadmaps.in · Not for redistribution
+      &#169; EliteRoadMaps &#x2022; eliteroadmaps.in &#x2022; Not for redistribution
     </p>
 
   </div>
   <div class="page-footer">
-    <div class="footer-brand">EliteRoadMaps · From Salary to Wealth</div>
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
     <div class="footer-page">16</div>
   </div>
