@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>The Inflation War — EliteRoadMaps</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-/* System font fallbacks — no external network calls (Puppeteer safe) */
+/* ══════════════════════════════════════════════════════
+   FONT STACK — Puppeteer safe, no external network calls
+   Playfair Display → Georgia → Times New Roman → serif
+   Source Sans 3    → Helvetica Neue → Arial → sans-serif
+══════════════════════════════════════════════════════ */
 </style>
 <style>
 /* ══════════════════════════════════
@@ -29,7 +32,7 @@
 
 body {
   background: #CCCCCC;
-  font-family: 'Source Sans 3', Georgia, sans-serif;
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
   font-size: 11pt;
   color: var(--black);
 }
@@ -155,7 +158,7 @@ p.c  { text-align: center; }
   border-bottom: 1px solid var(--border);
 }
 .ch-n {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 68pt; font-weight: 900;
   color: #EBEBEB; line-height: 0.85;
   flex-shrink: 0; margin-top: -2px;
@@ -169,8 +172,7 @@ p.c  { text-align: center; }
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
 }
 .ch-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22pt; font-weight: 700; color: var(--black); line-height: 1.1;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 /* ══════════════════════════════════
@@ -224,7 +226,7 @@ p.c  { text-align: center; }
 .step { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; background:var(--light); }
 .step-l { width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; padding:4mm 0; }
 .step-sl { font-size:6.5pt; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase; }
-.step-sn { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; line-height:1; }
+.step-sn { font-family:Georgia,'Times New Roman',serif; font-size:18pt; font-weight:700; color:white; line-height:1; }
 .step-r { padding:4mm 5mm; flex:1; }
 .step-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:1mm; }
 .step-tm { font-size:9pt; color:var(--amber); font-style:italic; margin-bottom:2mm; }
@@ -235,7 +237,7 @@ p.c  { text-align: center; }
 ══════════════════════════════════ */
 .brow { display:flex; align-items:center; border:0.5px solid var(--border); margin-bottom:2mm; background:white; }
 .brow-l { width:44px; display:flex; align-items:center; justify-content:center; align-self:stretch; flex-shrink:0; min-height:48px; }
-.brow-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:white; }
+.brow-n { font-family:Georgia,'Times New Roman',serif; font-size:20pt; font-weight:700; color:white; }
 .brow-m { flex:1; padding:3mm 4mm; }
 .brow-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
 .brow-sub { font-size:9.5pt; color:var(--gray); margin-top:1px; }
@@ -251,7 +253,7 @@ p.c  { text-align: center; }
 .acc { display:flex; align-items:stretch; border:0.5px solid var(--border); margin-bottom:3mm; }
 .acc-l { width:70px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; gap:2px; padding:4mm 0; }
 .acc-lw { font-size:8pt; font-weight:700; color:white; letter-spacing:0.5px; }
-.acc-ln { font-family:'Playfair Display',serif; font-size:18pt; font-weight:700; color:white; }
+.acc-ln { font-family:Georgia,'Times New Roman',serif; font-size:18pt; font-weight:700; color:white; }
 .acc-r { flex:1; padding:4mm 5mm; background:var(--light); }
 .acc-t { font-size:12pt; font-weight:700; color:var(--black); margin-bottom:2mm; }
 .acc-d { font-size:10.5pt; color:#333; line-height:1.65; margin:0; text-align:left; }
@@ -343,7 +345,7 @@ p.c  { text-align: center; }
   letter-spacing:3px; text-transform:uppercase; margin-bottom:4mm;
 }
 .cover-title {
-  font-family:'Playfair Display',serif; font-size:38pt; font-weight:900;
+  font-family:Georgia,'Times New Roman',serif; font-size:38pt; font-weight:900;
   color:var(--black); line-height:1.0; letter-spacing:-0.5px; margin-bottom:3mm;
 }
 .cover-title em { font-style:normal; position:relative; display:inline-block; }
@@ -365,12 +367,12 @@ p.c  { text-align: center; }
 .cover-bkt-lbl { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:4mm; }
 .cover-bkts { display:flex; flex-direction:column; gap:5px; margin-bottom:auto; }
 .cv-bkt { display:flex; align-items:center; gap:10px; padding:8px 10px; background:white; border:0.5px solid #E0E0E0; }
-.cv-bkt-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; min-width:22px; line-height:1; }
+.cv-bkt-n { font-family:Georgia,'Times New Roman',serif; font-size:20pt; font-weight:700; min-width:22px; line-height:1; }
 .cv-bkt-nm { font-size:11pt; font-weight:700; color:var(--black); line-height:1.2; }
 .cv-bkt-d  { font-size:9.5pt; color:var(--gray); margin-top:1px; }
 .cover-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:5mm; }
 .cv-stat { background:var(--light); padding:8px 10px; border-top:2px solid var(--amber); }
-.cv-stat-n { font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:var(--black); line-height:1; }
+.cv-stat-n { font-family:Georgia,'Times New Roman',serif; font-size:20pt; font-weight:700; color:var(--black); line-height:1; }
 .cv-stat-l { font-size:8.5pt; color:var(--gray); margin-top:3px; line-height:1.3; }
 .cover-prep {
   background:var(--black); padding:5mm 14mm;
@@ -378,7 +380,7 @@ p.c  { text-align: center; }
   flex-shrink:0; z-index:2; position:relative;
 }
 .prep-lbl  { font-size:8pt; font-weight:700; color:var(--amber); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px; }
-.prep-name { font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:white; line-height:1.1; }
+.prep-name { font-family:Georgia,'Times New Roman',serif; font-size:22pt; font-weight:700; color:white; line-height:1.1; }
 .prep-con  { font-size:10.5pt; color:#666; margin-top:2px; }
 .prep-tag  { font-size:10pt; color:#666; font-style:italic; line-height:1.9; text-align:right; }
 .cover-bot {
@@ -467,7 +469,7 @@ p.c  { text-align: center; }
 /* Upsell box (closing page) */
 .upsell { background:var(--navy); border-left:4px solid var(--red); padding:5mm 6mm; margin:5mm 0 0; }
 .upsell-lbl   { font-size:8pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:2mm; }
-.upsell-title { font-size:16pt; font-weight:700; color:white; margin-bottom:2mm; font-family:'Playfair Display',serif; }
+.upsell-title { font-size:16pt; font-weight:700; color:white; margin-bottom:2mm; font-family:Georgia,'Times New Roman',serif; }
 .upsell-title em { color:var(--gold); font-style:italic; }
 .upsell p     { font-size:10pt; color:rgba(255,255,255,0.65); margin-bottom:3mm; text-align:left; }
 .upsell ul    { list-style:none; margin-bottom:3mm; }
@@ -475,7 +477,7 @@ p.c  { text-align: center; }
 .upsell ul li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
 .upsell-bot   { display:flex; align-items:baseline; justify-content:space-between; padding-top:3mm; border-top:1px solid rgba(212,168,55,0.2); margin-top:2mm; }
 .upsell-url   { font-size:9pt; color:var(--gold); font-weight:600; }
-.upsell-price { font-size:18pt; font-weight:700; color:white; font-family:'Playfair Display',serif; }
+.upsell-price { font-size:18pt; font-weight:700; color:white; font-family:Georgia,'Times New Roman',serif; }
 </style>
 </head>
 <body>
@@ -629,7 +631,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 01 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">The Enemy Is Real</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">The Enemy Is Real</div>
     </div>
     <div class="sec-h">War 2 — The Rupee War</div>
     <p>When oil prices rise, India needs more dollars to buy that oil. More dollars needed = rupee weakens. The rupee has crashed to a record low of ₹95.63 to a dollar in May 2026 — the worst in India's history.</p>
@@ -691,7 +693,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 02 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">How War Kills Your Salary Silently</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">How War Kills Your Salary Silently</div>
     </div>
     <div class="sec-h">Killer 4 — The Rupee Trap</div>
     <p>You might think — I don't buy dollars. Why does this affect me? Because almost everything you buy has an imported component. Your phone — imported chips. Laptop — imported. Medicines — active ingredients imported. Cooking oil — partially imported. You don't need to travel abroad for the dollar to hurt you.</p>
@@ -746,7 +748,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 03 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What Is Actually Worrying You</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">What Is Actually Worrying You</div>
     </div>
     <div class="sec-h">Fear 4 — "What about my children?"</div>
     <p>An engineering degree today costs ₹8 to ₹15 lakh. An MBA — ₹15 to ₹25 lakh. Medical — ₹50 lakh to ₹1 crore. Education costs double every 7 to 10 years. Hope is not a financial plan. A SIP started today — even ₹2,000 per month — specifically for your child's education, grows into something real by the time they need it.</p>
@@ -800,7 +802,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 04 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What Are You Actually Investing FOR?</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">What Are You Actually Investing FOR?</div>
     </div>
     <div class="sec-h">Goal 2 — Your Child's Education</div>
     <table class="ft no-last-right">
@@ -860,7 +862,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 05 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">What NOT To Do Right Now</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">What NOT To Do Right Now</div>
     </div>
     <div class="sec-h">Mistake 4 — Taking A Personal Loan To Cover Rising Expenses</div>
     <p>Personal loan interest rate — 12% to 24% per year. Credit card — 36% to 42% per year. You are borrowing money at 36% to buy things that inflation made 6% costlier. You are losing 30% every year just to keep up. The solution to rising expenses is never more debt. It is restructured spending — Chapter 7 shows you how.</p>
@@ -905,7 +907,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
     <div class="sec-h">W3 — NPS: The Most Ignored Tax Saver</div>
     <p>NPS gives you an ADDITIONAL ₹50,000 deduction under Section 80CCD(1B) — over and above your regular ₹1.5L 80C limit. NPS invests in equity + government bonds — historically returning 9 to 12% annually. Tax saved: ₹10,000–₹15,000/year. Do this before March 31st every year. Never miss this free money.</p>
@@ -927,7 +929,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
     <div class="sec-h">W6 — Defence Sector Funds: Turn the War Into an Opportunity</div>
     <p>India's defence budget — ₹6.81 lakh crore in 2025-26. Going up after Operation Sindoor. HAL order book — ₹1.89 lakh crore. BEL order book — ₹75,000 crore. These companies will be billing and generating cash through 2026, 2027, 2028. Defence sector mutual funds give you exposure to all of them. This is not speculation. This is following government spending.</p>
@@ -949,7 +951,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Inflation War Battle Plan</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
     <div class="sec-lbl">Timing Matters — What To Buy When</div>
     <p>The eight weapons above are not all equal at all times. Buying the right weapon at the wrong time reduces your returns significantly.</p>
@@ -1002,7 +1004,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 07 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">The War Budget</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">The War Budget</div>
     </div>
     <div class="sec-lbl">Real Salary Examples</div>
     <div class="ex-h"><span class="ex-tag">₹30K Salary — Bangalore</span><span class="ex-name">Priya — Single, sends ₹5,000 home</span></div>
@@ -1102,7 +1104,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your 30 Day Action Plan</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your 30 Day Action Plan</div>
     </div>
     <div class="sec-lbl">Week 3 — Diversify</div>
     <div class="wk wk3">
@@ -1185,7 +1187,7 @@ for (let i = 0; i < 22; i++) {
 
         <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter WS — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:'Playfair Display',serif;">Your Personal War Budget</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Personal War Budget</div>
     </div>
     <div class="sec-lbl">Bucket 2 — Protect &amp; Grow (Investments)</div>
     <div class="ws-grid">
@@ -1222,7 +1224,7 @@ for (let i = 0; i < 22; i++) {
 
     <div style="text-align:center;padding-top:8mm;">
       <div style="width:40px;height:3px;background:var(--red);margin:0 auto 6mm;"></div>
-      <div style="font-family:'Playfair Display',serif;font-size:30pt;font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:5mm;">The War Is Real.<br><span style="color:var(--red);">So Is Your Ability To Win It.</span></div>
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:30pt;font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:5mm;">The War Is Real.<br><span style="color:var(--red);">So Is Your Ability To Win It.</span></div>
       <p style="font-size:12pt;color:#555;max-width:440px;margin:0 auto 5mm;line-height:1.8;text-align:center;">You have a salary. You have a plan. You have eight weapons. You have a budget. You have a 30-day action plan. The salaried Indian who reads this and acts — even imperfectly, even partially — is already winning. Because most people will do nothing. <strong>You are not most people.</strong></p>
       <div style="font-size:10pt;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:5mm;">EliteRoadMaps · May 2026</div>
     </div>
