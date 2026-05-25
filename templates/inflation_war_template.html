@@ -46,7 +46,7 @@ body {
   background: var(--white);
   margin: 10mm auto;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
@@ -312,7 +312,7 @@ p.c  { text-align: center; }
   background: var(--white);
   margin: 10mm auto;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
@@ -441,12 +441,20 @@ p.c  { text-align: center; }
 .ph-brand     { color: var(--gold); }
 /* Sec label: gold */
 .sec-lbl      { color: var(--red); border-bottom-color: #eee; }
+/* Weapon card */
+.weapon { border:1px solid var(--border); border-left:3px solid var(--red); margin:4mm 0; background:#fff; }
+.weapon-hd { display:flex; align-items:center; gap:8px; padding:3mm 4mm 2mm; border-bottom:1px solid #f0f0f0; }
+.weapon-tag { font-size:7.5pt; font-weight:700; color:white; background:var(--red); padding:1px 7px; letter-spacing:1px; flex-shrink:0; }
+.weapon-title { font-size:11.5pt; font-weight:700; color:var(--black); line-height:1.2; }
+.weapon-body { padding:3mm 4mm 0; }
+.weapon-body p { margin:0; font-size:10.5pt; line-height:1.7; text-align:justify; }
+.weapon-body .box, .weapon-body .box-red { margin:2mm 0 0; }
 /* Weapon meta row */
-.wmeta { display:grid; grid-template-columns:repeat(3,1fr); margin-top:3mm; border-top:1px solid #eee; }
-.wmeta-i { padding:2mm 3mm; text-align:center; border-right:1px solid #eee; }
+.wmeta { display:grid; grid-template-columns:repeat(3,1fr); background:#F5F5F3; border-top:1px solid #e8e8e8; }
+.wmeta-i { padding:2.5mm 3mm; text-align:center; border-right:1px solid #e8e8e8; }
 .wmeta-i:last-child { border-right:none; }
-.wmeta-lbl { font-size:8.5pt; color:#888; text-transform:uppercase; letter-spacing:0.5px; }
-.wmeta-val { font-size:10.5pt; font-weight:700; color: var(--navy); }
+.wmeta-lbl { font-size:7.5pt; color:#888; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:1px; }
+.wmeta-val { font-size:10pt; font-weight:700; color:var(--navy); }
 /* Person/salary example row */
 .prow { background:#F8F9FC; border:0.5px solid var(--border); margin-bottom:2mm; padding:3mm 4mm; }
 .prow-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:2mm; }
@@ -638,6 +646,18 @@ for (let i = 0; i < 22; i++) {
     <p>A weaker rupee means everything imported costs more — your phone, laptop, medicines, electronics. Your salary is in rupees. The world prices things in dollars. You lose.</p>
     <div class="sec-h">War 3 — The Coming Food War</div>
     <p>This one is the most dangerous. And most people don't see it yet. Oil rises → Fertiliser rises → Farming costs rise → Food prices rise. But this has a 3 to 6 month delay. The food inflation you will feel in October–December 2026 is already set in motion. Today. Right now.</p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Iran. Operation Sindoor. Oil. Three wars. One target — your salary.</span><span class="pf-num">02</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 01</span></div>
+  <div class="pb">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 01 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">The Enemy Is Real</div>
+    </div>
     <div class="sec-h">And Then There's Operation Sindoor</div>
     <p>India struck Pakistan. Markets panicked. Airports closed. Flights rerouted. Defence spending goes up. Government money that could have gone to roads, hospitals, subsidies — goes to missiles and soldiers. Every war has a bill. The salaried middle class always pays it.</p>
     <table class="ft no-last-right">
@@ -658,7 +678,7 @@ for (let i = 0; i < 22; i++) {
     <p class="i">This is not doom and gloom. This is arithmetic. The question is not whether inflation is coming. The question is — are you ready for it? The next chapters are your battle plan.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">01</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">03</span></div>
 </div>
 
 <div class="page">
@@ -684,7 +704,7 @@ for (let i = 0; i < 22; i++) {
     <p>Rent rises because landlords have expenses too — maintenance, property tax, their own rising costs. In cities where jobs are — Mumbai, Bengaluru, Pune, Hyderabad, Delhi — housing demand never drops. Average rent increases in Tier 1 cities in 2026 — 8 to 12%. Your salary increase — 5 to 8%. Rent is already winning.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Your salary is losing ground every single month.</span><span class="pf-num">02</span></div>
+  <div class="pf"><span class="pf-text">Your salary is losing ground every single month.</span><span class="pf-num">04</span></div>
 </div>
 
 <div class="page">
@@ -713,7 +733,7 @@ for (let i = 0; i < 22; i++) {
     <p class="i">This is not to scare you. This is to make you angry enough to act. Because the people who understand this — who see the silent killers — they are the ones who protect themselves.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">02</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">05</span></div>
 </div>
 
 <div class="page">
@@ -739,7 +759,7 @@ for (let i = 0; i < 22; i++) {
     <p>Nobody talks about this in finance books. But every Indian salaried person between 28 and 42 carries it. Medical costs in India are rising at 10–14% every year. A single hospitalisation — heart, kidney, ortho — can cost ₹3 to ₹8 lakh easily. One health insurance policy for your parents — ₹15,000 to ₹25,000 per year — can protect ₹5 to ₹10 lakh of medical costs.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Every fear has the same root cause — no financial structure. That changes today.</span><span class="pf-num">03</span></div>
+  <div class="pf"><span class="pf-text">Every fear has the same root cause — no financial structure. That changes today.</span><span class="pf-num">06</span></div>
 </div>
 
 <div class="page">
@@ -759,7 +779,7 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>The Common Thread:</strong> Every fear above has the same root cause — no financial structure built to survive uncertainty. Not because you're irresponsible. Because nobody taught you. School didn't. College didn't. Your employer didn't. You were handed a salary and expected to figure it out. <em>This guide is what you should have been given on your first salary day.</em></p></div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">03</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">07</span></div>
 </div>
 
 <div class="page">
@@ -793,7 +813,7 @@ for (let i = 0; i < 22; i++) {
     <p>Not a savings account. A liquid mutual fund — same safety, better returns, available in 24 hours. Set aside 10% of salary every month until you hit the number.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Give your money a purpose before giving it a destination.</span><span class="pf-num">04</span></div>
+  <div class="pf"><span class="pf-text">Give your money a purpose before giving it a destination.</span><span class="pf-num">08</span></div>
 </div>
 
 <div class="page">
@@ -828,7 +848,7 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>The Time Lesson:</strong> At 25 — ₹2,100/month builds ₹2 crore. At 45 — you need ₹30,000/month for the same result. Time is the most powerful investment tool you have. And it's running. Every investment decision from now on — ask: which of my 3 goals does this serve?</p></div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">04</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">09</span></div>
 </div>
 
 <div class="page">
@@ -853,7 +873,7 @@ for (let i = 0; i < 22; i++) {
     <p>Gold has already run up significantly. Everyone who should have bought gold — already bought it. Now you're buying at a high price. Paying GST. Paying making charges. Storing it. Worrying about theft. And physical gold gives you zero income while you hold it. There is a better way to own gold in 2026 — Sovereign Gold Bonds. Same exposure + 2.5% interest + zero GST + tax free at maturity. Chapter 6 explains this.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">The antidote to fear is a plan. Simple. Clear. Actionable. That's Chapter 6.</span><span class="pf-num">05</span></div>
+  <div class="pf"><span class="pf-text">The antidote to fear is a plan. Simple. Clear. Actionable. That's Chapter 6.</span><span class="pf-num">10</span></div>
 </div>
 
 <div class="page">
@@ -873,7 +893,7 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>The Common Thread:</strong> Every mistake above comes from fear without direction. You feel the danger but don't know what to do. So you freeze or make a move that feels safe but isn't. The antidote — is a plan. Not complicated. Not perfect. Simple. Clear. Actionable. That's Chapter 6.</p></div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">05</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">11</span></div>
 </div>
 
 <div class="page">
@@ -889,16 +909,22 @@ for (let i = 0; i < 22; i++) {
       </div>
     </div>
     <p>You've seen the enemy. You've felt the fear. You know what not to do. Now we fight back. Eight weapons. Each one chosen specifically for 2026 — for the inflation coming, for the wars happening, for the salaried Indian earning between ₹25,000 and ₹2,00,000 a month.</p>
-    <div class="sec-h">W1 — Liquid Mutual Funds: Your Emergency Fund's True Home</div>
-    <p>Most people keep emergency money in a savings account at 3.5%. Inflation is 3.4% today. Rising tomorrow. Your emergency fund is already losing. Liquid mutual funds invest in government securities and high quality short term bonds. Completely safe. Returns — 6.5 to 7.5% currently. Your money is available within 24 hours. Same safety. Double the return.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">6.5–7.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Liquidity</div><div class="wmeta-val">24 Hours</div></div></div>
-    <div class="sec-h" style="margin-top:3mm;">W2 — Sovereign Gold Bonds (SGBs): The Smartest Way to Own Gold</div>
-    <p>SGBs are issued by the Reserve Bank of India. You get: gold price appreciation + 2.5% annual interest paid every 6 months + zero GST + zero storage cost + completely tax free at maturity (8 years).</p>
-    <div class="box box-red"><p>⚠️ <strong>Honest Warning:</strong> Gold is currently near all-time highs. Buying SGBs at peak prices = limited upside in short term. If the war ends in 1–2 years, gold could fall 15–25%. On May 11, 2026 — PM Modi publicly asked Indians to pause gold purchases. When the PM says don't buy gold right now — that's your clearest signal to wait. Buy on a 10–15% correction.</p></div>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Gold + 2.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low (timing)</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5% now</div></div></div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W1</span><span class="weapon-title">Liquid Mutual Funds — Your Emergency Fund's True Home</span></div>
+      <div class="weapon-body"><p>Most people keep emergency money in a savings account at 3.5%. Inflation is 3.4% today. Rising tomorrow. Your emergency fund is already losing. Liquid mutual funds invest in government securities and high quality short term bonds. Completely safe. Returns — 6.5 to 7.5% currently. Your money is available within 24 hours. Same safety. Double the return.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">6.5–7.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Liquidity</div><div class="wmeta-val">24 Hours</div></div></div>
+    </div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W2</span><span class="weapon-title">Sovereign Gold Bonds (SGBs) — The Smartest Way to Own Gold</span></div>
+      <div class="weapon-body">
+        <p>SGBs are issued by the Reserve Bank of India. You get: gold price appreciation + 2.5% annual interest paid every 6 months + zero GST + zero storage cost + completely tax free at maturity (8 years).</p>
+        <div class="box box-red"><p>⚠️ <strong>Honest Warning:</strong> Gold is currently near all-time highs. Buying SGBs at peak prices = limited upside in short term. If the war ends in 1–2 years, gold could fall 15–25%. On May 11, 2026 — PM Modi publicly asked Indians to pause gold purchases. When the PM says don't buy gold right now — that's your clearest signal to wait. Buy on a 10–15% correction.</p></div>
+      </div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Gold + 2.5%</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low (timing)</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5% now</div></div></div>
+    </div>
 
   </div>
-  <div class="pf"><span class="pf-text">8 weapons chosen for 2026. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+  <div class="pf"><span class="pf-text">8 weapons chosen for 2026. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">12</span></div>
 </div>
 
 <div class="page">
@@ -909,18 +935,24 @@ for (let i = 0; i < 22; i++) {
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
-    <div class="sec-h">W3 — NPS: The Most Ignored Tax Saver</div>
-    <p>NPS gives you an ADDITIONAL ₹50,000 deduction under Section 80CCD(1B) — over and above your regular ₹1.5L 80C limit. NPS invests in equity + government bonds — historically returning 9 to 12% annually. Tax saved: ₹10,000–₹15,000/year. Do this before March 31st every year. Never miss this free money.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">9–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Tax Saved</div><div class="wmeta-val">₹10K–15K/yr</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Amount</div><div class="wmeta-val">₹50,000/yr</div></div></div>
-    <div class="sec-h" style="margin-top:3mm;">W4 — Index Funds: Own All of India for ₹500/month</div>
-    <p>An index fund buys all 50 companies in the Nifty 50 — Reliance, TCS, HDFC Bank, Infosys. All of them. In one investment. When India grows — your investment grows. Nifty 50 historical returns — 12 to 14% annually over 15+ years. Lowest fees of any mutual fund — 0.1% per year. Never stop this SIP. Not for Iran. Not for Pakistan. Not for any reason.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">12–14% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">30–40%</div></div></div>
-    <div class="sec-h" style="margin-top:3mm;">W5 — REITs: Own Premium Office Buildings for ₹10,000</div>
-    <p>Embassy, Mindspace, Nexus Malls, Brookfield — these are the buildings where MNCs, IT companies, banks operate. REITs are legally required to distribute 90% of income to investors as dividends. Returns — 7 to 9% annual yield plus capital appreciation. And in an inflation environment — commercial rents rise. Your REIT income rises with it.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low–Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Entry</div><div class="wmeta-val">~₹10,000</div></div></div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W3</span><span class="weapon-title">NPS — The Most Ignored Tax Saver</span></div>
+      <div class="weapon-body"><p>NPS gives you an ADDITIONAL ₹50,000 deduction under Section 80CCD(1B) — over and above your regular ₹1.5L 80C limit. NPS invests in equity + government bonds — historically returning 9 to 12% annually. Tax saved: ₹10,000–₹15,000/year. Do this before March 31st every year. Never miss this free money.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">9–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Tax Saved</div><div class="wmeta-val">₹10K–15K/yr</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Amount</div><div class="wmeta-val">₹50,000/yr</div></div></div>
+    </div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W4</span><span class="weapon-title">Index Funds — Own All of India for ₹500/month</span></div>
+      <div class="weapon-body"><p>An index fund buys all 50 companies in the Nifty 50 — Reliance, TCS, HDFC Bank, Infosys. All of them. In one investment. When India grows — your investment grows. Nifty 50 historical returns — 12 to 14% annually over 15+ years. Lowest fees of any mutual fund — 0.1% per year. Never stop this SIP. Not for Iran. Not for Pakistan. Not for any reason.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">12–14% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">30–40%</div></div></div>
+    </div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W5</span><span class="weapon-title">REITs — Own Premium Office Buildings for ₹10,000</span></div>
+      <div class="weapon-body"><p>Embassy, Mindspace, Nexus Malls, Brookfield — these are the buildings where MNCs, IT companies, banks operate. REITs are legally required to distribute 90% of income to investors as dividends. Returns — 7 to 9% annual yield plus capital appreciation. And in an inflation environment — commercial rents rise. Your REIT income rises with it.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8–12% p.a.</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Low–Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Min Entry</div><div class="wmeta-val">~₹10,000</div></div></div>
+    </div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">13</span></div>
 </div>
 
 <div class="page">
@@ -931,18 +963,24 @@ for (let i = 0; i < 22; i++) {
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
-    <div class="sec-h">W6 — Defence Sector Funds: Turn the War Into an Opportunity</div>
-    <p>India's defence budget — ₹6.81 lakh crore in 2025-26. Going up after Operation Sindoor. HAL order book — ₹1.89 lakh crore. BEL order book — ₹75,000 crore. These companies will be billing and generating cash through 2026, 2027, 2028. Defence sector mutual funds give you exposure to all of them. This is not speculation. This is following government spending.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market-linked</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium–High</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5–10%</div></div></div>
-    <div class="sec-h" style="margin-top:3mm;">W7 — International Funds: Profit From a Weakening Rupee</div>
-    <p>The rupee touched a record low of ₹95.63 to a dollar in May 2026. If you had invested in US markets via an Indian international fund — you'd have gained from both the US stock market AND the rupee depreciation. When rupee falls — your dollar investments are worth more in rupee terms. Diversifying into international funds is not speculation. It is basic protection against rupee risk.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market + ₹ gain</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">10–15%</div></div></div>
-    <div class="sec-h" style="margin-top:3mm;">W8 — EPF / VPF: Your Hidden Weapon</div>
-    <p>If you're salaried — you already have EPF. EPF currently gives 8.25% annual return. Tax free. Guaranteed by the government. 8.25% tax free is better than most FDs after tax. Consider VPF — Voluntary Provident Fund. You can contribute MORE than the mandatory 12%. Even ₹1,000 extra per month — at 8.25% over 20 years — adds ₹6.5 lakh to your retirement.</p>
-    <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8.25% tax-free</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Action</div><div class="wmeta-val">Consider VPF</div></div></div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W6</span><span class="weapon-title">Defence Sector Funds — Turn the War Into an Opportunity</span></div>
+      <div class="weapon-body"><p>India's defence budget — ₹6.81 lakh crore in 2025-26. Going up after Operation Sindoor. HAL order book — ₹1.89 lakh crore. BEL order book — ₹75,000 crore. These companies will be billing and generating cash through 2026, 2027, 2028. Defence sector mutual funds give you exposure to all of them. This is not speculation. This is following government spending.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market-linked</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium–High</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">5–10%</div></div></div>
+    </div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W7</span><span class="weapon-title">International Funds — Profit From a Weakening Rupee</span></div>
+      <div class="weapon-body"><p>The rupee touched a record low of ₹95.63 to a dollar in May 2026. If you had invested in US markets via an Indian international fund — you'd have gained from both the US stock market AND the rupee depreciation. When rupee falls — your dollar investments are worth more in rupee terms. Diversifying into international funds is not speculation. It is basic protection against rupee risk.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">Market + ₹ gain</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Medium</div></div><div class="wmeta-i"><div class="wmeta-lbl">Allocation</div><div class="wmeta-val">10–15%</div></div></div>
+    </div>
+    <div class="weapon">
+      <div class="weapon-hd"><span class="weapon-tag">W8</span><span class="weapon-title">EPF / VPF — Your Hidden Weapon</span></div>
+      <div class="weapon-body"><p>If you're salaried — you already have EPF. EPF currently gives 8.25% annual return. Tax free. Guaranteed by the government. 8.25% tax free is better than most FDs after tax. Consider VPF — Voluntary Provident Fund. You can contribute MORE than the mandatory 12%. Even ₹1,000 extra per month — at 8.25% over 20 years — adds ₹6.5 lakh to your retirement.</p></div>
+      <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8.25% tax-free</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Action</div><div class="wmeta-val">Consider VPF</div></div></div>
+    </div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">14</span></div>
 </div>
 
 <div class="page">
@@ -971,7 +1009,7 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>One Golden Rule:</strong> Never stop your index fund SIP. Regardless of market conditions. Everything else — time intelligently. Index fund SIP — runs always. Through war, peace, crash, rally. That one habit alone builds more wealth than any timing strategy ever will.</p></div>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">06</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">15</span></div>
 </div>
 
 <div class="page">
@@ -995,7 +1033,7 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>The Automation Rule:</strong> Set up standing instructions from your salary account on day 1 or 2 of every month — all Bucket 2 investments transfer automatically. What remains is Bucket 1 and 3. You don't need discipline to not spend Bucket 2. It's already gone. Invested. Working.</p></div>
 
   </div>
-  <div class="pf"><span class="pf-text">Pay yourself first. This one change builds wealth. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">07</span></div>
+  <div class="pf"><span class="pf-text">Pay yourself first. This one change builds wealth. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">16</span></div>
 </div>
 
 <div class="page">
@@ -1039,7 +1077,7 @@ for (let i = 0; i < 22; i++) {
     <p class="i" style="font-size:9.5pt;">Bucket 2 ₹22K/month → ₹2.2 crore in 20 years at 12% returns.</p>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">07</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">17</span></div>
 </div>
 
 <div class="page">
@@ -1074,7 +1112,18 @@ for (let i = 0; i < 22; i++) {
       <p style="margin:0;font-size:10.5pt;">Term life insurance — ₹1 crore cover, ~₹8,000–₹12,000/year via PolicyBazaar or Ditto. Parents health insurance — ₹5–10 lakh cover, ~₹15,000–₹30,000/year. This is the most important action of Week 1.</p>
       <div class="ai-tm">⏱ 45 minutes</div>
     </div>
-    <div class="sec-lbl" style="margin-top:3mm;">Week 2 — Invest</div>
+  </div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">18</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 08</span></div>
+  <div class="pb">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your 30 Day Action Plan</div>
+    </div>
+    <div class="sec-lbl">Week 2 — Invest</div>
     <div class="wk wk2">
       <div class="wk-lbl">Action 04</div>
       <div class="wk-title">Open Your Investment Accounts</div>
@@ -1093,16 +1142,14 @@ for (let i = 0; i < 22; i++) {
       <p style="margin:0;font-size:10.5pt;">Contribute ₹50,000 this financial year. Can't do lump sum? Set up ₹4,200/month auto-debit. Saves you ₹10,000–₹15,000 in taxes. Every year. This is free money — no reason to skip it.</p>
       <div class="ai-tm">⏱ 30 minutes</div>
     </div>
-
   </div>
-  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">08</span></div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">19</span></div>
 </div>
 
 <div class="page">
   <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 08</span></div>
   <div class="pb">
-
-        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your 30 Day Action Plan</div>
     </div>
@@ -1125,7 +1172,18 @@ for (let i = 0; i < 22; i++) {
       <p style="margin:0;font-size:10.5pt;">Open Zerodha or Groww. Search Embassy REIT or Mindspace REIT. Read about it. Check current yield. You don't need to buy this week if not ready. Understand first. Invest when comfortable.</p>
       <div class="ai-tm">⏱ 15 minutes</div>
     </div>
-    <div class="sec-lbl" style="margin-top:3mm;">Week 4 — Automate &amp; Win</div>
+  </div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">20</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 08</span></div>
+  <div class="pb">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your 30 Day Action Plan</div>
+    </div>
+    <div class="sec-lbl">Week 4 — Automate &amp; Win</div>
     <div class="wk wk4">
       <div class="wk-lbl">Action 10</div>
       <div class="wk-title">Automate Everything</div>
@@ -1144,9 +1202,8 @@ for (let i = 0; i < 22; i++) {
       <p style="margin:0;font-size:10.5pt;">Add recurring reminder every 3 months — "Review investments — 30 minutes." In that 30 minutes: check emergency fund, confirm SIPs running, increase SIP amount by 10% annually. That's it.</p>
       <div class="ai-tm">⏱ 5 minutes</div>
     </div>
-
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">08</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">21</span></div>
 </div>
 
 <div class="page">
