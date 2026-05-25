@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>From Salary to Wealth — EliteRoadMaps</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Fonts: system stack — Puppeteer safe, no external calls -->
 <style>
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 10pt;
   color: var(--text);
   background: #fff;
@@ -47,7 +47,7 @@ body {
   position: absolute;
   white-space: nowrap;
   font-size: 11pt;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   color: rgba(0,0,0,0.055);
   transform: rotate(-35deg);
   letter-spacing: 2px;
@@ -85,7 +85,7 @@ body {
   flex-shrink: 0;
 }
 .cover-topbar .brand {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 9pt;
   font-weight: 700;
   color: var(--amber);
@@ -127,7 +127,7 @@ body {
   margin-bottom: 4mm;
 }
 .cover-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 34pt;
   font-weight: 900;
   color: var(--black);
@@ -220,7 +220,7 @@ body {
   border-top: 2px solid var(--amber);
 }
 .cv-stat-n {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 20pt;
   font-weight: 700;
   color: var(--black);
@@ -249,7 +249,7 @@ body {
   margin-bottom: 3px;
 }
 .prep-name {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 22pt;
   font-weight: 700;
   color: white;
@@ -293,7 +293,7 @@ body {
   justify-content: space-between;
 }
 .page-header .doc-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 9pt;
   font-weight: 700;
   color: var(--amber);
@@ -343,7 +343,7 @@ body {
   border-bottom: 2px solid var(--border);
 }
 .ch-big-num {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 52pt;
   font-weight: 900;
   line-height: 1;
@@ -360,7 +360,7 @@ body {
   margin-bottom: 4px;
 }
 .ch-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 20pt;
   font-weight: 700;
   color: var(--black);
@@ -375,7 +375,7 @@ body {
 
 /* ── SECTION HEADING ── */
 .sec-heading {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 13pt;
   font-weight: 700;
   color: var(--black);
@@ -432,7 +432,7 @@ body {
   margin: 6px 0;
 }
 .def-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 11pt;
   font-weight: 700;
   color: var(--black);
@@ -510,7 +510,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 16pt;
   font-weight: 700;
   color: var(--white);
@@ -546,7 +546,7 @@ body {
   color: var(--white);
   padding: 9px 14px;
   border-radius: 6px 6px 0 0;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 11pt;
   font-weight: 700;
 }
@@ -561,7 +561,7 @@ body {
   min-width: 64px;
   background: var(--amber);
   color: var(--black);
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 11pt;
   font-weight: 700;
   display: flex;
@@ -579,7 +579,7 @@ body {
 
 /* ── INTRO PAGE ── */
 .intro-quote {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 14pt;
   font-style: italic;
   color: var(--black);
@@ -596,7 +596,7 @@ body {
   padding: 30px 20px 20px 20px;
 }
 .closing-hero .big-text {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 28pt;
   font-weight: 900;
   color: var(--black);
@@ -791,6 +791,23 @@ body {
       <div class="callout-text">Lifestyle inflation is the reason people earning ₹2 lakh a month feel as financially stressed as people earning ₹40,000. The number changes. The gap between income and savings does not.</div>
     </div>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">01</div>
+  </div>
+</div>
+
+
+<!-- ── CH1 PAGE 2: EMOTIONAL SPENDING ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 1 — Why We Overspend (continued)</div>
+  </div>
+  <div class="page-content">
+
     <div class="sec-heading" style="border-left-color:var(--ch1)">Emotional Spending</div>
 
     <p class="body-text">Not all spending is about need. Not even most of it. A lot of what we buy is bought in a feeling. You had a bad day at work and ordered food you didn't really want. You got a bonus and bought something expensive to mark the moment. You felt behind your friends and upgraded something to feel equal. You were bored on a Sunday and opened an app and bought something you forgot about by Monday.</p>
@@ -808,7 +825,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">01</div>
+    <div class="footer-page">02</div>
   </div>
 </div>
 
@@ -877,6 +894,23 @@ body {
       </div>
     </div>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">03</div>
+  </div>
+</div>
+
+
+<!-- ── CH2 PAGE 2: GROWTH INVESTMENTS ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 2 — Where to Put Your Money (continued)</div>
+  </div>
+  <div class="page-content">
+
     <div class="sec-heading" style="border-left-color:var(--amber)">Growth Investments — For Money You Will Not Touch for 7 to 10 Years</div>
 
     <div class="def-card">
@@ -902,7 +936,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">02</div>
+    <div class="footer-page">04</div>
   </div>
 </div>
 
@@ -921,32 +955,32 @@ body {
     <div style="display:flex; flex-direction:column; gap:10px; margin:14px 0;">
 
       <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
-        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 22 to 30 — Maximise Growth</div>
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:Georgia,'Times New Roman',serif; font-size:11pt; font-weight:700;">Age 22 to 30 — Maximise Growth</div>
         <div style="display:flex; flex-wrap:wrap; background:var(--white);">
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">20%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">20%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">50%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch4);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch2);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--amber);">50%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch3);">10%</div></div>
         </div>
       </div>
 
       <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
-        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 30 to 40 — Balance Growth and Security</div>
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:Georgia,'Times New Roman',serif; font-size:11pt; font-weight:700;">Age 30 to 40 — Balance Growth and Security</div>
         <div style="display:flex; flex-wrap:wrap; background:var(--white);">
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF + NPS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">30%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">25%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">35%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF + NPS)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch4);">30%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Hybrid)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch2);">25%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--amber);">35%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch3);">10%</div></div>
         </div>
       </div>
 
       <div style="border:1px solid var(--border); border-radius:8px; overflow:hidden;">
-        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:'Playfair Display',serif; font-size:11pt; font-weight:700;">Age 40 and Above — Protect and Grow</div>
+        <div style="background:var(--black); color:var(--amber); padding:9px 14px; font-family:Georgia,'Times New Roman',serif; font-size:11pt; font-weight:700;">Age 40 and Above — Protect and Grow</div>
         <div style="display:flex; flex-wrap:wrap; background:var(--white);">
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF+NPS+FD)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch4);">40%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Debt+Hybrid)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch2);">30%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--amber);">20%</div></div>
-          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:'Playfair Display',serif; font-weight:700; color:var(--ch3);">10%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Safe (PPF+NPS+FD)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch4);">40%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Medium (Debt+Hybrid)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch2);">30%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px; border-right:1px solid var(--border);"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Growth (Index)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--amber);">20%</div></div>
+          <div style="flex:1; min-width:110px; padding:10px 14px;"><div style="font-size:7.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">Tax Saving (ELSS)</div><div style="font-size:16pt; font-family:Georgia,'Times New Roman',serif; font-weight:700; color:var(--ch3);">10%</div></div>
         </div>
       </div>
 
@@ -956,6 +990,23 @@ body {
       <div class="callout-label">Remember</div>
       <div class="callout-text">These are starting points, not rules. The important thing is to start with any split rather than wait for the perfect one. You will adjust as you learn.</div>
     </div>
+
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">05</div>
+  </div>
+</div>
+
+
+<!-- ── CH2 PAGE 4: PLATFORMS + START HERE ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 2 — Where to Put Your Money (continued)</div>
+  </div>
+  <div class="page-content">
 
     <div class="sec-heading" style="border-left-color:var(--ch2)">Where to Actually Invest — Platforms</div>
 
@@ -994,7 +1045,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">03</div>
+    <div class="footer-page">06</div>
   </div>
 </div>
 
@@ -1049,6 +1100,23 @@ body {
       <div class="callout-text">Total EMIs should never exceed 30% of your take-home salary. If you take home ₹60,000, your total EMI burden across all loans should not cross ₹18,000. Beyond that you are not living on your salary — you are living on what is left after your past decisions.</div>
     </div>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">07</div>
+  </div>
+</div>
+
+
+<!-- ── CH3 PAGE 2: AVALANCHE + BNPL ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 3 — Killing Debt (continued)</div>
+  </div>
+  <div class="page-content">
+
     <p class="body-text"><strong>How to kill existing EMIs faster — the Avalanche Method:</strong> If you have multiple loans running, do not spread extra money equally across all of them. Pick the one with the highest interest rate and throw every extra rupee at that one first. Minimum payments on everything else. Full force on the most expensive debt. Once that is gone, move to the next.</p>
 
     <div class="callout purple">
@@ -1064,7 +1132,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">04</div>
+    <div class="footer-page">08</div>
   </div>
 </div>
 
@@ -1130,7 +1198,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">05</div>
+    <div class="footer-page">09</div>
   </div>
 </div>
 
@@ -1177,6 +1245,23 @@ body {
       <div class="callout-text">Most salaried people already have EPF running — check how much that covers first. Then top up with ELSS or PPF to reach the full ₹1.5 lakh limit. Do not leave this money on the table.</div>
     </div>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">10</div>
+  </div>
+</div>
+
+
+<!-- ── CH4 PAGE 2: HRA ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 4 — Tax Saving (continued)</div>
+  </div>
+  <div class="page-content">
+
     <div class="sec-heading" style="border-left-color:var(--ch4)">HRA — House Rent Allowance</div>
 
     <p class="body-text">If you live in a rented house and your salary includes HRA, you can claim a tax exemption on it. One of the most underused tax benefits among salaried employees.</p>
@@ -1197,7 +1282,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">06</div>
+    <div class="footer-page">11</div>
   </div>
 </div>
 
@@ -1250,7 +1335,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">07</div>
+    <div class="footer-page">12</div>
   </div>
 </div>
 
@@ -1294,6 +1379,23 @@ body {
       </tbody>
     </table>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">13</div>
+  </div>
+</div>
+
+
+<!-- ── CH5 PAGE 2: HOW TO START FREELANCING ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 5 — Building a Second Income (continued)</div>
+  </div>
+  <div class="page-content">
+
     <div class="sec-heading" style="border-left-color:var(--ch5)">How to Actually Start Freelancing</div>
 
     <div class="step-card"><div class="step-num-block" style="background:var(--ch5)">1</div><div class="step-body"><div class="step-title">Pick one skill only</div><div class="step-desc">Do not try to offer everything. One clear skill gets you hired faster than a long list. You can add more later.</div></div></div>
@@ -1307,7 +1409,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">08</div>
+    <div class="footer-page">14</div>
   </div>
 </div>
 
@@ -1348,7 +1450,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">09</div>
+    <div class="footer-page">15</div>
   </div>
 </div>
 
@@ -1402,7 +1504,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">10</div>
+    <div class="footer-page">16</div>
   </div>
 </div>
 
@@ -1435,6 +1537,23 @@ body {
       <div class="milestone-year"><div class="milestone-year-num">Yr 5</div><div class="milestone-year-content">Total invested corpus between ₹8 lakh and ₹15 lakh. Full tax optimisation in place. Clear visibility on retirement number and timeline.</div></div>
     </div>
 
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
+    <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
+    <div class="footer-page">17</div>
+  </div>
+</div>
+
+
+<!-- ── CH6 PAGE 3: MILESTONES 80K-1.5L ── -->
+<div class="inner-page">
+  <div class="page-header">
+    <div class="doc-title">From Salary to Wealth</div>
+    <div class="ch-label">Chapter 6 — Milestone Targets (continued)</div>
+  </div>
+  <div class="page-content">
+
     <div class="milestone-section">
       <div class="milestone-header">Salary Range: <span>₹80,000 – ₹1.5 lakh/month</span></div>
       <div class="milestone-year"><div class="milestone-year-num">Yr 1</div><div class="milestone-year-content">Emergency fund of ₹2 lakh to ₹3 lakh built. SIP of ₹15,000 to ₹25,000 started. Full 80C utilised. HRA claimed. New vs old regime evaluated.</div></div>
@@ -1448,7 +1567,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">11</div>
+    <div class="footer-page">18</div>
   </div>
 </div>
 
@@ -1506,7 +1625,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">12</div>
+    <div class="footer-page">19</div>
   </div>
 </div>
 
@@ -1597,7 +1716,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">13</div>
+    <div class="footer-page">20</div>
   </div>
 </div>
 
@@ -1650,7 +1769,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">14</div>
+    <div class="footer-page">21</div>
   </div>
 </div>
 
@@ -1691,7 +1810,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">15</div>
+    <div class="footer-page">22</div>
   </div>
 </div>
 
@@ -1730,14 +1849,14 @@ body {
       <div style="display:flex;gap:12px;">
         <div style="flex:1;border:1px solid var(--border);padding:14px 16px;background:var(--white);">
           <div style="font-size:8pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Up next</div>
-          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">Unfurl Basic</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">Unfurl Basic</div>
           <p style="font-size:9pt;color:var(--muted);line-height:1.55;margin-bottom:8px;">India&#x2019;s first honest guide to sexual health and hormones &#x2014; what nobody tells you about your body, your libido, and how to actually feel like yourself.</p>
-          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--amber);">&#x20B9;299</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:700;color:var(--amber);">&#x20B9;299</div>
           <p style="font-size:8pt;color:var(--muted);margin-top:4px;">eliteroadmaps.in/health/unfurl-basic</p>
         </div>
         <div style="flex:1;border:1px solid var(--amber);padding:14px 16px;background:rgba(186,117,23,0.05);">
           <div style="font-size:8pt;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">All guides</div>
-          <div style="font-family:'Playfair Display',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">EliteRoadMaps</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:700;color:var(--black);margin-bottom:5px;">EliteRoadMaps</div>
           <p style="font-size:9pt;color:var(--muted);line-height:1.55;margin-bottom:8px;">Real problems. Self-built systems. No coaches, no fluff. Every guide EliteRoadMaps has built &#x2014; salary, wealth, inflation, health &#x2014; in one place.</p>
           <p style="font-size:8.5pt;font-weight:600;color:var(--amber);">eliteroadmaps.in</p>
         </div>
@@ -1755,7 +1874,7 @@ body {
   <div class="page-footer">
     <div class="footer-brand">Check out all products on <strong>eliteroadmaps.in</strong></div>
     <div class="footer-customer">{{CUSTOMER_NAME}} · {{MOBILE_NO}}</div>
-    <div class="footer-page">16</div>
+    <div class="footer-page">23</div>
   </div>
 </div>
 
