@@ -283,10 +283,10 @@ p.c  { text-align: center; }
 ══════════════════════════════════ */
 .ws-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:4mm 0; }
 .ws-f { border:1px solid var(--border); border-radius:2px; }
-.ws-fl { background:#EFEFED; padding:2mm 3mm; font-size:8.5pt; font-weight:700; color:#555; border-bottom:0.5px solid var(--border); }
+.ws-fl { background:#EFEFED; padding:2mm 3mm; font-size:8.5pt; font-weight:700; color:#111; border-bottom:0.5px solid var(--border); }
 .ws-fi { padding:3mm 3mm 2mm; display:flex; align-items:flex-end; gap:5px; height:11mm; }
-.ws-rs { font-size:10pt; color:#AAA; }
-.ws-ln { flex:1; border-bottom:1px solid var(--border); }
+.ws-rs { font-size:10pt; color:#222; font-weight:600; }
+.ws-ln { flex:1; border-bottom:2px solid #333; }
 
 /* ══════════════════════════════════
    CHECKLIST
@@ -628,24 +628,6 @@ for (let i = 0; i < 22; i++) {
     <p>Petrol is expensive. Vegetables cost more than last year. Your rent went up. Your EMI didn't change — but somehow, money runs out faster.</p>
     <p>You're not imagining it. <strong>There is a war happening. And your salary is losing.</strong></p>
     <p>Not the war on TV. Not India-Pakistan. Not Iran. All of those — yes. But the war we're talking about is quieter. It happens every month. On the 1st. When your salary hits your account. And by the 30th — you wonder where it went.</p>
-    <div class="sec-lbl">In 2026, Three Wars Are Attacking Your Money Simultaneously</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0;">
-      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
-        <div style="font-size:18pt;font-weight:700;color:white;">$113–114</div>
-        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Crude Oil Now</div>
-        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Brent avg, May 2026 — up from $73 in Feb</div>
-      </div>
-      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
-        <div style="font-size:18pt;font-weight:700;color:white;">₹95.63</div>
-        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Rupee Record Low</div>
-        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Per USD, May 13 2026 — all-time low</div>
-      </div>
-      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
-        <div style="font-size:18pt;font-weight:700;color:white;">85%</div>
-        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Oil Imported</div>
-        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">50% via Strait of Hormuz alone</div>
-      </div>
-    </div>
     <div class="sec-h">War 1 — The Oil War</div>
     <p>America attacked Iran. Iran blocked the Strait of Hormuz — the narrow sea passage through which 20% of the world's oil travels. Crude oil prices peaked at $141 per barrel — currently averaging $113–114.</p>
     <p>India imports 85% of its oil — with 50% of crude imports passing through the Strait of Hormuz alone. That means every litre of petrol you put in your bike or car — you're paying the price of a war you didn't start.</p>
@@ -665,7 +647,25 @@ for (let i = 0; i < 22; i++) {
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 01 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">The Enemy Is Real</div>
     </div>
-    <div class="sec-h">War 2 — The Rupee War</div>
+    <div class="sec-lbl">In 2026, Three Wars Are Attacking Your Money Simultaneously</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0;">
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">$113–114</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Crude Oil Now</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Brent avg, May 2026 — up from $73 in Feb</div>
+      </div>
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">₹95.63</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Rupee Record Low</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">Per USD, May 13 2026 — all-time low</div>
+      </div>
+      <div style="background:var(--navy);color:white;padding:4mm;text-align:center;">
+        <div style="font-size:18pt;font-weight:700;color:white;">85%</div>
+        <div style="font-size:8pt;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:2px 0;">Oil Imported</div>
+        <div style="font-size:9pt;color:rgba(255,255,255,0.5);">50% via Strait of Hormuz alone</div>
+      </div>
+    </div>
+        <div class="sec-h">War 2 — The Rupee War</div>
     <p>When oil prices rise, India needs more dollars to buy that oil. More dollars needed = rupee weakens. The rupee has crashed to a record low of ₹95.63 to a dollar in May 2026 — the worst in India's history.</p>
     <p>A weaker rupee means everything imported costs more — your phone, laptop, medicines, electronics. Your salary is in rupees. The world prices things in dollars. You lose.</p>
     <div class="sec-h">War 3 — The Coming Food War</div>
@@ -724,10 +724,7 @@ for (let i = 0; i < 22; i++) {
     <p>The most important number for you. Tracks price changes in a basket of everyday household items — food, vegetables, milk, transport, clothing, rent, medicine. This is what the news reports. This is what RBI targets. <strong>April 2026: CPI = 3.48%</strong> (new 2024-base series). Rural inflation 3.74%, urban 3.16%.</p>
     <div class="sec-h">WPI — Wholesale Price Index</div>
     <p>Tracks prices at the factory and mandi level — before goods reach you. Think: price of wheat at a mandi, price of steel at a factory gate. WPI moves first. CPI follows. If WPI is rising today — your grocery bill rises in 2–3 months. It is your early warning system.</p>
-    <div class="sec-h">Food Inflation — CFPI</div>
-    <p>Tracked separately as the Consumer Food Price Index. Food is 40%+ of how most Indian households actually spend money — even though the new CPI basket has reduced its official weight. <strong>April 2026: Food inflation = 4.20%</strong>, up from 3.87% in March. Rising for 6 consecutive months.</p>
-    <div class="sec-h">Core Inflation</div>
-    <p>CPI minus food and fuel. Removes seasonal noise — vegetable prices after a bad monsoon, petrol prices after a war. Core inflation shows the underlying structural trend. This is what RBI actually watches most closely when deciding whether to raise or cut interest rates.</p>
+
   </div>
   <div class="pf"><span class="pf-text">The official number looks good. Your grocery bill doesn't.</span><span class="pf-num">04</span></div>
 </div>
@@ -739,6 +736,10 @@ for (let i = 0; i < 22; i++) {
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 02 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">How Inflation Is Measured</div>
     </div>
+    <div class="sec-h">Food Inflation — CFPI</div>
+    <p>Tracked separately as the Consumer Food Price Index. Food is 40%+ of how most Indian households actually spend money — even though the new CPI basket has reduced its official weight. <strong>April 2026: Food inflation = 4.20%</strong>, up from 3.87% in March. Rising for 6 consecutive months.</p>
+    <div class="sec-h">Core Inflation</div>
+    <p>CPI minus food and fuel. Removes seasonal noise — vegetable prices after a bad monsoon, petrol prices after a war. Core inflation shows the underlying structural trend. This is what RBI actually watches most closely when deciding whether to raise or cut interest rates.</p>
     <div class="sec-lbl">Other Metrics — One Line Each</div>
     <table class="ft no-last-right">
       <thead><tr><th>Metric</th><th>What It Measures</th></tr></thead>
@@ -957,6 +958,19 @@ for (let i = 0; i < 22; i++) {
     <div class="box"><p><strong>₹1,00,000 today → ₹24,000 purchasing power in 25 years.</strong> Not because you spent it. Not because you lost it. Simply because you kept it as cash and did nothing. Doing nothing is the most expensive financial decision you will ever make.</p></div>
     <p>Most people who invest without a reason — stop when markets fall, break FDs for holidays, use "investment money" for a new phone. The SIP didn't fail. The reason failed. Because there was no reason.</p>
     <div class="box box-red"><p>⚠️ <strong>Hope for 4%. Plan for 8%.</strong> The government will always give you the optimistic inflation number. RBI targets 4%. But India's long-term historical average is 6–7%. Food and education inflation run at 10–14%. One oil shock, one war, one bad monsoon — and your plan breaks. For every goal 10+ years away, calculate using 8% inflation. If inflation stays low — you end up richer than planned. If it spikes — you're protected. Never plan a 25-year goal on a 4% assumption.</p></div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Give your money a purpose before giving it a destination.</span><span class="pf-num">12</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
+  <div class="pb">
+
+        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">What Are You Actually Investing FOR?</div>
+    </div>
     <div class="sec-lbl">The 3 Goals Every Salaried Indian Actually Has</div>
     <div class="brow"><div class="brow-l" style="background:#C0392B;"><span class="brow-n">01</span></div><div class="brow-m"><div class="brow-nm">Survive — Emergency Buffer</div><div class="brow-sub">6 months of expenses. Non-negotiable. Built first. Before everything else.</div></div></div>
     <div class="brow"><div class="brow-l" style="background:#1565C0;"><span class="brow-n">02</span></div><div class="brow-m"><div class="brow-nm">Protect — Kids, Parents, Family Safety</div><div class="brow-sub">Insurance, child education SIP, parent health cover.</div></div></div>
@@ -972,19 +986,6 @@ for (let i = 0; i < 22; i++) {
       </tbody>
     </table>
     <p>Not a savings account. A liquid mutual fund — same safety, better returns, available in 24 hours. Set aside 10% of salary every month until you hit the number.</p>
-
-  </div>
-  <div class="pf"><span class="pf-text">Give your money a purpose before giving it a destination.</span><span class="pf-num">12</span></div>
-</div>
-
-<div class="page">
-  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 06</span></div>
-  <div class="pb">
-
-        <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
-      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 06 — continued</div>
-      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">What Are You Actually Investing FOR?</div>
-    </div>
     <div class="sec-h">Goal 2 — Your Child's Education</div>
     <table class="ft no-last-right">
       <thead><tr><th>Child's Age</th><th>Years to College</th><th>Education Cost Then</th><th>Monthly SIP Needed</th></tr></thead>
@@ -1139,17 +1140,6 @@ for (let i = 0; i < 22; i++) {
       <div class="weapon-body"><p>If you're salaried — you already have EPF. EPF currently gives 8.25% annual return. Tax free. Guaranteed by the government. 8.25% tax free is better than most FDs after tax. Consider VPF — Voluntary Provident Fund. You can contribute MORE than the mandatory 12%. Even ₹1,000 extra per month — at 8.25% over 20 years — adds ₹6.5 lakh to your retirement.</p></div>
       <div class="wmeta"><div class="wmeta-i"><div class="wmeta-lbl">Returns</div><div class="wmeta-val">8.25% tax-free</div></div><div class="wmeta-i"><div class="wmeta-lbl">Risk</div><div class="wmeta-val">Zero</div></div><div class="wmeta-i"><div class="wmeta-lbl">Action</div><div class="wmeta-val">Consider VPF</div></div></div>
     </div>
-    <div class="sec-lbl">Beyond the 8 Weapons — Worth Knowing</div>
-    <table class="ft no-last-right">
-      <thead><tr><th>Option</th><th>One Line</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Real Estate</strong></td><td>Property prices historically beat inflation — but requires large capital, is illiquid, and involves high transaction costs. Not for everyone.</td></tr>
-        <tr><td><strong>Inflation-Indexed Bonds</strong></td><td>RBI issues these occasionally — return is CPI + a fixed spread. Direct inflation protection. Watch for RBI announcements on new tranches.</td></tr>
-        <tr><td><strong>Commodities</strong></td><td>Agri commodities, metals. Not practical for most salaried Indians to hold directly. REITs and international funds give indirect exposure.</td></tr>
-        <tr><td><strong>Increase Your Income</strong></td><td>Upskilling, side income, freelancing — earning more is also an inflation hedge. The single most powerful thing you can do is outgrow inflation.</td></tr>
-        <tr><td><strong>Spending Audit</strong></td><td>Cut discretionary spending during high inflation periods. Not sacrifice — restructuring. Every ₹500 saved monthly = ₹3.3L in 20 years at 12%.</td></tr>
-      </tbody>
-    </table>
 
   </div>
   <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">18</span></div>
@@ -1163,6 +1153,17 @@ for (let i = 0; i < 22; i++) {
       <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 08 — continued</div>
       <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Inflation War Battle Plan</div>
     </div>
+    <div class="sec-lbl">Beyond the 8 Weapons — Worth Knowing</div>
+    <table class="ft no-last-right">
+      <thead><tr><th>Option</th><th>One Line</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Real Estate</strong></td><td>Property prices historically beat inflation — but requires large capital, is illiquid, and involves high transaction costs. Not for everyone.</td></tr>
+        <tr><td><strong>Inflation-Indexed Bonds</strong></td><td>RBI issues these occasionally — return is CPI + a fixed spread. Direct inflation protection. Watch for RBI announcements on new tranches.</td></tr>
+        <tr><td><strong>Commodities</strong></td><td>Agri commodities, metals. Not practical for most salaried Indians to hold directly. REITs and international funds give indirect exposure.</td></tr>
+        <tr><td><strong>Increase Your Income</strong></td><td>Upskilling, side income, freelancing — earning more is also an inflation hedge. The single most powerful thing you can do is outgrow inflation.</td></tr>
+        <tr><td><strong>Spending Audit</strong></td><td>Cut discretionary spending during high inflation periods. Not sacrifice — restructuring. Every ₹500 saved monthly = ₹3.3L in 20 years at 12%.</td></tr>
+      </tbody>
+    </table>
     <div class="sec-lbl">Timing Matters — What To Buy When</div>
     <p>The eight weapons above are not all equal at all times. Buying the right weapon at the wrong time reduces your returns significantly.</p>
     <table class="ft no-last-right">
@@ -1239,6 +1240,18 @@ for (let i = 0; i < 22; i++) {
       </tbody>
     </table>
     <p class="i" style="font-size:9.5pt;">Child edu SIP ₹3K × 15 years → ₹15.1L for college · Index SIP ₹4K × 25 years → ₹75L at retirement <span style="font-size:8.5pt;color:#888;">(illustrative, at assumed 12% p.a. — actual returns vary)</span></p>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">21</span></div>
+</div>
+
+<div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Chapter 09</span></div>
+  <div class="pb">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Chapter 09 — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">The War Budget</div>
+    </div>
     <div class="ex-h" style="margin-top:4mm;"><span class="ex-tag">₹80K Salary — Mumbai</span><span class="ex-name">Sneha — Married, 2 kids, home loan + car loan</span></div>
     <table class="ft no-last-right" style="margin-top:0;">
       <thead><tr><th>Bucket</th><th>What It Covers</th><th>Amount</th></tr></thead>
@@ -1251,7 +1264,7 @@ for (let i = 0; i < 22; i++) {
     <p class="i" style="font-size:9.5pt;">Bucket 2 ₹22K/month → ₹2.2 crore in 20 years <span style="font-size:8.5pt;color:#888;">(illustrative, at assumed 12% p.a. — actual returns vary)</span></p>
 
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">21</span></div>
+  <div class="pf"><span class="pf-text">Pay yourself first. This one change builds wealth.</span><span class="pf-num">22</span></div>
 </div>
 
 <div class="page">
@@ -1287,7 +1300,7 @@ for (let i = 0; i < 22; i++) {
       <div class="ai-tm">⏱ 45 minutes</div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">22</span></div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">23</span></div>
 </div>
 
 <div class="page">
@@ -1317,7 +1330,7 @@ for (let i = 0; i < 22; i++) {
       <div class="ai-tm">⏱ 30 minutes</div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">23</span></div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">24</span></div>
 </div>
 
 <div class="page">
@@ -1347,7 +1360,7 @@ for (let i = 0; i < 22; i++) {
       <div class="ai-tm">⏱ 15 minutes</div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">24</span></div>
+  <div class="pf"><span class="pf-text">4 weeks. 12 actions. Start today. — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">25</span></div>
 </div>
 
 <div class="page">
@@ -1377,7 +1390,7 @@ for (let i = 0; i < 22; i++) {
       <div class="ai-tm">⏱ 5 minutes</div>
     </div>
   </div>
-  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">25</span></div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">26</span></div>
 </div>
 
 <div class="page">
@@ -1461,6 +1474,43 @@ for (let i = 0; i < 22; i++) {
 </div>
 
 <div class="page">
+  <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Your Personal War Budget</span></div>
+  <div class="pb">
+    <div style="border-bottom:1px solid var(--border);margin-bottom:4mm;padding-bottom:3mm;">
+      <div style="font-size:8pt;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;">Worksheet — continued</div>
+      <div style="font-size:16pt;font-weight:700;font-family:Georgia,'Times New Roman',serif;">Your Personal War Budget</div>
+    </div>
+    <div class="sec-lbl" style="margin-top:4mm;">Bucket 3 — Live (Guilt-Free Spending)</div>
+    <div class="brow tot" style="margin-top:2mm;"><div class="brow-l" style="background:#27ae60;"><span class="brow-n" style="font-size:14pt;">B3</span></div><div class="brow-m"><div class="brow-nm">Salary − Bucket 1 − Bucket 2 = Bucket 3</div><div class="brow-sub">Spend this completely. Zero guilt. Your future is already taken care of.</div></div><div class="brow-r"><div class="brow-rs">₹</div><div class="brow-line"></div></div></div>
+    <div class="sec-lbl" style="margin-top:4mm;">My 3 Goal Numbers</div>
+    <div class="tc">
+      <div class="tc-h" style="color:var(--red);">Survival Fund Target</div>
+      <div class="tc-h" style="color:#1565C0;">Child Education Target</div>
+      <div class="tc-c" style="height:16mm;vertical-align:top;">₹ ________________<br><span style="font-size:9pt;color:#999;">Monthly expenses × 6</span></div>
+      <div class="tc-c" style="height:16mm;vertical-align:top;">₹ ________________<br><span style="font-size:9pt;color:#999;">By year ______</span></div>
+    </div>
+    <div style="background:#FFF8F8;border:1px solid #f5c6cb;padding:3mm 4mm;margin-top:3mm;">
+      <div style="font-size:9pt;font-weight:700;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:2mm;">My Freedom Number (Retirement)</div>
+      <div style="font-size:14pt;color:#333;">₹ ________________________</div>
+      <div style="font-size:9pt;color:#999;margin-top:1mm;">Monthly expenses × 1.3 × 300 &nbsp;·&nbsp; The 300 = 25 years of expenses, inflation-adjusted. A corpus this size, invested at 8% returns, generates your monthly expense forever without running out.</div>
+    </div>
+    <div style="margin-top:4mm;background:var(--light);border:1px solid var(--border);padding:3mm 4mm;">
+      <div style="font-size:9pt;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:3mm;">Worksheet Health Check</div>
+      <table class="ft no-last-right" style="margin:0;">
+        <tbody>
+          <tr><td style="color:var(--red);font-weight:700;">B1 &gt; 60% of salary</td><td>Your fixed costs are too high. Before investing — find one expense to reduce. EMI refinancing, cheaper rent, or cutting one recurring bill.</td></tr>
+          <tr><td style="color:var(--amber);font-weight:700;">B2 between 5–20%</td><td>You're starting. Good. Prioritise: emergency fund first, then index SIP, then NPS. Add more as income grows.</td></tr>
+          <tr><td style="color:#27ae60;font-weight:700;">B2 at 20%+</td><td>You're on track. Now diversify across the weapons in Chapter 08 based on your goals.</td></tr>
+          <tr><td style="color:#27ae60;font-weight:700;">B2 at 30%+</td><td>You are winning the war. Increase SIP by 10% each year. Consider consulting a SEBI registered financial advisor for a full plan.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="pf"><span class="pf-text">Complete your finance system — The Salary Formula — eliteroadmaps.in/finance/salaryplan/salaryformula — Rs.299</span><span class="pf-num">WS-3</span></div>
+</div>
+
+<div class="page">
   <div class="ph"><span class="ph-brand">EliteRoadMaps.in</span><span class="ph-title">The Inflation War — Closing</span></div>
   <div class="pb">
 
@@ -1487,7 +1537,6 @@ for (let i = 0; i < 22; i++) {
       </div>
     </div>
 
-  </div>
     <div style="margin-top:5mm;padding:3mm 4mm;background:var(--light);border:1px solid var(--border);">
       <p style="font-size:8pt;color:#888;margin:0;text-align:center;line-height:1.6;"><strong>Disclaimer:</strong> This document is for educational purposes only and does not constitute financial, investment, legal, or tax advice. EliteRoadMaps is not a SEBI registered investment advisor or research analyst. All investment decisions should be made in consultation with a SEBI registered financial advisor based on your personal financial situation, risk appetite, and goals. Past returns mentioned are historical and not a guarantee of future performance.</p>
     </div>
