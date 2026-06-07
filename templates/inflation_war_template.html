@@ -46,17 +46,17 @@ body {
   background: var(--white);
   margin: 10mm auto;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
 }
 
-@page { size: A4; margin: 0; }
 @media print {
   body { background: white; }
   .page { margin: 0; box-shadow: none; page-break-after: always; }
   .page:last-child { page-break-after: auto; }
+  @page { size: A4; margin: 0; }
 }
 body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
@@ -312,7 +312,7 @@ p.c  { text-align: center; }
   background: var(--white);
   margin: 10mm auto;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   box-shadow: 0 4px 32px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
